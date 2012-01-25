@@ -6,6 +6,7 @@
             echo css_asset('reset.css');
             echo css_asset('body.css');
             echo css_asset('base.css');
+            echo css_asset('home/index.css');
         ?>
     </head>
     <body>
