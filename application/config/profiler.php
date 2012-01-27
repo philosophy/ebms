@@ -11,7 +11,18 @@
 |
 */
 
-
+$sections = array(
+    'benchmarks' => TRUE,
+    'config' => TRUE,
+    'controllers' => TRUE,
+    'get' => TRUE,
+    'http_headers' => TRUE,
+    'memory_usage' => TRUE,
+    'post' => TRUE,
+    'queries' => TRUE,
+    'uri_string' => TRUE,
+    'query_toggle_count' => TRUE,
+);
 
 /* End of file profiler.php */
 /* Location: ./application/config/profiler.php */
