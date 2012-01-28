@@ -4,7 +4,7 @@
     <div class="pageTitleBorder"></div>
     <p>Please login with your email address and password below.</p>
 
-    <div id="infoMessage"><?php echo $message; ?></div>
+    <div id="infoMessage"><?php echo isset($message) ? $message : ''; ?></div>
 
     <?php echo form_open("auth/login"); ?>
 

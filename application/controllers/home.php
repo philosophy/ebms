@@ -1,26 +1,16 @@
 <?php
-
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
     class Home extends CI_Controller {
         function index() {
             if (!$this->ion_auth->logged_in()) {
-                $data['message'] = '';
+                $data['message'] = $this->ion_auth->errors();
                 $data['content'] = 'home/index';
+                $this->parser->parse('layouts/application', $data);
             } else {
-                $data['dashboard'] = 'dashboard/index';
+                redirect('dashboard/index', 'refresh');
             }
-
-
-
-            $this->parser->parse('layouts/application', $data);
 
             $this->output->enable_profiler(TRUE);
         }
-
     }
 
 ?>

@@ -43,6 +43,7 @@ $route['404_override'] = '';
 
 $route['auth/login'] = 'auth/login';
 
+$route['dashboard/index'] = 'dashboard/index';
 
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */

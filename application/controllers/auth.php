@@ -85,7 +85,7 @@ class Auth extends CI_Controller {
         $logout = $this->ion_auth->logout();
 
         //redirect them back to the page they came from
-        redirect('auth', 'refresh');
+        redirect('user/logout', 'refresh');
     }
 
     //change password
