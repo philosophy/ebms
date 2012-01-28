@@ -1,43 +1,43 @@
-<div class='mainInfo'>
-
-    <div class="pageTitle">Login</div>
-    <div class="pageTitleBorder"></div>
-    <p>Please login with your email address and password below.</p>
-
-    <div id="infoMessage"><?php echo isset($message) ? $message : ''; ?></div>
-
-    <?php echo form_open("auth/login"); ?>
+<div id='login'>
+    <div id="info-message">
+        <?php echo isset($message) ? $message : ''; ?>
+    </div>
+    
+    <?php echo form_open("auth/login", array('id' => 'login-form')); ?>
 
     <p>
         <label for="email">Email:</label>
         <?php
-            echo isset($email) ? form_input($email) : form_input(array(
+            
+            $email = isset($email) ? $email : '';            
+            echo form_input(array(
                 'name' => 'identity',
                 'id' => 'user-email',
-                'maxlength' => 30
+                'maxlength' => 30,
+                'value' => $email
             ));
         ?>
     </p>
 
     <p>
         <label for="password">Password:</label>
-        <?php
-            echo isset($password) ? form_input($password) : form_input(array(
+        <?php   
+            $password = isset($password) ? $password : '';            
+            echo form_input(array(
                 'name' => 'password',
-                'id' => 'user-password'
+                'id' => 'user-email',
+                'maxlength' => 30,
+                'value' => $password
             ));
         ?>
     </p>
 
-    <p>
-        <label for="remember">Remember Me:</label>
+    <p id="remember-me">
         <?php echo form_checkbox('remember', '1', FALSE); ?>
+        <label for="remember">Remember Me:</label>
     </p>
 
-
-    <p><?php echo form_submit('submit', 'Login'); ?></p>
-
-
+    <button type="submit" id="btn-submit" class="buttons">Login</button>
     <?php echo form_close(); ?>
 
 </div>

@@ -56,24 +56,24 @@ class Auth extends CI_Controller {
             } else { //if the login was un-successful
                 //redirect them back to the login page
                 $this->session->set_flashdata('message', $this->ion_auth->errors());
+                $this->data['message'] = $this->ion_auth->errors();
+                $this->data['email'] = $this->input->post('identity');
+                $this->data['password'] = $this->input->post('password');
+                $this->data['content'] = 'home/index';
+                
+                $this->parser->parse('layouts/application', $this->data);
+                
 //                redirect('auth/login', 'refresh'); //use redirects instead of loading views for compatibility with MY_Controller libraries
-                redirect('home/index', 'refresh'); //use redirects instead of loading views for compatibility with MY_Controller libraries
             }
         } else {  //the user is not logging in so display the login page
             //set the flash data error message if there is one
             $this->data['message'] = (validation_errors()) ? validation_errors() : $this->session->flashdata('message');
-
-            $this->data['identity'] = array('name' => 'identity',
-                'id' => 'identity',
-                'type' => 'text',
-                'value' => $this->form_validation->set_value('identity'),
-            );
-            $this->data['password'] = array('name' => 'password',
-                'id' => 'password',
-                'type' => 'password',
-            );
-
-            $this->load->view('auth/login', $this->data);
+                
+            $this->data['email'] = $this->input->post('identity');
+            $this->data['password'] = $this->input->post('password');               
+            $this->data['content'] = 'home/index';
+            
+            $this->load->view('layouts/application', $this->data);
         }
     }
 

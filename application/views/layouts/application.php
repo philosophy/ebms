@@ -6,6 +6,7 @@
             echo css_asset('base.css');
             echo css_asset('reset.css');
             echo css_asset('body.css');
+            echo css_asset('button.css');
             echo css_asset('home/index.css');
         ?>
     </head>
@@ -26,12 +27,14 @@
                         }
                     ?>
                 </div>
-
-                <div id="footer">
-                    <?php
-                        $this->load->view('layouts/application/footer');
-                    ?>
-                </div>
+                <?php if(Application::is_user_logged_in()) { ?>
+                   <div id="footer">
+                        <?php
+                            $this->load->view('layouts/application/footer');
+                        ?>
+                    </div> 
+                <?php } ?>
+                
         </div>
 
         <?php 
