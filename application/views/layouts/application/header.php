@@ -1,4 +1,35 @@
-<div id="nav-top-pane">
+<div id="nav">
+    <div id="orb-cont">
+        <?php echo image_asset('logo/orb.png', '', array('id' => 'orb-img')); ?>
+        <ul id="orb-nav">
+            <li id="orb-nav-list">
+                <a href="#" id="orb-nav-a" class="quick-view" rel="user-guide" name="630"><img src="/ebms/images/icons/guide-icon.png">User Guide</a>
+            </li>
+
+            <li id="orb-nav-list">
+                <a href="#" id="orb-nav-a" class="quick-view" rel="cheat-sheet" name="800"><img src="/ebms/images/icons/cheatSheet.png">Cheat Sheet</a>
+            </li>
+
+            <li id="orb-nav-list">
+                <a href="#" id="orb-nav-a" class="quick-view" rel="about-us" name="500"><img src="/ebms/images/icons/about-icon.png">About Us</a>
+            </li>
+
+            <li id="orb-nav-list">
+                <a href="#" id="orb-nav-a" class="quick-view" rel="contact-us" name="500"><img src="/ebms/images/icons/contact-icon.png">Contact Us</a>
+            </li>
+
+            <li id="orb-nav-list">
+                <a href="#" id="orb-nav-a" class="logout"><img src="/ebms/images/icons/logout-icon.png">Logout</a>
+            </li>
+
+
+        </ul>
+</div>
+    
+    
+    
+    
+    
     <!--
     <div id="notif-cont">
         <ul class="notif">

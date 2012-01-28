@@ -27,7 +27,8 @@
                 'name' => 'password',
                 'id' => 'user-email',
                 'maxlength' => 30,
-                'value' => $password
+                'value' => $password,
+                'type' => 'password'
             ));
         ?>
     </p>

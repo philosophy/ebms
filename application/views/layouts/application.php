@@ -6,8 +6,10 @@
             echo css_asset('base.css');
             echo css_asset('reset.css');
             echo css_asset('body.css');
+            echo css_asset('header.css');
             echo css_asset('button.css');
             echo css_asset('home/index.css');
+            echo js_asset('vendor/jquery-1.7.1.min.js');
         ?>
     </head>
     <body>
