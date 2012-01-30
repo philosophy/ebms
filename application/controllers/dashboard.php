@@ -8,6 +8,7 @@
         
         function index() {
             $data['content'] = 'dashboard/index';
+            $data['active_link'] = 'home';
             $this->parser->parse('layouts/application', $data);
 
             $this->output->enable_profiler(TRUE);

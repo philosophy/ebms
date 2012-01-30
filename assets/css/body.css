@@ -21,7 +21,6 @@ body {
 
 #wrapper {
     width: 100%;
-    height: 600px;
     min-height: 600px;    
 }
 
@@ -43,4 +42,13 @@ body {
     width: 940px;
     margin: 0 auto;
     padding-top: 15px;
+}
+
+#wrapper #content-wrapper {    
+    border: 1px solid #ccc;
+    width: 800px;
+    margin: 50px auto 50px;
+    background: white;
+    min-height: 600px;
+    
 }
