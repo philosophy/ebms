@@ -10,7 +10,6 @@
                     <i></i>
                     <?php 
 //                        echo image_asset('icons/guide-icon.png', '', array('title' => lang('user_guide'))); 
-                    
                         echo lang('user_guide');
                     ?>
                 </a>
@@ -93,4 +92,5 @@
             </li>
         </ul>
     </div>
+    <?php $this->load->view('layouts/application/notification'); ?>
 </div>
