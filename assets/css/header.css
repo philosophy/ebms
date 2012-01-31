@@ -136,16 +136,86 @@
 }
 
 #nav #notifications {
-    width: 135px;
-    position: relative;
-    float: right;
+    height: 100%;
+    padding-top: 11px;
+    overflow: hidden;
+    width: 32px;
+/*    padding-left: 65px;  TODO: remove this! hack for making it go at the last part */
 }
 
-#nav #notifications > a {
+#nav #notifications #notification-list {
+    position: absolute;
+    right: 73px;
+    top: 53px;
+    background-color: #eee;
+    width: 215px;;
+}
+
+#nav #notifications #notification-link {
     display: block;
 }
 
-#nav #notifications > a > img {
-    width: 50px;
-    height: 50px;
+#nav #notifications #notification-img {
+    width: 30px;
+    height: 30px;
 }
+
+#notification-list .notif-items {
+    position: relative;
+    overflow: hidden;
+}
+
+#notification-list .notif-items a {
+    display: block;
+    padding: 10px 5px;    
+    color: #333;
+    text-shadow:1px 1px 1px #fff;
+    font-family: "Calibri","Tahoma";
+    font-weight: bold;
+}
+
+#notification-list .notif-items a:hover {
+    background:#555;
+    color:#fff;
+    -webkit-box-shadow:0 0 10px #222 inset;
+    -khtml-box-shadow:0 0 10px #222 inset;
+    -moz-box-shadow:0 0 10px #222 inset;
+    box-shadow:0 0 10px #222 inset;
+    border-bottom:1px solid #fff;
+    text-shadow:1px 1px 1px #000;
+}
+
+
+#notification-list .notif-items a:hover span.count { 
+    color:#333;
+    text-shadow:1px 1px 1px #fff;
+    background:#eee;
+    -webkit-box-shadow:0 0 10px #aaa;
+    -khtml-box-shadow:0 0 10px #aaa;
+    -moz-box-shadow:0 0 10px #aaa;
+    box-shadow:0 0 10px #aaa;
+}
+
+#notification-list .notif-items a i {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background: url('../image/icons/about-icon.png') no-repeat 0 0;
+    top: 3px;
+}
+
+#notification-list .notif-items span.title {    
+    margin-left: 35px;    
+}
+
+#notification-list .notif-items a span.count {
+    position: absolute;
+    right: 10px;
+    top: 8px;
+    background-color: #555;
+    border-radius: 3px;
+    text-shadow: 1px 1px 1px black;
+    color: white;
+    padding: 2px 5px;
+}
+    

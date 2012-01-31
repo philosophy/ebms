@@ -7,9 +7,21 @@ com.ebms.widgets.header = {
             over: com.ebms.widgets.header.displayOrbNav,
             timeout: 300,
             out: com.ebms.widgets.header.hideOrbNav
-        }
+        };        
         
         $('#orb-cont').hoverIntent(orbSettings);
+        
+        $(document).click(this.toggleNotification);
+    },
+    
+    toggleNotification: function(e) {
+        var elem = e.target;
+        if (elem.id === 'notification-link' || elem.id === 'notif-img') {
+            $('#notification-list').removeClass('hide');
+        } else {
+            $('#notification-list').addClass('hide');
+        }
+        
     },
     
     displayOrbNav: function() {
@@ -19,4 +31,4 @@ com.ebms.widgets.header = {
     hideOrbNav: function() {
         $('#orb-nav').addClass('hide');
     }
-}
+};

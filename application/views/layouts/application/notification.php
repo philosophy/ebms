@@ -1,19 +1,44 @@
 <div id="notifications">
-    <a href="#">
+    <a href="#", id="notification-link">
         <?php 
-            echo image_asset('icons/guide-icon.png', '', array('title' => lang('user_guide'))); 
+            echo image_asset('icons/notifIcon.png', '', array('title' => lang('user_guide'), 'id' => 'notif-img')); 
         ?>
     </a>
-    <ul>
-        <li id="notif-pre-list">
-            <a id="notif-link" href="#" rel="notifCnt"><img title='0 Notification' src='/ebms/images/icons/notifIcon.png'></a>
-            <ul class="notif-nav">
-                <li id='notif-list'><a id='notif-a' ref="payables" href='/EBMS/apps/view/accounting/companyPayables/?page=accounting&menu=company-payables'><img src="/ebms/images/icons/about-icon.png"><b>Payables</b><span id='cnt' ref="payables" title='No new record'>0</span></a></li>
-                <li id='notif-list'><a id='notif-a' href='/EBMS/apps/view/accounting/companyReceivables/?page=accounting&menu=company-receivables' ref="receivables"><img src="/ebms/images/icons/about-icon.png"><b>Receivables</b><span id='cnt' ref="receivables" title='No new record'>0</span></a></li>
-                <li id='notif-list'><a id='notif-a' href='#' ref='taskReminder'><img src="/ebms/images/icons/about-icon.png"><b>Task Reminder</b><span id='cnt' title='No new record' ref="taskReminder">0</span></a></li>
-                <li id='notif-list'><a id='notif-a' href='/EBMS/apps/view/systemRecords/approvalList/?page=systemRecords&menu=approval-list' ><img src="/ebms/images/icons/about-icon.png"><b>Approvals</b><span id='cnt' title='No new record' ref="approvers_list">0</span></a></li>
-                <li id='notif-list'><a id='notif-a' ref="criticalStockLevel" href='/EBMS/apps/view/systemRecords/reminders/criticalStockLevel/?page=systemRecords&menu=critical-stock-level'><img src="/ebms/images/icons/about-icon.png"><b>Critical Stock Level</b><span id='cnt' ref="criticalStockLevel" title='No new record'>0</span></a></li>
-            </ul>
+    <ul id="notification-list" class="hide">
+        <li class='notif-items'>
+            <a href='/EBMS/apps/view/accounting/companyPayables/?page=accounting&menu=company-payables' id="#notif-payables">
+                <i></i>
+                <span class='title'><?php echo lang('payables'); ?></span>
+                <span class='count'>0</span>
+            </a>
+        </li>
+        <li class='notif-items'>
+            <a href='/EBMS/apps/view/accounting/companyPayables/?page=accounting&menu=company-payables' id="#notif-receivables">
+                <i></i>
+                <span class='title'><?php echo lang('receivables'); ?></span>
+                <span class='count'>0</span>
+            </a>
+        </li>
+        <li class='notif-items'>
+            <a href='/EBMS/apps/view/accounting/companyPayables/?page=accounting&menu=company-payables' id="#notif-task-reminder">
+                <i></i>
+                <span class='title'><?php echo lang('task_reminder'); ?></span>
+                <span class='count'>0</span>
+            </a>
+        </li>
+        <li class='notif-items'>
+            <a href='/EBMS/apps/view/accounting/companyPayables/?page=accounting&menu=company-payables' id="#notif-approvals">
+                <i></i>
+                <span class='title'><?php echo lang('approvals'); ?></span>
+                <span class='count'>0</span>
+            </a>
+        </li>
+        <li class='notif-items'>
+            <a href='/EBMS/apps/view/accounting/companyPayables/?page=accounting&menu=company-payables' id="#notif-approvals">
+                <i></i>
+                <span class='title'><?php echo lang('critical_stock_level'); ?></span>
+                <span class='count'>0</span>
+            </a>
         </li>
     </ul>
 </div>

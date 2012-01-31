@@ -17,6 +17,7 @@ body {
     margin: 0;
     border: 0;
     background: url("../image/rough.png") fixed repeat;
+    min-width: 830px;
 }
 
 #wrapper {

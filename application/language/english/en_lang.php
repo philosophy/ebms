@@ -81,6 +81,12 @@
     $lang['file_maintenance'] = 'File Maintenance';
     $lang['user_management'] = 'User Management';
         
+    /* system notifications */
+    $lang['payables'] = 'Payables';
+    $lang['receivables'] = 'Receivables';
+    $lang['task_reminder'] = 'Task Reminder';
+    $lang['approvals'] = 'Approvals';
+    $lang['critical_stock_level'] = 'Critical Stock Level';
     
     /* user */
     $lang['logout'] = 'Logout';
