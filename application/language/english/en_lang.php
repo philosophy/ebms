@@ -37,6 +37,7 @@
     $lang['bank_records_and_transactions'] = 'Bank Records and Transactions';
     
     $lang['purchasing'] = 'Purchasing';
+    $lang['purchase_requisition'] = 'Purchase Requisition';
     $lang['purchase_order'] = 'Purchase Order';
     $lang['suppliers_management'] = 'Suppliers Management';
     

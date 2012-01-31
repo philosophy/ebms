@@ -8,87 +8,350 @@
             <li id="orb-nav-list">
                 <a href="#" id="orb-nav-a" class="quick-view" rel="user-guide" name="630">
                     <i></i>
-                    <?php 
-//                        echo image_asset('icons/guide-icon.png', '', array('title' => lang('user_guide'))); 
-                        echo lang('user_guide');
-                    ?>
+                    <?php echo lang('user_guide'); ?>
                 </a>
             </li>
 
             <li id="orb-nav-list">
                 <a href="#" id="orb-nav-a" class="quick-view" rel="cheat-sheet" name="800">
                     <i></i>
-                    <?php 
-                        echo lang('cheat_sheet');
-                    ?>
+                    <?php echo lang('cheat_sheet'); ?>
                 </a>
             </li>
 
             <li id="orb-nav-list">
                 <a href="#" id="orb-nav-a" class="quick-view" rel="about-us" name="500">
                     <i></i>
-                    <?php 
-                        echo lang('about_us');
-                    ?>
+                    <?php echo lang('about_us'); ?>
                 </a>
             </li>
 
             <li id="orb-nav-list">
                 <a href="#" id="orb-nav-a" class="quick-view" rel="contact-us" name="500">
                     <i></i>
-                    <?php 
-                        echo lang('contact_us');
-                    ?>
+                    <?php echo lang('contact_us'); ?>
                 </a>
             </li>
 
             <li id="orb-nav-list">
                 <a href=<?php echo site_url('auth/logout'); ?> id="orb-nav-a" class="logout">
                     <i></i>
-                    <?php
-                        echo lang('logout');
-                    ?>
+                    <?php echo lang('logout'); ?>
                 </a>
             </li>
-
-
         </ul>
     </div>
     <div id="main-menu">
         <ul>
-            <li class="separate">
+            <li class="main-menu-item">
                 <?php echo anchor('dashboard/index', lang('home'), array('class'=>($active_link == 'home') ? 'active' : '')); ?>
             </li>
             
-            <li class="separate">
+            <li class="main-menu-item">
                 <?php echo anchor('dashboard/index', lang('crm'), array('class'=>($active_link == 'crm') ? 'active' : '')); ?>
             </li>
             
-            <li class="separate">
-                <?php echo anchor('dashboard/index', lang('sales'), array('class'=>($active_link == 'sales') ? 'active' : '')); ?>
+            <li class="main-menu-item with-sub-nav">
+                <?php echo anchor('dashboard/index', lang('sales'), array('class'=>($active_link == 'sales') ? '' : '')); ?>
+                <ul class="sub-nav hide">
+                    <li class="sub-nav-item">
+                        <?php echo anchor('dashboard/index', lang('order_slip_records')); ?>
+                    </li>
+                    <li class="sub-nav-item">
+                        <?php echo anchor('dashboard/index', lang('delivery_receipt_records')); ?>
+                    </li>
+                </ul>
             </li>
             
-            <li class="separate">
+            <li class="main-menu-item with-sub-nav">
                 <?php echo anchor('dashboard/index', lang('accounting'), array('class'=>($active_link == 'accounting') ? 'active' : '')); ?>
+                <ul class="sub-nav hide">
+                    <li class="sub-nav-item">
+                        <?php echo anchor('dashboard/index', lang('accounts_receivable')); ?>
+                    </li>	
+                    <li class="sub-nav-item">
+                        <?php echo anchor('dashboard/index', lang('company_payables')); ?>
+                    </li>
+                    <li class="sub-nav-item">
+                        <?php echo anchor('dashboard/index', lang('owners_equity')); ?>
+                    </li>		
+                    <li class="sub-nav-item">
+                        <?php echo anchor('dashboard/index', lang('check_records')); ?>
+                    </li>		
+                    <li class="sub-nav-item">
+                        <?php echo anchor('dashboard/index', lang('expenses')); ?>
+                    </li>				
+                    <li class="sub-nav-item">
+                        <?php echo anchor('dashboard/index', lang('general_ledger')); ?>
+                    </li>		
+                    <li class="sub-nav-item">
+                        <?php echo anchor('dashboard/index', lang('cash_flow')); ?>
+                    </li>		
+                    <li class="sub-nav-item">
+                        <?php echo anchor('dashboard/index', lang('income_statement')); ?>
+                    </li>		
+                    <li class="sub-nav-item">
+                        <?php echo anchor('dashboard/index', lang('balance_sheet')); ?>
+                    </li>		
+                    <li class="sub-nav-item">
+                        <?php echo anchor('dashboard/index', lang('posting_of_checks')); ?>
+                    </li>		
+                    <li class="sub-nav-item">
+                        <?php echo anchor('dashboard/index', lang('clearing_of_checks')); ?>
+                    </li>		
+                    <li class="sub-nav-item">
+                        <?php echo anchor('dashboard/index', lang('bank_records_and_transactions')); ?>
+                    </li>		
+                </ul>
             </li>
             
-            <li class="separate">
+            <li class="main-menu-item with-sub-nav">
                 <?php echo anchor('dashboard/index', lang('purchasing'), array('class'=>($active_link == 'purchasing') ? 'active' : '')); ?>
+                <ul class="sub-nav hide">
+                    <li class="sub-nav-item">
+                        <?php echo anchor('dashboard/index', lang('purchase_requisition')); ?>
+                    </li>
+                    <li class="sub-nav-item">
+                        <?php echo anchor('dashboard/index', lang('purchase_order')); ?>
+                    </li>
+                    <li class="sub-nav-item">
+                        <?php echo anchor('dashboard/index', lang('suppliers_management')); ?>
+                    </li>
+                </ul>
             </li>
             
-            <li class="separate">
+            <li class="main-menu-item with-sub-nav">
                 <?php echo anchor('dashboard/index', lang('personnel'), array('class'=>($active_link == 'personnel') ? 'active' : '')); ?>
+                <ul class="sub-nav hide">
+                    <li class="sub-nav-item">
+                        <?php echo anchor('dashboard/index', lang('employee_profile')); ?>
+                    </li>
+                    <li class="sub-nav-item">
+                        <?php echo anchor('dashboard/index', lang('employee_schedule')); ?>
+                    </li>
+                    <li class="sub-nav-item">
+                        <?php echo anchor('dashboard/index', lang('employee_time_sheet_records')); ?>
+                    </li>
+                    <li class="sub-nav-item">
+                        <?php echo anchor('dashboard/index', lang('employee_payroll')); ?>
+                    </li>
+                    <li class="sub-nav-item">
+                        <?php echo anchor('dashboard/index', lang('employee_daily_time_records')); ?>
+                    </li>
+                    <li class="sub-nav-item">
+                        <?php echo anchor('dashboard/index', lang('employee_cash_advance')); ?>
+                    </li>
+                </ul>
             </li>
-            <li class="separate">
+            <li class="main-menu-item with-sub-nav">
                 <?php echo anchor('dashboard/index', lang('inventory'), array('class'=>($active_link == 'inventory') ? 'active' : '')); ?>
+                <ul class="sub-nav hide">
+                    <li class="sub-nav-item">
+                        <?php echo anchor('dashboard/index', lang('product_asset_list')); ?>                        
+                    </li>
+                    <li class="sub-nav-item">
+                        <?php echo anchor('dashboard/index', lang('item_receiving')); ?>
+                    </li>
+                    <li class="sub-nav-item">
+                        <?php echo anchor('dashboard/index', lang('item_withdrawal')); ?>
+                    </li>
+                    <li class="sub-nav-item">
+                        <?php echo anchor('dashboard/index', lang('item_adjustment')); ?>
+                    </li>
+                </ul>
             </li>
             
-            <li class="separate">
+            <li class="main-menu-item with-sub-nav">
                 <?php echo anchor('dashboard/index', lang('reports'), array('class'=>($active_link == 'reports') ? 'active' : '')); ?>
+                <ul class="sub-nav hide">
+                    <li class="sub-nav-item">
+                        <?php echo anchor('dashboard/index', lang('employee_profile_list')); ?>
+                    </li>
+                    <li class="sub-nav-item">
+                        <?php echo anchor('dashboard/index', lang('employee_time_sheet_record')); ?>
+                    </li>
+                    <li class="sub-nav-item">
+                        <?php echo anchor('dashboard/index', lang('customer_master_list')); ?>
+                    </li>
+                    <li class="sub-nav-item">
+                        <?php echo anchor('dashboard/index', lang('customer_status_report')); ?>
+                    </li>
+                    <li class="sub-nav-item">
+                        <?php echo anchor('dashboard/index', lang('customer_type_report')); ?>
+                    </li>
+                    <li class="sub-nav-item">
+                        <?php echo anchor('dashboard/index', lang('industry_type_report')); ?>
+                    </li>
+                    <li class="sub-nav-item">
+                        <?php echo anchor('dashboard/index', lang('customer_per_area_report')); ?>
+                    </li>
+                    <li class="sub-nav-item">
+                        <?php echo anchor('dashboard/index', lang('sales_report')); ?>
+                    </li>
+                    <li class="sub-nav-item">
+                        <?php echo anchor('dashboard/index', lang('product_list_report')); ?>
+                    </li>
+                    <li class="sub-nav-item">
+                        <?php echo anchor('dashboard/index', lang('product_stock_report')); ?>
+                    </li>
+                    <li class="sub-nav-item">
+                        <?php echo anchor('dashboard/index', lang('product_price_list_report')); ?>
+                    </li>
+                    <li class="sub-nav-item">
+                        <?php echo anchor('dashboard/index', lang('supplies_list_report')); ?>
+                    </li>
+                    <li class="sub-nav-item">
+                        <?php echo anchor('dashboard/index', lang('supplies_stock_report')); ?>
+                    </li>
+                    <li class="sub-nav-item">
+                        <?php echo anchor('dashboard/index', lang('accounts_receivable_report')); ?>
+                    </li><li class="sub-nav-item">
+                        <?php echo anchor('dashboard/index', lang('accounts_receivable_summary')); ?>
+                    </li>
+                    <li class="sub-nav-item">
+                        <?php echo anchor('dashboard/index', lang('company_payables_report')); ?>
+                    </li>
+                    <li class="sub-nav-item">
+                        <?php echo anchor('dashboard/index', lang('sales_projection')); ?>
+                    </li>
+                    <li class="sub-nav-item">
+                        <?php echo anchor('dashboard/index', lang('sales_forecasting')); ?>
+                    </li>
+                    <li class="sub-nav-item">
+                        <?php echo anchor('dashboard/index', lang('income_statement')); ?>
+                    </li>
+                    <li class="sub-nav-item">
+                        <?php echo anchor('dashboard/index', lang('balance_sheet')); ?>
+                    </li>
+                    <li class="sub-nav-item">
+                        <?php echo anchor('dashboard/index', lang('cash_flow')); ?>
+                    </li>
+                </ul>
             </li>
             
-            <li class="separate">
+            <li class="main-menu-item with-sub-nav">
                 <?php echo anchor('dashboard/index', lang('system_records'), array('class'=>($active_link == 'system_records') ? 'active' : '')); ?>
+                <ul class="sub-nav hide">
+                    <li class="sub-nav-item">
+                        <a href="#" class="sub-nav-a">File Maintenance</a>
+                        <ul class="inner-nav hide">
+                            <li>
+                                <a href="Javascript:newPopup('/EBMS/apps/view/systemRecords/fileMaintenance/companyInformation/index.php',480,600)" id="sub-inner-a">
+                                    Company Information
+                                </a>
+                            </li>
+                            <li>
+                                <a href="Javascript:newPopup('/EBMS/apps/view/systemRecords/fileMaintenance/accountsManager/index.php',570,630)" id="sub-inner-a">
+                                    Accounts Manager
+                                </a>
+                            </li>
+                            <li>
+                                <a href="Javascript:newPopup('/EBMS/apps/view/systemRecords/fileMaintenance/accountSubCategoryManager/index.php',570,630)" id="sub-inner-a">
+                                    Account Sub Category Manager
+                                </a>
+                            </li>
+                            <li>
+                                <a href="Javascript:newPopup('/EBMS/apps/view/systemRecords/fileMaintenance/employeeStatusManager/index.php',490,630)" id="sub-inner-a">
+                                    Employee Status Manager
+                                </a>
+                            </li>
+                            <li>
+                                <a href="Javascript:newPopup('/EBMS/apps/view/systemRecords/fileMaintenance/employeePositionManager/index.php',570,630)" id="sub-inner-a">
+                                    Employee Position Manager
+                                </a>
+                            </li>
+                            <li>
+                                <a href="Javascript:newPopup('/EBMS/apps/view/systemRecords/fileMaintenance/departmentManager/index.php',500,630)" id="sub-inner-a">
+                                    Department Manager
+                                </a>
+                            </li>
+                            <li>
+                                <a href="Javascript:newPopup('/EBMS/apps/view/systemRecords/fileMaintenance/areaTypeManager/index.php',570,630)" id="sub-inner-a">
+                                    Area Type Manager
+                                </a>
+                            </li>
+                            <li>
+                                <a href="Javascript:newPopup('/EBMS/apps/view/systemRecords/fileMaintenance/locationTypeManager/index.php',500,630)" id="sub-inner-a">
+                                    Location Type Manager
+                                </a>
+                            </li>
+                            <li>
+                                <a href="Javascript:newPopup('/EBMS/apps/view/systemRecords/fileMaintenance/customerTypeManager/index.php',490,630)" id="sub-inner-a">
+                                    Customer Type Manager
+                                </a>
+                            </li>
+                            <li>
+                                <a href="Javascript:newPopup('/EBMS/apps/view/systemRecords/fileMaintenance/industryTypeManager/index.php',490,630)" id="sub-inner-a">
+                                    Industry Type Manager
+                                </a>
+                            </li>
+                            <li>
+                                <a href="Javascript:newPopup('/EBMS/apps/view/systemRecords/fileMaintenance/categoryManager/index.php',490,630)" id="sub-inner-a">
+                                    Category Manager
+                                </a>
+                            </li>
+                            <li >
+                                <a href="Javascript:newPopup('/EBMS/apps/view/systemRecords/fileMaintenance/subCategoryManager/index.php',530,630)" id="sub-inner-a">
+                                    Sub Category Manager
+                                </a>
+                            </li>
+                            <li>
+                                <a href="Javascript:newPopup('/EBMS/apps/view/systemRecords/fileMaintenance/brandManager/index.php',530,630)" id="sub-inner-a">
+                                    Brand Manager
+                                </a>
+                            </li>
+                            <li>
+                                <a href="Javascript:newPopup('/EBMS/apps/view/systemRecords/fileMaintenance/itemFieldManager/index.php',530,630)" id="sub-inner-a">
+                                    Item Field Manager
+                                </a>
+                            </li>
+                            <li >
+                                <a href="Javascript:newPopup('/EBMS/apps/view/systemRecords/fileMaintenance/employeeLeaveManager/index.php',500,630)" id="sub-inner-a">
+                                    Employee Leave Manager
+                                </a>
+                            </li>
+                            <li>
+                                <a href="Javascript:newPopup('/EBMS/apps/view/systemRecords/fileMaintenance/unitManager/index.php',500,630)" id="sub-inner-a">
+                                    Unit Manager
+                                </a>
+                            </li>
+                            <li>
+                                <a href="Javascript:newPopup('/EBMS/apps/view/systemRecords/fileMaintenance/cityManager/index.php',490,630)" id="sub-inner-a">
+                                    City Manager
+                                </a>
+                            </li>
+                            <li >
+                                <a href="Javascript:newPopup('/EBMS/apps/view/systemRecords/fileMaintenance/deductionManager/index.php',570,630)" id="sub-inner-a">
+                                    Deduction Manager
+                                </a>
+                            </li>
+                            <li>
+                                <a href="Javascript:newPopup('/EBMS/apps/view/systemRecords/fileMaintenance/earningManager/index.php',570,630)" id="sub-inner-a">
+                                    Earning Manager
+                                </a>
+                            </li>
+                            <li>
+                                <a href="Javascript:newPopup('/EBMS/apps/view/systemRecords/fileMaintenance/currencyManager/index.php',570,630)" id="sub-inner-a">
+                                    Currency Manager
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="sub-nav-item">
+                        <a href="#" class="sub-nav-a">User Management </a>
+                        <ul class="inner-nav hide">
+                            <li >
+                                <a href="Javascript:newPopup('/EBMS/apps/view/systemRecords/userManagement/userControlManager/?page=systemRecords&menu=user-control-manager',600,600)" id="sub-inner-a">User Control Manager</a>
+                            </li>
+                            <li >
+                                <a href="/EBMS/apps/view/systemRecords/userManagement/auditTrail/?page=systemRecords&menu=audit-trail" id="sub-inner-a">Audit Trail</a>
+                            </li>
+                            <li >
+                                <a href="/EBMS/apps/view/systemRecords/userManagement/approvalList/?page=systemRecords&menu=approval-list" id="sub-inner-a">Approval's List</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
             </li>
         </ul>
     </div>
