@@ -8,6 +8,7 @@
             echo css_asset('body.css');
             echo css_asset('header.css');
             echo css_asset('button.css');
+            echo css_asset('footer.css');
             echo css_asset('home/index.css');
             echo js_asset('vendor/jquery-1.7.1.min.js');            
             echo js_asset('vendor/jquery.hoverIntent.js');
@@ -36,7 +37,7 @@
                 <?php if(Application::is_user_logged_in()) { ?>
                    <div id="footer">
                         <?php
-                            $this->load->view('layouts/application/footer');
+                            $this->load->view('layouts/application/footer_logged_in');
                         ?>
                     </div> 
                 <?php } ?>
