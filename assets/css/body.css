@@ -53,3 +53,23 @@ body {
     min-height: 600px;
     
 }
+
+#footer #external-links ul.icon-pages-list li{
+    list-style:none;
+}
+
+#footer #external-links ul.icon-pages-list img{
+    float: left;
+    width: 30px;
+    height: 30px;
+    opacity: 0.8;
+    filter: alpha(opacity=80);
+    border: 0;
+    outline: none;
+    padding: 0;
+}
+
+#footer #external-links ul.icon-pages-list img:hover{
+    opacity: 1;
+    filter: alpha(opacity=100);
+}

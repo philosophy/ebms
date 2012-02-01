@@ -9,9 +9,14 @@
             echo css_asset('header.css');
             echo css_asset('button.css');
             echo css_asset('footer.css');
-            echo css_asset('home/index.css');
+            echo css_asset('lib/clock.css');
+            $index_css = $this->router->class.'/index.css';
+//            echo css_asset('home/index.css');
+            echo css_asset($index_css);
+            
             echo js_asset('vendor/jquery-1.7.1.min.js');            
             echo js_asset('vendor/jquery.hoverIntent.js');
+            echo js_asset('vendor/jquery.rotate.1-1.js');
         ?>
     </head>
     <body>
@@ -43,10 +48,13 @@
                 <?php } ?>
                 
         </div>
-
+        
         <?php             
             echo js_asset('app.js');
-            echo js_asset('lib/header.js');
+            echo js_asset('lib/clock.js');
+            echo js_asset('views/dashboard.js');
+            echo js_asset('lib/header.js');            
         ?>
+        <?php $this->load->view('layouts/application/page_specific_javascript'); ?>
     </body>
 </html>

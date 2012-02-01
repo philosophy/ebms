@@ -1,0 +1,10 @@
+#analog-clock{
+    position:relative;
+    width:170px;
+    display:none;/* to make it start hidden, then fade in */
+    margin-left:12px;
+}
+
+#analog-clock #bg, #hourHand, #minuteHand, #secondHand{
+    position:absolute;
+}

@@ -1,0 +1,21 @@
+#content-wrapper {
+    overflow: hidden;
+}
+
+#content-wrapper article.aside-left {
+    width: 210px;
+    background: #F0FAFF;
+    float: left;
+    margin-bottom: -100px;
+    min-height: 600px;
+}
+
+#content-wrapper article.primary {
+    background: #fff;
+    width: auto;
+    min-height: 600px;
+}
+
+#content-wrapper article.aside-left #clock-cont{
+    padding: 15px 0 0 6px;
+}

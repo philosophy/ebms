@@ -2,12 +2,9 @@ com = {
     ebms: {
         widgets: {},
         util: {},
+        views: {},
         init: function() {
            this.widgets.header.init();
         }
     }
-}
-
-jQuery(document).ready(function() {
-   com.ebms.init(); 
-});
+};
