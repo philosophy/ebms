@@ -3,3 +3,32 @@
     margin: 0 auto;
     border-top: 3px solid #999;
 }
+
+#footer #sme-soft-img {
+    float: left;
+    width: 150px;
+}
+
+#footer #footer-content {
+    float: left;
+    overflow: hidden;   
+    height: 52px;
+    line-height: 55px;
+    width: 500px;
+    text-align: center;
+}
+
+
+#footer #external-links {
+    overflow: hidden;
+    width: 150px;
+}
+
+#footer #external-links span#connect-with-us {
+    font-weight: bold;
+    font-size: 0.75em;
+}
+
+#footer #external-links ul.icon-pages-list li {
+    float: left;
+}

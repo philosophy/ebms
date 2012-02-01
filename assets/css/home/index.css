@@ -224,11 +224,13 @@ section > article.aside {
     margin-top:10px;
 }
 
-#login-footer ul.icon-pages-list li {
+#login-footer ul.icon-pages-list li,
+#footer #external-links ul.icon-pages-list li{
     list-style:none;
 }
 
-#login-footer ul.icon-pages-list img {
+#login-footer ul.icon-pages-list img,
+#footer #external-links ul.icon-pages-list img{
     float: left;
     width: 30px;
     height: 30px;
@@ -238,7 +240,8 @@ section > article.aside {
     outline: none;
     padding: 0;
 }
-#login-footer ul.icon-pages-list img:hover {
+#login-footer ul.icon-pages-list img:hover,
+#footer #external-links ul.icon-pages-list img:hover{
     opacity: 1;
     filter: alpha(opacity=100);
 }
