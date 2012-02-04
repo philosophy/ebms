@@ -13,8 +13,8 @@
             $index_css = $this->router->class.'/index.css';
 //            echo css_asset('home/index.css');
             echo css_asset($index_css);
-            
-            echo js_asset('vendor/jquery-1.7.1.min.js');            
+
+            echo js_asset('vendor/jquery-1.7.1.min.js');
             echo js_asset('vendor/jquery.hoverIntent.js');
             echo js_asset('vendor/jquery.rotate.1-1.js');
         ?>
@@ -26,7 +26,7 @@
         <div id="wrapper" class="<?php echo $classname ?>">
                 <?php if(Application::is_user_logged_in()) { ?>
                     <header>
-                        <?php 
+                        <?php
                             $data['active_link'] = isset($active_link) ? $active_link : '';
                             $this->load->view('layouts/application/header', $data);
                         ?>
@@ -44,16 +44,18 @@
                         <?php
                             $this->load->view('layouts/application/footer_logged_in');
                         ?>
-                    </div> 
+                    </div>
                 <?php } ?>
-                
+
         </div>
-        
-        <?php             
+
+        <?php
             echo js_asset('app.js');
             echo js_asset('lib/clock.js');
+            echo js_asset('lib/header.js');
+            echo js_asset('util/namespace_checker.js');
             echo js_asset('views/dashboard.js');
-            echo js_asset('lib/header.js');            
+
         ?>
         <?php $this->load->view('layouts/application/page_specific_javascript'); ?>
     </body>
