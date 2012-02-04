@@ -32,7 +32,6 @@ class Auth extends CI_Controller {
                 $this->data['users'][$k]->groups = $this->ion_auth->get_users_groups($user->id)->result();
             }
 
-
             $this->load->view('layouts/application', $this->data);
         }
     }
@@ -81,9 +80,8 @@ class Auth extends CI_Controller {
     function logout() {
         $this->data['title'] = "Logout";
         $this->data['content'] = 'user/logout';
-        $this->data['message'] = "Successfully Logged Out";
         
-        $this->session->set_flashdata('message', $this->data['message']);
+        $this->session->set_flashdata('message', $this->lang->line('successfully_logout'));
         //log the user out
         $logout = $this->ion_auth->logout();
 

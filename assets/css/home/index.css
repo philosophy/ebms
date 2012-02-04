@@ -10,7 +10,8 @@ root {
     display: block;
 }
 
-#wrapper.home.index #content-wrapper {
+#wrapper.home.index #content-wrapper,
+#wrapper.auth.login #content-wrapper {
     border: 0;
     width: auto;
     background: transparent;

@@ -17,31 +17,30 @@ com.ebms.widgets.header = {
             out: this.hideSubNav
         }
         
-        $('#orb-cont').hoverIntent(orbSettings);
+//        $('#orb-cont').hoverIntent(orbSettings);
         $('#main-menu .with-sub-nav').hoverIntent(navSettings);
         
-        $(document).click(this.toggleNotification);
-        $('ul.sub-nav .sub-nav-a, ul.sub-nav ul.inner-nav').mouseenter(function(e) {
-            if($(e.target).hasClass('inner-nav')) {
-                $(this).removeClass('hide');
-            } else {
-                $(this).siblings('ul.inner-nav').removeClass('hide');
-            }            
-        }).mouseout(function(e) {
-            if($(e.target).hasClass('inner-nav')) {
-                $(this).addClass('hide');
-            } else {
-                $(this).siblings('ul.inner-nav').addClass('hide');
-            }            
+        $(document).click(this.toggleMenu);
+
+        $('ul.sub-nav li.sub-nav-item').mouseenter(function(e) {
+            $(this).find('ul.inner-nav').removeClass('hide');
+        }).mouseleave(function(e) {
+            $(this).find('ul.inner-nav').addClass('hide');
         });
     },
     
-    toggleNotification: function(e) {
+    toggleMenu: function(e) {
         var elem = e.target;
+        var ns = com.ebms.widgets.header;
         if (elem.id === 'notification-link' || elem.id === 'notif-img') {
-            $('#notification-list').removeClass('hide');
-        } else {
-            $('#notification-list').addClass('hide');
+            ns.displayNotificationNav();
+            ns.hideOrbNav();
+        } else if (elem.id === 'orb-link' || elem.id === 'orb-img') {
+            ns.displayOrbNav();
+            ns.hideNotificationNav();
+        } else {            
+            ns.hideOrbNav();
+            ns.hideNotificationNav();
         }
     },
     
@@ -51,6 +50,14 @@ com.ebms.widgets.header = {
     
     hideOrbNav: function() {
         $('#orb-nav').addClass('hide');
+    },
+    
+    displayNotificationNav: function() {
+        $('#notification-list').removeClass('hide');
+    },
+    
+    hideNotificationNav: function() {
+        $('#notification-list').addClass('hide');
     },
     
     displaySubNav: function(elem) {

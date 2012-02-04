@@ -10,9 +10,10 @@
             echo css_asset('button.css');
             echo css_asset('footer.css');
             echo css_asset('lib/clock.css');
-            $index_css = $this->router->class.'/index.css';
-//            echo css_asset('home/index.css');
-            echo css_asset($index_css);
+//            $index_css = $this->router->class.'/index.css';
+//            echo css_asset($index_css);
+            echo css_asset('home/index.css');
+            echo css_asset('dashboard/index.css');
             
             echo js_asset('vendor/jquery-1.7.1.min.js');            
             echo js_asset('vendor/jquery.hoverIntent.js');

@@ -11,7 +11,7 @@
         </article>
         <article class="aside">
             <?php
-                $data['message'] = isset($message) ? $message : '';
+                $data['message'] = isset($message) ? $message : $this->session->flashdata('message');
                 $data['email'] = isset($email) ? $email : '';
                 $data['password'] = isset($password) ? $password : '';
                 $this->load->view('user/login', $data);

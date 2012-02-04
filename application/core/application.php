@@ -18,6 +18,19 @@
                 return false;
             }
         }
+        
+        function current_user() {
+            return $this->ion_auth->get_user();
+        }
+        
+        function get_user($id=null) {            
+            $user = null;
+            if (isset($id)) {
+                $user = $this->ion_auth->get_user($id);
+            } 
+            
+            return $user;
+        }
     }
 
 ?>

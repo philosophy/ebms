@@ -1,6 +1,6 @@
 <div id="nav">
     <div id="orb-cont">
-        <a href=<?php echo base_url(); ?> >
+        <a href='#' id="orb-link">
             <?php echo image_asset('logo/orb.png', '', array('id' => 'orb-img')); ?>
         </a>
         
@@ -350,6 +350,10 @@
                                 <a href="/EBMS/apps/view/systemRecords/userManagement/approvalList/?page=systemRecords&menu=approval-list" id="sub-inner-a">Approval's List</a>
                             </li>
                         </ul>
+                    </li>
+                    
+                    <li class="sub-nav-item">
+                        <?php echo anchor('user/'.Application::current_user()->id, lang('profile'), array('class'=>($active_link == 'system_records') ? 'active' : '')); ?>
                     </li>
                 </ul>
             </li>

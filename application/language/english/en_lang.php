@@ -7,6 +7,8 @@
 
     $lang['ebms_home'] = "EBMS Home View";
     $lang['ebms_subtitle'] = "Manage your business in just a click";
+    $lang['profile'] = 'Profile';
+    $lang['successfully_logout'] = 'Successfully Logout';
     
     /* nav bar */
     $lang['user_guide'] = 'User Guide';

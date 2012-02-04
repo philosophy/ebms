@@ -155,7 +155,7 @@
 }
 
 #nav #main-menu ul.sub-nav,
-#nav #main-menu ul.sub-nav ul.inner-nav{
+#nav #main-menu ul.sub-nav ul.inner-nav {
     position: absolute;
     width: 200px;
     top: 53px;
@@ -173,6 +173,10 @@
     -khtml-border-radius-bottomLeft:5px;
     -khtml-border-radius-bottomRight:5px;
     z-index:999;
+}
+
+#nav #main-menu ul.sub-nav ul.inner-nav a{
+    font-size: 1.15em;
 }
 
 #nav #notifications {
