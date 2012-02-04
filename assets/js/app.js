@@ -4,6 +4,7 @@ com = {
         util: {},
         views: {},
         init: function() {
+           alert('app init');
            this.widgets.header.init();
         }
     }
