@@ -353,7 +353,7 @@
                     </li>
                     
                     <li class="sub-nav-item">
-                        <?php echo anchor('user/'.Application::current_user()->id, lang('profile'), array('class'=>($active_link == 'system_records') ? 'active' : '')); ?>
+                        <?php echo anchor('users/'.Application::current_user()->id, lang('profile'), array('class'=>($active_link == 'system_records') ? 'active' : '')); ?>
                     </li>
                 </ul>
             </li>

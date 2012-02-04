@@ -18,8 +18,12 @@
             redirect('home', 'refresh');
         }
         
-        function show($id) {
-            echo $id;
+        function show($id) {            
+            $data['title'] = $this->lang->line('profile');            
+            $data['content'] = 'profile/show';
+            
+            $this->parser->parse('layouts/application', $data);
+            $this->output->enable_profiler(TRUE);
         }
     }
 
