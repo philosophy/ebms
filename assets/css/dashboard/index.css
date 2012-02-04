@@ -14,6 +14,7 @@
     background: #fff;
     width: auto;
     min-height: 600px;
+    overflow: hidden;
 }
 
 #content-wrapper article.aside-left #clock-cont{

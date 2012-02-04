@@ -3,8 +3,7 @@ com = {
         widgets: {},
         util: {},
         views: {},
-        init: function() {
-           alert('app init');
+        init: function() {  
            this.widgets.header.init();
         }
     }

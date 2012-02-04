@@ -54,6 +54,11 @@ body {
     
 }
 
+#wrapper #content-wrapper article.aside-left {
+    padding-bottom: 1000px;
+    margin-bottom: -1000px;
+}
+
 #footer #external-links ul.icon-pages-list li{
     list-style:none;
 }

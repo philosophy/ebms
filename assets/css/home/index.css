@@ -45,16 +45,19 @@ root {
     -khtml-border-radius-topRight:15px;
 }
 
-section > article.primary {
+#wrapper.home section > article.primary,
+#wrapper.auth section > article.primary {
     float: left;
     position: relative;
     width: 484px;
     height: 100%;
     overflow: hidden;
     line-height: 0;
+    min-height: 100%;
 }
 
-section > article.aside {
+#wrapper.home section > article.aside,
+#wrapper.auth section > article.aside {
     height: 100%;
     overflow: hidden;
 }

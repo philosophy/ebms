@@ -14,6 +14,7 @@
 //            echo css_asset($index_css);
             echo css_asset('home/index.css');
             echo css_asset('dashboard/index.css');
+            echo css_asset('user/index.css');
             
             echo js_asset('vendor/jquery-1.7.1.min.js');            
             echo js_asset('vendor/jquery.hoverIntent.js');

@@ -4,4 +4,4 @@ com.ebms.util.namespace_checker = function(namespace) {
         exists = !!eval(namespace);
     } catch(e){}
     return exists;
-}
+};

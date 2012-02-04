@@ -93,6 +93,28 @@
     
     /* user */
     $lang['logout'] = 'Logout';
-    
+    $lang['name'] = 'name';
+    $lang['first_name'] = 'First Name';
+    $lang['middle_name'] = 'Middle Name';
+    $lang['last_name'] = 'Last Name';
+    $lang['home_address'] = 'Home Address';
+    $lang['birth_date'] = 'Birthdate';
+    $lang['gender'] = 'Gender';
+    $lang['marital_status'] = 'Marital Status';
+    $lang['home_phone'] = 'Home Phone';
+    $lang['work_phone'] = 'Work Phone';
+    $lang['position'] = 'Position';
+    $lang['date_hired'] = 'Date Hired';
+    $lang['department'] = 'Department';
+    $lang['employment_status'] = 'Employment Status';
+    $lang['company_name'] = 'Company Name';
+    $lang['date_started'] = 'Date Started';
+    $lang['date_ended'] = 'Date Ended';
+    $lang['work_description'] = 'Work Description';
+    $lang['salary'] = 'Salary';
+    $lang['sss'] = 'SSS';
+    $lang['philhealth'] = 'PhilHealth Number';
+    $lang['tin'] = 'Tin';
+    $lang['pagibig'] = 'Pagibig';
     
 ?>
