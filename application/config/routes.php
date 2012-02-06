@@ -46,6 +46,8 @@ $route['users/login'] = 'user/login';
 $route['users/logout'] = 'user/logout';
 $route['auth/login'] = 'auth/login';
 $route['users/(:num)'] = 'users/show/$1';
+$route['users/edit/(:num)'] = 'users/edit/$1';
+$route['users/update/(:num)'] = 'users/update/$1';
 
 $route['dashboard/index'] = 'dashboard/index';
 $route['documentation/index'] = 'documentation/index';

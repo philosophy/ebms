@@ -9,7 +9,7 @@
         <section id="personal-info">
             <h3>
                 Account Info
-                <a href="#" id="edit-account">Edit</a>
+                <?php echo anchor(site_url('users/edit/'.$user->id), 'Edit', array('id' => 'edit-account' ));?>
             </h3>
             
             <fieldset>
@@ -63,7 +63,7 @@
             </fieldset>
             <fieldset>
                 <label>Work Phone:</label>
-                <span><?php echo $user->home_phone; ?></span>
+                <span><?php echo $user->work_phone; ?></span>
             </fieldset>
         </section>
         <section id="employment-info">
@@ -103,15 +103,7 @@
                         }
                     ?>
                 </span>
-            </fieldset>
-            <fieldset>
-                <label>Home Phone:</label>
-                <span><?php echo $user->home_phone; ?></span>
-            </fieldset>
-            <fieldset>
-                <label>Work Phone:</label>
-                <span><?php echo $user->home_phone; ?></span>
-            </fieldset>
+            </fieldset>           
         </section>
     </div>
 </article>

@@ -108,7 +108,7 @@ $autoload['language'] = array('en');
 |
 */
 
-$autoload['model'] = array();
+$autoload['model'] = array('User_model');
 
 
 /* End of file autoload.php */

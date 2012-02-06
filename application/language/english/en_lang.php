@@ -116,5 +116,12 @@
     $lang['philhealth'] = 'PhilHealth Number';
     $lang['tin'] = 'Tin';
     $lang['pagibig'] = 'Pagibig';
+    $lang['account_info'] = 'Account Info';
+    
+    /* page titles */
+    $lang['edit_profile'] = 'Edit Profile';
+    
+    /* error messages */
+    $lang['unable_to_process_transaction'] = 'Unable to process transactions';
     
 ?>

@@ -1,0 +1,8 @@
+#marital-status {
+    line-height: 60px;
+}
+
+#marital-status > div {
+    float: left;
+    padding-right: 10px;
+}

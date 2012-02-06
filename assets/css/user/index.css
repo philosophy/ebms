@@ -1,4 +1,5 @@
-#wrapper.users.show #user-details > h1 {
+#wrapper.users.show #user-details > h1,
+#wrapper.users.edit #user-details > h1 {
     border-bottom: gainsboro 1px solid;
     color: black;
     font-size: 1.5em;
@@ -10,7 +11,9 @@
 }
 
 #wrapper.users.show #personal-info > h3,
-#wrapper.users.show #employment-info > h3 {
+#wrapper.users.edit #personal-info > h3,
+#wrapper.users.show #employment-info > h3,
+#wrapper.users.edit #employment-info > h3 {
     border-bottom: 1px solid #F3EFEF;
     color: #48A;
     font-weight: bold;
@@ -25,12 +28,16 @@
 }
 
 #wrapper.users.show #personal-info fieldset,
-#wrapper.users.show #employment-info fieldset {
+#wrapper.users.edit #personal-info fieldset,
+#wrapper.users.show #employment-info fieldset,
+#wrapper.users.edit #employment-info fieldset {
     border-bottom: 1px solid #F3EFEF;
 }
 
 #wrapper.users.show #personal-info fieldset > label,
-#wrapper.users.show #employment-info fieldset > label {
+#wrapper.users.edit #personal-info fieldset > label,
+#wrapper.users.show #employment-info fieldset > label,
+#wrapper.users.edit #employment-info fieldset > label {
     color: #979797;
     float: left;
     line-height: 36px;
@@ -40,7 +47,9 @@
 }
 
 #wrapper.users.show #personal-info fieldset > span,
-#wrapper.users.show #employment-info fieldset > span {
+#wrapper.users.edit #personal-info fieldset > span,
+#wrapper.users.show #employment-info fieldset > span,
+#wrapper.users.edit #employment-info fieldset > span {
     float: left;
     right: 0;
     line-height: 36px;
