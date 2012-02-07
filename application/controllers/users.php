@@ -54,6 +54,15 @@
             }
         }
         
+        function edit_password_settings($id) {
+            if ($this->_user_exist($id) && $id == Application::current_user()->id) {
+                
+                if($this->input->is_ajax_request()) {
+                    send_json_response(INFO_LOG, HTTP_OK, 'user edit password settings form', array('html' => $this->load->view('user/form/password_settings', '', true)));                    
+                }
+            }
+        }
+        
         function edit_security_settings($id) {
             if ($this->_user_exist($id) && $id == Application::current_user()->id) {
                 
@@ -138,16 +147,15 @@
             if ($this->_user_exist($id)) {
                 $userObj = $this->User_model;
                 
-                $password = $_POST['password'];
                 $security_question_id = $_POST['security_question'];
                 $security_answer = $_POST['security_answer'];
-                
+                                
                 $userObj->set_userid($id);
-                $userObj->set_password($password);
                 $userObj->set_securityQuestionId($security_question_id);
                 $userObj->set_securityAnswer($security_answer);
                 
                 $result = $userObj->updateSecuritySettings();
+
                 if ($result) {
                     /* set flash data */
                         $data['title'] = $this->lang->line('profile');
@@ -160,11 +168,36 @@
                     /* error */
                 }
             }
-                /* validate password */
-
-                /* check if current and new password match */
-
-                /* check if password length is correct */
+        }
+        
+        function update_password_settings($id) {
+            if ($this->_user_exist($id)) {
+                $userObj = $this->User_model;
+                
+                $password = $_POST['current_password'];
+                $new_password = $_POST['new_password'];
+                $confirm_password = $_POST['confirm_password'];
+                
+                /* TODO */
+                /* validate if password is correct */
+                /* validate if new password and confirm password match */
+                /* validate password length */
+                
+                $userObj->set_userid($id);
+                $userObj->set_password($new_password);
+                $result = $userObj->updatePassword();
+                 if ($result) {
+                    /* set flash data */
+                        $data['title'] = $this->lang->line('profile');
+                        $data['content'] = 'user/show';
+                        
+                        $this->session->set_flashdata('msg', 'Successfully updated password.');
+                        $this->session->set_flashdata('msg_class', 'info');
+                        redirect('users/'.$id);
+                } else {
+                    /* error */
+                }
+            }
         }
         
         function _user_exist($id) {

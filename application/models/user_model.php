@@ -131,10 +131,15 @@ class User_model extends CI_Model {
     }
     
     function updateSecuritySettings() {
-        return $this->ion_auth->update_user($this->user_id, array(
-            'password' => $this->get_password(),
+        return $this->ion_auth->update_user($this->get_userid(), array(
             'security_question_id' => $this->get_securityQuestionId(),
             'security_answer' => $this->get_securityAnswer()
+        ));
+    }
+    
+    function updatePassword() {
+        return $this->ion_auth->update_user($this->get_userid(), array(
+            'password' => $this->get_password()
         ));
     }
 }

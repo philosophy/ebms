@@ -4,18 +4,6 @@ $hidden = array('user_id' => $user->id);
 echo form_open('users/update_security_settings/' . $user->id, array('id' => 'user-edit-security-settings'));
 ?>            
 <fieldset>
-    <label>Current Password:</label>
-    <?php echo form_input(array('name' => 'password', 'id' => 'password', 'value' => '', 'placeholder' => 'Current Password', 'type' => 'password')); ?>
-</fieldset>
-<fieldset>
-    <label>New Password:</label>
-    <?php echo form_input(array('name' => 'new_password', 'id' => 'new_password', 'value' => '', 'placeholder' => 'New Password', 'type' => 'password')); ?>
-</fieldset>
-<fieldset>
-    <label>Confirm Password</label>
-    <?php echo form_input(array('name' => 'confirm_password', 'id' => 'confirm_password', 'value' => '', 'placeholder' => 'Confirm Password', 'type' => 'password')); ?>
-</fieldset>
-<fieldset>
     <label>Security Question:</label>
     <select name="security_question">
         <option value="0" <?php echo ($user->security_question_id == 0) ? 'selected = "selected"' : ''; ?>><?php echo $this->security_question[0]; ?></option>

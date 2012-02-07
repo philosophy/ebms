@@ -12,6 +12,8 @@
 
 #wrapper.users.show #personal-info > h3,
 #wrapper.users.edit #personal-info > h3,
+#wrapper.users.show #password-settings > h3,
+#wrapper.users.edit #password-settings > h3,
 #wrapper.users.show #security-settings > h3,
 #wrapper.users.edit #security-settings > h3,
 #wrapper.users.show #employment-info > h3,
@@ -25,6 +27,7 @@
 }
 
 #wrapper.users.show #personal-info > h3 .edit-link,
+#wrapper.users.show #password-settings > h3 .edit-link,
 #wrapper.users.show #security-settings > h3 .edit-link {
     font-size: 0.75em;
     float: right;
@@ -35,6 +38,8 @@
 #wrapper.users.edit #personal-info fieldset,
 #wrapper.users.show #security-settings fieldset,
 #wrapper.users.edit #security-settings fieldset,
+#wrapper.users.show #password-settings fieldset,
+#wrapper.users.edit #password-settings fieldset,
 #wrapper.users.show #employment-info fieldset,
 #wrapper.users.edit #employment-info fieldset {
     border-bottom: 1px solid #F3EFEF;
@@ -44,6 +49,8 @@
 #wrapper.users.edit #personal-info fieldset > label,
 #wrapper.users.show #security-settings fieldset > label,
 #wrapper.users.edit #security-settings fieldset > label,
+#wrapper.users.show #password-settings fieldset > label,
+#wrapper.users.edit #password-settings fieldset > label,
 #wrapper.users.show #employment-info fieldset > label,
 #wrapper.users.edit #employment-info fieldset > label {
     color: #979797;
@@ -58,6 +65,8 @@
 #wrapper.users.edit #personal-info fieldset > span,
 #wrapper.users.show #security-settings fieldset > span,
 #wrapper.users.edit #security-settings fieldset > span,
+#wrapper.users.show #password-settings fieldset > span,
+#wrapper.users.edit #security-settings fieldset > span,
 #wrapper.users.show #employment-info fieldset > span,
 #wrapper.users.edit #employment-info fieldset > span {
     float: left;
@@ -66,7 +75,7 @@
     width: 260px;
 }
 
-#employment-info, #personal-info, #security-settings {
+#employment-info, #personal-info, #security-settings, #password-settings {
     margin-top: 20px;
 }
 
@@ -75,7 +84,8 @@
 }
 
 #personal-info div.loader,
-#security-settings div.loader {
+#security-settings div.loader,
+#password-settings div.loader {
     margin: 50px auto;
 }
 

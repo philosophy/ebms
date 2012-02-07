@@ -66,17 +66,26 @@
                     <span><?php echo $user->work_phone; ?></span>
                 </fieldset>
         </section>
-
-        <section id="security-settings">
+            
+        <section id="password-settings">
             <h3>
-                Security Settings
-                <?php echo anchor(site_url('users/edit_security_settings/' . $user->id), 'Edit', array('class' => 'edit-link')); ?>
+                Password Settings
+                <?php echo anchor(site_url('users/edit_password_settings/' . $user->id), 'Edit', array('class' => 'edit-link')); ?>
             </h3>
             <div class="details">
                 <fieldset>
                     <label>Password:</label>
                     <span>**********</span>
-                </fieldset>
+                </fieldset>                
+            </div>            
+        </section>
+        
+        <section id="security-settings">
+            <h3>
+                Security Settings
+                <?php echo anchor(site_url('users/edit_security_settings/' . $user->id), 'Edit', array('class' => 'edit-link')); ?>
+            </h3>
+            <div class="details">               
                 <fieldset>
                     <label>Security Question:</label>
                     <span>
