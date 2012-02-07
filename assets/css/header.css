@@ -22,7 +22,7 @@
     display: block;
 }
 
-#orb-cont a:hover {    
+#orb-cont a:hover {
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#006EB8', endColorstr='#0474BF');
     background: -webkit-gradient(linear, left top, left bottom, from(#006EB8), to(#0474BF));
     background: -moz-linear-gradient(top, #006EB8, #0474BF);
@@ -43,7 +43,7 @@
     position: relative;
 }
 
-#orb-nav li a {    
+#orb-nav li a {
     text-decoration:none;
     font-family:"Calibri","Tahoma";
     color:#333;
@@ -55,7 +55,7 @@
     padding: 10px 0;
 }
 
-#orb-nav li:hover {    
+#orb-nav li:hover {
     background: #555;
     color: #fff;
     -webkit-box-shadow:0 0 10px #222 inset;
@@ -148,7 +148,7 @@
     margin: 0;
 }
 
-#nav #main-menu ul.sub-nav li ul.inner-nav {    
+#nav #main-menu ul.sub-nav li ul.inner-nav {
     position: absolute;
     top: 0;
     left: -130px;
@@ -178,6 +178,10 @@
 
 #nav #main-menu ul.sub-nav ul.inner-nav a{
     font-size: 1.15em;
+}
+
+#nav ul#user-management-nav {
+    top: 22px !important;
 }
 
 #nav #notifications {
@@ -212,7 +216,7 @@
 
 #notification-list .notif-items a {
     display: block;
-    padding: 10px 5px;    
+    padding: 10px 5px;
     color: #333;
     text-shadow:1px 1px 1px #fff;
     font-family: "Calibri","Tahoma";
@@ -231,7 +235,7 @@
 }
 
 
-#notification-list .notif-items a:hover span.count { 
+#notification-list .notif-items a:hover span.count {
     color:#333;
     text-shadow:1px 1px 1px #fff;
     background:#eee;
@@ -249,8 +253,8 @@
     top: 3px;
 }
 
-#notification-list .notif-items span.title {    
-    margin-left: 35px;    
+#notification-list .notif-items span.title {
+    margin-left: 35px;
 }
 
 #notification-list .notif-items a span.count {
@@ -263,4 +267,3 @@
     color: white;
     padding: 2px 5px;
 }
-    

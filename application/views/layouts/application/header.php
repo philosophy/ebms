@@ -3,7 +3,7 @@
         <a href='#' id="orb-link">
             <?php echo image_asset('logo/orb.png', '', array('id' => 'orb-img')); ?>
         </a>
-        
+
         <ul id="orb-nav" class="hide">
             <li id="orb-nav-list">
                 <a href="#" id="orb-nav-a" class="quick-view" rel="user-guide" name="630">
@@ -46,11 +46,11 @@
             <li class="main-menu-item">
                 <?php echo anchor('dashboard/index', lang('home'), array('class'=>($active_link == 'home') ? 'active' : '')); ?>
             </li>
-            
+
             <li class="main-menu-item">
                 <?php echo anchor('dashboard/index', lang('crm'), array('class'=>($active_link == 'crm') ? 'active' : '')); ?>
             </li>
-            
+
             <li class="main-menu-item with-sub-nav">
                 <?php echo anchor('dashboard/index', lang('sales'), array('class'=>($active_link == 'sales') ? '' : '')); ?>
                 <ul class="sub-nav hide">
@@ -62,49 +62,49 @@
                     </li>
                 </ul>
             </li>
-            
+
             <li class="main-menu-item with-sub-nav">
                 <?php echo anchor('dashboard/index', lang('accounting'), array('class'=>($active_link == 'accounting') ? 'active' : '')); ?>
                 <ul class="sub-nav hide">
                     <li class="sub-nav-item">
                         <?php echo anchor('dashboard/index', lang('accounts_receivable')); ?>
-                    </li>	
+                    </li>
                     <li class="sub-nav-item">
                         <?php echo anchor('dashboard/index', lang('company_payables')); ?>
                     </li>
                     <li class="sub-nav-item">
                         <?php echo anchor('dashboard/index', lang('owners_equity')); ?>
-                    </li>		
+                    </li>
                     <li class="sub-nav-item">
                         <?php echo anchor('dashboard/index', lang('check_records')); ?>
-                    </li>		
+                    </li>
                     <li class="sub-nav-item">
                         <?php echo anchor('dashboard/index', lang('expenses')); ?>
-                    </li>				
+                    </li>
                     <li class="sub-nav-item">
                         <?php echo anchor('dashboard/index', lang('general_ledger')); ?>
-                    </li>		
+                    </li>
                     <li class="sub-nav-item">
                         <?php echo anchor('dashboard/index', lang('cash_flow')); ?>
-                    </li>		
+                    </li>
                     <li class="sub-nav-item">
                         <?php echo anchor('dashboard/index', lang('income_statement')); ?>
-                    </li>		
+                    </li>
                     <li class="sub-nav-item">
                         <?php echo anchor('dashboard/index', lang('balance_sheet')); ?>
-                    </li>		
+                    </li>
                     <li class="sub-nav-item">
                         <?php echo anchor('dashboard/index', lang('posting_of_checks')); ?>
-                    </li>		
+                    </li>
                     <li class="sub-nav-item">
                         <?php echo anchor('dashboard/index', lang('clearing_of_checks')); ?>
-                    </li>		
+                    </li>
                     <li class="sub-nav-item">
                         <?php echo anchor('dashboard/index', lang('bank_records_and_transactions')); ?>
-                    </li>		
+                    </li>
                 </ul>
             </li>
-            
+
             <li class="main-menu-item with-sub-nav">
                 <?php echo anchor('dashboard/index', lang('purchasing'), array('class'=>($active_link == 'purchasing') ? 'active' : '')); ?>
                 <ul class="sub-nav hide">
@@ -119,7 +119,7 @@
                     </li>
                 </ul>
             </li>
-            
+
             <li class="main-menu-item with-sub-nav">
                 <?php echo anchor('dashboard/index', lang('personnel'), array('class'=>($active_link == 'personnel') ? 'active' : '')); ?>
                 <ul class="sub-nav hide">
@@ -147,7 +147,7 @@
                 <?php echo anchor('dashboard/index', lang('inventory'), array('class'=>($active_link == 'inventory') ? 'active' : '')); ?>
                 <ul class="sub-nav hide">
                     <li class="sub-nav-item">
-                        <?php echo anchor('dashboard/index', lang('product_asset_list')); ?>                        
+                        <?php echo anchor('dashboard/index', lang('product_asset_list')); ?>
                     </li>
                     <li class="sub-nav-item">
                         <?php echo anchor('dashboard/index', lang('item_receiving')); ?>
@@ -160,7 +160,7 @@
                     </li>
                 </ul>
             </li>
-            
+
             <li class="main-menu-item with-sub-nav">
                 <?php echo anchor('dashboard/index', lang('reports'), array('class'=>($active_link == 'reports') ? 'active' : '')); ?>
                 <ul class="sub-nav hide">
@@ -228,7 +228,7 @@
                     </li>
                 </ul>
             </li>
-            
+
             <li class="main-menu-item with-sub-nav">
                 <?php echo anchor('dashboard/index', lang('system_records'), array('class'=>($active_link == 'system_records') ? 'active' : '')); ?>
                 <ul class="sub-nav hide">
@@ -339,7 +339,7 @@
                     </li>
                     <li class="sub-nav-item">
                         <a href="#" class="sub-nav-a">User Management </a>
-                        <ul class="inner-nav hide">
+                        <ul class="inner-nav hide" id="user-management-nav">
                             <li >
                                 <a href="Javascript:newPopup('/EBMS/apps/view/systemRecords/userManagement/userControlManager/?page=systemRecords&menu=user-control-manager',600,600)" id="sub-inner-a">User Control Manager</a>
                             </li>
@@ -351,7 +351,7 @@
                             </li>
                         </ul>
                     </li>
-                    
+
                     <li class="sub-nav-item">
                         <?php echo anchor('users/'.Application::current_user()->id, lang('profile'), array('class'=>($active_link == 'system_records') ? 'active' : '')); ?>
                     </li>
