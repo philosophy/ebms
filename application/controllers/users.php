@@ -57,12 +57,6 @@
         function edit_security_settings($id) {
             if ($this->_user_exist($id) && $id == Application::current_user()->id) {
                 
-                /* validate password */
-                
-                /* check if current and new password match */
-                
-                /* check if password length is correct */
-                
                 if($this->input->is_ajax_request()) {
                     send_json_response(INFO_LOG, HTTP_OK, 'user edit security settings form', array('html' => $this->load->view('user/form/security_settings', '', true)));                    
                 }
@@ -138,6 +132,39 @@
                 show_error($lang('unable_to_process_transaction'));
             }
             $this->output->enable_profiler(TRUE);
+        }
+        
+        function update_security_settings($id) {
+            if ($this->_user_exist($id)) {
+                $userObj = $this->User_model;
+                
+                $password = $_POST['password'];
+                $security_question_id = $_POST['security_question'];
+                $security_answer = $_POST['security_answer'];
+                
+                $userObj->set_userid($id);
+                $userObj->set_password($password);
+                $userObj->set_securityQuestionId($security_question_id);
+                $userObj->set_securityAnswer($security_answer);
+                
+                $result = $userObj->updateSecuritySettings();
+                if ($result) {
+                    /* set flash data */
+                        $data['title'] = $this->lang->line('profile');
+                        $data['content'] = 'user/show';
+                        
+                        $this->session->set_flashdata('msg', 'Successfully updated security settings.');
+                        $this->session->set_flashdata('msg_class', 'info');
+                        redirect('users/'.$id);
+                } else {
+                    /* error */
+                }
+            }
+                /* validate password */
+
+                /* check if current and new password match */
+
+                /* check if password length is correct */
         }
         
         function _user_exist($id) {

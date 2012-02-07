@@ -18,9 +18,9 @@ echo form_open('users/update_security_settings/' . $user->id, array('id' => 'use
 <fieldset>
     <label>Security Question:</label>
     <select name="security_question">
-        <option value="0" selected=<?php echo ($user->security_question_id == 0) ? 'selected' : ''; ?>><?php echo $this->security_question[0]; ?></option>
-        <option value="1" selected=<?php echo ($user->security_question_id == 1) ? 'selected' : ''; ?>><?php echo $this->security_question[1]; ?></option>
-        <option value="2" selected=<?php echo ($user->security_question_id == 1) ? 'selected' : ''; ?>><?php echo $this->security_question[2]; ?></option>
+        <option value="0" <?php echo ($user->security_question_id == 0) ? 'selected = "selected"' : ''; ?>><?php echo $this->security_question[0]; ?></option>
+        <option value="1" <?php echo ($user->security_question_id == 1) ? 'selected = "selected"' : ''; ?>><?php echo $this->security_question[1]; ?></option>
+        <option value="2" <?php echo ($user->security_question_id == 2) ? 'selected = "selected"' : ''; ?>><?php echo $this->security_question[2]; ?></option>
     </select>
 </fieldset>
 <fieldset>
