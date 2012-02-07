@@ -10,6 +10,7 @@
             echo css_asset('button.css');
             echo css_asset('footer.css');
             echo css_asset('lib/clock.css');
+            echo css_asset('lib/flash.css');
 //            $index_css = $this->router->class.'/index.css';
 //            echo css_asset($index_css);
             echo css_asset('home/index.css');
@@ -20,6 +21,7 @@
             echo js_asset('vendor/jquery-1.7.1.min.js');            
             echo js_asset('vendor/jquery.hoverIntent.js');
             echo js_asset('vendor/jquery.rotate.1-1.js');
+            echo js_asset('vendor/jquery.validate.js');
         ?>
     </head>
     <body>
@@ -58,6 +60,8 @@
             echo js_asset('lib/header.js');
             echo js_asset('util/namespace_checker.js');
             echo js_asset('views/dashboard.js');
+            echo js_asset('views/users.js');
+            echo js_asset('lib/flash.js');
 
         ?>
         <?php $this->load->view('layouts/application/page_specific_javascript'); ?>

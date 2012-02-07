@@ -12,6 +12,8 @@
 
 #wrapper.users.show #personal-info > h3,
 #wrapper.users.edit #personal-info > h3,
+#wrapper.users.show #security-settings > h3,
+#wrapper.users.edit #security-settings > h3,
 #wrapper.users.show #employment-info > h3,
 #wrapper.users.edit #employment-info > h3 {
     border-bottom: 1px solid #F3EFEF;
@@ -22,13 +24,17 @@
     padding: 0 0 10px 10px;
 }
 
-#wrapper.users.show #personal-info > h3 #edit-account {
+#wrapper.users.show #personal-info > h3 .edit-link,
+#wrapper.users.show #security-settings > h3 .edit-link {
     font-size: 0.75em;
-    margin-left: 450px;
+    float: right;
+    margin-right: 30px;
 }
 
 #wrapper.users.show #personal-info fieldset,
 #wrapper.users.edit #personal-info fieldset,
+#wrapper.users.show #security-settings fieldset,
+#wrapper.users.edit #security-settings fieldset,
 #wrapper.users.show #employment-info fieldset,
 #wrapper.users.edit #employment-info fieldset {
     border-bottom: 1px solid #F3EFEF;
@@ -36,6 +42,8 @@
 
 #wrapper.users.show #personal-info fieldset > label,
 #wrapper.users.edit #personal-info fieldset > label,
+#wrapper.users.show #security-settings fieldset > label,
+#wrapper.users.edit #security-settings fieldset > label,
 #wrapper.users.show #employment-info fieldset > label,
 #wrapper.users.edit #employment-info fieldset > label {
     color: #979797;
@@ -48,6 +56,8 @@
 
 #wrapper.users.show #personal-info fieldset > span,
 #wrapper.users.edit #personal-info fieldset > span,
+#wrapper.users.show #security-settings fieldset > span,
+#wrapper.users.edit #security-settings fieldset > span,
 #wrapper.users.show #employment-info fieldset > span,
 #wrapper.users.edit #employment-info fieldset > span {
     float: left;
@@ -56,6 +66,31 @@
     width: 260px;
 }
 
-#employment-info, #personal-info {
+#employment-info, #personal-info, #security-settings {
     margin-top: 20px;
+}
+
+#personal-info {
+    min-height: 359px;
+}
+
+#personal-info div.loader,
+#security-settings div.loader {
+    margin: 50px auto;
+}
+
+fieldset input {
+    margin-top: 8px;
+}
+
+fieldset.form-buttons {
+    margin-left: 152px;
+}
+
+fieldset.form-buttons span.loader {
+    width: 16px;
+    position: absolute;
+    top: 13px;
+    left: 121px;
+    overflow: hidden;
 }

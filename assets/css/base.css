@@ -37,3 +37,22 @@ label, p, span, h1, h2, h3, h4, h5 {
 a {
     text-decoration: none;
 }
+
+span.loader, div.loader {
+    background: url('../image/ajax-loader.GIF') no-repeat;
+    width: 16px;
+    height: 16px;
+}
+
+fieldset {
+    position: relative;
+}
+
+div.error_tip {
+   float: left;
+    color: red;
+    font-size: 0.75em;
+    top: 12px;
+    position: absolute;
+    left: 325px; 
+}

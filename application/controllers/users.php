@@ -5,6 +5,7 @@
         public $gender = array(0=>'Male', 1=>'Female');
         public $status = array(0=>'Single', 1=>'Married', 2=>'Widowed');
         public $employee_status = array(0=>'Regular', 1=>'Probitionary', 2=>'Relief', 3=>'Contractual');
+        public $security_question = array(0=>'What is your favorite snack?', 1=>"What is your mother's maiden name?", 2=>"What is your pet's name?");
         
         function __construct() {
             parent::__construct();
@@ -39,13 +40,33 @@
         
         function edit($id) {
             if ($this->_user_exist($id) && $id == Application::current_user()->id) {
-                $data['title'] = $this->lang->line('edit_profile');
-                $data['content'] = 'user/edit';
-                $this->parser->parse('layouts/application', $data);
+                if($this->input->is_ajax_request()) {
+                    send_json_response(INFO_LOG, HTTP_OK, 'user edit account form', array('html' => $this->load->view('user/edit', '', true)));                    
+                } else {
+                    $data['title'] = $this->lang->line('edit_profile');
+                    $data['content'] = 'user/edit';
+                    $this->parser->parse('layouts/application', $data);
+                    
+                    $this->output->enable_profiler(TRUE);
+                }
             } else {
                 show_404();
             }
-            $this->output->enable_profiler(TRUE);
+        }
+        
+        function edit_security_settings($id) {
+            if ($this->_user_exist($id) && $id == Application::current_user()->id) {
+                
+                /* validate password */
+                
+                /* check if current and new password match */
+                
+                /* check if password length is correct */
+                
+                if($this->input->is_ajax_request()) {
+                    send_json_response(INFO_LOG, HTTP_OK, 'user edit security settings form', array('html' => $this->load->view('user/form/security_settings', '', true)));                    
+                }
+            }
         }
         
         function update($id) {            
@@ -53,7 +74,6 @@
                 $userObj = $this->User_model;
                 
                 $this->load->library('form_validation');                
-                
                 $this->form_validation->set_rules('username', 'Username', 'required');
                 $this->form_validation->set_rules('first_name', 'First Name', 'required');
                 $this->form_validation->set_rules('last_name', 'Last Name', 'required');
@@ -103,7 +123,8 @@
                         $data['title'] = $this->lang->line('profile');
                         $data['content'] = 'user/show';
                         
-                        $this->session->set_flashdata('success_message', 'Successfully updated account.');
+                        $this->session->set_flashdata('msg', 'Successfully updated account.');
+                        $this->session->set_flashdata('msg_class', 'info');
                         redirect('users/'.$userObj->get_userid());
                     } else {
                         /* flash an error occured */
