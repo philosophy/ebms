@@ -81,11 +81,11 @@ class Audit_trail_model extends CI_Model {
     }
 
     function get_limit() {
-        return $this->limit;
+        return (int)$this->limit;
     }
 
     function get_offset() {
-        return $this->offset;
+        return (int)$this->offset;
     }
 
     function insertUserActions() {
@@ -104,7 +104,7 @@ class Audit_trail_model extends CI_Model {
 
     function countUserActions() {
         $query = $this->db->query('SELECT * FROM audit_trail');
-        return $query->num_fields();
+        return $query->num_rows();
     }
 
     function getUserActions() {
@@ -112,6 +112,10 @@ class Audit_trail_model extends CI_Model {
         $query = $this->db->query($sql, array($this->get_limit(), $this->get_offset()));
 
         return $query->result();
+    }
+    
+    function getUserActionsByDate() {
+//        $sql = "SELECT * FROM audit_trail as trail inner join users as u where u.id = trail.user_id and  LIMIT ? OFFSET ?"
     }
 
 }
