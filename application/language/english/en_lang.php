@@ -126,12 +126,17 @@
     $lang['edit_profile'] = 'Edit Profile';
     $lang['control_manager'] = 'Control Manager';
     $lang['audit_trail'] = 'Audit Trail';
+    $lang['department_manager'] = 'Department Manager';
 
     /* page navs*/
     // control manager
     $lang['user_list'] = 'User List';
     $lang['create_user'] = 'Create User';
     $lang['archive'] = 'Archive';    
+    
+    // department manager
+    $lang['department_list'] = 'Department List';
+    $lang['create_department'] = 'Create Department';
 
     /* error messages */
     $lang['unable_to_process_transaction'] = 'Unable to process transactions';

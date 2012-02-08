@@ -259,9 +259,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="Javascript:newPopup('/EBMS/apps/view/systemRecords/fileMaintenance/departmentManager/index.php',500,630)" id="sub-inner-a">
-                                    Department Manager
-                                </a>
+                                <?php echo anchor('file_maintenance/department_manager/index', lang('department_manager')); ?>
                             </li>
                             <li>
                                 <a href="Javascript:newPopup('/EBMS/apps/view/systemRecords/fileMaintenance/areaTypeManager/index.php',570,630)" id="sub-inner-a">
