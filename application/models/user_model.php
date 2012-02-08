@@ -1,7 +1,7 @@
 <?php
 
 class User_model extends CI_Model {
-    
+
     private $user_id = '';
     private $username = '';
     private $first_name = '';
@@ -17,11 +17,11 @@ class User_model extends CI_Model {
     private $password;
     private $security_question_id;
     private $security_answer;
-    
+
     function __construct() {
         parent::__construct();
     }
-    
+
     function set_userid($val) {
         $this->user_id = $val;
     }
@@ -35,7 +35,7 @@ class User_model extends CI_Model {
         $this->middle_name = $val;
     }
     function set_last_name($val) {
-        $this->last_name = $val;        
+        $this->last_name = $val;
     }
     function set_email($val) {
         $this->email = $val;
@@ -62,12 +62,12 @@ class User_model extends CI_Model {
         $this->password = trim($val);
     }
     function set_securityQuestionId($val) {
-        $this->security_question_id = $val; 
+        $this->security_question_id = $val;
     }
     function set_securityAnswer($val) {
         $this->security_answer = trim($val);
     }
-    
+
     function get_userid() {
         return $this->user_id;
     }
@@ -81,7 +81,7 @@ class User_model extends CI_Model {
         return $this->middle_name;
     }
     function get_last_name() {
-        return $this->last_name;        
+        return $this->last_name;
     }
     function get_email() {
         return $this->email;
@@ -108,12 +108,12 @@ class User_model extends CI_Model {
         return $this->password;
     }
     function get_securityQuestionId() {
-        return  $this->security_question_id; 
+        return  $this->security_question_id;
     }
     function get_securityAnswer() {
         return $this->security_answer;
     }
-    
+
     function update_profile() {
         return $this->ion_auth->update_user($this->user_id, array(
             'username' => $this->get_username(),
@@ -129,18 +129,29 @@ class User_model extends CI_Model {
             'work_phone' => $this->get_work_phone()
         ));
     }
-    
+
     function updateSecuritySettings() {
         return $this->ion_auth->update_user($this->get_userid(), array(
             'security_question_id' => $this->get_securityQuestionId(),
             'security_answer' => $this->get_securityAnswer()
         ));
     }
-    
+
     function updatePassword() {
         return $this->ion_auth->update_user($this->get_userid(), array(
             'password' => $this->get_password()
         ));
+    }
+
+    function emailExists() {
+        $sql = "SELECT * FROM users WHERE id != ? and email = ?";
+        $query = $this->db->query($sql, array($this->get_userid(), $this->get_email()));
+
+        if ($query->num_rows() > 0) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }
 

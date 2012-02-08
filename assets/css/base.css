@@ -1,4 +1,4 @@
-/* 
+/*
     Document   : base
     Created on : 01 25, 12, 12:23:36 AM
     Author     : SSI
@@ -6,7 +6,7 @@
         Purpose of the stylesheet follows.
 */
 
-root { 
+root {
     display: block;
 }
 
@@ -48,11 +48,10 @@ fieldset {
     position: relative;
 }
 
-div.error_tip {
-   float: left;
-    color: red;
+label.error {
+    color: red !important;
     font-size: 0.75em;
-    top: 12px;
+    top: 0;
     position: absolute;
-    left: 325px; 
+    left: 325px;
 }

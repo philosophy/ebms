@@ -1,6 +1,6 @@
 <?php $user = $this->user; ?>
 <article class="aside-left">
-    
+
 </article>
 
 <article class="primary">
@@ -14,11 +14,11 @@
             <div class="details">
                 <fieldset>
                     <label>Username:</label>
-                    <span><?php echo $user->username; ?></span>
+                    <span id="username-text"><?php echo $user->username; ?></span>
                 </fieldset>
                 <fieldset>
                     <label>Name:</label>
-                    <span>
+                    <span id="name-text">
                         <?php
                         $name = $user->first_name . ' ' . $user->middle_name . ' ' . $user->last_name;
                         echo $name;
@@ -27,15 +27,15 @@
                 </fieldset>
                 <fieldset>
                     <label>Email:</label>
-                    <span><?php echo $user->email; ?></span>
+                    <span id="email-text"><?php echo $user->email; ?></span>
                 </fieldset>
                 <fieldset>
                     <label>Address:</label>
-                    <span><?php echo $user->address; ?></span>
+                    <span id="address-text"><?php echo $user->address; ?></span>
                 </fieldset>
                 <fieldset>
                     <label>Gender:</label>
-                    <span>
+                    <span id="gender-text">
                         <?php
                         if (isset($user->gender)) {
                             echo $this->gender[$user->gender];
@@ -45,11 +45,11 @@
                 </fieldset>
                 <fieldset>
                     <label>Birthdate:</label>
-                    <span><?php echo $user->date_of_birth; ?></span>
+                    <span id="birthdate-text"><?php echo $user->date_of_birth; ?></span>
                 </fieldset>
                 <fieldset>
                     <label>Marital Status:</label>
-                    <span>
+                    <span id="status-text">
                         <?php
                         if (isset($user->status_id)) {
                             echo $this->status[$user->status_id];
@@ -59,14 +59,14 @@
                 </fieldset>
                 <fieldset>
                     <label>Home Phone:</label>
-                    <span><?php echo $user->home_phone; ?></span>
+                    <span id="home-phone-text"><?php echo $user->home_phone; ?></span>
                 </fieldset>
                 <fieldset>
                     <label>Work Phone:</label>
-                    <span><?php echo $user->work_phone; ?></span>
+                    <span id="work-phone-text"><?php echo $user->work_phone; ?></span>
                 </fieldset>
         </section>
-            
+
         <section id="password-settings">
             <h3>
                 Password Settings
@@ -76,20 +76,20 @@
                 <fieldset>
                     <label>Password:</label>
                     <span>**********</span>
-                </fieldset>                
-            </div>            
+                </fieldset>
+            </div>
         </section>
-        
+
         <section id="security-settings">
             <h3>
                 Security Settings
                 <?php echo anchor(site_url('users/edit_security_settings/' . $user->id), 'Edit', array('class' => 'edit-link')); ?>
             </h3>
-            <div class="details">               
+            <div class="details">
                 <fieldset>
                     <label>Security Question:</label>
                     <span>
-                        <?php 
+                        <?php
                             if (isset($user->security_question_id)) {
                                 echo $this->security_question[$user->security_question_id];
                             } else {
@@ -98,9 +98,9 @@
                         ?>
                     </span>
                 </fieldset>
-            </div>            
+            </div>
         </section>
-            
+
         <section id="employment-info">
             <h3>Employment Info</h3>
             <fieldset>
@@ -138,7 +138,7 @@
                     }
                     ?>
                 </span>
-            </fieldset>           
+            </fieldset>
         </section>
     </div>
 </article>
