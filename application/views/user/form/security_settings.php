@@ -2,7 +2,7 @@
 <?php
 $hidden = array('user_id' => $user->id);
 echo form_open('users/update_security_settings/' . $user->id, array('id' => 'user-edit-security-settings'));
-?>            
+?>
 <fieldset>
     <label>Security Question:</label>
     <select name="security_question">
@@ -13,7 +13,7 @@ echo form_open('users/update_security_settings/' . $user->id, array('id' => 'use
 </fieldset>
 <fieldset>
     <label>Security Answer:</label>
-    <?php echo form_input(array('name' => 'security_answer', 'id' => 'security_answer', 'value' => $user->security_answer, 'placeholder' => 'Security Answer')); ?>
+    <?php echo form_input(array('name' => 'security_answer', 'id' => 'security-answer', 'value' => $user->security_answer, 'placeholder' => 'Security Answer')); ?>
 </fieldset>
 <?php echo form_submit('edit_security_submit', 'Update'); ?>
 <?php echo anchor(site_url('users/' . $user->id), 'Cancel', array('class' => 'cancel-link')); ?>

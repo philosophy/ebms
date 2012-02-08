@@ -15,6 +15,7 @@ class User_model extends CI_Model {
     private $home_phone;
     private $work_phone;
     private $password;
+    private $new_password;
     private $security_question_id;
     private $security_answer;
 
@@ -60,6 +61,9 @@ class User_model extends CI_Model {
     }
     function set_password($val) {
         $this->password = trim($val);
+    }
+    function set_new_password($val) {
+        $this->new_password = trim($val);
     }
     function set_securityQuestionId($val) {
         $this->security_question_id = $val;
@@ -107,6 +111,9 @@ class User_model extends CI_Model {
     function get_password() {
         return $this->password;
     }
+    function get_new_password() {
+        return $this->new_password;
+    }
     function get_securityQuestionId() {
         return  $this->security_question_id;
     }
@@ -131,15 +138,16 @@ class User_model extends CI_Model {
     }
 
     function updateSecuritySettings() {
-        return $this->ion_auth->update_user($this->get_userid(), array(
+        $result = $this->ion_auth->update_user($this->get_userid(), array(
             'security_question_id' => $this->get_securityQuestionId(),
             'security_answer' => $this->get_securityAnswer()
         ));
+        return $result;
     }
 
     function updatePassword() {
         return $this->ion_auth->update_user($this->get_userid(), array(
-            'password' => $this->get_password()
+            'password' => $this->get_new_password()
         ));
     }
 
@@ -148,6 +156,36 @@ class User_model extends CI_Model {
         $query = $this->db->query($sql, array($this->get_userid(), $this->get_email()));
 
         if ($query->num_rows() > 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    function retrieveUserEmail() {
+        $sql = "SELECT email FROM users WHERE id = ?";
+        $query = $this->db->query($sql, array($this->get_userid()));
+
+        if ($query->num_rows() > 0) {
+            $row = $query->row();
+            return $row->email;
+        } else {
+            return null;
+        }
+    }
+
+    function verifyOldPassword() {
+        $sql = "SELECT password FROM users where id = ?";
+        $query = $this->db->query($sql, array($this->get_userid()));
+
+        if ($query->num_rows() > 0) {
+            $row = $query->row();
+            $oldpass = $row->password;
+        } else {
+            return false;
+        }
+        $new_pass =  $this->ion_auth->hash_password_db($this->get_email(), $this->get_password());
+        if ($oldpass == $new_pass) {
             return true;
         } else {
             return false;

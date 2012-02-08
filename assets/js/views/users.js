@@ -115,8 +115,8 @@ com.ebms.views.users = {
                     required: "Email can't be blank"
                 }
             },
-            submitHandler: function(form, e) {
-                if( $('#personal-info div.error_tip:visible').length > 0 ) {
+            submitHandler: function(form) {
+                if( $('#personal-info label.error:visible').length > 0 ) {
                     return false;
                 } else {
                     com.ebms.views.users.updateProfileSubmitHandler();
@@ -125,6 +125,183 @@ com.ebms.views.users = {
         };
 
         $('#user-edit').validate(editProfile);
+    },
+
+    initEditPasswordValidations: function() {
+        var editPasswordSettings = {
+            rules: {
+                current_password: {
+                    required: true
+                },
+                new_password: {
+                    required: true
+                },
+                confirm_password: {
+                    required: true
+                }
+            },
+            messages: {
+                current_password: {
+                    required: "Current password can't be blank"
+                },
+                new_password: {
+                    required: "New password can't be blank"
+                },
+                confirm_password: {
+                    required: "Confirm password can't be blank"
+                }
+            },
+            submitHandler: function(form) {
+                if( $('#password-settings label.error:visible').length > 0) {
+                    return false;
+                } else {
+                    com.ebms.views.users.updatePasswordSubmitHandler();
+                }
+            }
+        };
+
+        $('#user-edit-password-settings').validate(editPasswordSettings);
+    },
+
+    initEditSecuritySettingsValidation: function() {
+        var editSecuritySettingsValidation = {
+            rules: {
+                security_answer: {
+                    required: true
+                }
+            },
+            messages: {
+                security_answer: {
+                    required: "Security answer can't be blank"
+                }
+            },
+            submitHandler: function(form) {
+                if( $('#security-settings label.error:visible').length > 0) {
+                    return false;
+                } else {
+                    com.ebms.views.users.updateSecuritySubmitHandler();
+                }
+            }
+        };
+
+        $('#user-edit-security-settings').validate(editSecuritySettingsValidation);
+    },
+
+    updateSecuritySubmitHandler: function() {
+        var $securitySettingsWrapper = $('#security-settings');
+        var $buttonsContainer = $securitySettingsWrapper.find('fieldset.form-buttons');
+
+        /* disable buttons */
+        $buttonsContainer.find('input, a').attr('disabled', 'disabled');
+
+        /* show loader */
+        $buttonsContainer.append('<span class="loader"></span>');
+
+        var securityAnswer = $.trim($('#security-answer').val()),
+            securityQuestionId = $.trim($('select[name="security_question"] option:selected').val());
+
+        var data = {
+            security_answer: securityAnswer,
+            security_question_id: securityQuestionId
+        };
+
+        $.ajax({
+            url: $('#user-edit-security-settings', $securitySettingsWrapper).attr('action'),
+            dataType: 'json',
+            data: data,
+            type: 'POST',
+            success: function(data) {
+                if(data.code === 200) {
+                    var txt;
+                    if (securityAnswer === '0') {
+                        txt = 'What is your favorite snack?';
+                    } else if (securityAnswer === '1') {
+                        txt = "What is your mother's maiden name?";
+                    }  else if (securityAnswer === '2') {
+                        txt = "What is your pet's name?";
+                    }
+                    $('#security-question').text(txt);
+                    /* remove the form */
+                    $('#user-edit-security-settings').fadeOut('slow', function() {
+                        $(this).remove();
+                    });
+
+                    /* show details */
+                    $securitySettingsWrapper.find('div.details').show();
+                    $securitySettingsWrapper.find('a.edit-link').show();
+                    com.ebms.widgets.flash.flashMessage(data.message)
+                } else if (data.code == 412) {
+                    com.ebms.widgets.flash.flashMessage(data.message)
+                }
+            },
+            complete: function() {
+                $('#security-settings').find('fieldset.form-buttons')
+                .find('input, a').removeAttr('disabled')
+                .end().find('span.loader').remove();
+            },
+            error: function() {
+                alert('An error has occured, please refresh your page!');
+            }
+        });
+
+        return false;
+    },
+
+    updatePasswordSubmitHandler: function() {
+
+        var $passwordSettingsWrapper = $('#password-settings');
+        var $buttonsContainer = $passwordSettingsWrapper.find('fieldset.form-buttons');
+
+        /* disable buttons */
+        $buttonsContainer.find('input, a').attr('disabled', 'disabled');
+
+        /* show loader */
+        $buttonsContainer.append('<span class="loader"></span>');
+
+        var currentPassword = $.trim($('#current-password').val()),
+            newPassword = $.trim($('#new-password').val()),
+            confirmPassword = $.trim($('#confirm-password').val());
+
+        var data = {
+            current_password: currentPassword,
+            new_password: newPassword,
+            confirm_password: confirmPassword
+        }
+        $.ajax({
+            url: $('#user-edit-password-settings', $passwordSettingsWrapper).attr('action'),
+            dataType: 'json',
+            data: data,
+            type: 'POST',
+            success: function(data) {
+                if(data.code === 200) {
+                    $('#current-password').text('');
+                    $('#new-password').text('');
+                    $('#confirm-password').text('');
+
+                    /* remove the form */
+                    $('#user-edit-password-settings').fadeOut('slow', function() {
+                        $(this).remove();
+                    });
+
+                    /* show details */
+                    $passwordSettingsWrapper.find('div.details').show();
+                    $passwordSettingsWrapper.find('a.edit-link').show();
+                    com.ebms.widgets.flash.flashMessage(data.message)
+                } else if (data.code == 412) {
+                    com.ebms.widgets.flash.flashMessage(data.message)
+                }
+            },
+            complete: function() {
+                $('#password-settings').find('fieldset.form-buttons')
+                .find('input, a').removeAttr('disabled')
+                .end().find('span.loader').remove();
+            },
+            error: function() {
+                alert('An error has occured, please refresh your page!');
+            }
+        });
+
+        return false;
     },
 
     hideEditForm: function(e) {
@@ -170,10 +347,17 @@ com.ebms.views.users = {
             success: function(data) {
                 $info.find('div.loader').hide();
                 $info.append(data.data.html).fadeIn();
+                var id = $(data.data.html).attr('id');
+                if (id === 'user-edit') {
+                    com.ebms.views.users.initEditProfileValidations();
+                } else if (id === 'user-edit-password-settings') {
+                    com.ebms.views.users.initEditPasswordValidations();
+                } else if (id === 'user-edit-security-settings') {
+                    com.ebms.views.users.initEditSecuritySettingsValidation();
+                }
             },
             complete: function() {
                 $this.removeData('sending');
-                com.ebms.views.users.initEditProfileValidations();
             },
             error: function() {
                 alert('An error has occured, please refresh your page!');

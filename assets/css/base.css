@@ -54,4 +54,5 @@ label.error {
     top: 0;
     position: absolute;
     left: 325px;
+    width: auto !important;
 }

@@ -88,7 +88,7 @@
             <div class="details">
                 <fieldset>
                     <label>Security Question:</label>
-                    <span>
+                    <span id="security-question">
                         <?php
                             if (isset($user->security_question_id)) {
                                 echo $this->security_question[$user->security_question_id];

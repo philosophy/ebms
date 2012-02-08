@@ -75,7 +75,7 @@
         function update($id) {
             if ($this->_user_exist($id)) {
                 $user = new $this->User_model;
-                
+
                 $username = $_POST['username'];
                 $first_name = $_POST['first_name'];
                 $middle_name = $_POST['middle_name'];
@@ -143,57 +143,64 @@
 
         function update_security_settings($id) {
             if ($this->_user_exist($id)) {
-                $userObj = $this->User_model;
+                $user = new $this->User_model;
 
-                $security_question_id = $_POST['security_question'];
+                $security_question_id = $_POST['security_question_id'];
                 $security_answer = $_POST['security_answer'];
 
-                $userObj->set_userid($id);
-                $userObj->set_securityQuestionId($security_question_id);
-                $userObj->set_securityAnswer($security_answer);
+                $user->set_userid($id);
+                $user->set_securityQuestionId($security_question_id);
+                $user->set_securityAnswer($security_answer);
 
-                $result = $userObj->updateSecuritySettings();
-
+                $result = $user->updateSecuritySettings();
                 if ($result) {
-                    /* set flash data */
-                        $data['title'] = $this->lang->line('profile');
-                        $data['content'] = 'user/show';
-
-                        $this->session->set_flashdata('msg', 'Successfully updated security settings.');
-                        $this->session->set_flashdata('msg_class', 'info');
-                        redirect('users/'.$id);
+                    if ($this->input->is_ajax_request()) {
+                        send_json_response(INFO_LOG, HTTP_OK, 'security settings updated successfully', array('security_question_id' => $security_question_id));
+                    }
                 } else {
                     /* error */
+                    if ($this->input->is_ajax_request()) {
+                        send_json_response(ERROR_LOG, HTTP_BAD_REQUEST, 'an error has occured');
+                    }
                 }
             }
         }
 
         function update_password_settings($id) {
             if ($this->_user_exist($id)) {
-                $userObj = $this->User_model;
+                $user = $this->User_model;
 
-                $password = $_POST['current_password'];
+                $current_password = $_POST['current_password'];
                 $new_password = $_POST['new_password'];
                 $confirm_password = $_POST['confirm_password'];
 
+                $user->set_userid($id);
+                $email = $user->retrieveUserEmail();
+                $user->set_email($email);
                 /* TODO */
-                /* validate if password is correct */
+                /* validate if current password is not empty */
+                /* validate if current password is correct */
+                $user->set_password($current_password);
+                if (!$user->verifyOldPassword()) {
+                    send_json_response(ERROR_LOG, HTTP_FAIL_PRECON, 'incorrect password');
+                    exit;
+                }
+                /* validate if new password is not empty */
+                /* validate if confirm password is not empty */
                 /* validate if new password and confirm password match */
                 /* validate password length */
 
-                $userObj->set_userid($id);
-                $userObj->set_password($new_password);
-                $result = $userObj->updatePassword();
+                $user->set_new_password($new_password);
+                $result = $user->updatePassword();
                  if ($result) {
-                    /* set flash data */
-                        $data['title'] = $this->lang->line('profile');
-                        $data['content'] = 'user/show';
-
-                        $this->session->set_flashdata('msg', 'Successfully updated password.');
-                        $this->session->set_flashdata('msg_class', 'info');
-                        redirect('users/'.$id);
+                     if($this->input->is_ajax_request()) {
+                        send_json_response(INFO_LOG, HTTP_OK, 'updated password successfully');
+                     }
                 } else {
                     /* error */
+                    if($this->input->is_ajax_request()) {
+                        send_json_response(ERROR_LOG, HTTP_BAD_REQUEST, 'an error has occured');
+                    }
                 }
             }
         }

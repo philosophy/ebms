@@ -77,7 +77,7 @@ class Ion_auth_model extends CI_Model
 		$this->salt_length     	   = $this->config->item('salt_length', 'ion_auth');
 		$this->meta_join       	   = $this->config->item('join', 'ion_auth');
 		$this->min_password_length = $this->config->item('min_password_length', 'ion_auth');
-		
+
 		/**
 		* Checks if salt length is at least the length
 		* of the minimum password length.
@@ -660,7 +660,7 @@ class Ion_auth_model extends CI_Model
 		$this->db->where_in($this->tables['groups'].'.name', $group);
 	    }
 
-		
+
 	    if (isset($this->ion_auth->_extra_where) && !empty($this->ion_auth->_extra_where))
 	    {
 			$this->db->where($this->ion_auth->_extra_where);
@@ -669,7 +669,7 @@ class Ion_auth_model extends CI_Model
 
 		if (isset($limit) && isset($offset))
 			$this->db->limit($limit, $offset);
-		
+
 
 	    return $this->db->get($this->tables['users']);
 	}
@@ -694,7 +694,7 @@ class Ion_auth_model extends CI_Model
 	    if (isset($this->ion_auth->_extra_where) && !empty($this->ion_auth->_extra_where))
 	    {
 			$this->db->where($this->ion_auth->_extra_where);
-	    }		
+	    }
 
 		$this->db->from($this->tables['users']);
 
@@ -798,7 +798,7 @@ class Ion_auth_model extends CI_Model
 
 	    return $this->get_users();
 	}
-	
+
 	/**
 	 * get_user_by_identity
 	 *                                      //copied from above ^
@@ -941,11 +941,14 @@ class Ion_auth_model extends CI_Model
 			$this->db->where($this->ion_auth->_extra_where);
 
 			$this->db->update($this->tables['users'], $data, array('id' => $id));
+                        echo $this->db->last_query();
+                        die();
 	    }
 
 	    if ($this->db->trans_status() === FALSE)
 	    {
 			$this->db->trans_rollback();
+                        echo $this->db->last_query();
 			return FALSE;
 	    }
 
