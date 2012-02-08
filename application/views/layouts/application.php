@@ -16,8 +16,21 @@
             echo css_asset('dashboard/index.css');
             echo css_asset('user/index.css');
             echo css_asset('user/edit.css');
-            
-            echo js_asset('vendor/jquery-1.7.1.min.js');            
+        ?>
+
+            <!--[if lt IE 9]>
+            <script>
+            document.createElement('header');
+            document.createElement('nav');
+            document.createElement('section');
+            document.createElement('article');
+            document.createElement('aside');
+            document.createElement('footer');
+            document.createElement('hgroup');
+            </script>
+            <![endif]-->
+        <?php
+            echo js_asset('vendor/jquery-1.7.1.min.js');
             echo js_asset('vendor/jquery.hoverIntent.js');
             echo js_asset('vendor/jquery.rotate.1-1.js');
         ?>
@@ -57,6 +70,7 @@
             echo js_asset('lib/clock.js');
             echo js_asset('lib/header.js');
             echo js_asset('util/namespace_checker.js');
+            echo js_asset('util/html5.js');
             echo js_asset('views/dashboard.js');
 
         ?>
