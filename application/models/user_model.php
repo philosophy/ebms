@@ -14,6 +14,9 @@ class User_model extends CI_Model {
     private $status_id;
     private $home_phone;
     private $work_phone;
+    private $password;
+    private $security_question_id;
+    private $security_answer;
     
     function __construct() {
         parent::__construct();
@@ -55,6 +58,16 @@ class User_model extends CI_Model {
     function set_work_phone($val) {
         $this->work_phone = $val;
     }
+    function set_password($val) {
+        $this->password = trim($val);
+    }
+    function set_securityQuestionId($val) {
+        $this->security_question_id = $val; 
+    }
+    function set_securityAnswer($val) {
+        $this->security_answer = trim($val);
+    }
+    
     function get_userid() {
         return $this->user_id;
     }
@@ -91,6 +104,15 @@ class User_model extends CI_Model {
     function get_work_phone() {
         return $this->work_phone;
     }
+    function get_password() {
+        return $this->password;
+    }
+    function get_securityQuestionId() {
+        return  $this->security_question_id; 
+    }
+    function get_securityAnswer() {
+        return $this->security_answer;
+    }
     
     function update_profile() {
         return $this->ion_auth->update_user($this->user_id, array(
@@ -105,6 +127,19 @@ class User_model extends CI_Model {
             'status_id' => $this->get_status_id(),
             'home_phone' => $this->get_home_phone(),
             'work_phone' => $this->get_work_phone()
+        ));
+    }
+    
+    function updateSecuritySettings() {
+        return $this->ion_auth->update_user($this->get_userid(), array(
+            'security_question_id' => $this->get_securityQuestionId(),
+            'security_answer' => $this->get_securityAnswer()
+        ));
+    }
+    
+    function updatePassword() {
+        return $this->ion_auth->update_user($this->get_userid(), array(
+            'password' => $this->get_password()
         ));
     }
 }

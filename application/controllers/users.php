@@ -5,6 +5,7 @@
         public $gender = array(0=>'Male', 1=>'Female');
         public $status = array(0=>'Single', 1=>'Married', 2=>'Widowed');
         public $employee_status = array(0=>'Regular', 1=>'Probitionary', 2=>'Relief', 3=>'Contractual');
+        public $security_question = array(0=>'What is your favorite snack?', 1=>"What is your mother's maiden name?", 2=>"What is your pet's name?");
         
         function __construct() {
             parent::__construct();
@@ -39,13 +40,36 @@
         
         function edit($id) {
             if ($this->_user_exist($id) && $id == Application::current_user()->id) {
-                $data['title'] = $this->lang->line('edit_profile');
-                $data['content'] = 'user/edit';
-                $this->parser->parse('layouts/application', $data);
+                if($this->input->is_ajax_request()) {
+                    send_json_response(INFO_LOG, HTTP_OK, 'user edit account form', array('html' => $this->load->view('user/edit', '', true)));                    
+                } else {
+                    $data['title'] = $this->lang->line('edit_profile');
+                    $data['content'] = 'user/edit';
+                    $this->parser->parse('layouts/application', $data);
+                    
+                    $this->output->enable_profiler(TRUE);
+                }
             } else {
                 show_404();
             }
-            $this->output->enable_profiler(TRUE);
+        }
+        
+        function edit_password_settings($id) {
+            if ($this->_user_exist($id) && $id == Application::current_user()->id) {
+                
+                if($this->input->is_ajax_request()) {
+                    send_json_response(INFO_LOG, HTTP_OK, 'user edit password settings form', array('html' => $this->load->view('user/form/password_settings', '', true)));                    
+                }
+            }
+        }
+        
+        function edit_security_settings($id) {
+            if ($this->_user_exist($id) && $id == Application::current_user()->id) {
+                
+                if($this->input->is_ajax_request()) {
+                    send_json_response(INFO_LOG, HTTP_OK, 'user edit security settings form', array('html' => $this->load->view('user/form/security_settings', '', true)));                    
+                }
+            }
         }
         
         function update($id) {            
@@ -53,7 +77,6 @@
                 $userObj = $this->User_model;
                 
                 $this->load->library('form_validation');                
-                
                 $this->form_validation->set_rules('username', 'Username', 'required');
                 $this->form_validation->set_rules('first_name', 'First Name', 'required');
                 $this->form_validation->set_rules('last_name', 'Last Name', 'required');
@@ -103,7 +126,8 @@
                         $data['title'] = $this->lang->line('profile');
                         $data['content'] = 'user/show';
                         
-                        $this->session->set_flashdata('success_message', 'Successfully updated account.');
+                        $this->session->set_flashdata('msg', 'Successfully updated account.');
+                        $this->session->set_flashdata('msg_class', 'info');
                         redirect('users/'.$userObj->get_userid());
                     } else {
                         /* flash an error occured */
@@ -117,6 +141,63 @@
                 show_error($lang('unable_to_process_transaction'));
             }
             $this->output->enable_profiler(TRUE);
+        }
+        
+        function update_security_settings($id) {
+            if ($this->_user_exist($id)) {
+                $userObj = $this->User_model;
+                
+                $security_question_id = $_POST['security_question'];
+                $security_answer = $_POST['security_answer'];
+                                
+                $userObj->set_userid($id);
+                $userObj->set_securityQuestionId($security_question_id);
+                $userObj->set_securityAnswer($security_answer);
+                
+                $result = $userObj->updateSecuritySettings();
+
+                if ($result) {
+                    /* set flash data */
+                        $data['title'] = $this->lang->line('profile');
+                        $data['content'] = 'user/show';
+                        
+                        $this->session->set_flashdata('msg', 'Successfully updated security settings.');
+                        $this->session->set_flashdata('msg_class', 'info');
+                        redirect('users/'.$id);
+                } else {
+                    /* error */
+                }
+            }
+        }
+        
+        function update_password_settings($id) {
+            if ($this->_user_exist($id)) {
+                $userObj = $this->User_model;
+                
+                $password = $_POST['current_password'];
+                $new_password = $_POST['new_password'];
+                $confirm_password = $_POST['confirm_password'];
+                
+                /* TODO */
+                /* validate if password is correct */
+                /* validate if new password and confirm password match */
+                /* validate password length */
+                
+                $userObj->set_userid($id);
+                $userObj->set_password($new_password);
+                $result = $userObj->updatePassword();
+                 if ($result) {
+                    /* set flash data */
+                        $data['title'] = $this->lang->line('profile');
+                        $data['content'] = 'user/show';
+                        
+                        $this->session->set_flashdata('msg', 'Successfully updated password.');
+                        $this->session->set_flashdata('msg_class', 'info');
+                        redirect('users/'.$id);
+                } else {
+                    /* error */
+                }
+            }
         }
         
         function _user_exist($id) {

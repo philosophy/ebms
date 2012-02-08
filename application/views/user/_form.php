@@ -1,4 +1,3 @@
-<?php $user = $this->user; ?>
 <?php
 $hidden = array('user_id' => $user->id);
 echo form_open('users/update/' . $user->id, array('id' => 'user-edit'));
@@ -62,8 +61,6 @@ echo form_open('users/update/' . $user->id, array('id' => 'user-edit'));
     <label>Work Phone:</label>
     <?php echo form_input(array('name' => 'work_phone', 'id' => 'work_phone', 'value' => $user->work_phone)); ?>
 </fieldset>
-<fieldset class="form-buttons">
-    <?php echo form_submit('edit_form_submit', 'Update', array('id' => 'edit-profile-submit')); ?>
-    <?php echo anchor(site_url('users/' . $user->id), 'Cancel', array('class' => 'cancel-link')); ?>
-</fieldset>
+<?php echo form_submit('edit_form_submit', 'Update'); ?>
+<?php echo anchor(site_url('users/' . $user->id), 'Cancel', array('id' => 'cancel-update')); ?>
 <?php echo form_close(); ?>

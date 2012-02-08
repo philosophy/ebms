@@ -5,10 +5,10 @@ $(function() {
     com.ebms.widgets.flash = {
 
         activate: function() {
-            if( $('div#flash div.content > p').size() > 0) {
+            if( $('div#flash div.content > p').length > 0) { 
                 var timeout = $('div#flash div.content > p').data('timeout') || 30000;
-                $('div#flash').delay(500).slideDown('fast', function() {
-                    timer = setTimeout(com.visualposter.widgets.flash.deactivate, timeout);
+                $('div#flash').addClass('over-overlay').delay(500).slideDown('fast', function() {
+                    timer = setTimeout(com.ebms.widgets.flash.deactivate, timeout);
                 });
             }
         },
@@ -33,7 +33,7 @@ $(function() {
             if (overOverlay !== undefined && overOverlay !== null && overOverlay) {
                 $("div#flash").addClass('over-overlay');
             }
-            com.visualposter.widgets.flash.activate();
+            com.ebms.widgets.flash.activate();
         }
     };
 

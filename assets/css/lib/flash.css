@@ -1,0 +1,45 @@
+
+#flash.over-overlay{
+    display: block !important;
+    position: fixed;
+    top: 0px;
+    left: 50%;
+    z-index: 4;
+    width: 600px;
+    margin-left: -300px;
+    padding: 5px 10px 0px;
+    background: rgba(0, 0, 0, 0.699219);
+    box-shadow: rgb(0, 0, 0) 0px 2px 5px;
+    -webkit-box-shadow: rgb(0, 0, 0) 0px 2px 5px;
+    border-top-left-radius: 7px 7px;
+    border-top-right-radius: 7px 7px;
+    border-bottom-right-radius: 7px 7px;
+    border-bottom-left-radius: 7px 7px;
+    padding-top: 5px;
+    padding-bottom: 0px;
+    background-position: initial initial;
+    background-repeat: initial initial;
+}
+
+#flash .content {
+    min-height: 40px;
+}
+
+#flash .content p {
+    text-transform: uppercase;
+    color: white;
+    min-height: 20px;
+    line-height: 20px;
+    margin-bottom: 10px;
+    padding: 10px;
+    padding-left: 50px;
+    background: url('../images/lib/sprites/40x400-flash.png') no-repeat;
+}
+
+#flash a.close {
+    color: #fff;
+    position: absolute;
+    bottom: -1px;
+    right: -16px;
+    width: 30px;
+}
