@@ -9,21 +9,21 @@
     $lang['ebms_subtitle'] = "Manage your business in just a click";
     $lang['profile'] = 'Profile';
     $lang['successfully_logout'] = 'Successfully Logout';
-    
+
     /* nav bar */
     $lang['user_guide'] = 'User Guide';
     $lang['cheat_sheet'] = 'Cheat Sheet';
     $lang['about_us'] = 'About Us';
     $lang['contact_us'] = 'Contact Us';
-    
+
     /* main nav bar */
     $lang['home'] = 'Home';
     $lang['crm'] = 'CRM';
-    
+
     $lang['sales'] = 'Sales';
     $lang['order_slip_records'] = 'Order Slip Records';
     $lang['delivery_receipt_records'] = 'Delivery Receipt Records';
-    
+
     $lang['accounting'] = 'Accounting';
     $lang['accounts_receivable'] = 'Accounts Receivable';
     $lang['company_payables'] = 'Company Payables';
@@ -37,12 +37,12 @@
     $lang['posting_of_checks'] = 'Posting of Checks';
     $lang['clearing_of_checks'] = 'Clearing of Checks';
     $lang['bank_records_and_transactions'] = 'Bank Records and Transactions';
-    
+
     $lang['purchasing'] = 'Purchasing';
     $lang['purchase_requisition'] = 'Purchase Requisition';
     $lang['purchase_order'] = 'Purchase Order';
     $lang['suppliers_management'] = 'Suppliers Management';
-    
+
     $lang['personnel'] = 'Personnel';
     $lang['employee_profile'] = 'Employee Profile';
     $lang['employee_schedule'] = 'Employee Schedule';
@@ -50,13 +50,13 @@
     $lang['employee_payroll'] = 'Employee Payroll';
     $lang['employee_daily_time_records'] = 'Employee Daily Time Records';
     $lang['employee_cash_advance'] = 'Employee Cash Advance';
-    
+
     $lang['inventory'] = 'Inventory';
     $lang['product_asset_list'] = 'Product/Asset List';
     $lang['item_receiving'] = 'Item Receiving';
     $lang['item_withdrawal'] = 'Item Withdrawal';
     $lang['item_adjustment'] = 'Item Adjustment';
-    
+
     $lang['reports'] = 'Reports';
     $lang['employee_profile_list'] = 'Employee Profile List';
     $lang['employee_time_sheet_record'] = 'Employee Time Sheet Record';
@@ -79,18 +79,18 @@
     $lang['income_statement'] = 'Income Statement';
     $lang['balance_sheet'] = 'Balance Sheet';
     $lang['cash_flow'] = 'Cash Flow';
-    
+
     $lang['system_records'] = 'System Records';
     $lang['file_maintenance'] = 'File Maintenance';
     $lang['user_management'] = 'User Management';
-        
+
     /* system notifications */
     $lang['payables'] = 'Payables';
     $lang['receivables'] = 'Receivables';
     $lang['task_reminder'] = 'Task Reminder';
     $lang['approvals'] = 'Approvals';
     $lang['critical_stock_level'] = 'Critical Stock Level';
-    
+
     /* user */
     $lang['logout'] = 'Logout';
     $lang['name'] = 'name';
@@ -117,11 +117,12 @@
     $lang['tin'] = 'Tin';
     $lang['pagibig'] = 'Pagibig';
     $lang['account_info'] = 'Account Info';
-    
+
     /* page titles */
     $lang['edit_profile'] = 'Edit Profile';
-    
+    $lang['control_manager'] = 'Control Manager';
+
     /* error messages */
     $lang['unable_to_process_transaction'] = 'Unable to process transactions';
-    
+
 ?>

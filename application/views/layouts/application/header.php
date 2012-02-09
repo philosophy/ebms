@@ -338,7 +338,7 @@
                         </ul>
                     </li>
                     <li class="sub-nav-item">
-                        <a href="#" class="sub-nav-a">User Management </a>
+                        <?php echo anchor('user_management/control_manager/', lang('user_management'), array('class' => 'sub-nav-a')); ?>
                         <ul class="inner-nav hide" id="user-management-nav">
                             <li >
                                 <a href="Javascript:newPopup('/EBMS/apps/view/systemRecords/userManagement/userControlManager/?page=systemRecords&menu=user-control-manager',600,600)" id="sub-inner-a">User Control Manager</a>

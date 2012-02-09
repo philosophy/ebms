@@ -53,5 +53,7 @@ $route['users/update/(:num)'] = 'users/update/$1';
 $route['dashboard/index'] = 'dashboard/index';
 $route['documentation/index'] = 'documentation/index';
 
+$route['user_management/user_control'] = 'user_management/control_manager/index';
+
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */
