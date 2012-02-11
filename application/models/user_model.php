@@ -205,6 +205,14 @@ class User_model extends CI_Model {
                     )
                 );
     }
+    
+    function deactivateUser() {
+        return $this->ion_auth->deactivate_user($this->get_userid());
+    }
+    
+    function activateUser() {
+        return $this->ion_auth->activate_user($this->get_userid());
+    }
 }
 
 ?>

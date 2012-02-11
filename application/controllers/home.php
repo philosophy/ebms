@@ -10,7 +10,8 @@
             } else {
                 redirect('dashboard/index', 'refresh');
             }
-
+            
+            
             $this->output->enable_profiler(TRUE);
         }
     }

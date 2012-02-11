@@ -20,6 +20,7 @@
                     $title = $this->lang->line('user_list');
                     $content = 'user_management/control_manager/index';
                     $active = 'list';
+                    $this->db->where('archive =', 0);
                     $this->users = $this->ion_auth->get_users();
                 break;
 
@@ -92,9 +93,18 @@
             }
             $this->output->enable_profiler(TRUE);
         }
+        
+        function archive() {
+            $data['title'] =  $this->lang->line('archive');
+            $data['content'] = 'user_management/control_manager/archive';
+            $data['active'] = 'archive';
+            
+            $this->db->where('archive =', 1);
+            $this->users = $this->ion_auth->get_users();
+            
+            $this->parser->parse('layouts/application', $data);
 
-        function delete_user() {
-
+            $this->output->enable_profiler(TRUE);
         }
     }
 ?>

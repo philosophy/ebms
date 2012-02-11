@@ -1,0 +1,16 @@
+#confirm-dialog div.dialog-buttons {
+    padding-top: 15px;
+    float: right;    
+}
+
+#confirm-dialog div.dialog-buttons span {
+    font-size: 0.75em;
+}
+
+#confirm-dialog div.dialog-body {
+    padding: 10px;    
+}
+
+#confirm-dialog div.dialog-body p {
+    font-size: 0.80em;
+}

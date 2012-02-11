@@ -49,6 +49,7 @@ $route['users/(:num)'] = 'users/show/$1';
 $route['users/edit/(:num)'] = 'users/edit/$1';
 $route['users/edit_security_settings/(:num)'] = 'users/edit_security_settings/$1';
 $route['users/update/(:num)'] = 'users/update/$1';
+$route['users/delete/(:num)'] = 'users/delete/$1';
 
 $route['dashboard/index'] = 'dashboard/index';
 $route['documentation/index'] = 'documentation/index';
@@ -56,7 +57,7 @@ $route['documentation/index'] = 'documentation/index';
 $route['user_management/control_manager'] = 'user_management/control_manager/index';
 $route['user_management/control_manager/list'] = 'user_management/control_manager/index';
 $route['user_management/control_manager/new_user'] = 'user_management/control_manager/new_user';
-$route['user_management/control_manager/archive'] = 'user_management/control_manager/index';
+$route['user_management/control_manager/archive'] = 'user_management/control_manager/archive';
 
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */

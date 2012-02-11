@@ -126,7 +126,7 @@
     // control manager
     $lang['user_list'] = 'User List';
     $lang['create_user'] = 'Create User';
-    $lang['archive'] = 'Archive';
+    $lang['archive'] = 'Archive';    
 
     /* error messages */
     $lang['unable_to_process_transaction'] = 'Unable to process transactions';
@@ -134,4 +134,12 @@
     /* profile info */    
     $lang['username'] = 'Username';
     $lang['first_name'] = 'First Name';
-?>
+    
+    /* actions */
+    $lang['edit'] = 'edit';
+    $lang['delete'] = 'delete';        
+    $lang['activate'] = 'activate';        
+    
+    $lang['ok'] = 'OK';
+    $lang['cancel'] = 'Cancel';
+    $lang['try_again'] = 'Try Again';

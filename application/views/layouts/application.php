@@ -11,6 +11,7 @@
             echo css_asset('footer.css');
             echo css_asset('lib/clock.css');
             echo css_asset('lib/flash.css');
+            echo css_asset('lib/dialog.css');
 //            $index_css = $this->router->class.'/index.css';
 //            echo css_asset($index_css);
             echo css_asset('home/index.css');
@@ -18,6 +19,7 @@
             echo css_asset('user/index.css');
             echo css_asset('user/edit.css');
             echo css_asset('user_management/control_manager/list.css');
+            echo css_asset('vendor/jquery-ui-1.8.17.custom.css');
             echo css_asset('vendor/jquery.dataTables.css');
         ?>
 
@@ -34,10 +36,12 @@
             <![endif]-->
         <?php
             echo js_asset('vendor/jquery-1.7.1.min.js');
+            echo js_asset('vendor/jquery-ui-1.8.17.custom.min.js');
             echo js_asset('vendor/jquery.hoverIntent.js');
             echo js_asset('vendor/jquery.rotate.1-1.js');
             echo js_asset('vendor/jquery.validate.js');
             echo js_asset('vendor/jquery.dataTables.min.js');
+            echo js_asset('vendor/rails.js');
         ?>
     </head>
     <body>
@@ -72,8 +76,10 @@
 
         <?php
             echo js_asset('app.js');
+            echo js_asset('lib/base.js');
             echo js_asset('lib/clock.js');
             echo js_asset('lib/header.js');
+            echo js_asset('lib/confirm.js');
             echo js_asset('util/namespace_checker.js');
             echo js_asset('util/html5.js');
             echo js_asset('views/dashboard.js');
@@ -84,5 +90,6 @@
         ?>
         <?php $this->load->view('layouts/application/page_specific_javascript'); ?>
         <?php $this->load->view('layouts/application/flash_message'); ?>
+        <?php $this->load->view('common/dialogs/_confirm_dialog'); ?>
     </body>
 </html>

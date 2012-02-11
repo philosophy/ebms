@@ -39,7 +39,8 @@ root {
     background-color: #CCD4E0;
 }
 
-#wrapper.control_manager.index #user-table-wrapper {
+#wrapper.control_manager.index #user-table-wrapper,
+#wrapper.control_manager.archive #user-table-wrapper {
     display: block;
     width: 550px;
     margin: 30px auto;
@@ -47,11 +48,62 @@ root {
     padding: 10px 10px 0;
 }
 
-#wrapper.control_manager.index #user-list{
+#wrapper.control_manager.index #user-list,
+#wrapper.control_manager.archive #user-list{
     width: 100%;
     margin-bottom: 20px;
 }
 
-#wrapper.control_manager.index #user-list_info {
+#wrapper.control_manager.index #user-list_info,
+#wrapper.control_manager.archive #user-list_info {
 
+}
+#wrapper.control_manager.index #user-list tbody tr:hover,
+#wrapper.control_manager.archive #user-list tbody tr:hover{
+    background-color: #D3D6FF !important;
+}
+
+#user-list th.no-sort {
+    background: none !important;
+}
+
+#user-list tbody tr td.action {
+    position: relative;
+}
+
+#user-list tbody tr td a.edit-profile,
+#user-list tbody tr td a.delete-profile,
+#user-list tbody tr td a.activate-profile {
+    display: block;
+    font-size: 13px;
+    padding-left: 20px;    
+}
+
+#user-list tbody tr td a.edit-profile:hover,
+#user-list tbody tr td a.activate-profile:hover,
+#user-list tbody tr td a.delete-profile:hover {
+    text-decoration: underline;
+}
+
+#user-list tbody tr td.action i {
+    width: 18px;
+    height: 18px;
+    position: absolute;
+    top: 2px;
+    background: url('../../../image/icons/fb_icons.png') no-repeat 0 0;
+    background-position: 3px -100px;
+}
+
+#user-list tbody tr td.delete i {
+    background-position: -36px -100px;
+    left: 13px;
+    top: 5px;    
+}
+
+#user-list tbody tr td.activate i {
+    background-position: -32px -86px;
+    left: 13px;
+    top: 4px;    
+    width: 16px;
+    height: 16px;
 }

@@ -660,7 +660,7 @@ class Ion_auth_model extends CI_Model
 		$this->db->where_in($this->tables['groups'].'.name', $group);
 	    }
 
-
+            
 	    if (isset($this->ion_auth->_extra_where) && !empty($this->ion_auth->_extra_where))
 	    {
 			$this->db->where($this->ion_auth->_extra_where);
@@ -977,6 +977,42 @@ class Ion_auth_model extends CI_Model
 	    $this->db->trans_commit();
 	    return TRUE;
 	}
+        
+        /**
+         * deactivate_user 
+         */
+        public function deactivate_user($id) {
+            $this->db->trans_begin();
+            
+            $this->db->where('id', $id);
+            $this->db->update($this->tables['users'], array('archive'=>1));
+            
+            if ($this->db->trans_status() === FALSE) {
+                $this->db->trans_rollback();
+                return FALSE;
+            }
+            
+            $this->db->trans_commit();
+            return TRUE;
+        }
+        
+        /**
+         * activate_user 
+         */
+        public function activate_user($id) {
+            $this->db->trans_begin();
+            
+            $this->db->where('id', $id);
+            $this->db->update($this->tables['users'], array('archive'=>0));
+            
+            if ($this->db->trans_status() === FALSE) {
+                $this->db->trans_rollback();
+                return FALSE;
+            }
+            
+            $this->db->trans_commit();
+            return TRUE;
+        }
 
 
 	/**

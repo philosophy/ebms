@@ -209,8 +209,38 @@
                 }
             }
         }
+        
+        function delete($id) {
+            if ($this->_user_exist($id)) {
+                $user = new $this->User_model();
+                
+                $user->set_userid($id);
+                $result = $user->deactivateUser();
+                if ($result) {
+                    send_json_response(INFO_LOG, HTTP_OK, 'successfully deleted user', array('user_id' => $id));
+                } else {
+                    send_json_response(ERROR_LOG, HTTP_FAIL_PRECON, 'unable to delete user');
+                }
+            } else {
+                show_error($lang('unable_to_process_transaction'));
+            }
+        }
+        
+        function activate($id) {
+            if ($this->_user_exist($id)) {
+                $user = new $this->User_model();
+                
+                $user->set_userid($id);
+                $result = $user->activateUser();
+                if ($result) {
+                    send_json_response(INFO_LOG, HTTP_OK, 'successfully activated user', array('user_id' => $id));
+                } else {
+                    send_json_response(ERROR_LOG, HTTP_FAIL_PRECON, 'unable to activate user');
+                }
+            }
+        }
 
-        function _user_exist($id) {
+        private function _user_exist($id) {
             $this->user = $this->ion_auth->get_user($id);
             if(empty($this->user)) {
                 return false;
