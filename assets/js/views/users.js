@@ -112,7 +112,7 @@ com.ebms.views.users = {
                     required: "User can't be blank"
                 },
                 email: {
-                    required: "Email can't be blank"
+                    required: "E-mail can't be blank"
                 }
             },
             submitHandler: function(form) {

@@ -92,12 +92,12 @@
 
                 /* validate email if correct syntax */
 
-                /* validate email */
+                /* validate email */                
                 $user->set_userid($id);
                 $user->set_email($email);
 
                 if($user->emailExists()) {
-                    send_json_response(ERROR_LOG, HTTP_FAIL_PRECON, 'email already exists');
+                    send_json_response(ERROR_LOG, HTTP_FAIL_PRECON, $email);
                     exit;
                 }
                 /* validate first name if empty*/
@@ -111,7 +111,12 @@
                     exit;
                 }
                 /* validate last name */
+                if(is_empty_null_value($last_name)) {
+                    send_json_response(ERROR_LOG, HTTP_FAIL_PRECON, 'last name is required');
+                    exit;
+                }
                 /* validate address */
+                //if(is_empty_null_value($address))  {
                 /* validate date_of_birth */
                 /* validate home_phone */
                 /* validate work_phone */
@@ -214,5 +219,5 @@
             }
         }
     }
-
+    
 ?>
