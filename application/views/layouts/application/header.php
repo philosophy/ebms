@@ -338,10 +338,10 @@
                         </ul>
                     </li>
                     <li class="sub-nav-item">
-                        <?php echo anchor('user_management/control_manager/', lang('user_management'), array('class' => 'sub-nav-a')); ?>
+                        <?php echo anchor('#', lang('user_management'), array('class' => 'sub-nav-a')); ?>
                         <ul class="inner-nav hide" id="user-management-nav">
                             <li >
-                                <a href="Javascript:newPopup('/EBMS/apps/view/systemRecords/userManagement/userControlManager/?page=systemRecords&menu=user-control-manager',600,600)" id="sub-inner-a">User Control Manager</a>
+                                <?php echo anchor('user_management/control_manager/', lang('control_manager'), array('class' => 'sub-nav-a')); ?>
                             </li>
                             <li >
                                 <a href="/EBMS/apps/view/systemRecords/userManagement/auditTrail/?page=systemRecords&menu=audit-trail" id="sub-inner-a">Audit Trail</a>

@@ -17,6 +17,8 @@
             echo css_asset('dashboard/index.css');
             echo css_asset('user/index.css');
             echo css_asset('user/edit.css');
+            echo css_asset('user_management/control_manager/list.css');
+            echo css_asset('vendor/jquery.dataTables.css');
         ?>
 
             <!--[if lt IE 9]>
@@ -35,6 +37,7 @@
             echo js_asset('vendor/jquery.hoverIntent.js');
             echo js_asset('vendor/jquery.rotate.1-1.js');
             echo js_asset('vendor/jquery.validate.js');
+            echo js_asset('vendor/jquery.dataTables.min.js');
         ?>
     </head>
     <body>
@@ -75,6 +78,7 @@
             echo js_asset('util/html5.js');
             echo js_asset('views/dashboard.js');
             echo js_asset('views/users.js');
+            echo js_asset('views/control_manager.js');
             echo js_asset('lib/flash.js');
 
         ?>

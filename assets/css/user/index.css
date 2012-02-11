@@ -17,7 +17,8 @@
 #wrapper.users.show #security-settings > h3,
 #wrapper.users.edit #security-settings > h3,
 #wrapper.users.show #employment-info > h3,
-#wrapper.users.edit #employment-info > h3 {
+#wrapper.users.edit #employment-info > h3,
+#wrapper.control_manager #account-details > h3 {
     border-bottom: 1px solid #F3EFEF;
     color: #48A;
     font-weight: bold;
@@ -41,7 +42,8 @@
 #wrapper.users.show #password-settings fieldset,
 #wrapper.users.edit #password-settings fieldset,
 #wrapper.users.show #employment-info fieldset,
-#wrapper.users.edit #employment-info fieldset {
+#wrapper.users.edit #employment-info fieldset,
+#wrapper.control_manager #account-details fieldset {
     border-bottom: 1px solid #F3EFEF;
 }
 
@@ -52,7 +54,8 @@
 #wrapper.users.show #password-settings fieldset > label,
 #wrapper.users.edit #password-settings fieldset > label,
 #wrapper.users.show #employment-info fieldset > label,
-#wrapper.users.edit #employment-info fieldset > label {
+#wrapper.users.edit #employment-info fieldset > label,
+#wrapper.control_manager #account-details fieldset > label {
     color: #979797;
     float: left;
     line-height: 36px;
@@ -68,14 +71,15 @@
 #wrapper.users.show #password-settings fieldset > span,
 #wrapper.users.edit #security-settings fieldset > span,
 #wrapper.users.show #employment-info fieldset > span,
-#wrapper.users.edit #employment-info fieldset > span {
+#wrapper.users.edit #employment-info fieldset > span,
+#wrapper.control_manager #account-details fieldset > span {
     float: left;
     right: 0;
     line-height: 36px;
     width: 260px;
 }
 
-#employment-info, #personal-info, #security-settings, #password-settings {
+#employment-info, #personal-info, #security-settings, #password-settings, #account-details {
     margin-top: 20px;
 }
 

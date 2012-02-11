@@ -941,8 +941,6 @@ class Ion_auth_model extends CI_Model
 			$this->db->where($this->ion_auth->_extra_where);
 
 			$this->db->update($this->tables['users'], $data, array('id' => $id));
-                        echo $this->db->last_query();
-                        die();
 	    }
 
 	    if ($this->db->trans_status() === FALSE)

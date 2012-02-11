@@ -56,3 +56,11 @@ label.error {
     left: 325px;
     width: auto !important;
 }
+
+a {
+    color: #00E;
+}
+
+a:visited {
+    color: #00E;
+}

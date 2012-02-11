@@ -1,4 +1,4 @@
-/* 
+/*
     Document   : body
     Created on : 01 25, 12, 12:23:29 AM
     Author     : SSI
@@ -6,7 +6,7 @@
         Purpose of the stylesheet follows.
 */
 
-root { 
+root {
     display: block;
 }
 
@@ -22,7 +22,7 @@ body {
 
 #wrapper {
     width: 100%;
-    min-height: 600px;    
+    min-height: 400px;
 }
 
 #wrapper > header {
@@ -45,18 +45,18 @@ body {
     padding-top: 15px;
 }
 
-#wrapper #content-wrapper {    
+#wrapper #content-wrapper {
     border: 1px solid #ccc;
     width: 800px;
     margin: 30px auto 50px;
     background: white;
-    min-height: 600px;
-    
+    min-height: 400px;
+
 }
 
 #wrapper #content-wrapper article.aside-left {
-    padding-bottom: 1000px;
-    margin-bottom: -1000px;
+    padding-bottom: 10000px;
+    margin-bottom: -10000px;
 }
 
 #footer #external-links ul.icon-pages-list li{

@@ -122,6 +122,12 @@
     $lang['edit_profile'] = 'Edit Profile';
     $lang['control_manager'] = 'Control Manager';
 
+    /* page navs*/
+    // control manager
+    $lang['user_list'] = 'User List';
+    $lang['create_user'] = 'Create User';
+    $lang['archive'] = 'Archive';
+
     /* error messages */
     $lang['unable_to_process_transaction'] = 'Unable to process transactions';
 

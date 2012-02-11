@@ -1,0 +1,57 @@
+/*
+    Document   : list
+    Created on : Feb 9, 2012, 6:27:40 PM
+    Author     : marc
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/*
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+root {
+    display: block;
+}
+
+#control-manager-nav {
+    margin-top: 20px;
+}
+
+#control-manager-nav li {
+
+}
+
+#control-manager-nav a {
+    padding: 7px 5px;
+    display: block;
+    font-family: 'Times New Roman';
+    font-size: 0.85em;
+}
+
+#control-manager-nav a.active {
+    background-color: #D8DFEA;
+    font-weight: bold;
+}
+
+#control-manager-nav a:hover {
+    background-color: #CCD4E0;
+}
+
+#wrapper.control_manager.index #user-table-wrapper {
+    display: block;
+    width: 550px;
+    margin: 30px auto;
+    border-top: 2px solid #CCC;
+    padding: 10px 10px 0;
+}
+
+#wrapper.control_manager.index #user-list{
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+#wrapper.control_manager.index #user-list_info {
+
+}

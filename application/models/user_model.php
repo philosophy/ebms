@@ -191,6 +191,20 @@ class User_model extends CI_Model {
             return false;
         }
     }
+
+    function createUser() {
+        return $this->ion_auth->register(
+                    $this->get_username(),
+                    $this->get_password(),
+                    $this->get_email(),
+                    array(
+                        'first_name' => $this->get_first_name(),
+                        'last_name' => $this->get_last_name(),
+                        'middle_name' => $this->get_middle_name(),
+                        'address' => $this->get_address()
+                    )
+                );
+    }
 }
 
 ?>
