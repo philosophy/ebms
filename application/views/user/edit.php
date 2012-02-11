@@ -5,8 +5,7 @@ echo form_open('users/update/' . $user->id, array('id' => 'user-edit'));
 ?>
 <fieldset>
     <label>Username:</label>
-    <input type="text" id="username" placeholder="First name" /><br />
-    <?php echo form_input(array('name' => 'username', 'id' => 'username', 'class' => 'required', 'value' => $user->username)); ?>
+    <?php echo form_input(array('name' => 'username', 'id' => 'username', 'class' => 'required', 'placeholder'=>lang(''), 'value' => $user->username)); ?>
 </fieldset>
 <fieldset>
     <label>First Name:</label>

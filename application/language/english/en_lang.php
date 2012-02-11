@@ -130,5 +130,8 @@
 
     /* error messages */
     $lang['unable_to_process_transaction'] = 'Unable to process transactions';
-
+    
+    /* profile info */    
+    $lang['username'] = 'Username';
+    $lang['first_name'] = 'First Name';
 ?>
