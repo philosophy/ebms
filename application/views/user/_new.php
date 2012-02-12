@@ -66,7 +66,7 @@
     <?php echo form_input(array('name' => 'work_phone', 'id' => 'work_phone', 'value'=>set_value('work_phone'))); ?>
 </fieldset>
 <fieldset class="form-buttons">
-    <?php echo form_submit('new_user_submit', 'Update', array('id' => 'new-user-submit')); ?>
+    <?php echo form_submit('new_user_submit', 'Create', array('id' => 'new-user-submit')); ?>
     <?php echo anchor('user_management/control_manager', 'Cancel', array('class' => 'cancel-link')); ?>
 </fieldset>
 <?php echo form_close(); ?>

@@ -76,7 +76,7 @@ root {
 #user-list tbody tr td a.activate-profile {
     display: block;
     font-size: 13px;
-    padding-left: 20px;    
+    padding-left: 20px;
 }
 
 #user-list tbody tr td a.edit-profile:hover,
@@ -97,13 +97,17 @@ root {
 #user-list tbody tr td.delete i {
     background-position: -36px -100px;
     left: 13px;
-    top: 5px;    
+    top: 5px;
 }
 
 #user-list tbody tr td.activate i {
     background-position: -32px -86px;
     left: 13px;
-    top: 4px;    
+    top: 4px;
     width: 16px;
     height: 16px;
+}
+
+#user-list tbody tr.row_selected {
+    background-color: #D3D6FF;
 }

@@ -11,14 +11,14 @@
         function index() {
             $tab = '';
             $title = $this->lang->line('control_manager');
-            $content = 'user_management/control_manager/index';
+            $content = 'system_records/user_management/control_manager/index';
             $active = 'list';
 
             $tab = $this->uri->segment(3, 'list');
             switch($tab) {
                 case 'list':
                     $title = $this->lang->line('user_list');
-                    $content = 'user_management/control_manager/index';
+                    $content = 'system_records/user_management/control_manager/index';
                     $active = 'list';
                     $this->db->where('archive =', 0);
                     $this->users = $this->ion_auth->get_users();
@@ -30,7 +30,7 @@
 
                 case 'archive':
                     $title = $this->lang->line('archive');
-                    $content = 'user_management/control_manager/index';
+                    $content = 'system_records/user_management/control_manager/index';
                     $active = 'archive';
                 break;
             }
@@ -46,7 +46,7 @@
 
         function new_user() {
             $data['title'] =  $this->lang->line('create_user');
-            $data['content'] = 'user_management/control_manager/new';
+            $data['content'] = 'system_records/user_management/control_manager/new';
             $data['active'] = 'create';
 
             $this->parser->parse('layouts/application', $data);
@@ -78,7 +78,7 @@
             if ($this->form_validation->run() == TRUE) {
                 $result = $user->createUser();
                 if ($result) {
-                    redirect('user_management/control_manager', 'refresh');
+                    redirect('system_records/user_management/control_manager', 'refresh');
                 } else {
                     /* return with errors */
                 }
@@ -86,22 +86,22 @@
             } else {
                 /* return with errors */
                 $data['title'] =  $this->lang->line('create_user');
-                $data['content'] = 'user_management/control_manager/new';
+                $data['content'] = 'system_records/user_management/control_manager/new';
                 $data['active'] = 'create';
 
                 $this->parser->parse('layouts/application', $data);
             }
             $this->output->enable_profiler(TRUE);
         }
-        
+
         function archive() {
             $data['title'] =  $this->lang->line('archive');
-            $data['content'] = 'user_management/control_manager/archive';
+            $data['content'] = 'system_records/user_management/control_manager/archive';
             $data['active'] = 'archive';
-            
+
             $this->db->where('archive =', 1);
             $this->users = $this->ion_auth->get_users();
-            
+
             $this->parser->parse('layouts/application', $data);
 
             $this->output->enable_profiler(TRUE);
