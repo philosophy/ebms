@@ -236,9 +236,7 @@
                         <a href="#" class="sub-nav-a">File Maintenance</a>
                         <ul class="inner-nav hide">
                             <li>
-                                <a href="Javascript:newPopup('/EBMS/apps/view/systemRecords/fileMaintenance/companyInformation/index.php',480,600)" id="sub-inner-a">
-                                    Company Information
-                                </a>
+                                <?php echo anchor('file_maintenance/company/index', lang('company_info')); ?>                                
                             </li>
                             <li>
                                 <a href="Javascript:newPopup('/EBMS/apps/view/systemRecords/fileMaintenance/accountsManager/index.php',570,630)" id="sub-inner-a">

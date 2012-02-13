@@ -83,6 +83,9 @@
     $lang['system_records'] = 'System Records';
     $lang['file_maintenance'] = 'File Maintenance';
     $lang['user_management'] = 'User Management';
+    
+    /*File Maintenance*/
+    $lang['company_info'] = 'Company Information';
 
     /* system notifications */
     $lang['payables'] = 'Payables';

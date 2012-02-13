@@ -9,6 +9,7 @@
 <fieldset>
     <label>Password:</label>
     <?php echo form_input(array('name' => 'password', 'id' => 'password', 'class' => 'required', 'value'=>set_value('password'))); ?>
+    <?php echo form_error('password', '<label class="error">', '</label>'); ?>
 </fieldset>
 <fieldset>
     <label>First Name:</label>
