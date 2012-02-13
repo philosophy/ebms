@@ -59,5 +59,7 @@ $route['user_management/control_manager/list'] = 'user_management/control_manage
 $route['user_management/control_manager/new_user'] = 'user_management/control_manager/new_user';
 $route['user_management/control_manager/archive'] = 'user_management/control_manager/archive';
 
+$route['file_maintenance/company_info'] = 'file_maintenance/company';
+
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */

@@ -107,6 +107,41 @@ function is_name_valid($name) {
     }
 }
 
+function is_length_valid($name) {
+    if(strlen($name)< 4) {
+        return true;
+        ucwords($name);
+    } else {
+        return false;
+    }
+}
+
+function no_number($name) {
+    if(!ctype_alpha(str_replace(array(' ', "'", '-'), '', $name))) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+function no_letter($name) {
+    if(!ctype_digit($name)) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+function is_length_number_valid($name) {
+    if(strlen($name) < 11) {
+        return true;
+    } elseif (strlen($name) > 11) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
 function is_country_valid($country) {
     $countries = array("AFGHANISTAN", "ALBANIA", "ALGERIA", "AMERICAN SAMOA", "ANDORRA", "ANGOLA", "ANGUILLA", "ANTARCTICA", "ANTIGUA AND BARBUDA", "ARGENTINA",
         "ARMENIA", "ARUBA", "AUSTRALIA", "AUSTRIA", "AZERBAIJAN", "BAHAMAS", "BAHRAIN", "BANGLADESH", "BARBADOS", "BELARUS", "BELGIUM", "BELIZE", "BENIN", "BERMUDA", "BHUTAN", "BOLIVIA", "BOSNIA AND HERZEGOWINA",

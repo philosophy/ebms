@@ -109,8 +109,8 @@ com.ebms.views.users = {
             },
             messages: {
                 username: {
-                    required: "User can't be blank"
-                },
+                    required: "Username can't be blank"
+                },                
                 email: {
                     required: "E-mail can't be blank"
                 }

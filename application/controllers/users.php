@@ -105,22 +105,96 @@
                     send_json_response(ERROR_LOG, HTTP_FAIL_PRECON, 'first?? name is required');
                     exit;
                 }
+                /*check the string length*/
+                if(is_length_valid($first_name)) {                    
+                    send_json_response(ERROR_LOG, HTTP_FAIL_PRECON, 'It must be more than 4 characters');
+                    exit;
+                }
+                /*letters only*/
+                if(no_number($first_name)) {
+                    send_json_response(ERROR_LOG, HTTP_FAIL_PRECON, 'Letters only');
+                    exit;
+                }
+                
+                /***********************************************************************************/
+                
                 /* validate middle name if empty */
                 if(is_empty_null_value($middle_name)) {
                     send_json_response(ERROR_LOG, HTTP_FAIL_PRECON, 'middle name is required');
                     exit;
                 }
+                
+                /*check the string length*/
+                if(is_length_valid($middle_name)) {                    
+                    send_json_response(ERROR_LOG, HTTP_FAIL_PRECON, 'It must be more than 4 characters');
+                    exit;
+                }
+                /*letters only*/
+                if(no_number($middle_name)) {
+                    send_json_response(ERROR_LOG, HTTP_FAIL_PRECON, 'Letters only');
+                    exit;
+                }
+                
+                /***********************************************************************************/
+                
                 /* validate last name */
                 if(is_empty_null_value($last_name)) {
                     send_json_response(ERROR_LOG, HTTP_FAIL_PRECON, 'last name is required');
                     exit;
                 }
+                
+                /*check the string length*/
+                if(is_length_valid($last_name)) {                    
+                    send_json_response(ERROR_LOG, HTTP_FAIL_PRECON, 'It must be more than 4 characters');
+                    exit;
+                }
+                /*letters only*/
+                if(no_number($last_name)) {
+                    send_json_response(ERROR_LOG, HTTP_FAIL_PRECON, 'Letters only');
+                    exit;
+                }
+                
+                /***********************************************************************************/
+                
+                
                 /* validate address */
-                //if(is_empty_null_value($address))  {
+                if(is_empty_null_value($address)) {
+                    send_json_response(ERROR_LOG, HTTP_FAIL_PRECON, 'address required');
+                    exit;
+                }
                 /* validate date_of_birth */
+                if(is_empty_null_value($address)) {
+                    send_json_response(ERROR_LOG, HTTP_FAIL_PRECON, 'address required');
+                    exit;
+                }
+                
                 /* validate home_phone */
+                if(no_letter($home_phone)) {
+                    send_json_response(ERROR_LOG, HTTP_FAIL_PRECON, 'all number');
+                    exit;
+                }
+                
+                /*number length*/
+                
+                if(is_length_number_valid($home_phone)) {
+                    send_json_response(ERROR_LOG, HTTP_FAIL_PRECON, '11');
+                    exit;
+                }
+                
+                /*****************************************************************************/
                 /* validate work_phone */
-
+                
+                if(no_letter($work_phone)) {
+                    send_json_response(ERROR_LOG, HTTP_FAIL_PRECON, 'all number');
+                    exit;
+                }
+                
+                /*number length*/
+                
+                if(is_length_number_valid($work_phone)) {
+                    send_json_response(ERROR_LOG, HTTP_FAIL_PRECON, '11');
+                    exit;
+                }
                 $user->set_userid($id);
                 $user->set_username($username);
                 $user->set_first_name($first_name);

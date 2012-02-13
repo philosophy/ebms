@@ -249,7 +249,7 @@
     position: absolute;
     width: 30px;
     height: 30px;
-    background: url('../image/icons/about-icon.png') no-repeat 0 0;
+    /*background: url('../image/icons/about-icon.png') no-repeat 0 0;*/
     top: 3px;
 }
 
@@ -266,4 +266,8 @@
     text-shadow: 1px 1px 1px black;
     color: white;
     padding: 2px 5px;
+}
+
+#notification-list li.notif-items #notif-payables i {
+    background: url('../image/icons/payables-icon_16x16.png') no-repeat 0 0;
 }

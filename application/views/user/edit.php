@@ -9,15 +9,15 @@ echo form_open('users/update/' . $user->id, array('id' => 'user-edit'));
 </fieldset>
 <fieldset>
     <label>First Name:</label>
-    <?php echo form_input(array('name' => 'first_name', 'id' => 'first_name', 'value' => $user->first_name)); ?>
+    <?php echo form_input(array('name' => 'first_name', 'id' => 'first_name','placeholder'=>lang('first_name'), 'value' => $user->first_name)); ?>
 </fieldset>
 <fieldset>
     <label>Middle Name:</label>
-    <?php echo form_input(array('name' => 'middle_name', 'id' => 'middle_name', 'value' => $user->middle_name)); ?>
+    <?php echo form_input(array('name' => 'middle_name', 'id' => 'middle_name', 'placeholder'=>lang('middle_name'), 'value' => $user->middle_name)); ?>
 </fieldset>
 <fieldset>
     <label>Last Name:</label>
-    <?php echo form_input(array('name' => 'last_name', 'id' => 'last_name', 'value' => $user->last_name)); ?>
+        <?php echo form_input(array('name' => 'last_name', 'id' => 'last_name', 'placeholder'=>lang('last_name'), 'value' => $user->last_name)); ?>
 </fieldset>
 <fieldset>
     <label>Email:</label>
@@ -25,7 +25,7 @@ echo form_open('users/update/' . $user->id, array('id' => 'user-edit'));
 </fieldset>
 <fieldset>
     <label>Address:</label>
-    <?php echo form_input(array('name' => 'address', 'id' => 'address', 'value' => $user->address)); ?>
+    <?php echo form_input(array('name' => 'address', 'placeholder'=>lang('address'), 'id' => 'address', 'value' => $user->address)); ?>
 </fieldset>
 <fieldset>
     <label>Gender:</label>
