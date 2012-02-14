@@ -15,7 +15,7 @@ class Company extends Application {
 
         $data['content'] = 'system_records/file_maintenance/company/index';
         $data['active_link'] = 'home';
-        $data['title'] = 'Dashboard';
+        $data['title'] = lang('company_info');
 
 
         $company = new $this->Company_model();
