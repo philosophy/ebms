@@ -26,7 +26,7 @@ $(function() {
             if(notificationType !== undefined && notificationType !== null) {
                 content = '<p class="'+ notificationType +'"  ' + timeoutSpec + '>' + msg + '</p>';
             } else {
-                content = '<p>' + msg + '</p>';
+                content = '<p>' + msg + '</p><a href="#" class="close">X</a>';
             }
 
             $("div#flash div.content").html(content);

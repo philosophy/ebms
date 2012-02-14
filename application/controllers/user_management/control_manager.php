@@ -78,7 +78,7 @@
             if ($this->form_validation->run() == TRUE) {
                 $result = $user->createUser();
                 if ($result) {
-                    redirect('system_records/user_management/control_manager', 'refresh');
+                    redirect('user_management/control_manager', 'refresh');
                 } else {
                     /* return with errors */
                 }
