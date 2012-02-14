@@ -133,6 +133,8 @@
 
     /* error messages */
     $lang['unable_to_process_transaction'] = 'Unable to process transactions';
+    $lang['username_cannot_be_blank'] = "Username can't be blank";
+    
     
     /* profile info */    
     $lang['username'] = 'Username';

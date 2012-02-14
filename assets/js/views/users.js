@@ -101,19 +101,66 @@ com.ebms.views.users = {
             rules: {
                 /* todo add other validations - ms. she */
                 username: {
-                    required: true
+                    required: true,
+                    rangelength: [5,32]
+                },
+                first_name: {
+                    required: true, 
+                    number: false,
+                    rangelength: [1,32]
+                },
+                middle_name: {
+                    required: true,
+                    rangelength: [1,32]
+                },
+                last_name:{
+                    required: true,
+                    rangelength: [2,32]
                 },
                 email: {
-                    required: true
+                    required: true,
+                    email: true
+                },
+                address: {
+                    required: true,
+                    rangelength: [5,32]
+                },
+                date_of_birth: {
+                    required:true
                 }
+                               
             },
+            
             messages: {
                 username: {
-                    required: "Username can't be blank"
-                },                
+                    required: "Username can't be blank",
+                    rangelength: "Please enter a valid username"
+                },          
+                first_name: {
+                    required: "First name can't be blank",
+                    number: "First name can't contain numbers",
+                    rangelength: "Please enter a valid first name"
+                },
+                middle_name: {
+                    required: "Middle name can't be blank",
+                    max: "Please enter a valid middle name"
+                },
+                last_name: {
+                    required: "Last name can't be blank",
+                    rangelength: "Please enter a valid last name"
+                },
                 email: {
-                    required: "E-mail can't be blank"
+                    required: "E-mail can't be blank",
+                    rangelength: "Invaid email format"
+                },
+                address: {
+                    required: "Address can't be blank",
+                    rangelength: "Please enter a valid address"
+                },
+                date_of_birth: {
+                    required: "Date of birth can't be blank"
                 }
+                                
             },
             submitHandler: function(form) {
                 if( $('#personal-info label.error:visible').length > 0 ) {
