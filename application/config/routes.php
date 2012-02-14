@@ -60,6 +60,16 @@ $route['user_management/control_manager/new_user'] = 'user_management/control_ma
 $route['user_management/control_manager/archive'] = 'user_management/control_manager/archive';
 
 $route['file_maintenance/company_info'] = 'file_maintenance/company';
+$route['file_maintenance/company_info'] = 'file_maintenance/accounts_manager';
+$route['file_maintenance/company_info'] = 'file_maintenance/employee_status_manager';
+$route['file_maintenance/company_info'] = 'file_maintenance/city_manager';
+$route['file_maintenance/company_info'] = 'file_maintenance/unit_manager';
+$route['file_maintenance/company_info'] = 'file_maintenance/department';
+$route['file_maintenance/company_info'] = 'file_maintenance/earning';
+$route['file_maintenance/company_info'] = 'file_maintenance/deduction';
+$route['file_maintenance/company_info'] = 'file_maintenance/customer_type';
+$route['file_maintenance/company_info'] = 'file_maintenance/area';
+$route['file_maintenance/company_info'] = 'file_maintenance/currency';
 
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */
