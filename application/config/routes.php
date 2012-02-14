@@ -61,6 +61,7 @@ $route['user_management/control_manager/archive'] = 'user_management/control_man
 
 $route['file_maintenance/company_info'] = 'file_maintenance/company';
 $route['file_maintenance/company_info/edit/(:num)'] = 'file_maintenance/company/edit/$1';
+$route['file_maintenance/company_info/update/(:num)'] = 'file_maintenance/company/update/$1';
 $route['file_maintenance/company_info'] = 'file_maintenance/accounts_manager';
 $route['file_maintenance/company_info'] = 'file_maintenance/employee_status_manager';
 $route['file_maintenance/company_info'] = 'file_maintenance/city_manager';

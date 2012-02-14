@@ -98,6 +98,34 @@ class Company_model extends CI_Model {
             return false;
         }       
     }
+    
+    function companyExists() {
+        $sql = "SELECT * FROM company WHERE id = ?";
+        $query = $this->db->query($sql, array($this->get_id()));
+
+        if ($query->num_rows() > 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    
+    function updateCompany() {
+        $data = array(
+                    'name' => $this->get_name(),
+                    'address' => $this->get_address(),
+                    'phone_no' => $this->get_phone_no(),
+                    'mobile_no' => $this->get_mobile_no(),
+                    'fax_no' => $this->get_fax_no(),
+                    'email_address' => $this->get_email_address(),
+                    'website' => $this->get_website(),
+                    'logo' => $this->get_logo()
+                );
+        
+        $this->db->where('id', $this->get_id());
+        return $this->db->update('company', $data);
+    }
+
 }
 
 ?>

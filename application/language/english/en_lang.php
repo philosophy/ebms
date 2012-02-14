@@ -86,6 +86,7 @@
     
     /*File Maintenance*/
     $lang['company_info'] = 'Company Information';
+    $lang['edit_company'] = 'Edit Company Information';
 
     /* system notifications */
     $lang['payables'] = 'Payables';
