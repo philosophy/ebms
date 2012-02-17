@@ -12,7 +12,7 @@
         ?>
             <fieldset>
                 <label>Company Name:</label>
-                <?php echo form_input(array('name' => 'name', 'id' => 'company-name', 'value' => set_value('name'))); ?>    
+                <?php echo form_input(array('name' => 'name', 'id' => 'company-name', 'value' => set_value('name'))); ?>
             </fieldset>
             <fieldset>
                 <label>Address:</label>

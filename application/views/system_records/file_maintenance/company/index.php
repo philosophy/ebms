@@ -11,7 +11,7 @@
         </h3>
         <fieldset>
             <label>Name:</label>
-            <span><?php echo $this->company->name; ?></span>
+            <span><?php echo $this->company->name; ?></span>            
         </fieldset>
         <fieldset>
             <label>Address:</label>
