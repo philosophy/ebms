@@ -5,7 +5,7 @@ $(function() {
     com.ebms.widgets.flash = {
 
         activate: function() {
-            if( $('div#flash div.content > p').length > 0) { 
+            if( $('div#flash div.content > p').length > 0) {
                 var timeout = $('div#flash div.content > p').data('timeout') || 30000;
                 $('div#flash').addClass('over-overlay').delay(500).slideDown('fast', function() {
                     timer = setTimeout(com.ebms.widgets.flash.deactivate, timeout);
@@ -24,7 +24,7 @@ $(function() {
             var content;
             var timeoutSpec = (timeout !== undefined && timeout !== null) ? 'data-timeout='+timeout : '';
             if(notificationType !== undefined && notificationType !== null) {
-                content = '<p class="'+ notificationType +'"  ' + timeoutSpec + '>' + msg + '</p>';
+                content = '<p class="'+ notificationType +'"  ' + timeoutSpec + '>' + msg + '</p><a href="#" class="close">X</a>';
             } else {
                 content = '<p>' + msg + '</p><a href="#" class="close">X</a>';
             }

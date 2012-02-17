@@ -29,9 +29,9 @@
                                                 'data-dialog-method'=>'delete', 'data-dialog-remote'=>true, 'data-dialog-title'=>'Delete this user',
                                                 'data-dialog-type'=>'json', 'data-class'=>'archive'
                                          )); ?></td>
-                            <td><?php echo $user->first_name.' '.$user->last_name; ?></td>
-                            <td><?php echo $user->email; ?></td>
-                            <td><?php echo $user->group; ?></td>
+                            <td class="name"><?php echo $user->first_name.' '.$user->last_name; ?></td>
+                            <td class="email"><?php echo $user->email; ?></td>
+                            <td class="access-level"><?php echo $user->group; ?></td>
                         </tr>
                     <?php } ?>
                 <?php } else { ?>
@@ -41,5 +41,12 @@
                 <?php } ?>
             </tbody>
         </table>
+    </div>
+    <div class="loader loader-container hide">
+    </div>
+    <div id="edit-user-wrapper" class="hide aligned-details" data-ajax-url=<?php echo site_url("user_management/control_manager/get_useredit_form/"); ?>>
+        <h3>
+            Edit User
+        </h3>
     </div>
 </article>

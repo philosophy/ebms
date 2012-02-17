@@ -115,3 +115,7 @@ root {
 #user-list tbody td.sorting_1 {
     background: none;
 }
+
+#wrapper.control_manager article.primary > .loader-container {
+    margin: 100px auto;
+}

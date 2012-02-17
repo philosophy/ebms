@@ -92,7 +92,7 @@
 
                 /* validate email if correct syntax */
 
-                /* validate email */                
+                /* validate email */
                 $user->set_userid($id);
                 $user->set_email($email);
 
@@ -102,11 +102,11 @@
                 }
                 /* validate first name if empty*/
                 if(is_empty_null_value($first_name)) {
-                    send_json_response(ERROR_LOG, HTTP_FAIL_PRECON, 'first?? name is required');
+                    send_json_response(ERROR_LOG, HTTP_FAIL_PRECON, 'first name is required');
                     exit;
                 }
                 /*check the string length*/
-                if(is_length_valid($first_name)) {                    
+                if(is_length_valid($first_name)) {
                     send_json_response(ERROR_LOG, HTTP_FAIL_PRECON, 'It must be more than 4 characters');
                     exit;
                 }
@@ -115,17 +115,17 @@
                     send_json_response(ERROR_LOG, HTTP_FAIL_PRECON, 'Letters only');
                     exit;
                 }
-                
+
                 /***********************************************************************************/
-                
+
                 /* validate middle name if empty */
                 if(is_empty_null_value($middle_name)) {
                     send_json_response(ERROR_LOG, HTTP_FAIL_PRECON, 'middle name is required');
                     exit;
                 }
-                
+
                 /*check the string length*/
-                if(is_length_valid($middle_name)) {                    
+                if(is_length_valid($middle_name)) {
                     send_json_response(ERROR_LOG, HTTP_FAIL_PRECON, 'It must be more than 4 characters');
                     exit;
                 }
@@ -134,17 +134,17 @@
                     send_json_response(ERROR_LOG, HTTP_FAIL_PRECON, 'Letters only');
                     exit;
                 }
-                
+
                 /***********************************************************************************/
-                
+
                 /* validate last name */
                 if(is_empty_null_value($last_name)) {
                     send_json_response(ERROR_LOG, HTTP_FAIL_PRECON, 'last name is required');
                     exit;
                 }
-                
+
                 /*check the string length*/
-                if(is_length_valid($last_name)) {                    
+                if(is_length_valid($last_name)) {
                     send_json_response(ERROR_LOG, HTTP_FAIL_PRECON, 'It must be more than 4 characters');
                     exit;
                 }
@@ -153,10 +153,10 @@
                     send_json_response(ERROR_LOG, HTTP_FAIL_PRECON, 'Letters only');
                     exit;
                 }
-                
+
                 /***********************************************************************************/
-                
-                
+
+
                 /* validate address */
                 if(is_empty_null_value($address)) {
                     send_json_response(ERROR_LOG, HTTP_FAIL_PRECON, 'address required');
@@ -167,34 +167,35 @@
                     send_json_response(ERROR_LOG, HTTP_FAIL_PRECON, 'address required');
                     exit;
                 }
-                
+
                 /* validate home_phone */
                 if(no_letter($home_phone)) {
                     send_json_response(ERROR_LOG, HTTP_FAIL_PRECON, 'all number');
                     exit;
                 }
-                
+
                 /*number length*/
-                
                 if(is_length_number_valid($home_phone)) {
-                    send_json_response(ERROR_LOG, HTTP_FAIL_PRECON, '11');
+                    send_json_response(ERROR_LOG, HTTP_FAIL_PRECON, 'home phone number must not be less than 11 characters');
                     exit;
                 }
-                
+
                 /*****************************************************************************/
+
                 /* validate work_phone */
-                
                 if(no_letter($work_phone)) {
                     send_json_response(ERROR_LOG, HTTP_FAIL_PRECON, 'all number');
                     exit;
                 }
-                
+
                 /*number length*/
-                
                 if(is_length_number_valid($work_phone)) {
                     send_json_response(ERROR_LOG, HTTP_FAIL_PRECON, '11');
                     exit;
                 }
+
+                /* add additional validation for group */
+
                 $user->set_userid($id);
                 $user->set_username($username);
                 $user->set_first_name($first_name);
@@ -211,7 +212,7 @@
                 $result = $user->update_profile();
 
                 if ($result) {
-                    send_json_response(INFO_LOG, HTTP_OK, 'successfully update user profile', array('msg' => 'success!'));
+                    send_json_response(INFO_LOG, HTTP_OK, 'successfully update user profile', array('msg' => 'success!', 'userid' => $id, 'username' => $username, 'email' => $email, 'name' => $first_name.' '.$last_name));
                 } else {
                     /* flash an error occured */
                 }
@@ -283,11 +284,11 @@
                 }
             }
         }
-        
+
         function delete($id) {
             if ($this->_user_exist($id)) {
                 $user = new $this->User_model();
-                
+
                 $user->set_userid($id);
                 $result = $user->deactivateUser();
                 if ($result) {
@@ -299,11 +300,11 @@
                 show_error($lang('unable_to_process_transaction'));
             }
         }
-        
+
         function activate($id) {
             if ($this->_user_exist($id)) {
                 $user = new $this->User_model();
-                
+
                 $user->set_userid($id);
                 $result = $user->activateUser();
                 if ($result) {
@@ -323,5 +324,5 @@
             }
         }
     }
-    
+
 ?>

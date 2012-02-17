@@ -21,25 +21,40 @@
     background-repeat: initial initial;
 }
 
-#flash .content {
-    min-height: 40px;
-}
-
 #flash .content p {
     text-transform: uppercase;
     color: white;
     min-height: 20px;
     line-height: 20px;
     margin-bottom: 10px;
-    padding: 10px;
+    padding: 5px;
     padding-left: 50px;
-    background: url('../images/lib/sprites/40x400-flash.png') no-repeat;
+    background: url('../../image/40x400-flash.png') no-repeat;
+}
+
+#flash .content p.error {
+    background-position: 0 -300px;
+}
+#flash .content p.alert {
+    background-position: 0 -200px;
+}
+#flash .content p.info {
+    background-position: 0 -100px;
 }
 
 #flash a.close {
-    color: #fff;
+
+    background: url('../../image/close.png') no-repeat center center;
+    height: 30px;
+    position: absolute;
+    text-indent: -10000em;
+    top: 10px;
+    right: 5px;
+    width: 30px;
+
+/*    color: #fff;
     position: absolute;
     bottom: -1px;
     right: -16px;
-    width: 30px;
+    width: 30px;*/
 }
