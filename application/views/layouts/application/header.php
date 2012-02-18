@@ -236,7 +236,7 @@
                         <a href="#" class="sub-nav-a">File Maintenance</a>
                         <ul class="inner-nav hide">
                             <li>
-                                <?php echo anchor('file_maintenance/company/index', lang('company_info')); ?>                                
+                                <?php echo anchor('file_maintenance/company/index', lang('company_info')); ?>
                             </li>
                             <li>
                                 <a href="Javascript:newPopup('/EBMS/apps/view/systemRecords/fileMaintenance/accountsManager/index.php',570,630)" id="sub-inner-a">
@@ -336,7 +336,7 @@
                         </ul>
                     </li>
                     <li class="sub-nav-item">
-                        <?php echo anchor('#', lang('user_management'), array('class' => 'sub-nav-a')); ?>
+                        <a href="#" class="sub-nav-a"><?php echo lang('user_management'); ?></a>
                         <ul class="inner-nav hide" id="user-management-nav">
                             <li >
                                 <?php echo anchor('user_management/control_manager/', lang('control_manager'), array('class' => 'sub-nav-a')); ?>

@@ -66,6 +66,13 @@
     <label>Work Phone:</label>
     <?php echo form_input(array('name' => 'work_phone', 'id' => 'work_phone', 'value'=>set_value('work_phone'))); ?>
 </fieldset>
+<fieldset>
+    <label>User Level:</label>
+    <select name="group_id">
+        <option value="1">Admin</option>
+        <option value="2">General User</option>
+    </select>
+</fieldset>
 <fieldset class="form-buttons">
     <?php echo form_submit('new_user_submit', 'Create', array('id' => 'new-user-submit')); ?>
     <?php echo anchor('user_management/control_manager', 'Cancel', array('class' => 'cancel-link')); ?>

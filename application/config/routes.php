@@ -57,7 +57,9 @@ $route['documentation/index'] = 'documentation/index';
 $route['user_management/control_manager'] = 'user_management/control_manager/index';
 $route['user_management/control_manager/list'] = 'user_management/control_manager/index';
 $route['user_management/control_manager/new_user'] = 'user_management/control_manager/new_user';
+$route['user_management/control_manager/update_user/(:num)'] = 'user_management/control_manager/update_user/$1';
 $route['user_management/control_manager/archive'] = 'user_management/control_manager/archive';
+$route['user_management/control_manager/get_useredit_form/(:num)'] = 'user_management/control_manager/get_useredit_form/$1';
 
 $route['file_maintenance/company_info'] = 'file_maintenance/company';
 $route['file_maintenance/company_info/edit/(:num)'] = 'file_maintenance/company/edit/$1';

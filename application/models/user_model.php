@@ -18,9 +18,10 @@ class User_model extends CI_Model {
     private $new_password;
     private $security_question_id;
     private $security_answer;
+    private $group_id = 2;
 
     function __construct() {
-        parent::__construct();        
+        parent::__construct();
     }
 
     function set_userid($val) {
@@ -71,6 +72,9 @@ class User_model extends CI_Model {
     function set_securityAnswer($val) {
         $this->security_answer = trim($val);
     }
+    function set_group_id($val) {
+        $this->group_id = trim($val);
+    }
 
     function get_userid() {
         return $this->user_id;
@@ -108,6 +112,9 @@ class User_model extends CI_Model {
     function get_work_phone() {
         return $this->work_phone;
     }
+    function get_group_id() {
+        return $this->group_id;
+    }
     function get_password() {
         return $this->password;
     }
@@ -134,6 +141,23 @@ class User_model extends CI_Model {
             'status_id' => $this->get_status_id(),
             'home_phone' => $this->get_home_phone(),
             'work_phone' => $this->get_work_phone()
+        ));
+    }
+
+    function update_user() {
+        return $this->ion_auth->update_user($this->user_id, array(
+            'username' => $this->get_username(),
+            'first_name' => $this->get_first_name(),
+            'middle_name' => $this->get_middle_name(),
+            'last_name' => $this->get_last_name(),
+            'email' => $this->get_email(),
+            'address' => $this->get_address(),
+            'gender' => $this->get_gender(),
+            'date_of_birth' => $this->get_date_of_birth(),
+            'status_id' => $this->get_status_id(),
+            'home_phone' => $this->get_home_phone(),
+            'work_phone' => $this->get_work_phone(),
+            'group_id' => $this->get_group_id()
         ));
     }
 
@@ -201,15 +225,16 @@ class User_model extends CI_Model {
                         'first_name' => $this->get_first_name(),
                         'last_name' => $this->get_last_name(),
                         'middle_name' => $this->get_middle_name(),
-                        'address' => $this->get_address()
+                        'address' => $this->get_address(),
+                        'group_id' => $this->get_group_id()
                     )
                 );
     }
-    
+
     function deactivateUser() {
         return $this->ion_auth->deactivate_user($this->get_userid());
     }
-    
+
     function activateUser() {
         return $this->ion_auth->activate_user($this->get_userid());
     }
