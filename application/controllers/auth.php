@@ -49,6 +49,15 @@ class Auth extends CI_Controller {
             $remember = (bool) $this->input->post('remember');
 
             if ($this->ion_auth->login($this->input->post('identity'), $this->input->post('password'), $remember)) { //if the login is successful
+                // insert audit trail
+                $user = $this->ion_auth->get_user();
+                $audit = new $this->Audit_trail_model();
+                
+                $audit->set_user_id($user->id);
+                $audit->set_details(lang('user_login'));
+                $audit->set_date_created(date("Y-m-d H:i:s"));
+                $audit->insertUserActions();
+            
                 //redirect them back to the home page
                 $this->session->set_flashdata('message', $this->ion_auth->messages());
                 redirect($this->config->item('base_url'), 'refresh');

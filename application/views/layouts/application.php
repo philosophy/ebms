@@ -19,8 +19,10 @@
             echo css_asset('user/index.css');
             echo css_asset('user/edit.css');
             echo css_asset('user_management/control_manager/list.css');
+            echo css_asset('user_management/audit_trail/index.css');
             echo css_asset('vendor/jquery-ui-1.8.17.custom.css');
             echo css_asset('vendor/jquery.dataTables.css');
+            echo css_asset('lib/datepicker.css');
         ?>
 
             <!--[if lt IE 9]>

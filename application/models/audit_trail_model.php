@@ -2,13 +2,14 @@
 
 class Audit_trail_model extends CI_Model {
 
-    private $details;
-    private $user_id;
-    private $subject_id;
-    private $type;
+    private $details;               /* additional info */
+    private $user_id;               
+    private $subject_id;            /* user_id, employee_id, product_id */
+    private $type;                  /* Actions: 1=add, 2=edit/update, 3=delete */
     private $date_created;
     private $from_date;
     private $to_date;
+    private $limit = 10;
 
     function __construct() {
         parent::__construct();
@@ -41,6 +42,10 @@ class Audit_trail_model extends CI_Model {
     function set_to_date($val) {
         $this->to_date = trim($val);
     }
+     
+    function set_limit($val) {
+        $this->limit = trim($val);
+    }
 
     function get_details() {
         return $this->details;
@@ -69,6 +74,10 @@ class Audit_trail_model extends CI_Model {
     function get_to_date() {
         return $this->to_date;
     }
+    
+    function get_limit() {
+        return $this->limit;
+    }
 
     function insertUserActions() {
         $sql = "INSERT INTO audit_trail (details, user_id, subject_id, type, date_created) values (?, ?, ?, ?, ?)";
@@ -78,14 +87,22 @@ class Audit_trail_model extends CI_Model {
                     $this->get_user_id(),
                     $this->get_subject_id(),
                     $this->get_type(),
-                    $this->date_created()
+                    $this->get_date_created()
                 ));
 
         return $this->db->affected_rows();
     }
+    
+    function countUserActions() {
+        $query = $this->db->query('SELECT * FROM audit_trail');
+        return $query->num_fields();
+    }
 
-    function getUserActions() {
-        
+    function getUserActions() {        
+        $sql = "SELECT * FROM audit_trail as trail inner join users as u where u.id = trail.user_id LIMIT ?";
+        $query = $this->db->query($sql, array($this->get_limit()));
+
+        return $query->result();
     }
 
 }

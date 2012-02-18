@@ -125,6 +125,7 @@
     /* page titles */
     $lang['edit_profile'] = 'Edit Profile';
     $lang['control_manager'] = 'Control Manager';
+    $lang['audit_trail'] = 'Audit Trail';
 
     /* page navs*/
     // control manager
@@ -149,3 +150,8 @@
     $lang['ok'] = 'OK';
     $lang['cancel'] = 'Cancel';
     $lang['try_again'] = 'Try Again';
+    
+    /* audit trail messages */
+    $lang['user_login'] = 'User logged in';
+    $lang['update_user'] = 'Update user';
+    $lang['update_profile'] = 'Update profile';

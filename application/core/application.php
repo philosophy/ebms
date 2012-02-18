@@ -1,8 +1,10 @@
 <?php
     class Application extends CI_Controller {
+        public $current_avatar;
         
         public function __construct() {
             parent::__construct();
+            $this->current_avatar = $this->current_user();
         }
         
         function authenticate_user() {

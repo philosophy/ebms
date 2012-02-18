@@ -4,8 +4,15 @@ com.ebms.views.control_manager = {
     init: function(){
         if ($('#wrapper.control_manager.index').length > 0) {
             this.initControlManagerIndex();
-        } else if (('#wrapper.control_manager.archive').length > 0) {
+            $('#user-edit').live('submit', function() {
+                var $this = $(this);
+                $this.find('fieldset.form-buttons').append('<span class="loader"></span>');
+                $this.find('input[type="submit"], a', 'fieldset.form-buttons').attr('disabled', 'disabled');
+            });
+        } else if ($('#wrapper.control_manager.archive').length > 0) {
             this.initControlManagerArchive();
+        } else if ($('#wrapper.control_manager.new_user').length > 0) {
+            com.ebms.widgets.base.initDatePicker($('#date_of_birth'));
         }
 
         $("#user-list tbody tr").click( function( e ) {
@@ -32,6 +39,7 @@ com.ebms.views.control_manager = {
         $('.cancel-link', '#edit-user-wrapper').live('click', function(e) {
             e.preventDefault();
             $editUserWrapper.find('form').fadeOut('fast', function() {
+                $(this).parent().addClass('hide');
                 $(this).remove();
             });
 
@@ -85,6 +93,7 @@ com.ebms.views.control_manager = {
             type: 'GET',
             success: function(data) {
                 $('#edit-user-wrapper').append(data.data.html).removeClass('hide').find('form').attr('data-remote', true).attr('data-type', 'json');
+                com.ebms.widgets.base.initDatePicker($('#date_of_birth'));
             },
             error: function() {
                 $('#edit-user-wrapper').text('An error has occured, please refresh your page');

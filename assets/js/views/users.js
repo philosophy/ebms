@@ -2,7 +2,7 @@ com.ebms.views.users = {
     init: function() {
         $('.edit-link').click(this.displayEditAccount);
         $('.cancel-link').live('click', this.hideEditForm);
-
+        
     },
 
     updateProfileSubmitHandler: function() {
@@ -394,6 +394,10 @@ com.ebms.views.users = {
             success: function(data) {
                 $info.find('div.loader').hide();
                 $info.append(data.data.html).fadeIn();
+                
+                /* initialize datepicker */                
+                com.ebms.widgets.base.initDatePicker($('#date_of_birth'));
+                
                 var id = $(data.data.html).attr('id');
                 if (id === 'user-edit') {
                     com.ebms.views.users.initEditProfileValidations();

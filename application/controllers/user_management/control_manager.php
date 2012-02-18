@@ -153,12 +153,12 @@
                 }
                 /*check the string length*/
                 if(is_length_valid($first_name)) {
-                    send_json_response(ERROR_LOG, HTTP_FAIL_PRECON, 'It must be more than 4 characters');
+                    send_json_response(ERROR_LOG, HTTP_FAIL_PRECON, 'first name must be more than 4 characters');
                     exit;
                 }
                 /*letters only*/
                 if(no_number($first_name)) {
-                    send_json_response(ERROR_LOG, HTTP_FAIL_PRECON, 'Letters only');
+                    send_json_response(ERROR_LOG, HTTP_FAIL_PRECON, 'first name must consist of strings only');
                     exit;
                 }
 

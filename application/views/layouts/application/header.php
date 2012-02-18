@@ -342,7 +342,7 @@
                                 <?php echo anchor('user_management/control_manager/', lang('control_manager'), array('class' => 'sub-nav-a')); ?>
                             </li>
                             <li >
-                                <a href="/EBMS/apps/view/systemRecords/userManagement/auditTrail/?page=systemRecords&menu=audit-trail" id="sub-inner-a">Audit Trail</a>
+                                <?php echo anchor('user_management/audit_trail/', lang('audit_trail'), array('class' => 'sub-nav-a')); ?>
                             </li>
                             <li >
                                 <a href="/EBMS/apps/view/systemRecords/userManagement/approvalList/?page=systemRecords&menu=approval-list" id="sub-inner-a">Approval's List</a>

@@ -163,8 +163,8 @@
                     exit;
                 }
                 /* validate date_of_birth */
-                if(is_empty_null_value($address)) {
-                    send_json_response(ERROR_LOG, HTTP_FAIL_PRECON, 'address required');
+                if(is_empty_null_value($date_of_birth)) {
+                    send_json_response(ERROR_LOG, HTTP_FAIL_PRECON, 'date of birth required');
                     exit;
                 }
 
@@ -212,6 +212,17 @@
                 $result = $user->update_profile();
 
                 if ($result) {
+                    // insert audit trail
+//                    $current_user = $this->ion_auth->get_user();
+                    $audit = new $this->Audit_trail_model();
+
+                    $audit->set_user_id($this->current_avatar->id);
+                    $audit->set_type(2);
+                    $audit->set_subject_id($id);
+                    $audit->set_details(lang('update_profile'));
+                    $audit->set_date_created(date("Y-m-d H:i:s"));
+                    $audit->insertUserActions();
+                    
                     send_json_response(INFO_LOG, HTTP_OK, 'successfully update user profile', array('msg' => 'success!', 'userid' => $id, 'username' => $username, 'email' => $email, 'name' => $first_name.' '.$last_name));
                 } else {
                     /* flash an error occured */

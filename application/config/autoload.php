@@ -108,7 +108,7 @@ $autoload['language'] = array('en');
 |
 */
 
-$autoload['model'] = array('User_model');
+$autoload['model'] = array('User_model', 'Audit_trail_model');
 
 
 /* End of file autoload.php */
