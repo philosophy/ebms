@@ -153,5 +153,7 @@
     
     /* audit trail messages */
     $lang['user_login'] = 'User logged in';
-    $lang['update_user'] = 'Update user';
-    $lang['update_profile'] = 'Update profile';
+    $lang['update_user'] = 'Updated user';
+    $lang['update_profile'] = 'Updated profile';
+    $lang['update_company_profile'] = 'Updated company profile';
+    $lang['update_security'] = 'Updated profile\'s security setting';
