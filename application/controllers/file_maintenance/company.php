@@ -62,14 +62,6 @@ class Company extends Application {
 
                 $result = $company->updateCompany();
                 if ($result) {
-                    $audit = new $this->Audit_trail_model();
-
-                    $audit->set_user_id($this->current_avatar->id);
-                    $audit->set_type(2);
-                    $audit->set_subject_id($id);
-                    $audit->set_details(lang('update_company_profile'));
-                    $audit->set_date_created(date("Y-m-d H:i:s"));
-                    $audit->insertUserActions();
                     /* success */
                     $this->session->set_flashdata('msg', 'Successfully update company info');
                     $this->session->set_flashdata('msg_class', 'info');
