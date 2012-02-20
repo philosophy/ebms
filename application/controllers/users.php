@@ -245,6 +245,14 @@
 
                 $result = $user->updateSecuritySettings();
                 if ($result) {
+                    $audit = new $this->Audit_trail_model();
+
+                    $audit->set_user_id($this->current_avatar->id);
+                    $audit->set_type(2);
+                    $audit->set_subject_id($id);
+                    $audit->set_details(lang('update_security'));
+                    $audit->set_date_created(date("Y-m-d H:i:s"));
+                    $audit->insertUserActions();
                     if ($this->input->is_ajax_request()) {
                         send_json_response(INFO_LOG, HTTP_OK, 'security settings updated successfully', array('security_question_id' => $security_question_id));
                     }
