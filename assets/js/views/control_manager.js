@@ -137,7 +137,6 @@ com.ebms.views.control_manager = {
     },
 
     archiveSuccessCallback: function(e, data) {
-        console.log('data', data);
 //        console.log('row to be deleted', $('tr[data-userid="'+data.data.user_id+'"]'));
 //        com.ebms.views.control_manager.userTable.fnDeleteRow($('tr[data-userid="'+data.data.user_id+'"]'));
         $('tr[data-userid="'+data.data.user_id+'"]').fadeOut('slow', function() {
@@ -147,7 +146,5 @@ com.ebms.views.control_manager = {
 
     enableModifyUser: function(e) {
         var target = e.target.parentElement;
-
-        $(target)
     }
 };

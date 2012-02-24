@@ -83,7 +83,7 @@
     $lang['system_records'] = 'System Records';
     $lang['file_maintenance'] = 'File Maintenance';
     $lang['user_management'] = 'User Management';
-    
+
     /*File Maintenance*/
     $lang['company_info'] = 'Company Information';
     $lang['edit_company'] = 'Edit Company Information';
@@ -132,33 +132,45 @@
     // control manager
     $lang['user_list'] = 'User List';
     $lang['create_user'] = 'Create User';
-    $lang['archive'] = 'Archive';    
-    
+    $lang['archive'] = 'Archive';
+    $lang['are_you_sure_to_restore_user'] = 'Are you sure you want to restore this user?';
+    $lang['restore_user'] = 'Restore this user';
+
     // department manager
+    $lang['department_name'] = 'Department Name';
     $lang['department_list'] = 'Department List';
     $lang['create_department'] = 'Create Department';
+    $lang['dept_name'] = 'Department Name';
+    $lang['are_you_sure_to_restore_department'] = 'Are you sure you want to restore this department?';
+    $lang['restore_this_department'] = 'Restore this department';
 
     /* error messages */
     $lang['unable_to_process_transaction'] = 'Unable to process transactions';
     $lang['username_cannot_be_blank'] = "Username can't be blank";
-    
-    
-    /* profile info */    
+    $lang['department_name_exists'] = "Department name already exists";
+
+
+    /* profile info */
     $lang['username'] = 'Username';
     $lang['first_name'] = 'First Name';
-    
+
     /* actions */
     $lang['edit'] = 'edit';
-    $lang['delete'] = 'delete';        
-    $lang['activate'] = 'activate';        
-    
+    $lang['delete'] = 'delete';
+    $lang['activate'] = 'activate';
+
+    /* General */
     $lang['ok'] = 'OK';
     $lang['cancel'] = 'Cancel';
     $lang['try_again'] = 'Try Again';
-    
+    $lang['no_records_found'] = 'No Records Found';
+
     /* audit trail messages */
     $lang['user_login'] = 'User logged in';
     $lang['update_user'] = 'Updated user';
     $lang['update_profile'] = 'Updated profile';
     $lang['update_company_profile'] = 'Updated company profile';
     $lang['update_security'] = 'Updated profile\'s security setting';
+    $lang['update_department'] = 'Update department';
+    $lang['deactivate_department'] = 'Deactivate department';
+    $lang['restore_department'] = 'Restore Department';

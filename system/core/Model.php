@@ -50,6 +50,19 @@ class CI_Model {
 		$CI =& get_instance();
 		return $CI->$key;
 	}
+
+        function insertAuditTrail($id, $type, $subject_id, $details) {
+            $date_created = date($this->config->item('date_format'));
+
+            /* insert audit */
+            $audit = new $this->Audit_trail_model();
+            $audit->set_user_id($id);
+            $audit->set_type($type);
+            $audit->set_subject_id($subject_id);
+            $audit->set_details($details);
+            $audit->set_date_created($date_created);
+            $audit->insertUserActions();
+        }
 }
 // END Model Class
 

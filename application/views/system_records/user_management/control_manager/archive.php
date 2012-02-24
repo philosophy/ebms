@@ -1,6 +1,6 @@
 <article class="aside-left">
     <?php
-        $this->load->view('common/control_manager_nav');
+        $this->load->view('common/nav/control_manager');
     ?>
 </article>
 <article class="primary">
@@ -22,8 +22,8 @@
                                 <?php
                                     echo anchor('users/activate/'.$user->id, lang('activate'),
                                             array('class'=>'delete-profile confirm-link',
-                                                'data-dialog-confirm-message'=>'Are you sure you want to delete this user?',
-                                                'data-dialog-method'=>'PUT', 'data-dialog-remote'=>true, 'data-dialog-title'=>'Delete this user',
+                                                'data-dialog-confirm-message'=> lang('are_you_sure_to_restore_user'),
+                                                'data-dialog-method'=>'PUT', 'data-dialog-remote'=>true, 'data-dialog-title'=>lang('restore_user'),
                                                 'data-dialog-type'=>'json', 'data-class'=>'activate'
                                          )); ?></td>
                             <td><?php echo $user->first_name.' '.$user->last_name; ?></td>
@@ -33,10 +33,9 @@
                     <?php } ?>
                 </tbody>
             </table>
-        <?php } else {
-                echo 'No Records Found.';
-            }
-        ?>
-
+        <?php } else { ?>
+            <p><?php echo lang('no_records_found'); ?></p>
+        <?php } ?>
+            
     </div>
 </article>

@@ -20,6 +20,7 @@
             echo css_asset('user/edit.css');
             echo css_asset('user_management/control_manager/list.css');
             echo css_asset('user_management/audit_trail/index.css');
+            echo css_asset('lib/table_list.css');
             echo css_asset('vendor/jquery-ui-1.8.17.custom.css');
             echo css_asset('vendor/jquery.dataTables.css');
             echo css_asset('lib/datepicker.css');
@@ -88,6 +89,7 @@
             echo js_asset('views/users.js');
             echo js_asset('views/control_manager.js');
             echo js_asset('views/company.js');
+            echo js_asset('views/department.js');
             echo js_asset('lib/flash.js');
 
         ?>

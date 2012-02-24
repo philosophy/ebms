@@ -1,0 +1,121 @@
+/*
+    Document   : table_list
+    Created on : Feb 23, 2012, 10:13:36 PM
+    Author     : marc
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/*
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+root {
+    display: block;
+}
+
+.control-nav {
+    margin-top: 20px;
+}
+
+.control-nav li {
+
+}
+
+.control-nav a {
+    padding: 7px 5px;
+    display: block;
+    font-family: 'Times New Roman';
+    font-size: 0.85em;
+}
+
+.control-nav a.active {
+    background-color: #D8DFEA;
+    font-weight: bold;
+}
+
+.control-nav a:hover {
+    background-color: #CCD4E0;
+}
+
+#wrapper.index .table-list-wrapper,
+#wrapper.archive .table-list-wrapper {
+    display: block;
+    width: 550px;
+    margin: 30px auto;
+    border-top: 2px solid #CCC;
+    padding: 10px 10px 0;
+}
+
+#wrapper.index .table-list,
+#wrapper.archive .table-list{
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+#wrapper.index .table-list-info,
+#wrapper.archive .table-list-info {
+
+}
+#wrapper.index .table-list tbody tr:hover,
+#wrapper.archive .table-list tbody tr:hover{
+    background-color: #D3D6FF !important;
+}
+
+.table-list th.no-sort {
+    background: none !important;
+}
+
+.table-list tbody tr td.action {
+    position: relative;
+}
+
+.table-list tbody tr td a.edit-data,
+.table-list tbody tr td a.delete-data,
+.table-list tbody tr td a.activate-data {
+    display: block;
+    font-size: 13px;
+    padding-left: 20px;
+}
+
+.table-list tbody tr td a.edit-data:hover,
+.table-list tbody tr td a.activate-data:hover,
+.table-list tbody tr td a.delete-data:hover {
+    text-decoration: underline;
+}
+
+.table-list tbody tr td.action i {
+    width: 18px;
+    height: 18px;
+    position: absolute;
+    top: 2px;
+    background: url('../../image/icons/fb_icons.png') no-repeat 0 0;
+    background-position: 3px -100px;
+}
+
+.table-list tbody tr td.delete i {
+    background-position: -36px -100px;
+    left: 13px;
+    top: 5px;
+}
+
+.table-list tbody tr td.activate i {
+    background-position: -32px -86px;
+    left: 13px;
+    top: 4px;
+    width: 16px;
+    height: 16px;
+}
+
+.table-list tbody tr.row_selected {
+    background-color: #D3D6FF;
+}
+
+.table-list tbody td.sorting_1 {
+    background: none;
+}
+
+#wrapper article.primary > .loader-container {
+    margin: 100px auto;
+}

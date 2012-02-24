@@ -62,10 +62,19 @@ $route['user_management/control_manager/archive'] = 'user_management/control_man
 $route['user_management/control_manager/get_useredit_form/(:num)'] = 'user_management/control_manager/get_useredit_form/$1';
 $route['user_management/audit_trail'] = 'user_management/audit_trail/index';
 
+/* file_maintenance */
 $route['file_maintenance/company_info'] = 'file_maintenance/company';
 $route['file_maintenance/company_info/edit/(:num)'] = 'file_maintenance/company/edit/$1';
 $route['file_maintenance/company_info/update/(:num)'] = 'file_maintenance/company/update/$1';
+
 $route['file_maintenance/department'] = 'file_maintenance/department';
+$route['file_maintenance/department/new'] = 'file_maintenance/department/new';
+$route['file_maintenance/department/created_dept'] = 'file_maintenance/department/create_dept';
+$route['file_maintenance/department/archive'] = 'file_maintenance/department/archive';
+$route['file_maintenance/department/update/(:num)'] = 'file_maintenance/department/update/$1';
+$route['file_maintenance/department/delete/(:num)'] = 'file_maintenance/department/delete/$1';
+$route['file_maintenance/department/restore/(:num)'] = 'file_maintenance/department/restore/$1';
+
 $route['file_maintenance/company_info'] = 'file_maintenance/accounts_manager';
 $route['file_maintenance/company_info'] = 'file_maintenance/employee_status_manager';
 $route['file_maintenance/company_info'] = 'file_maintenance/city_manager';

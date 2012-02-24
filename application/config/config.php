@@ -374,3 +374,5 @@ function __autoload($class) {
         @include_once( APPPATH . 'core/' . $class . EXT );
     }
 }
+
+$config['date_format'] = "Y-m-d H:i:s";

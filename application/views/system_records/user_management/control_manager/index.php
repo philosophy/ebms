@@ -1,7 +1,7 @@
 <article class="aside-left">
 
     <?php
-        $this->load->view('common/control_manager_nav');
+        $this->load->view('common/nav/control_manager');
     ?>
 </article>
 <article class="primary">

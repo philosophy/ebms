@@ -100,6 +100,10 @@ a:visited {
     border-bottom: 1px solid #F3EFEF;
 }
 
+.aligned-details fieldset.form-buttons {
+    border-bottom: none;
+}
+
 .aligned-details fieldset > label {
     color: #979797;
     float: left;
