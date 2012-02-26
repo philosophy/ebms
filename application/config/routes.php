@@ -82,6 +82,12 @@ $routes['file_maintenance/area_type/create_area_type'] = 'file_maintenance/area_
 $route['file_maintenance/area_type/delete/(:num)'] = 'file_maintenance/area_type/delete/$1';
 $route['file_maintenance/area_type/get_area_type_edit_form/(:num)'] = 'file_maintenance/area_type/get_area_type_edit_form/$1';
 
+$route['file_maintenance/employee_status'] = 'file_maintenance/employee_status';
+$routes['file_maintenance/employee_status/new_employee_status'] = 'file_maintenance/employee_status/new_employee_status';
+$routes['file_maintenance/employee_status/create_employee_status'] = 'file_maintenance/employee_status/create_employee_status';
+$route['file_maintenance/employee_status/delete/(:num)'] = 'file_maintenance/employee_status/delete/$1';
+$route['file_maintenance/employee_status/get_employee_status_edit_form/(:num)'] = 'file_maintenance/employee_status/get_employee_status_edit_form/$1';
+
 $route['file_maintenance/company_info'] = 'file_maintenance/accounts_manager';
 $route['file_maintenance/company_info'] = 'file_maintenance/employee_status_manager';
 $route['file_maintenance/company_info'] = 'file_maintenance/city_manager';

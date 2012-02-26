@@ -128,6 +128,7 @@
     $lang['audit_trail'] = 'Audit Trail';
     $lang['department_manager'] = 'Department Manager';
     $lang['area_type_manager'] = 'Area Type Manager';
+    $lang['employee_status_manager'] = 'Employee Status Manager';
 
     /* page navs*/
     // control manager
@@ -156,11 +157,22 @@
     $lang['restore_this_area_type'] = 'Restore this area type';
     $lang['are_you_sure_to_restore_area_type'] = 'Are you sure you want to restore this area type?';
 
+    // employee-status manager
+    $lang['employee_status_name'] = 'Employee Status Name';
+    $lang['employee_status_list'] = 'Employee Status List';
+    $lang['create_employee_status'] = 'Create Employee Status';
+    $lang['name'] = 'Name';
+    $lang['delete_this_employee_status'] = 'Delete this employee status';
+    $lang['are_you_sure_to_delete_employee_status'] = 'Are you sure you want to delete this employee status?';
+    $lang['restore_this_employee_status'] = 'Restore this employee status';
+    $lang['are_you_sure_to_restore_employee_status'] = 'Are you sure you want to restore this employee status?';
+
     /* error messages */
     $lang['unable_to_process_transaction'] = 'Unable to process transactions';
     $lang['username_cannot_be_blank'] = "Username can't be blank";
     $lang['department_name_exists'] = "Department name already exists";
     $lang['area_type_name_exists'] = "Area type name already exists";
+    $lang['employee_status_name_exists'] = "Employee status name already exists";
 
     /* profile info */
     $lang['username'] = 'Username';
@@ -192,3 +204,7 @@
     $lang['deactivate_area_type'] = 'Deactivate area type';
     $lang['update_area_type'] = 'Update area type';
     $lang['restore_area_type'] = 'Restore area type';
+    $lang['create_new_employee_status'] = 'Create new employee status';
+    $lang['deactivate_employee_status'] = 'Deactivate employee status';
+    $lang['update_employee status'] = 'Update employee status';
+    $lang['restore_employee_status'] = 'Restore employee status';

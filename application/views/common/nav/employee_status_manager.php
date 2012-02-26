@@ -1,9 +1,9 @@
-<nav id="area-type-manager-nav" class="control-nav">
+<nav id="employee-status-manager-nav" class="control-nav">
     <ul>
-        <li id="area-type-list-tab" class="list-tab">
+        <li id="employee-status-list-tab" class="list-tab">
             <?php echo anchor('file_maintenance/employee_status/index', lang('employee_status_list'), array('class' => ($active=='list') ? 'active' : '')); ?>
         </li>
-        <li id="create-area-type-tab" class="create-tab">
+        <li id="create-employee-status-tab" class="create-tab">
             <?php echo anchor('file_maintenance/employee_status/new_employee_status', lang('create_employee_status'), array('class' => ($active=='create') ? 'active' : '')); ?>
         </li>
         <li id="archive-tab" class="archive-tab">

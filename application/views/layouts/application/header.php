@@ -249,9 +249,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="Javascript:newPopup('/EBMS/apps/view/systemRecords/fileMaintenance/employeeStatusManager/index.php',490,630)" id="sub-inner-a">
-                                    Employee Status Manager
-                                </a>
+                                <?php echo anchor('file_maintenance/employee_status/index', lang('employee_status_manager')); ?>
                             </li>
                             <li>
                                 <a href="Javascript:newPopup('/EBMS/apps/view/systemRecords/fileMaintenance/employeePositionManager/index.php',570,630)" id="sub-inner-a">
