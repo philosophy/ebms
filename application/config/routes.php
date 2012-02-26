@@ -68,12 +68,19 @@ $route['file_maintenance/company_info/edit/(:num)'] = 'file_maintenance/company/
 $route['file_maintenance/company_info/update/(:num)'] = 'file_maintenance/company/update/$1';
 
 $route['file_maintenance/department'] = 'file_maintenance/department';
-$route['file_maintenance/department/new'] = 'file_maintenance/department/new';
+$route['file_maintenance/department/new_department'] = 'file_maintenance/department/new_department';
 $route['file_maintenance/department/created_dept'] = 'file_maintenance/department/create_dept';
 $route['file_maintenance/department/archive'] = 'file_maintenance/department/archive';
 $route['file_maintenance/department/update/(:num)'] = 'file_maintenance/department/update/$1';
 $route['file_maintenance/department/delete/(:num)'] = 'file_maintenance/department/delete/$1';
 $route['file_maintenance/department/restore/(:num)'] = 'file_maintenance/department/restore/$1';
+$route['file_maintenance/department/get_deptedit_form/(:num)'] = 'file_maintenance/department/get_deptedit_form/$1';
+
+$route['file_maintenance/area_type'] = 'file_maintenance/area_type';
+$routes['file_maintenance/area_type/new_area_type'] = 'file_maintenance/area_type/new_area_type';
+$routes['file_maintenance/area_type/create_area_type'] = 'file_maintenance/area_type/create_area_type';
+$route['file_maintenance/area_type/delete/(:num)'] = 'file_maintenance/area_type/delete/$1';
+$route['file_maintenance/area_type/get_area_type_edit_form/(:num)'] = 'file_maintenance/area_type/get_area_type_edit_form/$1';
 
 $route['file_maintenance/company_info'] = 'file_maintenance/accounts_manager';
 $route['file_maintenance/company_info'] = 'file_maintenance/employee_status_manager';

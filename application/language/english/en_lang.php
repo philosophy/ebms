@@ -127,6 +127,7 @@
     $lang['control_manager'] = 'Control Manager';
     $lang['audit_trail'] = 'Audit Trail';
     $lang['department_manager'] = 'Department Manager';
+    $lang['area_type_manager'] = 'Area Type Manager';
 
     /* page navs*/
     // control manager
@@ -144,11 +145,22 @@
     $lang['are_you_sure_to_restore_department'] = 'Are you sure you want to restore this department?';
     $lang['restore_this_department'] = 'Restore this department';
 
+    // area-type manager
+    $lang['area_type_name'] = 'Area Type Name';
+    $lang['area_type_list'] = 'Area Type List';
+    $lang['create_area_type'] = 'Create Area Type';
+    $lang['description'] = 'Description';
+    $lang['name'] = 'Name';
+    $lang['delete_this_area_type'] = 'Delete this area type';
+    $lang['are_you_sure_to_delete_area_type'] = 'Are you sure you want to delete this area type?';
+    $lang['restore_this_area_type'] = 'Restore this area type';
+    $lang['are_you_sure_to_restore_area_type'] = 'Are you sure you want to restore this area type?';
+
     /* error messages */
     $lang['unable_to_process_transaction'] = 'Unable to process transactions';
     $lang['username_cannot_be_blank'] = "Username can't be blank";
     $lang['department_name_exists'] = "Department name already exists";
-
+    $lang['area_type_name_exists'] = "Area type name already exists";
 
     /* profile info */
     $lang['username'] = 'Username';
@@ -164,6 +176,7 @@
     $lang['cancel'] = 'Cancel';
     $lang['try_again'] = 'Try Again';
     $lang['no_records_found'] = 'No Records Found';
+    $lang['an_error_occured'] = 'An error occured';
 
     /* audit trail messages */
     $lang['user_login'] = 'User logged in';
@@ -174,3 +187,8 @@
     $lang['update_department'] = 'Update department';
     $lang['deactivate_department'] = 'Deactivate department';
     $lang['restore_department'] = 'Restore Department';
+    $lang['create_new_department'] = 'Create new department';
+    $lang['create_new_area_type'] = 'Create new area type';
+    $lang['deactivate_area_type'] = 'Deactivate area type';
+    $lang['update_area_type'] = 'Update area type';
+    $lang['restore_area_type'] = 'Restore area type';

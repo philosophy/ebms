@@ -32,7 +32,7 @@ com.ebms.views.department = {
     updateDepartmentSuccessCallback: function(e, data) {
         if (data.code === 200) {
             /* flash success message and hide the form */
-            var $row = $('tr[data-userid="'+data.data.department_id+'"]');
+            var $row = $('tr[data-deptid="'+data.data.department_id+'"]');
             $row.find('td.name').text(data.data.department_name);
 
             $('#edit-department-wrapper form').fadeOut('slow', function() {

@@ -262,9 +262,7 @@
                                 <?php echo anchor('file_maintenance/department/index', lang('department_manager')); ?>
                             </li>
                             <li>
-                                <a href="Javascript:newPopup('/EBMS/apps/view/systemRecords/fileMaintenance/areaTypeManager/index.php',570,630)" id="sub-inner-a">
-                                    Area Type Manager
-                                </a>
+                                <?php echo anchor('file_maintenance/area_type/index', lang('area_type_manager')); ?>
                             </li>
                             <li>
                                 <a href="Javascript:newPopup('/EBMS/apps/view/systemRecords/fileMaintenance/locationTypeManager/index.php',500,630)" id="sub-inner-a">

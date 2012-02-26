@@ -90,6 +90,7 @@
             echo js_asset('views/control_manager.js');
             echo js_asset('views/company.js');
             echo js_asset('views/department.js');
+            echo js_asset('views/area_type.js');
             echo js_asset('lib/flash.js');
 
         ?>

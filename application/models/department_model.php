@@ -9,6 +9,7 @@ class Department_model extends CI_Model {
     private $last_updated_by;
     private $last_updated_at;
     private $active = 1;
+    private $company_id;
 
     function __construct() {
         parent::__construct();
@@ -35,6 +36,9 @@ class Department_model extends CI_Model {
     function set_active($val) {
         $this->active = $val;
     }
+    function set_company_id($val) {
+        $this->company_id = $val;
+    }
 
     function get_id() {
         return (int)$this->id;
@@ -57,10 +61,13 @@ class Department_model extends CI_Model {
     function get_active() {
         return (int)$this->active;
     }
+    function get_company_id() {
+        return (int)$this->company_id;
+    }
 
     function getDepartments() {
-        $sql = "SELECT * FROM departments where active=?";
-        $query = $this->db->query($sql, array('active' => $this->get_active()));
+        $sql = "SELECT * FROM departments where active=? and company_id=?";
+        $query = $this->db->query($sql, array('active' => $this->get_active(), 'company_id' => $this->get_company_id()));
 
         if ($query->num_rows() > 0) {
             return $query->result();
@@ -81,15 +88,27 @@ class Department_model extends CI_Model {
     }
 
     function createDepartment() {
-        $sql = "INSERT INTO departments (name, created_by, date_created) values (?, ?, ?)";
+        $this->db->trans_start();
+        $sql = "INSERT INTO departments (name, created_by, date_created, company_id) values (?, ?, ?, ?)";
         $query = $this->db->query($sql,
                 array(
                     $this->get_name(),
                     $this->get_created_by(),
-                    date($this->config->item('date_format'))
+                    date($this->config->item('date_format')),
+                    $this->get_company_id()
                 ));
 
-        return $this->db->affected_rows();
+        $query = $this->db->query('SELECT id from departments where company_id = ? order by date_created desc limit 1', array('company_id' => $this->get_company_id()));
+
+        /* insert audit */
+        parent::insertAuditTrail($this->get_created_by(), 1, $query->row()->id, lang('create_new_department'), $this->get_company_id());
+
+        $this->db->trans_complete();
+        if ($this->db->trans_status() === TRUE) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     function deactivateDepartment() {
@@ -100,7 +119,7 @@ class Department_model extends CI_Model {
         $this->db->update('departments', $data);
 
         /* insert audit */
-        parent::insertAuditTrail($this->current_avatar->id, 3, $this->get_id(), lang('deactivate_department'));
+        parent::insertAuditTrail($this->current_avatar->id, 3, $this->get_id(), lang('deactivate_department'), $this->get_company_id());
 
         $this->db->trans_complete();
         if ($this->db->trans_status() === TRUE) {
@@ -118,7 +137,7 @@ class Department_model extends CI_Model {
         $this->db->update('departments', $data);
 
         /* insert audit */
-        parent::insertAuditTrail($this->current_avatar->id, 2, $this->get_id(), lang('restore_department'));
+        parent::insertAuditTrail($this->current_avatar->id, 2, $this->get_id(), lang('restore_department'), $this->get_company_id());
 
         $this->db->trans_complete();
         if ($this->db->trans_status() === TRUE) {
@@ -129,8 +148,19 @@ class Department_model extends CI_Model {
     }
 
     function departmentExists() {
-        $sql = "SELECT * FROM departments where id != ? and name = ?";
-        $query = $this->db->query($sql, array('id' => $this->get_id(), 'name' => $this->get_name()));
+        $sql = "SELECT * FROM departments where name = ? and company_id = ?";
+        $query = $this->db->query($sql, array('name' => $this->get_name(), 'company_id' => $this->get_company_id()));
+
+        if ($query->num_rows() > 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    function recordExists() {
+        $sql = "SELECT * FROM departments where id != ? and name = ? and company_id = ?";
+        $query = $this->db->query($sql, array('id' => $this->get_id(), 'name' => $this->get_name(), 'company_id' => $this->get_company_id()));
 
         if ($query->num_rows() > 0) {
             return true;
@@ -151,7 +181,7 @@ class Department_model extends CI_Model {
         $this->db->update('departments', $data);
 
         /* insert audit */
-        parent::insertAuditTrail($this->current_avatar->id, 2, $this->get_id(), lang('update_department'));
+        parent::insertAuditTrail($this->get_last_updated_by(), 2, $this->get_id(), lang('update_department'), $this->get_company_id());
 
         $this->db->trans_complete();
         if ($this->db->trans_status() === TRUE) {

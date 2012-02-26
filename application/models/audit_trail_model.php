@@ -11,6 +11,7 @@ class Audit_trail_model extends CI_Model {
     private $to_date;
     private $limit = 10;
     private $offset = 0;                /* start of data row selection */
+    private $company_id;
 
     function __construct() {
         parent::__construct();
@@ -51,6 +52,9 @@ class Audit_trail_model extends CI_Model {
     function set_offset($val) {
         $this->offset = $val;
     }
+    function set_company_id($val) {
+        $this->company_id = $val;
+    }
 
     function get_details() {
         return $this->details;
@@ -87,16 +91,20 @@ class Audit_trail_model extends CI_Model {
     function get_offset() {
         return (int)$this->offset;
     }
+    function get_company_id() {
+        return (int)$this->company_id;
+    }
 
     function insertUserActions() {
-        $sql = "INSERT INTO audit_trail (details, user_id, subject_id, type, date_created) values (?, ?, ?, ?, ?)";
+        $sql = "INSERT INTO audit_trail (details, user_id, subject_id, type, date_created, company_id) values (?, ?, ?, ?, ?, ?)";
         $query = $this->db->query($sql,
                 array(
                     $this->get_details(),
                     $this->get_user_id(),
                     $this->get_subject_id(),
                     $this->get_type(),
-                    $this->get_date_created()
+                    $this->get_date_created(),
+                    $this->get_company_id()
                 ));
 
         return $this->db->affected_rows();
@@ -113,7 +121,7 @@ class Audit_trail_model extends CI_Model {
 
         return $query->result();
     }
-    
+
     function getUserActionsByDate() {
 //        $sql = "SELECT * FROM audit_trail as trail inner join users as u where u.id = trail.user_id and  LIMIT ? OFFSET ?"
     }
