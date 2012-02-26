@@ -88,8 +88,13 @@ $routes['file_maintenance/employee_status/create_employee_status'] = 'file_maint
 $route['file_maintenance/employee_status/delete/(:num)'] = 'file_maintenance/employee_status/delete/$1';
 $route['file_maintenance/employee_status/get_employee_status_edit_form/(:num)'] = 'file_maintenance/employee_status/get_employee_status_edit_form/$1';
 
+$route['file_maintenance/position'] = 'file_maintenance/position';
+$routes['file_maintenance/position/new_position'] = 'file_maintenance/position/new_position';
+$routes['file_maintenance/position/create_position'] = 'file_maintenance/position/create_position';
+$route['file_maintenance/position/delete/(:num)'] = 'file_maintenance/position/delete/$1';
+$route['file_maintenance/position/get_position_edit_form/(:num)'] = 'file_maintenance/position/get_position_edit_form/$1';
+
 $route['file_maintenance/company_info'] = 'file_maintenance/accounts_manager';
-$route['file_maintenance/company_info'] = 'file_maintenance/employee_status_manager';
 $route['file_maintenance/company_info'] = 'file_maintenance/city_manager';
 $route['file_maintenance/company_info'] = 'file_maintenance/unit_manager';
 $route['file_maintenance/company_info'] = 'file_maintenance/earning';

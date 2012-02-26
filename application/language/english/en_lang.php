@@ -129,6 +129,7 @@
     $lang['department_manager'] = 'Department Manager';
     $lang['area_type_manager'] = 'Area Type Manager';
     $lang['employee_status_manager'] = 'Employee Status Manager';
+    $lang['position_manager'] = 'Position Manager';
 
     /* page navs*/
     // control manager
@@ -167,12 +168,23 @@
     $lang['restore_this_employee_status'] = 'Restore this employee status';
     $lang['are_you_sure_to_restore_employee_status'] = 'Are you sure you want to restore this employee status?';
 
+    // position manager
+    $lang['position_name'] = 'Position Name';
+    $lang['position_list'] = 'Position List';
+    $lang['create_position'] = 'Create Position';
+    $lang['name'] = 'Name';
+    $lang['delete_this_position'] = 'Delete this position';
+    $lang['are_you_sure_to_delete_position'] = 'Are you sure you want to delete this position?';
+    $lang['restore_this_position'] = 'Restore this employee status';
+    $lang['are_you_sure_to_restore_position'] = 'Are you sure you want to restore this position?';
+
     /* error messages */
     $lang['unable_to_process_transaction'] = 'Unable to process transactions';
     $lang['username_cannot_be_blank'] = "Username can't be blank";
     $lang['department_name_exists'] = "Department name already exists";
     $lang['area_type_name_exists'] = "Area type name already exists";
     $lang['employee_status_name_exists'] = "Employee status name already exists";
+    $lang['position_name_exists'] = "Position name already exists";
 
     /* profile info */
     $lang['username'] = 'Username';
@@ -208,3 +220,7 @@
     $lang['deactivate_employee_status'] = 'Deactivate employee status';
     $lang['update_employee status'] = 'Update employee status';
     $lang['restore_employee_status'] = 'Restore employee status';
+    $lang['create_new_position'] = 'Create new position';
+    $lang['deactivate_position'] = 'Deactivate position';
+    $lang['update_positions'] = 'Update position';
+    $lang['restore_position'] = 'Restore position';

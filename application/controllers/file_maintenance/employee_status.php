@@ -77,7 +77,7 @@
                 if ($result) {
                     send_json_response(INFO_LOG, HTTP_OK, 'successfully deleted employee_status', array('employee_status_id' => $id));
                 } else {
-                    send_json_response(ERROR_LOG, HTTP_FAIL_PRECON, 'unable to delete area type');
+                    send_json_response(ERROR_LOG, HTTP_FAIL_PRECON, 'unable to delete employee status');
                 }
             } else {
                 show_error(lang('unable_to_process_transaction'));
@@ -109,14 +109,14 @@
                 /* description len should not be less than 5 characters */
                 /* description should not be empty */
 
-                /* validate area type name if empty*/
+                /* validate employee status name if empty*/
                 if(is_empty_null_value($employee_status_name)) {
-                    send_json_response(ERROR_LOG, HTTP_FAIL_PRECON, 'area type name is required');
+                    send_json_response(ERROR_LOG, HTTP_FAIL_PRECON, 'employee status name is required');
                     exit;
                 }
                 /*check the string length*/
                 if(strlen($employee_status_name) < 5) {
-                    send_json_response(ERROR_LOG, HTTP_FAIL_PRECON, 'area type name must atleast be 5 characters long');
+                    send_json_response(ERROR_LOG, HTTP_FAIL_PRECON, 'employee status name must atleast be 5 characters long');
                     exit;
                 }
 
@@ -126,7 +126,7 @@
                 $this->statusObj->set_last_updated_by($this->current_user()->id);
                 $this->statusObj->set_company_id($this->current_user()->company_id);
 
-                /* area type should not be the same name with other department */
+                /* employee status should not be the same name with other department */
                 if($this->statusObj->recordExists()) {
                     send_json_response(ERROR_LOG, HTTP_FAIL_PRECON, 'Department name already exists');
                     exit;
@@ -144,9 +144,9 @@
         }
 
         function get_employee_status_edit_form($id) {
-            $this->areaType = $this->statusObj->getEmployeeStatusDetails($id);
-            if (!empty($this->areaType)) {
-                send_json_response(INFO_LOG, HTTP_OK, 'area type edit form', array('html' => $this->load->view('system_records/file_maintenance/employee_status/_edit', '', true)));
+            $this->status = $this->statusObj->getEmployeeStatusDetails($id);
+            if (!empty($this->status)) {
+                send_json_response(INFO_LOG, HTTP_OK, 'employee status edit form', array('html' => $this->load->view('system_records/file_maintenance/employee_status/_edit', '', true)));
             } else {
                 send_json_response(ERROR_LOG, HTTP_BAD_REQUEST, 'bad request');
             }
@@ -161,17 +161,17 @@
 
                 $result = $this->statusObj->restoreEmployeeStatus();
                 if ($result) {
-                    send_json_response(INFO_LOG, HTTP_OK, 'successfully restore area type', array('employee_status_id' => $id));
+                    send_json_response(INFO_LOG, HTTP_OK, 'successfully restore employee status', array('employee_status_id' => $id));
                 } else {
-                    send_json_response(ERROR_LOG, HTTP_FAIL_PRECON, 'unable to restore area type');
+                    send_json_response(ERROR_LOG, HTTP_FAIL_PRECON, 'unable to restore employee status');
                 }
             }
         }
 
 
         private function _record_exist($id) {
-            $this->areaType = $this->employee_status_model->getEmployeeStatusDetails($id);
-            if (empty($this->areaType)) {
+            $this->status = $this->employee_status_model->getEmployeeStatusDetails($id);
+            if (empty($this->status)) {
                 return false;
             } else {
                 return true;
