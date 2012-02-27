@@ -178,6 +178,16 @@
     $lang['restore_this_position'] = 'Restore this employee status';
     $lang['are_you_sure_to_restore_position'] = 'Are you sure you want to restore this position?';
 
+// position manager
+    $lang['unit_name'] = 'Unit Name';
+    $lang['unit_list'] = 'Unit List';
+    $lang['create_unit'] = 'Create Unit';
+    $lang['name'] = 'Name';
+    $lang['delete_this_unit'] = 'Delete this unit';
+    $lang['are_you_sure_to_delete_unit'] = 'Are you sure you want to delete this unit?';
+    $lang['restore_this_unit'] = 'Restore this unit';
+    $lang['are_you_sure_to_restore_unit'] = 'Are you sure you want to restore this unit?';
+
     /* error messages */
     $lang['unable_to_process_transaction'] = 'Unable to process transactions';
     $lang['username_cannot_be_blank'] = "Username can't be blank";
@@ -185,6 +195,7 @@
     $lang['area_type_name_exists'] = "Area type name already exists";
     $lang['employee_status_name_exists'] = "Employee status name already exists";
     $lang['position_name_exists'] = "Position name already exists";
+    $lang['unit_name_exists'] = "Unit name already exists";
 
     /* profile info */
     $lang['username'] = 'Username';
@@ -224,3 +235,7 @@
     $lang['deactivate_position'] = 'Deactivate position';
     $lang['update_positions'] = 'Update position';
     $lang['restore_position'] = 'Restore position';
+    $lang['create_new_unit'] = 'Create new unit';
+    $lang['deactivate_unit'] = 'Deactivate unit';
+    $lang['update_unit'] = 'Update unit';
+    $lang['restore_unit'] = 'Restore unit';

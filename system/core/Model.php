@@ -51,7 +51,7 @@ class CI_Model {
 		return $CI->$key;
 	}
 
-        function insertAuditTrail($id, $type, $subject_id, $details, $company_id) {
+        function insertAuditTrail($id, $type, $subject_id, $details, $company_id, $table_name) {
             $date_created = date($this->config->item('date_format'));
 
             /* insert audit */
@@ -62,6 +62,7 @@ class CI_Model {
             $audit->set_details($details);
             $audit->set_date_created($date_created);
             $audit->set_company_id($company_id);
+            $audit->set_table_name($table_name);
             $audit->insertUserActions();
         }
 }

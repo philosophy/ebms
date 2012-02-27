@@ -94,6 +94,12 @@ $routes['file_maintenance/position/create_position'] = 'file_maintenance/positio
 $route['file_maintenance/position/delete/(:num)'] = 'file_maintenance/position/delete/$1';
 $route['file_maintenance/position/get_position_edit_form/(:num)'] = 'file_maintenance/position/get_position_edit_form/$1';
 
+$route['file_maintenance/unit'] = 'file_maintenance/unit';
+$routes['file_maintenance/unit/new_position'] = 'file_maintenance/unit/new_position';
+$routes['file_maintenance/unit/create_unit'] = 'file_maintenance/unit/create_position';
+$route['file_maintenance/unit/delete/(:num)'] = 'file_maintenance/unit/delete/$1';
+$route['file_maintenance/unit/get_unit_edit_form/(:num)'] = 'file_maintenance/unit/get_unit_edit_form/$1';
+
 $route['file_maintenance/company_info'] = 'file_maintenance/accounts_manager';
 $route['file_maintenance/company_info'] = 'file_maintenance/city_manager';
 $route['file_maintenance/company_info'] = 'file_maintenance/unit_manager';

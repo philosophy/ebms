@@ -301,9 +301,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="Javascript:newPopup('/EBMS/apps/view/systemRecords/fileMaintenance/unitManager/index.php',500,630)" id="sub-inner-a">
-                                    Unit Manager
-                                </a>
+                                <?php echo anchor('file_maintenance/unit/index', lang('unit_manager')); ?>
                             </li>
                             <li>
                                 <a href="Javascript:newPopup('/EBMS/apps/view/systemRecords/fileMaintenance/cityManager/index.php',490,630)" id="sub-inner-a">

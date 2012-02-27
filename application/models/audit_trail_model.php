@@ -12,6 +12,7 @@ class Audit_trail_model extends CI_Model {
     private $limit = 10;
     private $offset = 0;                /* start of data row selection */
     private $company_id;
+    private $table_name;
 
     function __construct() {
         parent::__construct();
@@ -55,48 +56,46 @@ class Audit_trail_model extends CI_Model {
     function set_company_id($val) {
         $this->company_id = $val;
     }
+    function set_table_name($val) {
+        $this->table_name = $val;
+    }
 
     function get_details() {
         return $this->details;
     }
-
     function get_user_id() {
         return $this->user_id;
     }
-
     function get_subject_id() {
         return $this->subject_id;
     }
-
     function get_type() {
         return $this->type;
     }
-
     function get_date_created() {
         return $this->date_created;
     }
-
     function get_from_date() {
         return $this->from_date;
     }
-
     function get_to_date() {
         return $this->to_date;
     }
-
     function get_limit() {
         return (int)$this->limit;
     }
-
     function get_offset() {
         return (int)$this->offset;
     }
     function get_company_id() {
         return (int)$this->company_id;
     }
+    function get_table_name() {
+        return $this->table_name;
+    }
 
     function insertUserActions() {
-        $sql = "INSERT INTO audit_trail (details, user_id, subject_id, type, date_created, company_id) values (?, ?, ?, ?, ?, ?)";
+        $sql = "INSERT INTO audit_trail (details, user_id, subject_id, type, date_created, company_id, table_name) values (?, ?, ?, ?, ?, ?, ?)";
         $query = $this->db->query($sql,
                 array(
                     $this->get_details(),
@@ -104,7 +103,8 @@ class Audit_trail_model extends CI_Model {
                     $this->get_subject_id(),
                     $this->get_type(),
                     $this->get_date_created(),
-                    $this->get_company_id()
+                    $this->get_company_id(),
+                    $this->get_table_name()
                 ));
 
         return $this->db->affected_rows();
