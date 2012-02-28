@@ -101,7 +101,12 @@ $route['file_maintenance/unit/delete/(:num)'] = 'file_maintenance/unit/delete/$1
 $route['file_maintenance/unit/get_unit_edit_form/(:num)'] = 'file_maintenance/unit/get_unit_edit_form/$1';
 
 $route['file_maintenance/company_info'] = 'file_maintenance/accounts_manager';
+
 $route['file_maintenance/company_info'] = 'file_maintenance/city_manager';
+
+$route['file_maintenance/company_info'] = 'file_maintenance/employee_status_manager';
+$route['file_maintenance/company_info'] = 'file_maintenance/city';
+
 $route['file_maintenance/company_info'] = 'file_maintenance/unit_manager';
 $route['file_maintenance/company_info'] = 'file_maintenance/earning';
 $route['file_maintenance/company_info'] = 'file_maintenance/deduction';

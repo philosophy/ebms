@@ -19977,4 +19977,638 @@ DEBUG - 2012-02-24 09:47:55 --> File loaded: application/views/layouts/applicati
 DEBUG - 2012-02-24 09:47:55 --> Language file loaded: language/english/profiler_lang.php
 DEBUG - 2012-02-24 09:47:55 --> Final output sent to browser
 DEBUG - 2012-02-24 09:47:55 --> Total execution time: 1.0737
+<<<<<<< Updated upstream
 >>>>>>> 5dc0b5b4759803dcbbfe99014caf6fe4662a7929
+=======
+DEBUG - 2012-02-24 10:25:39 --> Config Class Initialized
+DEBUG - 2012-02-24 10:25:39 --> Hooks Class Initialized
+DEBUG - 2012-02-24 10:25:39 --> Utf8 Class Initialized
+DEBUG - 2012-02-24 10:25:39 --> UTF-8 Support Enabled
+DEBUG - 2012-02-24 10:25:39 --> URI Class Initialized
+DEBUG - 2012-02-24 10:25:39 --> Router Class Initialized
+DEBUG - 2012-02-24 10:25:39 --> Output Class Initialized
+DEBUG - 2012-02-24 10:25:39 --> Security Class Initialized
+DEBUG - 2012-02-24 10:25:39 --> Input Class Initialized
+DEBUG - 2012-02-24 10:25:39 --> XSS Filtering completed
+DEBUG - 2012-02-24 10:25:39 --> Global POST and COOKIE data sanitized
+DEBUG - 2012-02-24 10:25:39 --> Language Class Initialized
+DEBUG - 2012-02-24 10:25:40 --> Loader Class Initialized
+DEBUG - 2012-02-24 10:25:40 --> Helper loaded: url_helper
+DEBUG - 2012-02-24 10:25:40 --> Helper loaded: asset_helper
+DEBUG - 2012-02-24 10:25:40 --> Helper loaded: file_helper
+DEBUG - 2012-02-24 10:25:40 --> Helper loaded: form_helper
+DEBUG - 2012-02-24 10:25:40 --> Helper loaded: text_helper
+DEBUG - 2012-02-24 10:25:40 --> Helper loaded: language_helper
+DEBUG - 2012-02-24 10:25:40 --> Helper loaded: my_application_helper
+DEBUG - 2012-02-24 10:25:40 --> Helper loaded: my_function_helper
+DEBUG - 2012-02-24 10:25:40 --> Language file loaded: language/english/en_lang.php
+DEBUG - 2012-02-24 10:25:40 --> Session Class Initialized
+DEBUG - 2012-02-24 10:25:40 --> Helper loaded: string_helper
+DEBUG - 2012-02-24 10:25:40 --> Encrypt Class Initialized
+DEBUG - 2012-02-24 10:25:40 --> Database Driver Class Initialized
+DEBUG - 2012-02-24 10:25:40 --> Session routines successfully run
+ERROR - 2012-02-24 10:25:40 --> Severity: Warning  --> include_once(application/core/MY_Ion_auth.php) [<a href='function.include-once'>function.include-once</a>]: failed to open stream: No such file or directory C:\xampp\htdocs\projects\ebms\application\config\config.php 374
+ERROR - 2012-02-24 10:25:40 --> Severity: Warning  --> include_once() [<a href='function.include'>function.include</a>]: Failed opening 'application/core/MY_Ion_auth.php' for inclusion (include_path='.;C:\xampp\php\PEAR') C:\xampp\htdocs\projects\ebms\application\config\config.php 374
+DEBUG - 2012-02-24 10:25:40 --> Config file loaded: application/config/ion_auth.php
+DEBUG - 2012-02-24 10:25:40 --> Email Class Initialized
+DEBUG - 2012-02-24 10:25:40 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2012-02-24 10:25:40 --> Language file loaded: language/english/ion_auth_lang.php
+DEBUG - 2012-02-24 10:25:40 --> Model Class Initialized
+DEBUG - 2012-02-24 10:25:40 --> Model Class Initialized
+DEBUG - 2012-02-24 10:25:40 --> Helper loaded: cookie_helper
+DEBUG - 2012-02-24 10:25:40 --> Helper loaded: date_helper
+DEBUG - 2012-02-24 10:25:40 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2012-02-24 10:25:40 --> Pagination Class Initialized
+DEBUG - 2012-02-24 10:25:40 --> Model Class Initialized
+DEBUG - 2012-02-24 10:25:40 --> Model Class Initialized
+DEBUG - 2012-02-24 10:25:40 --> Controller Class Initialized
+DEBUG - 2012-02-24 10:25:40 --> File loaded: application/views/layouts/application/notification.php
+DEBUG - 2012-02-24 10:25:40 --> File loaded: application/views/layouts/application/header.php
+DEBUG - 2012-02-24 10:25:40 --> File loaded: application/views/dashboard/index.php
+DEBUG - 2012-02-24 10:25:40 --> File loaded: application/views/layouts/application/footer_logged_in.php
+DEBUG - 2012-02-24 10:25:40 --> File loaded: application/views/layouts/application/page_specific_javascript.php
+DEBUG - 2012-02-24 10:25:40 --> File loaded: application/views/layouts/application/flash_message.php
+DEBUG - 2012-02-24 10:25:40 --> File loaded: application/views/common/dialogs/_confirm_dialog.php
+DEBUG - 2012-02-24 10:25:40 --> File loaded: application/views/layouts/application.php
+DEBUG - 2012-02-24 10:25:40 --> Language file loaded: language/english/profiler_lang.php
+DEBUG - 2012-02-24 10:25:40 --> Final output sent to browser
+DEBUG - 2012-02-24 10:25:40 --> Total execution time: 0.9326
+DEBUG - 2012-02-24 10:37:22 --> Config Class Initialized
+DEBUG - 2012-02-24 10:37:22 --> Hooks Class Initialized
+DEBUG - 2012-02-24 10:37:22 --> Utf8 Class Initialized
+DEBUG - 2012-02-24 10:37:22 --> UTF-8 Support Enabled
+DEBUG - 2012-02-24 10:37:22 --> URI Class Initialized
+DEBUG - 2012-02-24 10:37:22 --> Router Class Initialized
+DEBUG - 2012-02-24 10:37:23 --> Output Class Initialized
+DEBUG - 2012-02-24 10:37:23 --> Security Class Initialized
+DEBUG - 2012-02-24 10:37:23 --> Input Class Initialized
+DEBUG - 2012-02-24 10:37:23 --> XSS Filtering completed
+DEBUG - 2012-02-24 10:37:23 --> Global POST and COOKIE data sanitized
+DEBUG - 2012-02-24 10:37:23 --> Language Class Initialized
+DEBUG - 2012-02-24 10:37:23 --> Loader Class Initialized
+DEBUG - 2012-02-24 10:37:23 --> Helper loaded: url_helper
+DEBUG - 2012-02-24 10:37:23 --> Helper loaded: asset_helper
+DEBUG - 2012-02-24 10:37:23 --> Helper loaded: file_helper
+DEBUG - 2012-02-24 10:37:23 --> Helper loaded: form_helper
+DEBUG - 2012-02-24 10:37:23 --> Helper loaded: text_helper
+DEBUG - 2012-02-24 10:37:23 --> Helper loaded: language_helper
+DEBUG - 2012-02-24 10:37:23 --> Helper loaded: my_application_helper
+DEBUG - 2012-02-24 10:37:23 --> Helper loaded: my_function_helper
+DEBUG - 2012-02-24 10:37:23 --> Language file loaded: language/english/en_lang.php
+DEBUG - 2012-02-24 10:37:23 --> Session Class Initialized
+DEBUG - 2012-02-24 10:37:23 --> Helper loaded: string_helper
+DEBUG - 2012-02-24 10:37:23 --> Encrypt Class Initialized
+DEBUG - 2012-02-24 10:37:23 --> Database Driver Class Initialized
+DEBUG - 2012-02-24 10:37:23 --> Session routines successfully run
+ERROR - 2012-02-24 10:37:23 --> Severity: Warning  --> include_once(application/core/MY_Ion_auth.php) [<a href='function.include-once'>function.include-once</a>]: failed to open stream: No such file or directory C:\xampp\htdocs\projects\ebms\application\config\config.php 374
+ERROR - 2012-02-24 10:37:23 --> Severity: Warning  --> include_once() [<a href='function.include'>function.include</a>]: Failed opening 'application/core/MY_Ion_auth.php' for inclusion (include_path='.;C:\xampp\php\PEAR') C:\xampp\htdocs\projects\ebms\application\config\config.php 374
+DEBUG - 2012-02-24 10:37:23 --> Config file loaded: application/config/ion_auth.php
+DEBUG - 2012-02-24 10:37:23 --> Email Class Initialized
+DEBUG - 2012-02-24 10:37:23 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2012-02-24 10:37:23 --> Language file loaded: language/english/ion_auth_lang.php
+DEBUG - 2012-02-24 10:37:23 --> Model Class Initialized
+DEBUG - 2012-02-24 10:37:23 --> Model Class Initialized
+DEBUG - 2012-02-24 10:37:23 --> Helper loaded: cookie_helper
+DEBUG - 2012-02-24 10:37:23 --> Helper loaded: date_helper
+DEBUG - 2012-02-24 10:37:23 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2012-02-24 10:37:23 --> Pagination Class Initialized
+DEBUG - 2012-02-24 10:37:23 --> Model Class Initialized
+DEBUG - 2012-02-24 10:37:23 --> Model Class Initialized
+DEBUG - 2012-02-24 10:37:23 --> Controller Class Initialized
+DEBUG - 2012-02-24 10:37:23 --> File loaded: application/views/layouts/application/notification.php
+DEBUG - 2012-02-24 10:37:23 --> File loaded: application/views/layouts/application/header.php
+DEBUG - 2012-02-24 10:37:23 --> File loaded: application/views/dashboard/index.php
+DEBUG - 2012-02-24 10:37:23 --> File loaded: application/views/layouts/application/footer_logged_in.php
+DEBUG - 2012-02-24 10:37:23 --> File loaded: application/views/layouts/application/page_specific_javascript.php
+DEBUG - 2012-02-24 10:37:23 --> File loaded: application/views/layouts/application/flash_message.php
+DEBUG - 2012-02-24 10:37:23 --> File loaded: application/views/common/dialogs/_confirm_dialog.php
+DEBUG - 2012-02-24 10:37:23 --> File loaded: application/views/layouts/application.php
+DEBUG - 2012-02-24 10:37:24 --> Language file loaded: language/english/profiler_lang.php
+DEBUG - 2012-02-24 10:37:24 --> Final output sent to browser
+DEBUG - 2012-02-24 10:37:24 --> Total execution time: 1.1021
+DEBUG - 2012-02-24 10:38:23 --> Config Class Initialized
+DEBUG - 2012-02-24 10:38:23 --> Hooks Class Initialized
+DEBUG - 2012-02-24 10:38:24 --> Utf8 Class Initialized
+DEBUG - 2012-02-24 10:38:24 --> UTF-8 Support Enabled
+DEBUG - 2012-02-24 10:38:24 --> URI Class Initialized
+DEBUG - 2012-02-24 10:38:24 --> Router Class Initialized
+DEBUG - 2012-02-24 10:38:24 --> Output Class Initialized
+DEBUG - 2012-02-24 10:38:24 --> Security Class Initialized
+DEBUG - 2012-02-24 10:38:24 --> Input Class Initialized
+DEBUG - 2012-02-24 10:38:24 --> XSS Filtering completed
+DEBUG - 2012-02-24 10:38:24 --> Global POST and COOKIE data sanitized
+DEBUG - 2012-02-24 10:38:24 --> Language Class Initialized
+DEBUG - 2012-02-24 10:38:24 --> Loader Class Initialized
+DEBUG - 2012-02-24 10:38:24 --> Helper loaded: url_helper
+DEBUG - 2012-02-24 10:38:24 --> Helper loaded: asset_helper
+DEBUG - 2012-02-24 10:38:24 --> Helper loaded: file_helper
+DEBUG - 2012-02-24 10:38:24 --> Helper loaded: form_helper
+DEBUG - 2012-02-24 10:38:24 --> Helper loaded: text_helper
+DEBUG - 2012-02-24 10:38:24 --> Helper loaded: language_helper
+DEBUG - 2012-02-24 10:38:24 --> Helper loaded: my_application_helper
+DEBUG - 2012-02-24 10:38:24 --> Helper loaded: my_function_helper
+DEBUG - 2012-02-24 10:38:24 --> Language file loaded: language/english/en_lang.php
+DEBUG - 2012-02-24 10:38:24 --> Session Class Initialized
+DEBUG - 2012-02-24 10:38:24 --> Helper loaded: string_helper
+DEBUG - 2012-02-24 10:38:24 --> Encrypt Class Initialized
+DEBUG - 2012-02-24 10:38:24 --> Database Driver Class Initialized
+DEBUG - 2012-02-24 10:38:24 --> Session routines successfully run
+ERROR - 2012-02-24 10:38:24 --> Severity: Warning  --> include_once(application/core/MY_Ion_auth.php) [<a href='function.include-once'>function.include-once</a>]: failed to open stream: No such file or directory C:\xampp\htdocs\projects\ebms\application\config\config.php 374
+ERROR - 2012-02-24 10:38:24 --> Severity: Warning  --> include_once() [<a href='function.include'>function.include</a>]: Failed opening 'application/core/MY_Ion_auth.php' for inclusion (include_path='.;C:\xampp\php\PEAR') C:\xampp\htdocs\projects\ebms\application\config\config.php 374
+DEBUG - 2012-02-24 10:38:24 --> Config file loaded: application/config/ion_auth.php
+DEBUG - 2012-02-24 10:38:24 --> Email Class Initialized
+DEBUG - 2012-02-24 10:38:24 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2012-02-24 10:38:24 --> Language file loaded: language/english/ion_auth_lang.php
+DEBUG - 2012-02-24 10:38:24 --> Model Class Initialized
+DEBUG - 2012-02-24 10:38:24 --> Model Class Initialized
+DEBUG - 2012-02-24 10:38:24 --> Helper loaded: cookie_helper
+DEBUG - 2012-02-24 10:38:24 --> Helper loaded: date_helper
+DEBUG - 2012-02-24 10:38:24 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2012-02-24 10:38:24 --> Pagination Class Initialized
+DEBUG - 2012-02-24 10:38:24 --> Model Class Initialized
+DEBUG - 2012-02-24 10:38:24 --> Model Class Initialized
+DEBUG - 2012-02-24 10:38:24 --> Controller Class Initialized
+DEBUG - 2012-02-24 10:38:24 --> File loaded: application/views/layouts/application/notification.php
+DEBUG - 2012-02-24 10:38:24 --> File loaded: application/views/layouts/application/header.php
+DEBUG - 2012-02-24 10:38:24 --> File loaded: application/views/dashboard/index.php
+DEBUG - 2012-02-24 10:38:24 --> File loaded: application/views/layouts/application/footer_logged_in.php
+DEBUG - 2012-02-24 10:38:24 --> File loaded: application/views/layouts/application/page_specific_javascript.php
+DEBUG - 2012-02-24 10:38:24 --> File loaded: application/views/layouts/application/flash_message.php
+DEBUG - 2012-02-24 10:38:24 --> File loaded: application/views/common/dialogs/_confirm_dialog.php
+DEBUG - 2012-02-24 10:38:25 --> File loaded: application/views/layouts/application.php
+DEBUG - 2012-02-24 10:38:25 --> Language file loaded: language/english/profiler_lang.php
+DEBUG - 2012-02-24 10:38:25 --> Final output sent to browser
+DEBUG - 2012-02-24 10:38:25 --> Total execution time: 1.0859
+DEBUG - 2012-02-24 11:03:04 --> Config Class Initialized
+DEBUG - 2012-02-24 11:03:04 --> Hooks Class Initialized
+DEBUG - 2012-02-24 11:03:04 --> Utf8 Class Initialized
+DEBUG - 2012-02-24 11:03:05 --> UTF-8 Support Enabled
+DEBUG - 2012-02-24 11:03:05 --> URI Class Initialized
+DEBUG - 2012-02-24 11:03:05 --> Router Class Initialized
+DEBUG - 2012-02-24 11:03:05 --> Output Class Initialized
+DEBUG - 2012-02-24 11:03:05 --> Security Class Initialized
+DEBUG - 2012-02-24 11:03:05 --> Input Class Initialized
+DEBUG - 2012-02-24 11:03:05 --> XSS Filtering completed
+DEBUG - 2012-02-24 11:03:05 --> Global POST and COOKIE data sanitized
+DEBUG - 2012-02-24 11:03:05 --> Language Class Initialized
+DEBUG - 2012-02-24 11:03:05 --> Loader Class Initialized
+DEBUG - 2012-02-24 11:03:05 --> Helper loaded: url_helper
+DEBUG - 2012-02-24 11:03:05 --> Helper loaded: asset_helper
+DEBUG - 2012-02-24 11:03:05 --> Helper loaded: file_helper
+DEBUG - 2012-02-24 11:03:05 --> Helper loaded: form_helper
+DEBUG - 2012-02-24 11:03:05 --> Helper loaded: text_helper
+DEBUG - 2012-02-24 11:03:05 --> Helper loaded: language_helper
+DEBUG - 2012-02-24 11:03:05 --> Helper loaded: my_application_helper
+DEBUG - 2012-02-24 11:03:05 --> Helper loaded: my_function_helper
+DEBUG - 2012-02-24 11:03:05 --> Language file loaded: language/english/en_lang.php
+DEBUG - 2012-02-24 11:03:05 --> Session Class Initialized
+DEBUG - 2012-02-24 11:03:05 --> Helper loaded: string_helper
+DEBUG - 2012-02-24 11:03:05 --> Encrypt Class Initialized
+DEBUG - 2012-02-24 11:03:05 --> Database Driver Class Initialized
+DEBUG - 2012-02-24 11:03:05 --> Session routines successfully run
+ERROR - 2012-02-24 11:03:05 --> Severity: Warning  --> include_once(application/core/MY_Ion_auth.php) [<a href='function.include-once'>function.include-once</a>]: failed to open stream: No such file or directory C:\xampp\htdocs\projects\ebms\application\config\config.php 374
+ERROR - 2012-02-24 11:03:05 --> Severity: Warning  --> include_once() [<a href='function.include'>function.include</a>]: Failed opening 'application/core/MY_Ion_auth.php' for inclusion (include_path='.;C:\xampp\php\PEAR') C:\xampp\htdocs\projects\ebms\application\config\config.php 374
+DEBUG - 2012-02-24 11:03:05 --> Config file loaded: application/config/ion_auth.php
+DEBUG - 2012-02-24 11:03:05 --> Email Class Initialized
+DEBUG - 2012-02-24 11:03:05 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2012-02-24 11:03:05 --> Language file loaded: language/english/ion_auth_lang.php
+DEBUG - 2012-02-24 11:03:05 --> Model Class Initialized
+DEBUG - 2012-02-24 11:03:05 --> Model Class Initialized
+DEBUG - 2012-02-24 11:03:05 --> Helper loaded: cookie_helper
+DEBUG - 2012-02-24 11:03:05 --> Helper loaded: date_helper
+DEBUG - 2012-02-24 11:03:05 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2012-02-24 11:03:05 --> Pagination Class Initialized
+DEBUG - 2012-02-24 11:03:05 --> Model Class Initialized
+DEBUG - 2012-02-24 11:03:05 --> Model Class Initialized
+DEBUG - 2012-02-24 11:03:05 --> Controller Class Initialized
+DEBUG - 2012-02-24 11:03:05 --> File loaded: application/views/layouts/application/notification.php
+DEBUG - 2012-02-24 11:03:05 --> File loaded: application/views/layouts/application/header.php
+DEBUG - 2012-02-24 11:03:05 --> File loaded: application/views/dashboard/index.php
+DEBUG - 2012-02-24 11:03:05 --> File loaded: application/views/layouts/application/footer_logged_in.php
+DEBUG - 2012-02-24 11:03:05 --> File loaded: application/views/layouts/application/page_specific_javascript.php
+DEBUG - 2012-02-24 11:03:05 --> File loaded: application/views/layouts/application/flash_message.php
+DEBUG - 2012-02-24 11:03:05 --> File loaded: application/views/common/dialogs/_confirm_dialog.php
+DEBUG - 2012-02-24 11:03:05 --> File loaded: application/views/layouts/application.php
+DEBUG - 2012-02-24 11:03:05 --> Language file loaded: language/english/profiler_lang.php
+DEBUG - 2012-02-24 11:03:06 --> Final output sent to browser
+DEBUG - 2012-02-24 11:03:06 --> Total execution time: 1.0426
+DEBUG - 2012-02-24 11:13:46 --> Config Class Initialized
+DEBUG - 2012-02-24 11:13:46 --> Hooks Class Initialized
+DEBUG - 2012-02-24 11:13:46 --> Utf8 Class Initialized
+DEBUG - 2012-02-24 11:13:46 --> UTF-8 Support Enabled
+DEBUG - 2012-02-24 11:13:46 --> URI Class Initialized
+DEBUG - 2012-02-24 11:13:46 --> Router Class Initialized
+DEBUG - 2012-02-24 11:13:46 --> Output Class Initialized
+DEBUG - 2012-02-24 11:13:46 --> Security Class Initialized
+DEBUG - 2012-02-24 11:13:46 --> Input Class Initialized
+DEBUG - 2012-02-24 11:13:47 --> XSS Filtering completed
+DEBUG - 2012-02-24 11:13:47 --> Global POST and COOKIE data sanitized
+DEBUG - 2012-02-24 11:13:47 --> Language Class Initialized
+DEBUG - 2012-02-24 11:13:47 --> Loader Class Initialized
+DEBUG - 2012-02-24 11:13:47 --> Helper loaded: url_helper
+DEBUG - 2012-02-24 11:13:47 --> Helper loaded: asset_helper
+DEBUG - 2012-02-24 11:13:47 --> Helper loaded: file_helper
+DEBUG - 2012-02-24 11:13:47 --> Helper loaded: form_helper
+DEBUG - 2012-02-24 11:13:47 --> Helper loaded: text_helper
+DEBUG - 2012-02-24 11:13:47 --> Helper loaded: language_helper
+DEBUG - 2012-02-24 11:13:47 --> Helper loaded: my_application_helper
+DEBUG - 2012-02-24 11:13:47 --> Helper loaded: my_function_helper
+DEBUG - 2012-02-24 11:13:47 --> Language file loaded: language/english/en_lang.php
+DEBUG - 2012-02-24 11:13:47 --> Session Class Initialized
+DEBUG - 2012-02-24 11:13:47 --> Helper loaded: string_helper
+DEBUG - 2012-02-24 11:13:47 --> Encrypt Class Initialized
+DEBUG - 2012-02-24 11:13:47 --> Database Driver Class Initialized
+DEBUG - 2012-02-24 11:13:47 --> Session routines successfully run
+ERROR - 2012-02-24 11:13:47 --> Severity: Warning  --> include_once(application/core/MY_Ion_auth.php) [<a href='function.include-once'>function.include-once</a>]: failed to open stream: No such file or directory C:\xampp\htdocs\projects\ebms\application\config\config.php 374
+ERROR - 2012-02-24 11:13:47 --> Severity: Warning  --> include_once() [<a href='function.include'>function.include</a>]: Failed opening 'application/core/MY_Ion_auth.php' for inclusion (include_path='.;C:\xampp\php\PEAR') C:\xampp\htdocs\projects\ebms\application\config\config.php 374
+DEBUG - 2012-02-24 11:13:47 --> Config file loaded: application/config/ion_auth.php
+DEBUG - 2012-02-24 11:13:47 --> Email Class Initialized
+DEBUG - 2012-02-24 11:13:47 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2012-02-24 11:13:47 --> Language file loaded: language/english/ion_auth_lang.php
+DEBUG - 2012-02-24 11:13:47 --> Model Class Initialized
+DEBUG - 2012-02-24 11:13:47 --> Model Class Initialized
+DEBUG - 2012-02-24 11:13:47 --> Helper loaded: cookie_helper
+DEBUG - 2012-02-24 11:13:47 --> Helper loaded: date_helper
+DEBUG - 2012-02-24 11:13:47 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2012-02-24 11:13:47 --> Pagination Class Initialized
+DEBUG - 2012-02-24 11:13:47 --> Model Class Initialized
+DEBUG - 2012-02-24 11:13:47 --> Model Class Initialized
+DEBUG - 2012-02-24 11:13:47 --> Controller Class Initialized
+DEBUG - 2012-02-24 11:13:47 --> File loaded: application/views/layouts/application/notification.php
+DEBUG - 2012-02-24 11:13:47 --> File loaded: application/views/layouts/application/header.php
+DEBUG - 2012-02-24 11:13:47 --> File loaded: application/views/dashboard/index.php
+DEBUG - 2012-02-24 11:13:47 --> File loaded: application/views/layouts/application/footer_logged_in.php
+DEBUG - 2012-02-24 11:13:47 --> File loaded: application/views/layouts/application/page_specific_javascript.php
+DEBUG - 2012-02-24 11:13:47 --> File loaded: application/views/layouts/application/flash_message.php
+DEBUG - 2012-02-24 11:13:47 --> File loaded: application/views/common/dialogs/_confirm_dialog.php
+DEBUG - 2012-02-24 11:13:47 --> File loaded: application/views/layouts/application.php
+DEBUG - 2012-02-24 11:13:47 --> Language file loaded: language/english/profiler_lang.php
+DEBUG - 2012-02-24 11:13:47 --> Final output sent to browser
+DEBUG - 2012-02-24 11:13:48 --> Total execution time: 1.1460
+DEBUG - 2012-02-24 11:38:09 --> Config Class Initialized
+DEBUG - 2012-02-24 11:38:09 --> Hooks Class Initialized
+DEBUG - 2012-02-24 11:38:09 --> Utf8 Class Initialized
+DEBUG - 2012-02-24 11:38:09 --> UTF-8 Support Enabled
+DEBUG - 2012-02-24 11:38:09 --> URI Class Initialized
+DEBUG - 2012-02-24 11:38:09 --> Router Class Initialized
+DEBUG - 2012-02-24 11:38:09 --> Output Class Initialized
+DEBUG - 2012-02-24 11:38:09 --> Security Class Initialized
+DEBUG - 2012-02-24 11:38:09 --> Input Class Initialized
+DEBUG - 2012-02-24 11:38:09 --> XSS Filtering completed
+DEBUG - 2012-02-24 11:38:09 --> Global POST and COOKIE data sanitized
+DEBUG - 2012-02-24 11:38:09 --> Language Class Initialized
+DEBUG - 2012-02-24 11:38:09 --> Loader Class Initialized
+DEBUG - 2012-02-24 11:38:09 --> Helper loaded: url_helper
+DEBUG - 2012-02-24 11:38:09 --> Helper loaded: asset_helper
+DEBUG - 2012-02-24 11:38:09 --> Helper loaded: file_helper
+DEBUG - 2012-02-24 11:38:09 --> Helper loaded: form_helper
+DEBUG - 2012-02-24 11:38:09 --> Helper loaded: text_helper
+DEBUG - 2012-02-24 11:38:09 --> Helper loaded: language_helper
+DEBUG - 2012-02-24 11:38:10 --> Helper loaded: my_application_helper
+DEBUG - 2012-02-24 11:38:10 --> Helper loaded: my_function_helper
+DEBUG - 2012-02-24 11:38:10 --> Language file loaded: language/english/en_lang.php
+DEBUG - 2012-02-24 11:38:10 --> Session Class Initialized
+DEBUG - 2012-02-24 11:38:10 --> Helper loaded: string_helper
+DEBUG - 2012-02-24 11:38:10 --> Encrypt Class Initialized
+DEBUG - 2012-02-24 11:38:10 --> Database Driver Class Initialized
+DEBUG - 2012-02-24 11:38:10 --> Session routines successfully run
+ERROR - 2012-02-24 11:38:10 --> Severity: Warning  --> include_once(application/core/MY_Ion_auth.php) [<a href='function.include-once'>function.include-once</a>]: failed to open stream: No such file or directory C:\xampp\htdocs\projects\ebms\application\config\config.php 374
+ERROR - 2012-02-24 11:38:10 --> Severity: Warning  --> include_once() [<a href='function.include'>function.include</a>]: Failed opening 'application/core/MY_Ion_auth.php' for inclusion (include_path='.;C:\xampp\php\PEAR') C:\xampp\htdocs\projects\ebms\application\config\config.php 374
+DEBUG - 2012-02-24 11:38:10 --> Config file loaded: application/config/ion_auth.php
+DEBUG - 2012-02-24 11:38:10 --> Email Class Initialized
+DEBUG - 2012-02-24 11:38:10 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2012-02-24 11:38:10 --> Language file loaded: language/english/ion_auth_lang.php
+DEBUG - 2012-02-24 11:38:10 --> Model Class Initialized
+DEBUG - 2012-02-24 11:38:10 --> Model Class Initialized
+DEBUG - 2012-02-24 11:38:10 --> Helper loaded: cookie_helper
+DEBUG - 2012-02-24 11:38:10 --> Helper loaded: date_helper
+DEBUG - 2012-02-24 11:38:10 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2012-02-24 11:38:10 --> Pagination Class Initialized
+DEBUG - 2012-02-24 11:38:10 --> Model Class Initialized
+DEBUG - 2012-02-24 11:38:10 --> Model Class Initialized
+DEBUG - 2012-02-24 11:38:10 --> Controller Class Initialized
+DEBUG - 2012-02-24 11:38:10 --> File loaded: application/views/layouts/application/notification.php
+DEBUG - 2012-02-24 11:38:10 --> File loaded: application/views/layouts/application/header.php
+DEBUG - 2012-02-24 11:38:10 --> File loaded: application/views/dashboard/index.php
+DEBUG - 2012-02-24 11:38:10 --> File loaded: application/views/layouts/application/footer_logged_in.php
+DEBUG - 2012-02-24 11:38:10 --> File loaded: application/views/layouts/application/page_specific_javascript.php
+DEBUG - 2012-02-24 11:38:10 --> File loaded: application/views/layouts/application/flash_message.php
+DEBUG - 2012-02-24 11:38:10 --> File loaded: application/views/common/dialogs/_confirm_dialog.php
+DEBUG - 2012-02-24 11:38:10 --> File loaded: application/views/layouts/application.php
+DEBUG - 2012-02-24 11:38:10 --> Language file loaded: language/english/profiler_lang.php
+DEBUG - 2012-02-24 11:38:10 --> Final output sent to browser
+DEBUG - 2012-02-24 11:38:10 --> Total execution time: 1.1947
+DEBUG - 2012-02-24 11:39:56 --> Config Class Initialized
+DEBUG - 2012-02-24 11:39:56 --> Hooks Class Initialized
+DEBUG - 2012-02-24 11:39:56 --> Utf8 Class Initialized
+DEBUG - 2012-02-24 11:39:56 --> UTF-8 Support Enabled
+DEBUG - 2012-02-24 11:39:56 --> URI Class Initialized
+DEBUG - 2012-02-24 11:39:56 --> Router Class Initialized
+DEBUG - 2012-02-24 11:39:56 --> Output Class Initialized
+DEBUG - 2012-02-24 11:39:56 --> Security Class Initialized
+DEBUG - 2012-02-24 11:39:56 --> Input Class Initialized
+DEBUG - 2012-02-24 11:39:56 --> XSS Filtering completed
+DEBUG - 2012-02-24 11:39:56 --> Global POST and COOKIE data sanitized
+DEBUG - 2012-02-24 11:39:56 --> Language Class Initialized
+DEBUG - 2012-02-24 11:39:56 --> Loader Class Initialized
+DEBUG - 2012-02-24 11:39:56 --> Helper loaded: url_helper
+DEBUG - 2012-02-24 11:39:56 --> Helper loaded: asset_helper
+DEBUG - 2012-02-24 11:39:56 --> Helper loaded: file_helper
+DEBUG - 2012-02-24 11:39:56 --> Helper loaded: form_helper
+DEBUG - 2012-02-24 11:39:56 --> Helper loaded: text_helper
+DEBUG - 2012-02-24 11:39:56 --> Helper loaded: language_helper
+DEBUG - 2012-02-24 11:39:56 --> Helper loaded: my_application_helper
+DEBUG - 2012-02-24 11:39:57 --> Helper loaded: my_function_helper
+DEBUG - 2012-02-24 11:39:57 --> Language file loaded: language/english/en_lang.php
+DEBUG - 2012-02-24 11:39:57 --> Session Class Initialized
+DEBUG - 2012-02-24 11:39:57 --> Helper loaded: string_helper
+DEBUG - 2012-02-24 11:39:57 --> Encrypt Class Initialized
+DEBUG - 2012-02-24 11:39:57 --> Database Driver Class Initialized
+DEBUG - 2012-02-24 11:39:57 --> Session routines successfully run
+ERROR - 2012-02-24 11:39:57 --> Severity: Warning  --> include_once(application/core/MY_Ion_auth.php) [<a href='function.include-once'>function.include-once</a>]: failed to open stream: No such file or directory C:\xampp\htdocs\projects\ebms\application\config\config.php 374
+ERROR - 2012-02-24 11:39:57 --> Severity: Warning  --> include_once() [<a href='function.include'>function.include</a>]: Failed opening 'application/core/MY_Ion_auth.php' for inclusion (include_path='.;C:\xampp\php\PEAR') C:\xampp\htdocs\projects\ebms\application\config\config.php 374
+DEBUG - 2012-02-24 11:39:57 --> Config file loaded: application/config/ion_auth.php
+DEBUG - 2012-02-24 11:39:57 --> Email Class Initialized
+DEBUG - 2012-02-24 11:39:57 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2012-02-24 11:39:57 --> Language file loaded: language/english/ion_auth_lang.php
+DEBUG - 2012-02-24 11:39:57 --> Model Class Initialized
+DEBUG - 2012-02-24 11:39:57 --> Model Class Initialized
+DEBUG - 2012-02-24 11:39:57 --> Helper loaded: cookie_helper
+DEBUG - 2012-02-24 11:39:57 --> Helper loaded: date_helper
+DEBUG - 2012-02-24 11:39:57 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2012-02-24 11:39:57 --> Pagination Class Initialized
+DEBUG - 2012-02-24 11:39:57 --> Model Class Initialized
+DEBUG - 2012-02-24 11:39:57 --> Model Class Initialized
+DEBUG - 2012-02-24 11:39:57 --> Controller Class Initialized
+DEBUG - 2012-02-24 11:39:57 --> File loaded: application/views/layouts/application/notification.php
+DEBUG - 2012-02-24 11:39:57 --> File loaded: application/views/layouts/application/header.php
+DEBUG - 2012-02-24 11:39:57 --> File loaded: application/views/dashboard/index.php
+DEBUG - 2012-02-24 11:39:57 --> File loaded: application/views/layouts/application/footer_logged_in.php
+DEBUG - 2012-02-24 11:39:57 --> File loaded: application/views/layouts/application/page_specific_javascript.php
+DEBUG - 2012-02-24 11:39:57 --> File loaded: application/views/layouts/application/flash_message.php
+DEBUG - 2012-02-24 11:39:57 --> File loaded: application/views/common/dialogs/_confirm_dialog.php
+DEBUG - 2012-02-24 11:39:57 --> File loaded: application/views/layouts/application.php
+DEBUG - 2012-02-24 11:39:57 --> Language file loaded: language/english/profiler_lang.php
+DEBUG - 2012-02-24 11:39:57 --> Final output sent to browser
+DEBUG - 2012-02-24 11:39:57 --> Total execution time: 1.1642
+DEBUG - 2012-02-24 11:41:23 --> Config Class Initialized
+DEBUG - 2012-02-24 11:41:23 --> Hooks Class Initialized
+DEBUG - 2012-02-24 11:41:23 --> Utf8 Class Initialized
+DEBUG - 2012-02-24 11:41:23 --> UTF-8 Support Enabled
+DEBUG - 2012-02-24 11:41:23 --> URI Class Initialized
+DEBUG - 2012-02-24 11:41:23 --> Router Class Initialized
+DEBUG - 2012-02-24 11:41:23 --> Output Class Initialized
+DEBUG - 2012-02-24 11:41:23 --> Security Class Initialized
+DEBUG - 2012-02-24 11:41:23 --> Input Class Initialized
+DEBUG - 2012-02-24 11:41:23 --> XSS Filtering completed
+DEBUG - 2012-02-24 11:41:23 --> Global POST and COOKIE data sanitized
+DEBUG - 2012-02-24 11:41:23 --> Language Class Initialized
+DEBUG - 2012-02-24 11:41:23 --> Loader Class Initialized
+DEBUG - 2012-02-24 11:41:23 --> Helper loaded: url_helper
+DEBUG - 2012-02-24 11:41:23 --> Helper loaded: asset_helper
+DEBUG - 2012-02-24 11:41:23 --> Helper loaded: file_helper
+DEBUG - 2012-02-24 11:41:23 --> Helper loaded: form_helper
+DEBUG - 2012-02-24 11:41:23 --> Helper loaded: text_helper
+DEBUG - 2012-02-24 11:41:23 --> Helper loaded: language_helper
+DEBUG - 2012-02-24 11:41:23 --> Helper loaded: my_application_helper
+DEBUG - 2012-02-24 11:41:23 --> Helper loaded: my_function_helper
+DEBUG - 2012-02-24 11:41:23 --> Language file loaded: language/english/en_lang.php
+DEBUG - 2012-02-24 11:41:23 --> Session Class Initialized
+DEBUG - 2012-02-24 11:41:23 --> Helper loaded: string_helper
+DEBUG - 2012-02-24 11:41:24 --> Encrypt Class Initialized
+DEBUG - 2012-02-24 11:41:24 --> Database Driver Class Initialized
+DEBUG - 2012-02-24 11:41:24 --> Session routines successfully run
+ERROR - 2012-02-24 11:41:24 --> Severity: Warning  --> include_once(application/core/MY_Ion_auth.php) [<a href='function.include-once'>function.include-once</a>]: failed to open stream: No such file or directory C:\xampp\htdocs\projects\ebms\application\config\config.php 374
+ERROR - 2012-02-24 11:41:24 --> Severity: Warning  --> include_once() [<a href='function.include'>function.include</a>]: Failed opening 'application/core/MY_Ion_auth.php' for inclusion (include_path='.;C:\xampp\php\PEAR') C:\xampp\htdocs\projects\ebms\application\config\config.php 374
+DEBUG - 2012-02-24 11:41:24 --> Config file loaded: application/config/ion_auth.php
+DEBUG - 2012-02-24 11:41:24 --> Email Class Initialized
+DEBUG - 2012-02-24 11:41:24 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2012-02-24 11:41:24 --> Language file loaded: language/english/ion_auth_lang.php
+DEBUG - 2012-02-24 11:41:24 --> Model Class Initialized
+DEBUG - 2012-02-24 11:41:24 --> Model Class Initialized
+DEBUG - 2012-02-24 11:41:24 --> Helper loaded: cookie_helper
+DEBUG - 2012-02-24 11:41:24 --> Helper loaded: date_helper
+DEBUG - 2012-02-24 11:41:24 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2012-02-24 11:41:24 --> Pagination Class Initialized
+DEBUG - 2012-02-24 11:41:24 --> Model Class Initialized
+DEBUG - 2012-02-24 11:41:24 --> Model Class Initialized
+DEBUG - 2012-02-24 11:41:24 --> Controller Class Initialized
+DEBUG - 2012-02-24 11:41:24 --> File loaded: application/views/layouts/application/notification.php
+DEBUG - 2012-02-24 11:41:24 --> File loaded: application/views/layouts/application/header.php
+DEBUG - 2012-02-24 11:41:24 --> File loaded: application/views/dashboard/index.php
+DEBUG - 2012-02-24 11:41:24 --> File loaded: application/views/layouts/application/footer_logged_in.php
+DEBUG - 2012-02-24 11:41:24 --> File loaded: application/views/layouts/application/page_specific_javascript.php
+DEBUG - 2012-02-24 11:41:24 --> File loaded: application/views/layouts/application/flash_message.php
+DEBUG - 2012-02-24 11:41:24 --> File loaded: application/views/common/dialogs/_confirm_dialog.php
+DEBUG - 2012-02-24 11:41:24 --> File loaded: application/views/layouts/application.php
+DEBUG - 2012-02-24 11:41:24 --> Language file loaded: language/english/profiler_lang.php
+DEBUG - 2012-02-24 11:41:24 --> Final output sent to browser
+DEBUG - 2012-02-24 11:41:24 --> Total execution time: 1.2393
+DEBUG - 2012-02-24 11:48:04 --> Config Class Initialized
+DEBUG - 2012-02-24 11:48:04 --> Hooks Class Initialized
+DEBUG - 2012-02-24 11:48:04 --> Utf8 Class Initialized
+DEBUG - 2012-02-24 11:48:04 --> UTF-8 Support Enabled
+DEBUG - 2012-02-24 11:48:04 --> URI Class Initialized
+DEBUG - 2012-02-24 11:48:04 --> Router Class Initialized
+DEBUG - 2012-02-24 11:48:04 --> Output Class Initialized
+DEBUG - 2012-02-24 11:48:04 --> Security Class Initialized
+DEBUG - 2012-02-24 11:48:04 --> Input Class Initialized
+DEBUG - 2012-02-24 11:48:04 --> XSS Filtering completed
+DEBUG - 2012-02-24 11:48:05 --> Global POST and COOKIE data sanitized
+DEBUG - 2012-02-24 11:48:05 --> Language Class Initialized
+DEBUG - 2012-02-24 11:48:05 --> Loader Class Initialized
+DEBUG - 2012-02-24 11:48:05 --> Helper loaded: url_helper
+DEBUG - 2012-02-24 11:48:05 --> Helper loaded: asset_helper
+DEBUG - 2012-02-24 11:48:05 --> Helper loaded: file_helper
+DEBUG - 2012-02-24 11:48:05 --> Helper loaded: form_helper
+DEBUG - 2012-02-24 11:48:05 --> Helper loaded: text_helper
+DEBUG - 2012-02-24 11:48:05 --> Helper loaded: language_helper
+DEBUG - 2012-02-24 11:48:05 --> Helper loaded: my_application_helper
+DEBUG - 2012-02-24 11:48:05 --> Helper loaded: my_function_helper
+DEBUG - 2012-02-24 11:48:05 --> Language file loaded: language/english/en_lang.php
+DEBUG - 2012-02-24 11:48:05 --> Session Class Initialized
+DEBUG - 2012-02-24 11:48:05 --> Helper loaded: string_helper
+DEBUG - 2012-02-24 11:48:05 --> Encrypt Class Initialized
+DEBUG - 2012-02-24 11:48:05 --> Database Driver Class Initialized
+DEBUG - 2012-02-24 11:48:05 --> Session routines successfully run
+ERROR - 2012-02-24 11:48:05 --> Severity: Warning  --> include_once(application/core/MY_Ion_auth.php) [<a href='function.include-once'>function.include-once</a>]: failed to open stream: No such file or directory C:\xampp\htdocs\projects\ebms\application\config\config.php 374
+ERROR - 2012-02-24 11:48:05 --> Severity: Warning  --> include_once() [<a href='function.include'>function.include</a>]: Failed opening 'application/core/MY_Ion_auth.php' for inclusion (include_path='.;C:\xampp\php\PEAR') C:\xampp\htdocs\projects\ebms\application\config\config.php 374
+DEBUG - 2012-02-24 11:48:05 --> Config file loaded: application/config/ion_auth.php
+DEBUG - 2012-02-24 11:48:05 --> Email Class Initialized
+DEBUG - 2012-02-24 11:48:05 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2012-02-24 11:48:05 --> Language file loaded: language/english/ion_auth_lang.php
+DEBUG - 2012-02-24 11:48:05 --> Model Class Initialized
+DEBUG - 2012-02-24 11:48:05 --> Model Class Initialized
+DEBUG - 2012-02-24 11:48:05 --> Helper loaded: cookie_helper
+DEBUG - 2012-02-24 11:48:05 --> Helper loaded: date_helper
+DEBUG - 2012-02-24 11:48:05 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2012-02-24 11:48:05 --> Pagination Class Initialized
+DEBUG - 2012-02-24 11:48:05 --> Model Class Initialized
+DEBUG - 2012-02-24 11:48:05 --> Model Class Initialized
+DEBUG - 2012-02-24 11:48:05 --> Controller Class Initialized
+DEBUG - 2012-02-24 11:48:05 --> Model Class Initialized
+DEBUG - 2012-02-24 11:48:05 --> File loaded: application/views/layouts/application/notification.php
+DEBUG - 2012-02-24 11:48:05 --> File loaded: application/views/layouts/application/header.php
+DEBUG - 2012-02-24 11:48:05 --> File loaded: application/views/common/department_manager_nav.php
+DEBUG - 2012-02-24 11:48:05 --> File loaded: application/views/system_records/file_maintenance/department_manager/index.php
+DEBUG - 2012-02-24 11:48:05 --> File loaded: application/views/layouts/application/footer_logged_in.php
+DEBUG - 2012-02-24 11:48:05 --> File loaded: application/views/layouts/application/page_specific_javascript.php
+DEBUG - 2012-02-24 11:48:05 --> File loaded: application/views/layouts/application/flash_message.php
+DEBUG - 2012-02-24 11:48:05 --> File loaded: application/views/common/dialogs/_confirm_dialog.php
+DEBUG - 2012-02-24 11:48:05 --> File loaded: application/views/layouts/application.php
+DEBUG - 2012-02-24 11:48:05 --> Language file loaded: language/english/profiler_lang.php
+DEBUG - 2012-02-24 11:48:05 --> Final output sent to browser
+DEBUG - 2012-02-24 11:48:06 --> Total execution time: 1.1725
+DEBUG - 2012-02-24 11:55:22 --> Config Class Initialized
+DEBUG - 2012-02-24 11:55:22 --> Hooks Class Initialized
+DEBUG - 2012-02-24 11:55:22 --> Utf8 Class Initialized
+DEBUG - 2012-02-24 11:55:22 --> UTF-8 Support Enabled
+DEBUG - 2012-02-24 11:55:22 --> URI Class Initialized
+DEBUG - 2012-02-24 11:55:22 --> Router Class Initialized
+DEBUG - 2012-02-24 11:55:22 --> Output Class Initialized
+DEBUG - 2012-02-24 11:55:22 --> Security Class Initialized
+DEBUG - 2012-02-24 11:55:22 --> Input Class Initialized
+DEBUG - 2012-02-24 11:55:22 --> XSS Filtering completed
+DEBUG - 2012-02-24 11:55:22 --> Global POST and COOKIE data sanitized
+DEBUG - 2012-02-24 11:55:22 --> Language Class Initialized
+DEBUG - 2012-02-24 11:55:22 --> Loader Class Initialized
+DEBUG - 2012-02-24 11:55:22 --> Helper loaded: url_helper
+DEBUG - 2012-02-24 11:55:22 --> Helper loaded: asset_helper
+DEBUG - 2012-02-24 11:55:22 --> Helper loaded: file_helper
+DEBUG - 2012-02-24 11:55:22 --> Helper loaded: form_helper
+DEBUG - 2012-02-24 11:55:22 --> Helper loaded: text_helper
+DEBUG - 2012-02-24 11:55:23 --> Helper loaded: language_helper
+DEBUG - 2012-02-24 11:55:23 --> Helper loaded: my_application_helper
+DEBUG - 2012-02-24 11:55:23 --> Helper loaded: my_function_helper
+DEBUG - 2012-02-24 11:55:23 --> Language file loaded: language/english/en_lang.php
+DEBUG - 2012-02-24 11:55:23 --> Session Class Initialized
+DEBUG - 2012-02-24 11:55:23 --> Helper loaded: string_helper
+DEBUG - 2012-02-24 11:55:23 --> Encrypt Class Initialized
+DEBUG - 2012-02-24 11:55:23 --> Database Driver Class Initialized
+DEBUG - 2012-02-24 11:55:23 --> Session routines successfully run
+ERROR - 2012-02-24 11:55:23 --> Severity: Warning  --> include_once(application/core/MY_Ion_auth.php) [<a href='function.include-once'>function.include-once</a>]: failed to open stream: No such file or directory C:\xampp\htdocs\projects\ebms\application\config\config.php 374
+ERROR - 2012-02-24 11:55:23 --> Severity: Warning  --> include_once() [<a href='function.include'>function.include</a>]: Failed opening 'application/core/MY_Ion_auth.php' for inclusion (include_path='.;C:\xampp\php\PEAR') C:\xampp\htdocs\projects\ebms\application\config\config.php 374
+DEBUG - 2012-02-24 11:55:23 --> Config file loaded: application/config/ion_auth.php
+DEBUG - 2012-02-24 11:55:23 --> Email Class Initialized
+DEBUG - 2012-02-24 11:55:23 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2012-02-24 11:55:23 --> Language file loaded: language/english/ion_auth_lang.php
+DEBUG - 2012-02-24 11:55:23 --> Model Class Initialized
+DEBUG - 2012-02-24 11:55:23 --> Model Class Initialized
+DEBUG - 2012-02-24 11:55:23 --> Helper loaded: cookie_helper
+DEBUG - 2012-02-24 11:55:23 --> Helper loaded: date_helper
+DEBUG - 2012-02-24 11:55:23 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2012-02-24 11:55:23 --> Pagination Class Initialized
+DEBUG - 2012-02-24 11:55:23 --> Model Class Initialized
+DEBUG - 2012-02-24 11:55:23 --> Model Class Initialized
+DEBUG - 2012-02-24 11:55:23 --> Controller Class Initialized
+DEBUG - 2012-02-24 11:55:23 --> File loaded: application/views/layouts/application/notification.php
+DEBUG - 2012-02-24 11:55:23 --> File loaded: application/views/layouts/application/header.php
+DEBUG - 2012-02-24 11:55:23 --> File loaded: application/views/common/control_manager_nav.php
+DEBUG - 2012-02-24 11:55:23 --> File loaded: application/views/user/_new.php
+DEBUG - 2012-02-24 11:55:23 --> File loaded: application/views/system_records/user_management/control_manager/new.php
+DEBUG - 2012-02-24 11:55:23 --> File loaded: application/views/layouts/application/footer_logged_in.php
+DEBUG - 2012-02-24 11:55:23 --> File loaded: application/views/layouts/application/page_specific_javascript.php
+DEBUG - 2012-02-24 11:55:23 --> File loaded: application/views/layouts/application/flash_message.php
+DEBUG - 2012-02-24 11:55:23 --> File loaded: application/views/common/dialogs/_confirm_dialog.php
+DEBUG - 2012-02-24 11:55:23 --> File loaded: application/views/layouts/application.php
+DEBUG - 2012-02-24 11:55:23 --> Language file loaded: language/english/profiler_lang.php
+DEBUG - 2012-02-24 11:55:23 --> Final output sent to browser
+DEBUG - 2012-02-24 11:55:23 --> Total execution time: 1.1354
+DEBUG - 2012-02-24 12:45:57 --> Config Class Initialized
+DEBUG - 2012-02-24 12:45:57 --> Hooks Class Initialized
+DEBUG - 2012-02-24 12:45:57 --> Utf8 Class Initialized
+DEBUG - 2012-02-24 12:45:57 --> UTF-8 Support Enabled
+DEBUG - 2012-02-24 12:45:57 --> URI Class Initialized
+DEBUG - 2012-02-24 12:45:57 --> Router Class Initialized
+DEBUG - 2012-02-24 12:45:57 --> Output Class Initialized
+DEBUG - 2012-02-24 12:45:57 --> Security Class Initialized
+DEBUG - 2012-02-24 12:45:57 --> Input Class Initialized
+DEBUG - 2012-02-24 12:45:57 --> XSS Filtering completed
+DEBUG - 2012-02-24 12:45:57 --> Global POST and COOKIE data sanitized
+DEBUG - 2012-02-24 12:45:57 --> Language Class Initialized
+DEBUG - 2012-02-24 12:45:57 --> Loader Class Initialized
+DEBUG - 2012-02-24 12:45:57 --> Helper loaded: url_helper
+DEBUG - 2012-02-24 12:45:57 --> Helper loaded: asset_helper
+DEBUG - 2012-02-24 12:45:57 --> Helper loaded: file_helper
+DEBUG - 2012-02-24 12:45:57 --> Helper loaded: form_helper
+DEBUG - 2012-02-24 12:45:57 --> Helper loaded: text_helper
+DEBUG - 2012-02-24 12:45:57 --> Helper loaded: language_helper
+DEBUG - 2012-02-24 12:45:57 --> Helper loaded: my_application_helper
+DEBUG - 2012-02-24 12:45:57 --> Helper loaded: my_function_helper
+DEBUG - 2012-02-24 12:45:57 --> Language file loaded: language/english/en_lang.php
+DEBUG - 2012-02-24 12:45:57 --> Session Class Initialized
+DEBUG - 2012-02-24 12:45:57 --> Helper loaded: string_helper
+DEBUG - 2012-02-24 12:45:57 --> Encrypt Class Initialized
+DEBUG - 2012-02-24 12:45:58 --> Database Driver Class Initialized
+DEBUG - 2012-02-24 12:45:58 --> Session routines successfully run
+ERROR - 2012-02-24 12:45:58 --> Severity: Warning  --> include_once(application/core/MY_Ion_auth.php) [<a href='function.include-once'>function.include-once</a>]: failed to open stream: No such file or directory C:\xampp\htdocs\projects\ebms\application\config\config.php 374
+ERROR - 2012-02-24 12:45:58 --> Severity: Warning  --> include_once() [<a href='function.include'>function.include</a>]: Failed opening 'application/core/MY_Ion_auth.php' for inclusion (include_path='.;C:\xampp\php\PEAR') C:\xampp\htdocs\projects\ebms\application\config\config.php 374
+DEBUG - 2012-02-24 12:45:58 --> Config file loaded: application/config/ion_auth.php
+DEBUG - 2012-02-24 12:45:58 --> Email Class Initialized
+DEBUG - 2012-02-24 12:45:58 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2012-02-24 12:45:58 --> Language file loaded: language/english/ion_auth_lang.php
+DEBUG - 2012-02-24 12:45:58 --> Model Class Initialized
+DEBUG - 2012-02-24 12:45:58 --> Model Class Initialized
+DEBUG - 2012-02-24 12:45:58 --> Helper loaded: cookie_helper
+DEBUG - 2012-02-24 12:45:58 --> Helper loaded: date_helper
+DEBUG - 2012-02-24 12:45:58 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2012-02-24 12:45:58 --> Pagination Class Initialized
+DEBUG - 2012-02-24 12:45:58 --> Model Class Initialized
+DEBUG - 2012-02-24 12:45:58 --> Model Class Initialized
+DEBUG - 2012-02-24 12:45:58 --> Controller Class Initialized
+DEBUG - 2012-02-24 12:45:58 --> Ion_auth class already loaded. Second attempt ignored.
+DEBUG - 2012-02-24 12:45:58 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2012-02-24 12:45:58 --> Form Validation Class Initialized
+DEBUG - 2012-02-24 12:45:58 --> Config Class Initialized
+DEBUG - 2012-02-24 12:45:58 --> Hooks Class Initialized
+DEBUG - 2012-02-24 12:45:58 --> Utf8 Class Initialized
+DEBUG - 2012-02-24 12:45:58 --> UTF-8 Support Enabled
+DEBUG - 2012-02-24 12:45:58 --> URI Class Initialized
+DEBUG - 2012-02-24 12:45:58 --> Router Class Initialized
+DEBUG - 2012-02-24 12:45:58 --> Output Class Initialized
+DEBUG - 2012-02-24 12:45:58 --> Security Class Initialized
+DEBUG - 2012-02-24 12:45:58 --> Input Class Initialized
+DEBUG - 2012-02-24 12:45:58 --> Global POST and COOKIE data sanitized
+DEBUG - 2012-02-24 12:45:58 --> Language Class Initialized
+DEBUG - 2012-02-24 12:45:58 --> Loader Class Initialized
+DEBUG - 2012-02-24 12:45:58 --> Helper loaded: url_helper
+DEBUG - 2012-02-24 12:45:58 --> Helper loaded: asset_helper
+DEBUG - 2012-02-24 12:45:58 --> Helper loaded: file_helper
+DEBUG - 2012-02-24 12:45:58 --> Helper loaded: form_helper
+DEBUG - 2012-02-24 12:45:58 --> Helper loaded: text_helper
+DEBUG - 2012-02-24 12:45:58 --> Helper loaded: language_helper
+DEBUG - 2012-02-24 12:45:58 --> Helper loaded: my_application_helper
+DEBUG - 2012-02-24 12:45:59 --> Helper loaded: my_function_helper
+DEBUG - 2012-02-24 12:45:59 --> Language file loaded: language/english/en_lang.php
+DEBUG - 2012-02-24 12:45:59 --> Session Class Initialized
+DEBUG - 2012-02-24 12:45:59 --> Helper loaded: string_helper
+DEBUG - 2012-02-24 12:45:59 --> Encrypt Class Initialized
+DEBUG - 2012-02-24 12:45:59 --> Database Driver Class Initialized
+DEBUG - 2012-02-24 12:45:59 --> A session cookie was not found.
+DEBUG - 2012-02-24 12:45:59 --> Session routines successfully run
+ERROR - 2012-02-24 12:45:59 --> Severity: Warning  --> include_once(application/core/MY_Ion_auth.php) [<a href='function.include-once'>function.include-once</a>]: failed to open stream: No such file or directory C:\xampp\htdocs\projects\ebms\application\config\config.php 374
+ERROR - 2012-02-24 12:45:59 --> Severity: Warning  --> include_once() [<a href='function.include'>function.include</a>]: Failed opening 'application/core/MY_Ion_auth.php' for inclusion (include_path='.;C:\xampp\php\PEAR') C:\xampp\htdocs\projects\ebms\application\config\config.php 374
+DEBUG - 2012-02-24 12:45:59 --> Config file loaded: application/config/ion_auth.php
+DEBUG - 2012-02-24 12:45:59 --> Email Class Initialized
+DEBUG - 2012-02-24 12:45:59 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2012-02-24 12:45:59 --> Language file loaded: language/english/ion_auth_lang.php
+DEBUG - 2012-02-24 12:45:59 --> Model Class Initialized
+DEBUG - 2012-02-24 12:45:59 --> Model Class Initialized
+DEBUG - 2012-02-24 12:45:59 --> Helper loaded: cookie_helper
+DEBUG - 2012-02-24 12:45:59 --> Helper loaded: date_helper
+DEBUG - 2012-02-24 12:45:59 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2012-02-24 12:45:59 --> Pagination Class Initialized
+DEBUG - 2012-02-24 12:45:59 --> Model Class Initialized
+DEBUG - 2012-02-24 12:45:59 --> Model Class Initialized
+DEBUG - 2012-02-24 12:45:59 --> Controller Class Initialized
+DEBUG - 2012-02-24 12:45:59 --> File loaded: application/views/user/login.php
+DEBUG - 2012-02-24 12:45:59 --> File loaded: application/views/layouts/application/login_footer.php
+DEBUG - 2012-02-24 12:45:59 --> File loaded: application/views/home/index.php
+DEBUG - 2012-02-24 12:45:59 --> File loaded: application/views/layouts/application/page_specific_javascript.php
+DEBUG - 2012-02-24 12:45:59 --> File loaded: application/views/layouts/application/flash_message.php
+DEBUG - 2012-02-24 12:45:59 --> File loaded: application/views/common/dialogs/_confirm_dialog.php
+DEBUG - 2012-02-24 12:45:59 --> File loaded: application/views/layouts/application.php
+DEBUG - 2012-02-24 12:45:59 --> Language file loaded: language/english/profiler_lang.php
+DEBUG - 2012-02-24 12:45:59 --> Final output sent to browser
+DEBUG - 2012-02-24 12:45:59 --> Total execution time: 1.0641
+>>>>>>> Stashed changes
