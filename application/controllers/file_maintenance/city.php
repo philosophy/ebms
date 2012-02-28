@@ -1,6 +1,6 @@
 <?php
 
-class Company extends Application {
+class City extends Application {
 
     public $city = null;
     public $cityId = null;
@@ -8,14 +8,12 @@ class Company extends Application {
     function __construct() {
         parent::__construct();
         Application::authenticate_user();
-        //$this->load->model('City_manager');
+        $this->load->model('City_manager');
     }
 
-    function index() {
-        $this->load->model('City_manager');
+    function index() {        
         $data['content'] = 'system_records/file_maintenance/city_manager/index';
-        $data['title'] = lang('city_manager');
-        $data['active'] = 'list';
+        $data['title'] = lang('city_manager');        
         
         $city = new $this->City_manager();
         $this->city = $city->getCityManagerInfo();
@@ -68,7 +66,7 @@ class Company extends Application {
                     $audit->set_date_created(date("Y-m-d H:i:s"));
                     $audit->insertUserActions();
                     /* success */
-                    $this->session->set_flashdata('msg', 'Successfully update company info');
+                    $this->session->set_flashdata('msg', 'Successfully updated city info');
                     $this->session->set_flashdata('msg_class', 'info');
                     redirect('file_maintenance/company');
                 } else {
@@ -81,7 +79,7 @@ class Company extends Application {
             $this->session->set_flashdata('msg', 'Please fill in required fields');
             $this->session->set_flashdata('msg_class', 'warning');
 
-            $data['content'] = 'system_records/file_maintenance/company/update';
+            $data['content'] = 'system_records/file_maintenance/city_manager/update';
             $data['title'] = lang('edit_city');
 
             $this->parser->parse('layouts/application', $data);
