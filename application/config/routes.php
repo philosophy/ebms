@@ -54,12 +54,12 @@ $route['users/delete/(:num)'] = 'users/delete/$1';
 $route['dashboard/index'] = 'dashboard/index';
 $route['documentation/index'] = 'documentation/index';
 
-$route['user_management/control_manager'] = 'user_management/control_manager/index';
-$route['user_management/control_manager/list'] = 'user_management/control_manager/index';
-$route['user_management/control_manager/new_user'] = 'user_management/control_manager/new_user';
-$route['user_management/control_manager/update_user/(:num)'] = 'user_management/control_manager/update_user/$1';
-$route['user_management/control_manager/archive'] = 'user_management/control_manager/archive';
-$route['user_management/control_manager/get_useredit_form/(:num)'] = 'user_management/control_manager/get_useredit_form/$1';
+$route['user_management/control'] = 'user_management/control/index';
+$route['user_management/control/list'] = 'user_management/control/index';
+$route['user_management/control/new_user'] = 'user_management/control/new_user';
+$route['user_management/control/update_user/(:num)'] = 'user_management/control/update_user/$1';
+$route['user_management/control/archive'] = 'user_management/control/archive';
+$route['user_management/control/get_useredit_form/(:num)'] = 'user_management/control/get_useredit_form/$1';
 $route['user_management/audit_trail'] = 'user_management/audit_trail/index';
 
 /* file_maintenance */
@@ -100,14 +100,20 @@ $routes['file_maintenance/unit/create_unit'] = 'file_maintenance/unit/create_pos
 $route['file_maintenance/unit/delete/(:num)'] = 'file_maintenance/unit/delete/$1';
 $route['file_maintenance/unit/get_unit_edit_form/(:num)'] = 'file_maintenance/unit/get_unit_edit_form/$1';
 
-$route['file_maintenance/company_info'] = 'file_maintenance/accounts_manager';
+$route['file_maintenance/city'] = 'file_maintenance/city';
+$route['file_maintenance/city/new_city'] = 'file_maintenance/city/new_city';
+$route['file_maintenance/city/create_city'] = 'file_maintenance/city/create_city';
+$route['file_maintenance/city/delete/(:num)'] = 'file_maintenance/city/delete/$1';
+$route['file_maintenance/city/get_city_edit_form/(:num)'] = 'file_maintenance/city/get_city_edit_form/$1';
 
-$route['file_maintenance/company_info'] = 'file_maintenance/city_manager';
+$route['file_maintenance/company_info'] = 'file_maintenance/accounts';
 
-$route['file_maintenance/company_info'] = 'file_maintenance/employee_status_manager';
 $route['file_maintenance/company_info'] = 'file_maintenance/city';
 
-$route['file_maintenance/company_info'] = 'file_maintenance/unit_manager';
+$route['file_maintenance/company_info'] = 'file_maintenance/employee_status';
+$route['file_maintenance/company_info'] = 'file_maintenance/city';
+
+$route['file_maintenance/company_info'] = 'file_maintenance/unit';
 $route['file_maintenance/company_info'] = 'file_maintenance/earning';
 $route['file_maintenance/company_info'] = 'file_maintenance/deduction';
 $route['file_maintenance/company_info'] = 'file_maintenance/customer_type';
