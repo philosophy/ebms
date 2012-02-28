@@ -10,6 +10,7 @@ class Employee_status_model extends CI_Model {
     private $last_updated_at;
     private $active = 1;
     private $company_id;
+    private $table_name = 'employee_status';
 
     function __construct() {
         parent::__construct();
@@ -116,8 +117,7 @@ class Employee_status_model extends CI_Model {
         $sql = 'SELECT id from employee_status where company_id = ? order by date_created desc limit 1';
         $query = $this->db->query($sql, array('company_id' => $this->get_company_id()));
 
-        /* insert audit CREATE */
-        parent::insertAuditTrail($this->get_created_by(), 1, $query->row()->id, lang('create_new_employee_status'), $this->get_company_id());
+        parent::insertAuditTrail($this->get_created_by(), 1, $query->row()->id, lang('create_new_employee_status'), $this->get_company_id(), $this->table_name);
 
         $this->db->trans_complete();
         if ($this->db->trans_status() === TRUE) {
@@ -135,7 +135,7 @@ class Employee_status_model extends CI_Model {
         $this->db->update('employee_status', $data);
 
         /* insert audit DELETE */
-        parent::insertAuditTrail($this->get_created_by(), 3, $this->get_id(), lang('deactivate_employee_status'), $this->get_company_id());
+        parent::insertAuditTrail($this->get_created_by(), 3, $this->get_id(), lang('deactivate_employee_status'), $this->get_company_id(), $this->table_name);
 
         $this->db->trans_complete();
         if ($this->db->trans_status() === TRUE) {
@@ -157,7 +157,7 @@ class Employee_status_model extends CI_Model {
         $this->db->update('employee_status', $data);
 
         /* insert audit UPDATE */
-        parent::insertAuditTrail($this->get_last_updated_by(), 2, $this->get_id(), lang('update_employee_status'), $this->get_company_id());
+        parent::insertAuditTrail($this->get_last_updated_by(), 2, $this->get_id(), lang('update_employee_status'), $this->get_company_id(), $this->table_name);
 
         $this->db->trans_complete();
         if ($this->db->trans_status() === TRUE) {
@@ -178,7 +178,7 @@ class Employee_status_model extends CI_Model {
         $this->db->update('employee_status', $data);
 
         /* insert audit */
-        parent::insertAuditTrail($this->get_last_updated_by(), 2, $this->get_id(), lang('restore_employee_status'), $this->get_company_id());
+        parent::insertAuditTrail($this->get_last_updated_by(), 2, $this->get_id(), lang('restore_employee_status'), $this->get_company_id(), $this->table_name);
 
         $this->db->trans_complete();
         if ($this->db->trans_status() === TRUE) {

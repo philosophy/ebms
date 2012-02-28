@@ -54,12 +54,12 @@ $route['users/delete/(:num)'] = 'users/delete/$1';
 $route['dashboard/index'] = 'dashboard/index';
 $route['documentation/index'] = 'documentation/index';
 
-$route['user_management/control'] = 'user_management/control/index';
-$route['user_management/control/list'] = 'user_management/control/index';
-$route['user_management/control/new_user'] = 'user_management/control/new_user';
-$route['user_management/control/update_user/(:num)'] = 'user_management/control/update_user/$1';
-$route['user_management/control/archive'] = 'user_management/control/archive';
-$route['user_management/control/get_useredit_form/(:num)'] = 'user_management/control/get_useredit_form/$1';
+$route['user_management/control_manager'] = 'user_management/control_manager/index';
+$route['user_management/control_manager/list'] = 'user_management/control_manager/index';
+$route['user_management/control_manager/new_user'] = 'user_management/control_manager/new_user';
+$route['user_management/control_manager/update_user/(:num)'] = 'user_management/control_manager/update_user/$1';
+$route['user_management/control_manager/archive'] = 'user_management/control_manager/archive';
+$route['user_management/control_manager/get_useredit_form/(:num)'] = 'user_management/control_manager/get_useredit_form/$1';
 $route['user_management/audit_trail'] = 'user_management/audit_trail/index';
 
 /* file_maintenance */

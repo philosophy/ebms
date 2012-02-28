@@ -208,21 +208,11 @@
                 $user->set_status_id($status_id);
                 $user->set_home_phone($home_phone);
                 $user->set_work_phone($work_phone);
+                $user->set_company_id($this->current_avatar->company_id);
 
                 $result = $user->update_profile();
 
                 if ($result) {
-                    // insert audit trail
-//                    $current_user = $this->ion_auth->get_user();
-                    $audit = new $this->Audit_trail_model();
-
-                    $audit->set_user_id($this->current_avatar->id);
-                    $audit->set_type(2);
-                    $audit->set_subject_id($id);
-                    $audit->set_details(lang('update_profile'));
-                    $audit->set_date_created(date("Y-m-d H:i:s"));
-                    $audit->insertUserActions();
-                    
                     send_json_response(INFO_LOG, HTTP_OK, 'successfully update user profile', array('msg' => 'success!', 'userid' => $id, 'username' => $username, 'email' => $email, 'name' => $first_name.' '.$last_name));
                 } else {
                     /* flash an error occured */
@@ -309,6 +299,9 @@
                 $user = new $this->User_model();
 
                 $user->set_userid($id);
+                $user->set_last_updated_by($this->current_avatar->id);
+                $user->set_company_id($this->current_avatar->company_id);
+
                 $result = $user->deactivateUser();
                 if ($result) {
                     send_json_response(INFO_LOG, HTTP_OK, 'successfully deleted user', array('user_id' => $id));
@@ -325,6 +318,8 @@
                 $user = new $this->User_model();
 
                 $user->set_userid($id);
+                $user->set_last_updated_by($this->current_avatar->id);
+                $user->set_company_id($this->current_avatar->company_id);
                 $result = $user->activateUser();
                 if ($result) {
                     send_json_response(INFO_LOG, HTTP_OK, 'successfully activated user', array('user_id' => $id));

@@ -188,7 +188,7 @@
     $lang['are_you_sure_to_delete_unit'] = 'Are you sure you want to delete this unit?';
     $lang['restore_this_unit'] = 'Restore this unit';
     $lang['are_you_sure_to_restore_unit'] = 'Are you sure you want to restore this unit?';
-    
+
     // city manager
     $lang['city_name'] = 'City Name';
     $lang['city_list'] = 'City List';
@@ -199,7 +199,7 @@
     $lang['restore_this_city'] = 'Restore this city';
     $lang['are_you_sure_to_restore_city'] = 'Are you sure you want to restore this city?';
 
-    
+
     /* error messages */
     $lang['unable_to_process_transaction'] = 'Unable to process transactions';
     $lang['username_cannot_be_blank'] = "Username can't be blank";
@@ -227,37 +227,39 @@
     $lang['an_error_occured'] = 'An error occured';
 
     /* audit trail messages */
+    $lang['activate_user'] = 'Activate user';
+    $lang['deactivate_user'] = 'Deactivate user';
     $lang['user_login'] = 'User logged in';
     $lang['update_user'] = 'Updated user';
     $lang['update_profile'] = 'Updated profile';
     $lang['update_company_profile'] = 'Updated company profile';
     $lang['update_security'] = 'Updated profile\'s security setting';
-    
+
     $lang['update_department'] = 'Update department';
     $lang['deactivate_department'] = 'Deactivate department';
     $lang['restore_department'] = 'Restore Department';
     $lang['create_new_department'] = 'Create new department';
-    
+
     $lang['create_new_area_type'] = 'Create new area type';
     $lang['deactivate_area_type'] = 'Deactivate area type';
     $lang['update_area_type'] = 'Update area type';
     $lang['restore_area_type'] = 'Restore area type';
-    
+
     $lang['create_new_employee_status'] = 'Create new employee status';
     $lang['deactivate_employee_status'] = 'Deactivate employee status';
     $lang['update_employee status'] = 'Update employee status';
     $lang['restore_employee_status'] = 'Restore employee status';
-    
+
     $lang['create_new_position'] = 'Create new position';
     $lang['deactivate_position'] = 'Deactivate position';
     $lang['update_positions'] = 'Update position';
     $lang['restore_position'] = 'Restore position';
-    
+
     $lang['create_new_unit'] = 'Create new unit';
     $lang['deactivate_unit'] = 'Deactivate unit';
     $lang['update_unit'] = 'Update unit';
     $lang['restore_unit'] = 'Restore unit';
-    
+
     $lang['update_city'] = 'Update city';
     $lang['restore_city'] = 'Restore city';
     $lang['deactivate_city'] = 'Deactivate city';

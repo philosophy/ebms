@@ -10,6 +10,7 @@ class Position_model extends CI_Model {
     private $last_updated_at;
     private $active = 1;
     private $company_id;
+    private $table_name = 'position';
 
     function __construct() {
         parent::__construct();
@@ -117,7 +118,7 @@ class Position_model extends CI_Model {
         $query = $this->db->query($sql, array('company_id' => $this->get_company_id()));
 
         /* insert audit CREATE */
-        parent::insertAuditTrail($this->get_created_by(), 1, $query->row()->id, lang('create_new_position'), $this->get_company_id());
+        parent::insertAuditTrail($this->get_created_by(), 1, $query->row()->id, lang('create_new_position'), $this->get_company_id(), $this->table_name);
 
         $this->db->trans_complete();
         if ($this->db->trans_status() === TRUE) {
@@ -135,7 +136,7 @@ class Position_model extends CI_Model {
         $this->db->update('positions', $data);
 
         /* insert audit DELETE */
-        parent::insertAuditTrail($this->get_created_by(), 3, $this->get_id(), lang('deactivate_position'), $this->get_company_id());
+        parent::insertAuditTrail($this->get_created_by(), 3, $this->get_id(), lang('deactivate_position'), $this->get_company_id(), $this->table_name);
 
         $this->db->trans_complete();
         if ($this->db->trans_status() === TRUE) {
@@ -157,7 +158,7 @@ class Position_model extends CI_Model {
         $this->db->update('positions', $data);
 
         /* insert audit UPDATE */
-        parent::insertAuditTrail($this->get_last_updated_by(), 2, $this->get_id(), lang('update_position'), $this->get_company_id());
+        parent::insertAuditTrail($this->get_last_updated_by(), 2, $this->get_id(), lang('update_position'), $this->get_company_id(), $this->table_name);
 
         $this->db->trans_complete();
         if ($this->db->trans_status() === TRUE) {
@@ -178,7 +179,7 @@ class Position_model extends CI_Model {
         $this->db->update('positions', $data);
 
         /* insert audit */
-        parent::insertAuditTrail($this->get_last_updated_by(), 2, $this->get_id(), lang('restore_position'), $this->get_company_id());
+        parent::insertAuditTrail($this->get_last_updated_by(), 2, $this->get_id(), lang('restore_position'), $this->get_company_id(), $this->table_name);
 
         $this->db->trans_complete();
         if ($this->db->trans_status() === TRUE) {

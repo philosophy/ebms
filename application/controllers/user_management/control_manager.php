@@ -66,6 +66,8 @@
             $user->set_email($this->input->post('email'));
             $user->set_password($this->input->post('password'));
             $user->set_group_id($this->input->post('group_id'));
+            $user->set_created_by($this->current_avatar->id);
+            $user->set_company_id($this->current_avatar->company_id);
 
             $this->load->library('form_validation');
 
@@ -196,6 +198,8 @@
                 $user->set_home_phone($home_phone);
                 $user->set_work_phone($work_phone);
                 $user->set_group_id($group_id);
+                $user->set_company_id($this->current_avatar->company_id);
+                $user->set_last_updated_by($this->current_avatar->id);
 
                 $result = $user->update_user();
 
