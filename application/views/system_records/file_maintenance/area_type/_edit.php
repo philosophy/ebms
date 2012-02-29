@@ -13,6 +13,6 @@
 </fieldset>
 <fieldset class="form-buttons">
     <?php echo form_submit('edit_form_submit', 'Update', array('id' => 'edit-department-submit')); ?>
-    <?php echo anchor(site_url('file_maintenance/department/'), 'Cancel', array('class' => 'cancel-link')); ?>
+    <?php echo anchor(site_url('file_maintenance/area_type/'), 'Cancel', array('class' => 'cancel-link')); ?>
 </fieldset>
 <?php echo form_close(); ?>

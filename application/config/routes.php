@@ -106,14 +106,13 @@ $route['file_maintenance/city/create_city'] = 'file_maintenance/city/create_city
 $route['file_maintenance/city/delete/(:num)'] = 'file_maintenance/city/delete/$1';
 $route['file_maintenance/city/get_city_edit_form/(:num)'] = 'file_maintenance/city/get_city_edit_form/$1';
 
+$route['file_maintenance/category'] = 'file_maintenance/category';
+$route['file_maintenance/category/new_category'] = 'file_maintenance/category/new_category';
+$route['file_maintenance/category/create_category'] = 'file_maintenance/category/create_category';
+$route['file_maintenance/category/delete/(:num)'] = 'file_maintenance/category/delete/$1';
+$route['file_maintenance/category/get_category_edit_form/(:num)'] = 'file_maintenance/category/get_category_edit_form/$1';
+
 $route['file_maintenance/company_info'] = 'file_maintenance/accounts';
-
-$route['file_maintenance/company_info'] = 'file_maintenance/city';
-
-$route['file_maintenance/company_info'] = 'file_maintenance/employee_status';
-$route['file_maintenance/company_info'] = 'file_maintenance/city';
-
-$route['file_maintenance/company_info'] = 'file_maintenance/unit';
 $route['file_maintenance/company_info'] = 'file_maintenance/earning';
 $route['file_maintenance/company_info'] = 'file_maintenance/deduction';
 $route['file_maintenance/company_info'] = 'file_maintenance/customer_type';

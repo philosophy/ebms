@@ -103,11 +103,9 @@
             /* check if record exist */
              if ($this->_record_exist($id)) {
                 $unit_name = $this->input->post('unit_name');
-                $description = $this->input->post('description');
 
                 /* TODO */
-                /* description len should not be less than 5 characters */
-                /* description should not be empty */
+                /* unit should not be empty */
 
                 /* validate unit name if empty*/
                 if(is_empty_null_value($unit_name)) {
@@ -122,7 +120,6 @@
 
                 $this->unitObj->set_id($id);
                 $this->unitObj->set_name($unit_name);
-                $this->unitObj->set_description($description);
                 $this->unitObj->set_last_updated_by($this->current_user()->id);
                 $this->unitObj->set_company_id($this->current_user()->company_id);
 
@@ -144,8 +141,8 @@
         }
 
         function get_unit_edit_form($id) {
-            $this->status = $this->unitObj->getUnitDetails($id);
-            if (!empty($this->status)) {
+            $this->unit = $this->unitObj->getUnitDetails($id);
+            if (!empty($this->unit)) {
                 send_json_response(INFO_LOG, HTTP_OK, 'unit edit form', array('html' => $this->load->view('system_records/file_maintenance/unit/_edit', '', true)));
             } else {
                 send_json_response(ERROR_LOG, HTTP_BAD_REQUEST, 'bad request');
@@ -170,8 +167,8 @@
 
 
         private function _record_exist($id) {
-            $this->status = $this->Unit_model->getUnitDetails($id);
-            if (empty($this->status)) {
+            $this->unit = $this->Unit_model->getUnitDetails($id);
+            if (empty($this->unit)) {
                 return false;
             } else {
                 return true;

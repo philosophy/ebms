@@ -131,6 +131,8 @@
     $lang['employee_status_manager'] = 'Employee Status Manager';
     $lang['position_manager'] = 'Position Manager';
     $lang['city_manager'] = 'City Manager';
+    $lang['unit_manager'] = 'Unit Manager';
+    $lang['category_manager'] = 'Category Manager';
 
     /* page navs*/
     // control manager
@@ -189,6 +191,16 @@
     $lang['restore_this_unit'] = 'Restore this unit';
     $lang['are_you_sure_to_restore_unit'] = 'Are you sure you want to restore this unit?';
 
+    // category manager
+    $lang['code'] = 'Code';
+    $lang['category_name'] = 'Category Name';
+    $lang['category_list'] = 'Category List';
+    $lang['create_category'] = 'Create Category';
+    $lang['delete_this_category'] = 'Delete this category';
+    $lang['are_you_sure_to_delete_category'] = 'Are you sure you want to delete this category?';
+    $lang['restore_this_category'] = 'Restore this category';
+    $lang['are_you_sure_to_restore_category'] = 'Are you sure you want to restore this category?';
+
     // city manager
     $lang['city_name'] = 'City Name';
     $lang['city_list'] = 'City List';
@@ -209,6 +221,7 @@
     $lang['position_name_exists'] = "Position name already exists";
     $lang['unit_name_exists'] = "Unit name already exists";
     $lang['city_name_exists'] = "City name already exists";
+    $lang['category_name_exists'] = "Category name already exists";
 
     /* profile info */
     $lang['username'] = 'Username';
@@ -259,6 +272,11 @@
     $lang['deactivate_unit'] = 'Deactivate unit';
     $lang['update_unit'] = 'Update unit';
     $lang['restore_unit'] = 'Restore unit';
+
+    $lang['create_new_category'] = 'Create new category';
+    $lang['deactivate_category'] = 'Deactivate category';
+    $lang['update_category'] = 'Update category';
+    $lang['restore_category'] = 'Restore category';
 
     $lang['update_city'] = 'Update city';
     $lang['restore_city'] = 'Restore city';

@@ -36,7 +36,7 @@ com.ebms.views.unit = {
             $('#edit-unit-wrapper form').fadeOut('slow', function() {
                 $(this).parent().addClass('hide');
                 $(this).remove();
-                $('#unit-table-wrapper').fadeIn().removeClass('hide');
+                $('#units-table-wrapper').fadeIn().removeClass('hide');
             });
 
             com.ebms.widgets.flash.flashMessage(data.message, 'notif');
@@ -84,7 +84,7 @@ com.ebms.views.unit = {
         e.preventDefault();
         var $this = $(this);
 
-        $('#unit-table-wrapper').hide();
+        $('#units-table-wrapper').hide();
 
         /* show loader */
         var $loaderContainer = $('div.loader-container', 'article.primary');

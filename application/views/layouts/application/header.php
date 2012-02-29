@@ -276,9 +276,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="Javascript:newPopup('/EBMS/apps/view/systemRecords/fileMaintenance/categoryManager/index.php',490,630)" id="sub-inner-a">
-                                    Category Manager
-                                </a>
+                                <?php echo anchor('file_maintenance/category/index', lang('category_manager')); ?>
                             </li>
                             <li >
                                 <a href="Javascript:newPopup('/EBMS/apps/view/systemRecords/fileMaintenance/subCategoryManager/index.php',530,630)" id="sub-inner-a">
