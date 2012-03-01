@@ -207,6 +207,8 @@
     $lang['are_you_sure_to_restore_category'] = 'Are you sure you want to restore this category?';
 
     // sub category manager
+    $lang['category'] = 'Category';
+    $lang['sub_category'] = 'Sub Category';
     $lang['sub_category_name'] = 'Sub Category Name';
     $lang['sub_category_list'] = 'Sub Category List';
     $lang['create_sub_category'] = 'Create Sub Category';

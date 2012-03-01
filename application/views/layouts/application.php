@@ -99,6 +99,7 @@
             echo js_asset('views/industry.js');
             echo js_asset('views/location.js');
             echo js_asset('views/customer.js');
+            echo js_asset('views/sub_category.js');
             echo js_asset('lib/flash.js');
 
         ?>

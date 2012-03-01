@@ -11,7 +11,8 @@ class Sub_category_model extends CI_Model {
     private $last_updated_at;
     private $active = 1;
     private $company_id;
-    private $table_name = 'category';
+    private $table_name = 'sub_category';
+    private $category_id;
 
     function __construct() {
         parent::__construct();
@@ -44,6 +45,9 @@ class Sub_category_model extends CI_Model {
     function set_company_id($val) {
         $this->company_id = $val;
     }
+    function set_category_id($val) {
+        $this->category_id = $val;
+    }
     function get_id() {
         return (int)$this->id;
     }
@@ -71,6 +75,9 @@ class Sub_category_model extends CI_Model {
     function get_company_id() {
         return (int)$this->company_id;
     }
+    function get_category_id() {
+        return (int)$this->category_id;
+    }
 
     function getCategories() {
         $sql = "SELECT * FROM category where active=? and company_id=?";
@@ -84,7 +91,7 @@ class Sub_category_model extends CI_Model {
     }
 
     function getSubCategories() {
-        $sql = "SELECT * FROM sub_category where active=? and company_id=?";
+        $sql = "SELECT s.id as id, s.code, s.name as name, c.name as category FROM sub_category as s inner join category as c where c.id = s.category_id and s.active=? and s.company_id=?";
         $query = $this->db->query($sql, array('active' => $this->get_active(), 'company_id' => $this->get_company_id()));
 
         if ($query->num_rows() > 0) {
@@ -95,7 +102,7 @@ class Sub_category_model extends CI_Model {
     }
 
     function getSubCategoryDetails($id) {
-        $sql = "SELECT * FROM sub_category where id=?";
+        $sql = "SELECT s.id as id, s.code, s.name as name, c.name, c.name as category, c.id as category_id FROM sub_category as s inner join category as c where c.id = s.category_id and s.id=?";
         $query = $this->db->query($sql, array('id' => $id));
 
         if ($query->num_rows() > 0) {
@@ -108,16 +115,17 @@ class Sub_category_model extends CI_Model {
     function createSubCategory() {
 
         $this->db->trans_start();
-        $sql = "INSERT INTO sub_category (code, name, created_by, date_created, company_id) values (?, ?, ?, ?, ?)";
+        $sql = "INSERT INTO sub_category (code, name, created_by, date_created, company_id, category_id) values (?, ?, ?, ?, ?, ?)";
         $this->db->query($sql,
             array(
                 $this->get_code(),
                 $this->get_name(),
                 $this->get_created_by(),
                 date($this->config->item('date_format')),
-                $this->get_company_id()
+                $this->get_company_id(),
+                $this->get_category_id()
             ));
-
+        
         $sql = 'SELECT id from sub_category where company_id = ? order by date_created desc limit 1';
         $query = $this->db->query($sql, array('company_id' => $this->get_company_id()));
 
@@ -155,6 +163,7 @@ class Sub_category_model extends CI_Model {
         $data = array(
             'code' => $this->get_code(),
             'name' => $this->get_name(),
+            'category_id' => $this->get_category_id(),
             'last_updated_by' => $this->get_last_updated_by(),
             'last_updated_at' => date($this->config->item('date_format'))
         );
@@ -196,7 +205,7 @@ class Sub_category_model extends CI_Model {
 
 
     function subCategoryExists() {
-        $sql = "SELECT * FROM sub_category where code = ? and name = ? and company_id = ?";
+        $sql = "SELECT * FROM sub_category where (code = ? or name = ?) and company_id = ?";
         $query = $this->db->query($sql, array('code' => $this->get_code(),'name' => $this->get_name(), 'company_id' => $this->get_company_id()));
 
         if ($query->num_rows() > 0) {
@@ -207,7 +216,7 @@ class Sub_category_model extends CI_Model {
     }
 
     function recordExists() {
-        $sql = "SELECT * FROM sub_category where id!=? and code=? and name=? and company_id=?";
+        $sql = "SELECT * FROM sub_category where (code = ? or name = ?) andid!=? and company_id=?";
         $query = $this->db->query($sql, array('id' => $this->get_id(), 'code' => $this->get_code(), 'name' => $this->get_name(), 'company_id' => $this->get_company_id()));
 
         if ($query->num_rows() > 0) {

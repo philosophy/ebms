@@ -21,7 +21,8 @@
                         <th class="no-sort"></th>
                         <th class="no-sort"></th>
                         <th><?php echo lang('code'); ?></th>
-                        <th><?php echo lang('name'); ?></th>
+                        <th><?php echo lang('sub_category'); ?></th>
+                        <th><?php echo lang('category'); ?></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -38,6 +39,7 @@
                                          )); ?></td>
                             <td class="code"><?php echo $sub_category->code; ?></td>
                             <td class="name"><?php echo $sub_category->name; ?></td>
+                            <td class="category"><?php echo $sub_category->category; ?></td>
                         </tr>
                     <?php } ?>
                 </tbody>
