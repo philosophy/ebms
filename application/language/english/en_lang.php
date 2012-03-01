@@ -133,6 +133,7 @@
     $lang['city_manager'] = 'City Manager';
     $lang['unit_manager'] = 'Unit Manager';
     $lang['category_manager'] = 'Category Manager';
+    $lang['sub_category_manager'] = 'Sub Category Manager';
 
     /* page navs*/
     // control manager
@@ -201,6 +202,15 @@
     $lang['restore_this_category'] = 'Restore this category';
     $lang['are_you_sure_to_restore_category'] = 'Are you sure you want to restore this category?';
 
+    // category manager
+    $lang['sub_category_name'] = 'Sub Category Name';
+    $lang['sub_category_list'] = 'Sub Category List';
+    $lang['create_sub_category'] = 'Create Sub Category';
+    $lang['delete_this_sub_category'] = 'Delete this sub category';
+    $lang['are_you_sure_to_delete_sub_category'] = 'Are you sure you want to delete this sub category?';
+    $lang['restore_this_sub_category'] = 'Restore this category';
+    $lang['are_you_sure_to_restore_sub_category'] = 'Are you sure you want to restore this sub category?';
+
     // city manager
     $lang['city_name'] = 'City Name';
     $lang['city_list'] = 'City List';
@@ -222,6 +232,7 @@
     $lang['unit_name_exists'] = "Unit name already exists";
     $lang['city_name_exists'] = "City name already exists";
     $lang['category_name_exists'] = "Category name already exists";
+    $lang['sub_category_name_exists'] = "Sub Category name already exists";
 
     /* profile info */
     $lang['username'] = 'Username';
@@ -277,6 +288,11 @@
     $lang['deactivate_category'] = 'Deactivate category';
     $lang['update_category'] = 'Update category';
     $lang['restore_category'] = 'Restore category';
+
+    $lang['create_new_sub_category'] = 'Create new sub category';
+    $lang['deactivate_sub_category'] = 'Deactivate sub category';
+    $lang['update_sub_category'] = 'Update sub category';
+    $lang['restore_sub_category'] = 'Restore sub category';
 
     $lang['update_city'] = 'Update city';
     $lang['restore_city'] = 'Restore city';

@@ -112,6 +112,12 @@ $route['file_maintenance/category/create_category'] = 'file_maintenance/category
 $route['file_maintenance/category/delete/(:num)'] = 'file_maintenance/category/delete/$1';
 $route['file_maintenance/category/get_category_edit_form/(:num)'] = 'file_maintenance/category/get_category_edit_form/$1';
 
+$route['file_maintenance/sub_category'] = 'file_maintenance/sub_category';
+$route['file_maintenance/sub_category/new_category'] = 'file_maintenance/sub_category/new_sub_category';
+$route['file_maintenance/sub_category/create_category'] = 'file_maintenance/sub_category/create_sub_category';
+$route['file_maintenance/sub_category/delete/(:num)'] = 'file_maintenance/sub_category/delete/$1';
+$route['file_maintenance/sub_category/get_sub_category_edit_form/(:num)'] = 'file_maintenance/sub_category/get_sub_category_edit_form/$1';
+
 $route['file_maintenance/company_info'] = 'file_maintenance/accounts';
 $route['file_maintenance/company_info'] = 'file_maintenance/earning';
 $route['file_maintenance/company_info'] = 'file_maintenance/deduction';
