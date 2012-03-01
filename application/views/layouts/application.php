@@ -100,8 +100,8 @@
             echo js_asset('views/location.js');
             echo js_asset('views/customer.js');
             echo js_asset('views/sub_category.js');
+            echo js_asset('views/brand.js');
             echo js_asset('lib/flash.js');
-
         ?>
         <?php $this->load->view('layouts/application/page_specific_javascript'); ?>
         <?php $this->load->view('layouts/application/flash_message'); ?>

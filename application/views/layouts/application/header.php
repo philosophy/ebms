@@ -276,9 +276,7 @@
                                 <?php echo anchor('file_maintenance/sub_category/index', lang('sub_category_manager')); ?>
                             </li>
                             <li>
-                                <a href="Javascript:newPopup('/EBMS/apps/view/systemRecords/fileMaintenance/brandManager/index.php',530,630)" id="sub-inner-a">
-                                    Brand Manager
-                                </a>
+                                <?php echo anchor('file_maintenance/brand/index', lang('brand_manager')); ?>
                             </li>
                             <li>
                                 <a href="Javascript:newPopup('/EBMS/apps/view/systemRecords/fileMaintenance/itemFieldManager/index.php',530,630)" id="sub-inner-a">

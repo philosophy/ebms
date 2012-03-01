@@ -14,7 +14,7 @@
         }
 
         function index() {
-            $data['title'] = $this->lang->line('category');
+            $data['title'] = $this->lang->line('sub_category');
             $data['content'] = 'system_records/file_maintenance/sub_category/index';
             $data['active'] = 'list';
 
@@ -137,7 +137,7 @@
 
                 /* sub_category should not be the same name with other sub category */
                 if($this->subCategoryObj->recordExists()) {
-                    send_json_response(ERROR_LOG, HTTP_FAIL_PRECON, 'sub category name already exists');
+                    send_json_response(ERROR_LOG, HTTP_FAIL_PRECON, 'sub category name/code must be unique');
                     exit;
                 }
                 $result = $this->subCategoryObj->updateSubCategory();

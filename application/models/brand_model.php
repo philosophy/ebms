@@ -1,9 +1,8 @@
 <?php
 
-class Sub_category_model extends CI_Model {
+class Brand_model extends CI_Model {
 
     private $id = '';
-    private $code = '';
     private $name = '';
     private $created_by;
     private $date_created;
@@ -11,8 +10,8 @@ class Sub_category_model extends CI_Model {
     private $last_updated_at;
     private $active = 1;
     private $company_id;
-    private $table_name = 'sub_category';
-    private $category_id;
+    private $table_name = 'brands';
+    private $sub_category_id;
 
     function __construct() {
         parent::__construct();
@@ -45,9 +44,13 @@ class Sub_category_model extends CI_Model {
     function set_company_id($val) {
         $this->company_id = $val;
     }
+    function set_sub_category_id($val) {
+        $this->sub_category_id = $val;
+    }
     function set_category_id($val) {
         $this->category_id = $val;
     }
+    
     function get_id() {
         return (int)$this->id;
     }
@@ -75,6 +78,9 @@ class Sub_category_model extends CI_Model {
     function get_company_id() {
         return (int)$this->company_id;
     }
+    function get_sub_category_id() {
+        return (int)$this->sub_category_id;
+    }
     function get_category_id() {
         return (int)$this->category_id;
     }
@@ -90,9 +96,9 @@ class Sub_category_model extends CI_Model {
         }
     }
     
-    function getSubCategoriesByCategoryId() {
-        $sql = "SELECT s.id as id, s.code, s.name as name, c.name as category FROM sub_category as s inner join category as c where c.id = s.category_id and s.active=? and s.company_id=? and s.category_id = ?";
-        $query = $this->db->query($sql, array('active' => $this->get_active(), 'company_id' => $this->get_company_id(), 'category_id' => $this->get_category_id()));
+    function getSubCategoriesByCategory() {
+        $sql = "SELECT * FROM sub_category where active=? and company_id=?";
+        $query = $this->db->query($sql, array('active' => $this->get_active(), 'company_id' => $this->get_company_id()));
 
         if ($query->num_rows() > 0) {
             return $query->result();
@@ -100,9 +106,9 @@ class Sub_category_model extends CI_Model {
             return null;
         }
     }
-
+    
     function getSubCategories() {
-        $sql = "SELECT s.id as id, s.code, s.name as name, c.name as category FROM sub_category as s inner join category as c where c.id = s.category_id and s.active=? and s.company_id=?";
+        $sql = "SELECT * FROM sub_category where active=? and company_id=?";
         $query = $this->db->query($sql, array('active' => $this->get_active(), 'company_id' => $this->get_company_id()));
 
         if ($query->num_rows() > 0) {
@@ -112,9 +118,20 @@ class Sub_category_model extends CI_Model {
         }
     }
 
-    function getSubCategoryDetails($id) {
-        $sql = "SELECT s.id as id, s.code, s.name as name, c.name, c.name as category, c.id as category_id FROM sub_category as s inner join category as c where c.id = s.category_id and s.id=?";
-        $query = $this->db->query($sql, array('id' => $id));
+    function getBrands() {
+        $sql = "SELECT b.id as id, b.name as name, s.name as sub_category, c.name as category FROM brands as b inner join sub_category as s inner join category as c where b.sub_category_id = s.id and c.id = s.category_id and b.active=? and s.company_id=?";
+        $query = $this->db->query($sql, array('active' => $this->get_active(), 'company_id' => $this->get_company_id()));
+
+        if ($query->num_rows() > 0) {
+            return $query->result();
+        } else {
+            return null;
+        }
+    }
+
+    function getBrandDetails($id) {
+        $sql = "SELECT b.id as id, b.name as name, b.sub_category_id, s.name as sub_category, c.name as category FROM brands as b inner join sub_category as s inner join category as c where b.sub_category_id = s.id and c.id = s.category_id and b.active=? and s.company_id=?";
+        $query = $this->db->query($sql, array('active' => $this->get_active(), 'company_id' => $this->get_company_id()));
 
         if ($query->num_rows() > 0) {
             return $query->row();
@@ -123,25 +140,23 @@ class Sub_category_model extends CI_Model {
         }
     }
 
-    function createSubCategory() {
-
+    function createBrand() {
         $this->db->trans_start();
-        $sql = "INSERT INTO sub_category (code, name, created_by, date_created, company_id, category_id) values (?, ?, ?, ?, ?, ?)";
+        $sql = "INSERT INTO brands (name, created_by, date_created, company_id, sub_category_id) values (?, ?, ?, ?, ?)";
         $this->db->query($sql,
-            array(
-                $this->get_code(),
+            array(                
                 $this->get_name(),
                 $this->get_created_by(),
                 date($this->config->item('date_format')),
                 $this->get_company_id(),
-                $this->get_category_id()
+                $this->get_sub_category_id()
             ));
         
-        $sql = 'SELECT id from sub_category where company_id = ? order by date_created desc limit 1';
-        $query = $this->db->query($sql, array('company_id' => $this->get_company_id()));
+        $sql = 'SELECT id from brands where company_id = ? and sub_category_id = ? order by date_created desc limit 1';
+        $query = $this->db->query($sql, array('company_id' => $this->get_company_id(), 'sub_category_id' => $this->get_sub_category_id()));
 
         /* insert audit CREATE */
-        parent::insertAuditTrail($this->get_created_by(), 1, $query->row()->id, lang('create_new_category'), $this->get_company_id(), $this->table_name);
+        parent::insertAuditTrail($this->get_created_by(), 1, $query->row()->id, lang('create_new_brand'), $this->get_company_id(), $this->table_name);
 
         $this->db->trans_complete();
         if ($this->db->trans_status() === TRUE) {
@@ -151,15 +166,15 @@ class Sub_category_model extends CI_Model {
         }
     }
 
-    function deactivateSubCategory() {
+    function deactivateBrand() {
         $this->db->trans_start();
         $data = array('active' => 0);
 
         $this->db->where('id', $this->get_id());
-        $this->db->update('sub_category', $data);
+        $this->db->update('brands', $data);
 
         /* insert audit DELETE */
-        parent::insertAuditTrail($this->get_created_by(), 3, $this->get_id(), lang('deactivate_category'), $this->get_company_id(), $this->table_name);
+        parent::insertAuditTrail($this->get_created_by(), 3, $this->get_id(), lang('deactivate_brand'), $this->get_company_id(), $this->table_name);
 
         $this->db->trans_complete();
         if ($this->db->trans_status() === TRUE) {
@@ -169,21 +184,20 @@ class Sub_category_model extends CI_Model {
         }
     }
 
-    function updateSubCategory() {
+    function updateBrand() {
         $this->db->trans_start();
         $data = array(
-            'code' => $this->get_code(),
             'name' => $this->get_name(),
-            'category_id' => $this->get_category_id(),
+            'sub_category_id' => $this->get_sub_category_id(),
             'last_updated_by' => $this->get_last_updated_by(),
             'last_updated_at' => date($this->config->item('date_format'))
         );
 
         $this->db->where('id', $this->get_id());
-        $this->db->update('sub_category', $data);
+        $this->db->update('brands', $data);
 
         /* insert audit UPDATE */
-        parent::insertAuditTrail($this->get_last_updated_by(), 2, $this->get_id(), lang('update_category'), $this->get_company_id(), $this->table_name);
+        parent::insertAuditTrail($this->get_last_updated_by(), 2, $this->get_id(), lang('update_brand'), $this->get_company_id(), $this->table_name);
 
         $this->db->trans_complete();
         if ($this->db->trans_status() === TRUE) {
@@ -193,7 +207,7 @@ class Sub_category_model extends CI_Model {
         }
     }
 
-    function restoreSubCategory() {
+    function restoreBrand() {
         $this->db->trans_start();
         $data = array('active' => 1,
             'last_updated_by' => $this->get_last_updated_by(),
@@ -201,10 +215,10 @@ class Sub_category_model extends CI_Model {
         ));
 
         $this->db->where('id', $this->get_id());
-        $this->db->update('sub_category', $data);
+        $this->db->update('brands', $data);
 
         /* insert audit */
-        parent::insertAuditTrail($this->get_last_updated_by(), 2, $this->get_id(), lang('restore_category'), $this->get_company_id(), $this->table_name);
+        parent::insertAuditTrail($this->get_last_updated_by(), 2, $this->get_id(), lang('restore_brand'), $this->get_company_id(), $this->table_name);
 
         $this->db->trans_complete();
         if ($this->db->trans_status() === TRUE) {
@@ -215,9 +229,9 @@ class Sub_category_model extends CI_Model {
     }
 
 
-    function subCategoryExists() {
-        $sql = "SELECT * FROM sub_category where (code = ? or name = ?) and company_id = ?";
-        $query = $this->db->query($sql, array('code' => $this->get_code(),'name' => $this->get_name(), 'company_id' => $this->get_company_id()));
+    function brandExists() {
+        $sql = "SELECT * FROM brands where name = ? and company_id = ?";
+        $query = $this->db->query($sql, array('name' => $this->get_name(), 'company_id' => $this->get_company_id()));
 
         if ($query->num_rows() > 0) {
             return true;
@@ -227,8 +241,8 @@ class Sub_category_model extends CI_Model {
     }
 
     function recordExists() {
-        $sql = "SELECT * FROM sub_category where (code = ? or name = ?) and id!=? and company_id=?";
-        $query = $this->db->query($sql, array('code' => $this->get_code(), 'name' => $this->get_name(), 'id' => $this->get_id(),  'company_id' => $this->get_company_id()));
+        $sql = "SELECT * FROM brands where name = ? and id!=? and company_id=?";
+        $query = $this->db->query($sql, array('name' => $this->get_name(), 'id' => $this->get_id(),  'company_id' => $this->get_company_id()));
 
         if ($query->num_rows() > 0) {
             return true;

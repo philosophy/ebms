@@ -131,10 +131,16 @@ $route['file_maintenance/category/delete/(:num)'] = 'file_maintenance/category/d
 $route['file_maintenance/category/get_category_edit_form/(:num)'] = 'file_maintenance/category/get_category_edit_form/$1';
 
 $route['file_maintenance/sub_category'] = 'file_maintenance/sub_category';
-$route['file_maintenance/sub_category/new_category'] = 'file_maintenance/sub_category/new_sub_category';
-$route['file_maintenance/sub_category/create_category'] = 'file_maintenance/sub_category/create_sub_category';
+$route['file_maintenance/sub_category/new_sub_category'] = 'file_maintenance/sub_category/new_sub_category';
+$route['file_maintenance/sub_category/create_sub_category'] = 'file_maintenance/sub_category/create_sub_category';
 $route['file_maintenance/sub_category/delete/(:num)'] = 'file_maintenance/sub_category/delete/$1';
 $route['file_maintenance/sub_category/get_sub_category_edit_form/(:num)'] = 'file_maintenance/sub_category/get_sub_category_edit_form/$1';
+
+$route['file_maintenance/brand'] = 'file_maintenance/brand';
+$route['file_maintenance/brand/new_brand'] = 'file_maintenance/brand/new_brand';
+$route['file_maintenance/brand/create_brand'] = 'file_maintenance/brand/create_brand';
+$route['file_maintenance/brand/delete/(:num)'] = 'file_maintenance/brand/delete/$1';
+$route['file_maintenance/brand/get_brand_edit_form/(:num)'] = 'file_maintenance/brand/get_brand_edit_form/$1';
 
 $route['file_maintenance/company_info'] = 'file_maintenance/accounts';
 $route['file_maintenance/company_info'] = 'file_maintenance/earning';

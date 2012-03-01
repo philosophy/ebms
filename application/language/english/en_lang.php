@@ -135,9 +135,9 @@
     $lang['industry_manager'] = 'Industry Manager';
     $lang['location_manager'] = 'Location Manager';
     $lang['customer_manager'] = 'Customer Manager';
-    $lang['unit_manager'] = 'Unit Manager';
     $lang['category_manager'] = 'Category Manager';
     $lang['sub_category_manager'] = 'Sub Category Manager';
+    $lang['brand_manager'] = 'Brand Manager';
 
     /* page navs*/
     // control manager
@@ -195,6 +195,16 @@
     $lang['are_you_sure_to_delete_unit'] = 'Are you sure you want to delete this unit?';
     $lang['restore_this_unit'] = 'Restore this unit';
     $lang['are_you_sure_to_restore_unit'] = 'Are you sure you want to restore this unit?';
+    
+    // brand manager
+    $lang['brand'] = 'Brand';
+    $lang['brand_name'] = 'Brand Name';
+    $lang['brand_list'] = 'Brand List';
+    $lang['create_brand'] = 'Create Brand';
+    $lang['delete_this_brand'] = 'Delete this brand';
+    $lang['are_you_sure_to_delete_brand'] = 'Are you sure you want to delete this brand?';
+    $lang['restore_this_brand'] = 'Restore this brand';
+    $lang['are_you_sure_to_restore_brand'] = 'Are you sure you want to restore this brand?';
 
     // category manager
     $lang['code'] = 'Code';
@@ -268,6 +278,7 @@
     $lang['city_name_exists'] = "City name already exists";
     $lang['category_name_exists'] = "Category name already exists";
     $lang['sub_category_name_exists'] = "Sub Category name already exists";
+    $lang['brand_name_exists'] = "Brand name already exists";
 
     /* profile info */
     $lang['username'] = 'Username';
@@ -318,6 +329,11 @@
     $lang['deactivate_unit'] = 'Deactivate unit';
     $lang['update_unit'] = 'Update unit';
     $lang['restore_unit'] = 'Restore unit';
+    
+    $lang['create_new_brand'] = 'Create new brand';
+    $lang['deactivate_brand'] = 'Deactivate brand';
+    $lang['update_brand'] = 'Update brand';
+    $lang['restore_brand'] = 'Restore brand';
 
     $lang['create_new_category'] = 'Create new category';
     $lang['deactivate_category'] = 'Deactivate category';
