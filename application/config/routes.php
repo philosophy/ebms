@@ -54,12 +54,12 @@ $route['users/delete/(:num)'] = 'users/delete/$1';
 $route['dashboard/index'] = 'dashboard/index';
 $route['documentation/index'] = 'documentation/index';
 
-$route['user_management/control'] = 'user_management/control/index';
-$route['user_management/control/list'] = 'user_management/control/index';
-$route['user_management/control/new_user'] = 'user_management/control/new_user';
-$route['user_management/control/update_user/(:num)'] = 'user_management/control/update_user/$1';
-$route['user_management/control/archive'] = 'user_management/control/archive';
-$route['user_management/control/get_useredit_form/(:num)'] = 'user_management/control/get_useredit_form/$1';
+$route['user_management/control_manager'] = 'user_management/control_manager/index';
+$route['user_management/control_manager/list'] = 'user_management/control_manager/index';
+$route['user_management/control_manager/new_user'] = 'user_management/control_manager/new_user';
+$route['user_management/control_manager/update_user/(:num)'] = 'user_management/control_manager/update_user/$1';
+$route['user_management/control_manager/archive'] = 'user_management/control_manager/archive';
+$route['user_management/control_manager/get_useredit_form/(:num)'] = 'user_management/control_manager/get_useredit_form/$1';
 $route['user_management/audit_trail'] = 'user_management/audit_trail/index';
 
 /* file_maintenance */
@@ -124,14 +124,19 @@ $route['file_maintenance/customer/create_customer'] = 'file_maintenance/customer
 $route['file_maintenance/customer/delete/(:num)'] = 'file_maintenance/customer/delete/$1';
 $route['file_maintenance/customer/get_customer_edit_form/(:num)'] = 'file_maintenance/customer/get_customer_edit_form/$1';
 
+$route['file_maintenance/category'] = 'file_maintenance/category';
+$route['file_maintenance/category/new_category'] = 'file_maintenance/category/new_category';
+$route['file_maintenance/category/create_category'] = 'file_maintenance/category/create_category';
+$route['file_maintenance/category/delete/(:num)'] = 'file_maintenance/category/delete/$1';
+$route['file_maintenance/category/get_category_edit_form/(:num)'] = 'file_maintenance/category/get_category_edit_form/$1';
+
+$route['file_maintenance/sub_category'] = 'file_maintenance/sub_category';
+$route['file_maintenance/sub_category/new_category'] = 'file_maintenance/sub_category/new_sub_category';
+$route['file_maintenance/sub_category/create_category'] = 'file_maintenance/sub_category/create_sub_category';
+$route['file_maintenance/sub_category/delete/(:num)'] = 'file_maintenance/sub_category/delete/$1';
+$route['file_maintenance/sub_category/get_sub_category_edit_form/(:num)'] = 'file_maintenance/sub_category/get_sub_category_edit_form/$1';
+
 $route['file_maintenance/company_info'] = 'file_maintenance/accounts';
-
-$route['file_maintenance/company_info'] = 'file_maintenance/city';
-
-$route['file_maintenance/company_info'] = 'file_maintenance/employee_status';
-$route['file_maintenance/company_info'] = 'file_maintenance/city';
-
-$route['file_maintenance/company_info'] = 'file_maintenance/unit';
 $route['file_maintenance/company_info'] = 'file_maintenance/earning';
 $route['file_maintenance/company_info'] = 'file_maintenance/deduction';
 $route['file_maintenance/company_info'] = 'file_maintenance/customer_type';

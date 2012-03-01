@@ -94,6 +94,7 @@
             echo js_asset('views/employee_status.js');
             echo js_asset('views/position.js');
             echo js_asset('views/unit.js');
+            echo js_asset('views/category.js');
             echo js_asset('views/city.js');
             echo js_asset('views/industry.js');
             echo js_asset('views/location.js');

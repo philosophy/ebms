@@ -11,6 +11,7 @@ class Company_model extends CI_Model {
     private $email_address = '';
     private $website = '';
     private $logo = '';
+    private $table_name = 'company';
 
     function __construct() {
         parent::__construct();
@@ -55,35 +56,35 @@ class Company_model extends CI_Model {
     function get_id() {
         return $this->id;
     }
-    
+
     function get_name() {
         return $this->name;
     }
-    
+
     function get_address() {
         return $this->address;
     }
-    
+
     function get_phone_no() {
         return $this->phone_no;
     }
-    
+
     function get_mobile_no() {
         return $this->mobile_no;
     }
-    
+
     function get_fax_no() {
         return $this->fax_no;
     }
-    
+
     function get_email_address() {
         return $this->email_address;
     }
-    
+
     function get_website() {
         return $this->website;
     }
-    
+
     function get_logo() {
         return $this->logo;
     }
@@ -96,9 +97,9 @@ class Company_model extends CI_Model {
             return $query->row();
         } else {
             return false;
-        }       
+        }
     }
-    
+
     function companyExists() {
         $sql = "SELECT * FROM company WHERE id = ?";
         $query = $this->db->query($sql, array($this->get_id()));
@@ -109,7 +110,7 @@ class Company_model extends CI_Model {
             return false;
         }
     }
-    
+
     function updateCompany() {
         $data = array(
                     'name' => $this->get_name(),
@@ -121,8 +122,12 @@ class Company_model extends CI_Model {
                     'website' => $this->get_website(),
                     'logo' => $this->get_logo()
                 );
-        
+
         $this->db->where('id', $this->get_id());
+
+        /* insert audit UPDATE */
+//        parent::insertAuditTrail($this->get_created_by(), 1, $query->row()->id, lang('create_new_unit'), $this->get_company_id(), $this->table_name);
+
         return $this->db->update('company', $data);
     }
 

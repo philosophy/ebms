@@ -19,6 +19,11 @@ class User_model extends CI_Model {
     private $security_question_id;
     private $security_answer;
     private $group_id = 2;
+    private $table_name = 'users';
+    private $company_id;
+    private $updated_at;
+    private $created_by;
+    private $last_updated_by;
 
     function __construct() {
         parent::__construct();
@@ -75,9 +80,18 @@ class User_model extends CI_Model {
     function set_group_id($val) {
         $this->group_id = trim($val);
     }
+    function set_company_id($val) {
+        $this->company_id = $val;
+    }
+    function set_created_by($val) {
+        $this->created_by = $val;
+    }
+    function set_last_updated_by($val) {
+        $this->last_updated_by = $val;
+    }
 
     function get_userid() {
-        return $this->user_id;
+        return (int)$this->user_id;
     }
     function get_username() {
         return  $this->username;
@@ -127,9 +141,18 @@ class User_model extends CI_Model {
     function get_securityAnswer() {
         return $this->security_answer;
     }
+    function get_company_id() {
+        return (int)$this->company_id;
+    }
+    function get_created_by() {
+        return (int)$this->company_id;
+    }
+    function get_last_updated_by() {
+        return (int)$this->last_updated_by;
+    }
 
     function update_profile() {
-        return $this->ion_auth->update_user($this->user_id, array(
+        $result = $this->ion_auth->update_user($this->user_id, array(
             'username' => $this->get_username(),
             'first_name' => $this->get_first_name(),
             'middle_name' => $this->get_middle_name(),
@@ -141,11 +164,17 @@ class User_model extends CI_Model {
             'status_id' => $this->get_status_id(),
             'home_phone' => $this->get_home_phone(),
             'work_phone' => $this->get_work_phone()
-        ));
+        ), $this->get_company_id());
+
+        if ($result === TRUE) {
+            /* insert audit UPDATE */
+            parent::insertAuditTrail($this->get_userid(), 2, $this->get_userid(), lang('update_profile'), $this->get_company_id(), $this->table_name);
+        }
+        return $result;
     }
 
     function update_user() {
-        return $this->ion_auth->update_user($this->user_id, array(
+        $result = $this->ion_auth->update_user($this->user_id, array(
             'username' => $this->get_username(),
             'first_name' => $this->get_first_name(),
             'middle_name' => $this->get_middle_name(),
@@ -159,6 +188,13 @@ class User_model extends CI_Model {
             'work_phone' => $this->get_work_phone(),
             'group_id' => $this->get_group_id()
         ));
+
+        if ($result === TRUE) {
+            /* insert audit UPDATE */
+            parent::insertAuditTrail($this->get_last_updated_by(), 2, $this->get_userid(), lang('update_user'), $this->get_company_id(), $this->table_name);
+        }
+
+        return $result;
     }
 
     function updateSecuritySettings() {
@@ -166,6 +202,11 @@ class User_model extends CI_Model {
             'security_question_id' => $this->get_securityQuestionId(),
             'security_answer' => $this->get_securityAnswer()
         ));
+
+        if ($result === TRUE) {
+            /* insert audit UPDATE */
+            parent::insertAuditTrail($this->get_userid(), 2, $this->get_userid(), lang('update_security'), $this->get_company_id(), $this->table_name);
+        }
         return $result;
     }
 
@@ -173,7 +214,7 @@ class User_model extends CI_Model {
         return $this->ion_auth->update_user($this->get_userid(), array(
             'password' => $this->get_new_password()
         ));
-    }
+        }
 
     function emailExists() {
         $sql = "SELECT * FROM users WHERE id != ? and email = ?";
@@ -217,7 +258,7 @@ class User_model extends CI_Model {
     }
 
     function createUser() {
-        return $this->ion_auth->register(
+        $result = $this->ion_auth->register(
                     $this->get_username(),
                     $this->get_password(),
                     $this->get_email(),
@@ -229,14 +270,34 @@ class User_model extends CI_Model {
                         'group_id' => $this->get_group_id()
                     )
                 );
+
+        $sql = 'SELECT id from users where company_id = ? and created_by = ? order by date_created desc limit 1';
+        $query = $this->db->query($sql, array('company_id' => $this->get_company_id(), 'created_by' => $this->get_created_by()));
+
+        if ($result === TRUE) {
+            /* insert audit UPDATE */
+            parent::insertAuditTrail($this->get_created_by(), 2, $query->row()->id, lang('create_user'), $this->get_company_id(), $this->table_name);
+        }
+        return $result;
     }
 
     function deactivateUser() {
-        return $this->ion_auth->deactivate_user($this->get_userid());
+        $result = $this->ion_auth->deactivate_user($this->get_userid());
+
+        if ($result === TRUE) {
+            /* insert audit DELETE */
+            parent::insertAuditTrail($this->get_last_updated_by(), 3, $this->get_userid(), lang('deactivate_user'), $this->get_company_id(), $this->table_name);
+        }
+        return $result;
     }
 
     function activateUser() {
-        return $this->ion_auth->activate_user($this->get_userid());
+        $result = $this->ion_auth->activate_user($this->get_userid());
+        if ($result === TRUE) {
+            /* insert audit UPDATE */
+            parent::insertAuditTrail($this->get_last_updated_by(), 2, $this->get_userid(), lang('activate_user'), $this->get_company_id(), $this->table_name);
+        }
+        return $result;
     }
 }
 

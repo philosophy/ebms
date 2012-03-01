@@ -10,6 +10,7 @@ class Department_model extends CI_Model {
     private $last_updated_at;
     private $active = 1;
     private $company_id;
+    private $table_name = 'departments';
 
     function __construct() {
         parent::__construct();
@@ -101,7 +102,7 @@ class Department_model extends CI_Model {
         $query = $this->db->query('SELECT id from departments where company_id = ? order by date_created desc limit 1', array('company_id' => $this->get_company_id()));
 
         /* insert audit */
-        parent::insertAuditTrail($this->get_created_by(), 1, $query->row()->id, lang('create_new_department'), $this->get_company_id());
+        parent::insertAuditTrail($this->get_created_by(), 1, $query->row()->id, lang('create_new_department'), $this->get_company_id(), $this->table_name);
 
         $this->db->trans_complete();
         if ($this->db->trans_status() === TRUE) {
@@ -119,7 +120,7 @@ class Department_model extends CI_Model {
         $this->db->update('departments', $data);
 
         /* insert audit */
-        parent::insertAuditTrail($this->current_avatar->id, 3, $this->get_id(), lang('deactivate_department'), $this->get_company_id());
+        parent::insertAuditTrail($this->current_avatar->id, 3, $this->get_id(), lang('deactivate_department'), $this->get_company_id(), $this->table_name);
 
         $this->db->trans_complete();
         if ($this->db->trans_status() === TRUE) {
@@ -137,7 +138,7 @@ class Department_model extends CI_Model {
         $this->db->update('departments', $data);
 
         /* insert audit */
-        parent::insertAuditTrail($this->current_avatar->id, 2, $this->get_id(), lang('restore_department'), $this->get_company_id());
+        parent::insertAuditTrail($this->current_avatar->id, 2, $this->get_id(), lang('restore_department'), $this->get_company_id(), $this->table_name);
 
         $this->db->trans_complete();
         if ($this->db->trans_status() === TRUE) {
@@ -181,7 +182,7 @@ class Department_model extends CI_Model {
         $this->db->update('departments', $data);
 
         /* insert audit */
-        parent::insertAuditTrail($this->get_last_updated_by(), 2, $this->get_id(), lang('update_department'), $this->get_company_id());
+        parent::insertAuditTrail($this->get_last_updated_by(), 2, $this->get_id(), lang('update_department'), $this->get_company_id(), $this->table_name);
 
         $this->db->trans_complete();
         if ($this->db->trans_status() === TRUE) {
