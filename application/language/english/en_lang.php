@@ -130,7 +130,11 @@
     $lang['area_type_manager'] = 'Area Type Manager';
     $lang['employee_status_manager'] = 'Employee Status Manager';
     $lang['position_manager'] = 'Position Manager';
+    $lang['unit_manager'] = 'Unit Manager';
     $lang['city_manager'] = 'City Manager';
+    $lang['industry_manager'] = 'Industry Manager';
+    $lang['location_manager'] = 'Location Manager';
+    $lang['customer_manager'] = 'Customer Manager';
 
     /* page navs*/
     // control manager
@@ -198,7 +202,36 @@
     $lang['are_you_sure_to_delete_city'] = 'Are you sure you want to delete this city?';
     $lang['restore_this_city'] = 'Restore this city';
     $lang['are_you_sure_to_restore_city'] = 'Are you sure you want to restore this city?';
+    
+    //industry manager
+    $lang['industry_name'] = 'Industry Name';
+    $lang['industry_list'] = 'Industry List';
+    $lang['create_industry'] = 'Create Industry';
+    $lang['name'] = 'Name';
+    $lang['delete_this_industry'] = 'Delete this industry';
+    $lang['are_you_sure_to_delete_industry'] = 'Are you sure you want to delete this industry?';
+    $lang['restore_this_industry'] = 'Restore this industry';
+    $lang['are_you_sure_to_restore_industry'] = 'Are you sure you want to restore this industry?';
 
+    //location manager
+    $lang['location_name'] = 'Location Name';
+    $lang['location_list'] = 'Location List';
+    $lang['create_location'] = 'Create Location';
+    $lang['name'] = 'Name';
+    $lang['delete_this_location'] = 'Delete this location';
+    $lang['are_you_sure_to_delete_location'] = 'Are you sure you want to delete this location?';
+    $lang['restore_this_location'] = 'Restore this location';
+    $lang['are_you_sure_to_restore_location'] = 'Are you sure you want to restore this location?';
+    
+     //customer manager
+    $lang['customer_name'] = 'Customer Name';
+    $lang['customer_list'] = 'Customer List';
+    $lang['create_customer'] = 'Create Customer';
+    $lang['name'] = 'Name';
+    $lang['delete_this_customer'] = 'Delete this customer';
+    $lang['are_you_sure_to_delete_customer'] = 'Are you sure you want to delete this customer?';
+    $lang['restore_this_customer'] = 'Restore this customer';
+    $lang['are_you_sure_to_restore_customer'] = 'Are you sure you want to restore this customer?';
     
     /* error messages */
     $lang['unable_to_process_transaction'] = 'Unable to process transactions';
@@ -261,4 +294,19 @@
     $lang['update_city'] = 'Update city';
     $lang['restore_city'] = 'Restore city';
     $lang['deactivate_city'] = 'Deactivate city';
-    $lang['create_new_city'] = 'Create new city';
+    $lang['create_new_city'] = 'Create city';
+    
+    $lang['update_industry'] = 'Update industry';
+    $lang['restore_industry'] = 'Restore industry';
+    $lang['deactivate_industry'] = 'Deactivate industry';
+    $lang['create_new_industry'] = 'Create industry';
+    
+    $lang['update_location'] = 'Update location';
+    $lang['restore_location'] = 'Restore location';
+    $lang['deactivate_location'] = 'Deactivate location';
+    $lang['create_new_location'] = 'Create location';
+    
+    $lang['update_customer'] = 'Update customer';
+    $lang['restore_customer'] = 'Restore customer';
+    $lang['deactivate_customer'] = 'Deactivate customer';
+    $lang['create_new_customer'] = 'Create customer';

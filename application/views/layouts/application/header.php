@@ -260,20 +260,14 @@
                             <li>
                                 <?php echo anchor('file_maintenance/area_type/index', lang('area_type_manager')); ?>
                             </li>
-                            <li>
-                                <a href="Javascript:newPopup('/EBMS/apps/view/systemRecords/fileMaintenance/locationTypeManager/index.php',500,630)" id="sub-inner-a">
-                                    Location Type Manager
-                                </a>
+                             <li>
+                                <?php echo anchor('file_maintenance/location/index', lang('location_manager')); ?>
                             </li>
                             <li>
-                                <a href="Javascript:newPopup('/EBMS/apps/view/systemRecords/fileMaintenance/customerTypeManager/index.php',490,630)" id="sub-inner-a">
-                                    Customer Type Manager
-                                </a>
+                                <?php echo anchor('file_maintenance/customer/index', lang('customer_manager')); ?>
                             </li>
                             <li>
-                                <a href="Javascript:newPopup('/EBMS/apps/view/systemRecords/fileMaintenance/industryTypeManager/index.php',490,630)" id="sub-inner-a">
-                                    Industry Type Manager
-                                </a>
+                                <?php echo anchor('file_maintenance/industry/index', lang('industry_manager')); ?>
                             </li>
                             <li>
                                 <a href="Javascript:newPopup('/EBMS/apps/view/systemRecords/fileMaintenance/categoryManager/index.php',490,630)" id="sub-inner-a">

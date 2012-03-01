@@ -1,6 +1,6 @@
 <?php
 
-class City_model extends CI_Model {
+class Industry_model extends CI_Model {
 
     private $id = '';
     private $name = '';
@@ -10,7 +10,7 @@ class City_model extends CI_Model {
     private $last_updated_at;
     private $active = 1;
     private $company_id;
-    private $table_name = 'city';
+    private $table_name = 'industry';
 
     function __construct() {
         parent::__construct();
@@ -80,8 +80,8 @@ class City_model extends CI_Model {
         return (int)$this->company_id;
     }
 
-    function getCities() {
-        $sql = "SELECT * FROM city where active=? and company_id=?";
+    function getIndustries() {
+        $sql = "SELECT * FROM industry where active=? and company_id=?";
         $query = $this->db->query($sql, array('active' => $this->get_active(), 'company_id' => $this->get_company_id()));
 
         if ($query->num_rows() > 0) {
@@ -91,8 +91,8 @@ class City_model extends CI_Model {
         }
     }
 
-    function getCityDetails($id) {
-        $sql = "SELECT * FROM city where id=?";
+    function getIndustryDetails($id) {
+        $sql = "SELECT * FROM industry where id=?";
         $query = $this->db->query($sql, array('id' => $id));
 
         if ($query->num_rows() > 0) {
@@ -102,10 +102,10 @@ class City_model extends CI_Model {
         }
     }
 
-    function createCity() {
+    function createIndustry() {
 
         $this->db->trans_start();
-        $sql = "INSERT INTO city (name, created_by, date_created, company_id) values (?, ?, ?, ?)";
+        $sql = "INSERT INTO industry (name, created_by, date_created, company_id) values (?, ?, ?, ?)";
         $this->db->query($sql,
             array(
                 $this->get_name(),
@@ -114,11 +114,11 @@ class City_model extends CI_Model {
                 $this->get_company_id()
             ));
 
-        $sql = 'SELECT id from city where company_id = ? order by date_created desc limit 1';
+        $sql = 'SELECT id from industry where company_id = ? order by date_created desc limit 1';
         $query = $this->db->query($sql, array('company_id' => $this->get_company_id()));
 
         /* insert audit CREATE */
-        parent::insertAuditTrail($this->get_created_by(), 1, $query->row()->id, lang('create_new_city'), $this->get_company_id(), $this->table_name);
+        parent::insertAuditTrail($this->get_created_by(), 1, $query->row()->id, lang('create_new_industry'), $this->get_company_id(), $this->table_name);
 
         $this->db->trans_complete();
         if ($this->db->trans_status() === TRUE) {
@@ -128,15 +128,15 @@ class City_model extends CI_Model {
         }
     }
 
-    function deactivateCity() {
+    function deactivateIndustry() {
         $this->db->trans_start();
         $data = array('active' => 0);
 
         $this->db->where('id', $this->get_id());
-        $this->db->update('city', $data);
+        $this->db->update('industry', $data);
 
         /* insert audit DELETE */
-        parent::insertAuditTrail($this->get_created_by(), 3, $this->get_id(), lang('deactivate_city'), $this->get_company_id(), $this->table_name);
+        parent::insertAuditTrail($this->get_created_by(), 3, $this->get_id(), lang('deactivate_industry'), $this->get_company_id(), $this->table_name);
 
         $this->db->trans_complete();
         if ($this->db->trans_status() === TRUE) {
@@ -146,7 +146,7 @@ class City_model extends CI_Model {
         }
     }
 
-    function updateCity() {
+    function updateIndustry() {
         $this->db->trans_start();
         $data = array(
             'name' => $this->get_name(),
@@ -155,10 +155,10 @@ class City_model extends CI_Model {
         );
 
         $this->db->where('id', $this->get_id());
-        $this->db->update('city', $data);
+        $this->db->update('industry', $data);
 
         /* insert audit UPDATE */
-        parent::insertAuditTrail($this->get_last_updated_by(), 2, $this->get_id(), lang('update_city'), $this->get_company_id(), $this->table_name);
+        parent::insertAuditTrail($this->get_last_updated_by(), 2, $this->get_id(), lang('update_industry'), $this->get_company_id(), $this->table_name);
 
         $this->db->trans_complete();
         if ($this->db->trans_status() === TRUE) {
@@ -168,7 +168,7 @@ class City_model extends CI_Model {
         }
     }
 
-    function restoreCity() {
+    function restoreIndustry() {
         $this->db->trans_start();
         $data = array('active' => 1,
             'last_updated_by' => $this->get_last_updated_by(),
@@ -176,10 +176,10 @@ class City_model extends CI_Model {
         ));
 
         $this->db->where('id', $this->get_id());
-        $this->db->update('city', $data);
+        $this->db->update('industry', $data);
 
         /* insert audit */
-        parent::insertAuditTrail($this->get_last_updated_by(), 2, $this->get_id(), lang('restore_city'), $this->get_company_id(), $this->table_name);
+        parent::insertAuditTrail($this->get_last_updated_by(), 2, $this->get_id(), lang('restore_industry'), $this->get_company_id(), $this->table_name);
 
         $this->db->trans_complete();
         if ($this->db->trans_status() === TRUE) {
@@ -190,8 +190,8 @@ class City_model extends CI_Model {
     }
 
 
-    function cityExists() {
-        $sql = "SELECT * FROM city where name = ? and company_id = ?";
+    function industryExists() {
+        $sql = "SELECT * FROM industry where name = ? and company_id = ?";
         $query = $this->db->query($sql, array('name' => $this->get_name(), 'company_id' => $this->get_company_id()));
 
         if ($query->num_rows() > 0) {
@@ -202,7 +202,7 @@ class City_model extends CI_Model {
     }
 
     function recordExists() {
-        $sql = "SELECT * FROM city where id!=? and name=? and company_id=?";
+        $sql = "SELECT * FROM industry where id!=? and name=? and company_id=?";
         $query = $this->db->query($sql, array('id' => $this->get_id(), 'name' => $this->get_name(), 'company_id' => $this->get_company_id()));
 
         if ($query->num_rows() > 0) {

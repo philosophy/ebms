@@ -106,6 +106,24 @@ $route['file_maintenance/city/create_city'] = 'file_maintenance/city/create_city
 $route['file_maintenance/city/delete/(:num)'] = 'file_maintenance/city/delete/$1';
 $route['file_maintenance/city/get_city_edit_form/(:num)'] = 'file_maintenance/city/get_city_edit_form/$1';
 
+$route['file_maintenance/industry'] = 'file_maintenance/industry';
+$route['file_maintenance/industry/new_industry'] = 'file_maintenance/industry/new_industry';
+$route['file_maintenance/industry/create_industry'] = 'file_maintenance/industry/create_industry';
+$route['file_maintenance/industry/delete/(:num)'] = 'file_maintenance/industry/delete/$1';
+$route['file_maintenance/industry/get_industry_edit_form/(:num)'] = 'file_maintenance/industry/get_industry_edit_form/$1';
+
+$route['file_maintenance/location'] = 'file_maintenance/location';
+$route['file_maintenance/location/new_location'] = 'file_maintenance/location/new_location';
+$route['file_maintenance/location/create_location'] = 'file_maintenance/location/create_location';
+$route['file_maintenance/location/delete/(:num)'] = 'file_maintenance/location/delete/$1';
+$route['file_maintenance/location/get_location_edit_form/(:num)'] = 'file_maintenance/location/get_location_edit_form/$1';
+
+$route['file_maintenance/customer'] = 'file_maintenance/customer';
+$route['file_maintenance/customer/new_customer'] = 'file_maintenance/customer/new_customer';
+$route['file_maintenance/customer/create_customer'] = 'file_maintenance/customer/create_customer';
+$route['file_maintenance/customer/delete/(:num)'] = 'file_maintenance/customer/delete/$1';
+$route['file_maintenance/customer/get_customer_edit_form/(:num)'] = 'file_maintenance/customer/get_customer_edit_form/$1';
+
 $route['file_maintenance/company_info'] = 'file_maintenance/accounts';
 
 $route['file_maintenance/company_info'] = 'file_maintenance/city';

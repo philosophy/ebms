@@ -17,7 +17,7 @@
             $data['content'] = 'system_records/file_maintenance/city/index';
             $data['active'] = 'list';
 
-            $this->cityObj->set_company_id($this->current_user()->company_id);
+            $this->cityObj->set_company_id($this->current_avatar->company_id);
             $this->cities = $this->cityObj->getCities();
 
             $this->parser->parse('layouts/application', $data);
@@ -103,11 +103,10 @@
             /* check if record exist */
              if ($this->_record_exist($id)) {
                 $city_name = $this->input->post('city_name');
-                $description = $this->input->post('description');
 
                 /* TODO */
-                /* description len should not be less than 5 characters */
-                /* description should not be empty */
+                /* city len should not be less than 5 characters */
+                /* city should not be empty */
 
                 /* validate unit name if empty*/
                 if(is_empty_null_value($city_name)) {
@@ -122,7 +121,6 @@
 
                 $this->cityObj->set_id($id);
                 $this->cityObj->set_name($city_name);
-                $this->cityObj->set_description($description);
                 $this->cityObj->set_last_updated_by($this->current_user()->id);
                 $this->cityObj->set_company_id($this->current_user()->company_id);
 
@@ -134,7 +132,7 @@
                 $result = $this->cityObj->updateCity();
                 if ($result) {
                     /* push audit trail */
-                    send_json_response(INFO_LOG, HTTP_OK, 'successfully updated city ', array('msg' => 'success!', 'city_id' => $id, 'city_name' => $city_name_name ));
+                    send_json_response(INFO_LOG, HTTP_OK, 'successfully updated city ', array('msg' => 'success!', 'city_id' => $id, 'city_name' => $city_name ));
                 } else {
                     /* flash an error occured */
                 }
@@ -144,8 +142,8 @@
         }
 
         function get_city_edit_form($id) {
-            $this->status = $this->cityObj->getCityDetails($id);
-            if (!empty($this->status)) {
+            $this->city = $this->cityObj->getCityDetails($id);
+            if (!empty($this->city)) {
                 send_json_response(INFO_LOG, HTTP_OK, 'city edit form', array('html' => $this->load->view('system_records/file_maintenance/city/_edit', '', true)));
             } else {
                 send_json_response(ERROR_LOG, HTTP_BAD_REQUEST, 'bad request');
