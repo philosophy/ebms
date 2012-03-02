@@ -130,9 +130,9 @@ class Brand_model extends CI_Model {
     }
 
     function getBrandDetails($id) {
-        $sql = "SELECT b.id as id, b.name as name, b.sub_category_id, s.name as sub_category, c.name as category FROM brands as b inner join sub_category as s inner join category as c where b.sub_category_id = s.id and c.id = s.category_id and b.active=? and s.company_id=?";
-        $query = $this->db->query($sql, array('active' => $this->get_active(), 'company_id' => $this->get_company_id()));
-
+        $sql = "SELECT b.id as id, b.name as name, b.sub_category_id, s.name as sub_category, c.name as category FROM brands as b inner join sub_category as s inner join category as c where b.sub_category_id = s.id and c.id = s.category_id and b.id = ? and b.active=? and s.company_id=?";
+        $query = $this->db->query($sql, array('id' => $id, 'active' => $this->get_active(), 'company_id' => $this->get_company_id()));
+                
         if ($query->num_rows() > 0) {
             return $query->row();
         } else {

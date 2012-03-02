@@ -55,3 +55,7 @@
         </h3>
     </div>
 </article>
+
+<script>
+    var sub_categories = <?php echo json_encode($this->sub_categories); ?>
+</script>

@@ -3,16 +3,21 @@
     $hidden = array('brand_id' => $brand->id);
     echo form_open('file_maintenance/brand/update/' . $brand->id, array('id' => 'brand-edit'));
 ?>
-<fieldset>
+<fieldset>    
     <label>Category:</label>
-    <select name="category">        
+    <select name="category" id="category">        
         <?php foreach ($this->categories as $category) { ?>
-            <option value=<?php echo $category->id; echo ($category->id == $subCategory->category_id) ? ' selected="selected"' : ''; ?>><?php echo $category->name; ?></option>
+            <option value=<?php echo $category->id; echo ($category->id == $this->sub_category->category_id) ? ' selected="selected"' : ''; ?>><?php echo $category->name; ?></option>
+        <?php } ?>
+    </select>
+    <select name="sub_category" id="sub-category">        
+        <?php foreach ($this->sub_categories as $sub) { ?>
+            <option value=<?php echo $sub->id; echo ($sub->id == $brand->sub_category_id) ? ' selected="selected"' : ''; ?>><?php echo $sub->name; ?></option>
         <?php } ?>
     </select>
 </fieldset>
 <fieldset>
-    <label><?php echo lang('brand'); ?></label>
+    <label><?php echo lang('brand')      ; ?></label>
     <?php echo form_input(array('name' => 'brand_name', 'id' => 'brand-name', 'class' => 'required', 'placeholder'=>lang('brand_name'), 'value' => $brand->name)); ?>
 </fieldset>
 <fieldset class="form-buttons">

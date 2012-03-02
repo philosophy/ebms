@@ -25,10 +25,10 @@ com.ebms.views.brand = {
 
         $('td.action.edit a').live('click', this.editBrandHandler);
             
-        $('#category').change(function(e) {
+        $('#category').live('change', function(e) {
             var categoryId = $(this).val();
             var options = '<option>Select Sub Category</option>';
-            $.each(sub_categories, function(i, sub) {
+            $.each(sub_categories, function(i, sub) {                
                 if (sub.category_id === categoryId) {
                     options += '<option value="'+ sub.id +'">' + sub.name + '</option>';
                 }
