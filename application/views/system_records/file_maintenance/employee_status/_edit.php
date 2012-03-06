@@ -1,18 +1,14 @@
-<?php $areaType = $this->areaType; ?>
+<?php $employee_status = $this->employee_status; ?>
 <?php
-    $hidden = array('area_type_id' => $areaType->id);
-    echo form_open('file_maintenance/area_type/update/' . $areaType->id, array('id' => 'area-type-edit'));
+    $hidden = array('employee_status_id' => $employee_status->id);
+    echo form_open('file_maintenance/employee_status/update/' . $employee_status->id, array('id' => 'employee-status-edit'));
 ?>
 <fieldset>
-    <label><?php echo lang('area_type_name'); ?></label>
-    <?php echo form_input(array('name' => 'area_type_name', 'id' => 'area-type-name', 'class' => 'required', 'placeholder'=>lang('area_type_name'), 'value' => $areaType->name)); ?>
-</fieldset>
-<fieldset>
-    <label><?php echo lang('description'); ?>:</label>
-    <?php echo form_textarea(array('name' => 'description', 'id' => 'description', 'placeholder' => lang('description'), 'value' => $areaType->description)); ?>
+    <label><?php echo lang('employee_status_name'); ?></label>
+    <?php echo form_input(array('name' => 'employee_status_name', 'id' => 'employee-status-name', 'class' => 'required', 'placeholder'=>lang('employee_status_name'), 'value' => $employee_status->name)); ?>
 </fieldset>
 <fieldset class="form-buttons">
-    <?php echo form_submit('edit_form_submit', 'Update', array('id' => 'edit-department-submit')); ?>
-    <?php echo anchor(site_url('file_maintenance/department/'), 'Cancel', array('class' => 'cancel-link')); ?>
+    <?php echo form_submit('edit_form_submit', 'Update', array('id' => 'edit-employee-status-submit')); ?>
+    <?php echo anchor(site_url('file_maintenance/employee_status/'), 'Cancel', array('class' => 'cancel-link')); ?>
 </fieldset>
 <?php echo form_close(); ?>

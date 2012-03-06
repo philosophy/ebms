@@ -1,13 +1,17 @@
 <?php
 
-class Currency_manager extends CI_Model {
+class Currency_model extends CI_Model {
 
     private $id = '';
     private $name = '';
-    private $symbol = '';
-    private $deleted = '';
-    private $flag = '';
-    
+    private $created_by;
+    private $date_created;
+    private $last_updated_by;
+    private $last_updated_at;
+    private $active = 1;
+    private $company_id;
+    private $table_name = 'currency';
+
     function __construct() {
         parent::__construct();
     }
@@ -17,50 +21,195 @@ class Currency_manager extends CI_Model {
     }
 
     function set_name($val) {
-        $this->name = $val;
+        $this->name = trim($val);
     }
-    
-    function set_symbol($val) {
-        $this->symbol = $val;
+
+    function set_active($val) {
+        $this->active = $val;
     }
-    
-    function set_deleted($val) {
-        $this->deleted = $val;
+
+    function set_created_by($val) {
+        $this->created_by = $val;
     }
-    
-    function set_flag($val) {
-        $this->flag = $val;
+
+    function set_date_created($val) {
+        $this->date_created = $val;
     }
-    
+
+    function set_last_updated_by($val) {
+        $this->last_updated_by = $val;
+    }
+
+    function set_last_updated_at($val) {
+        $this->last_updated_at = $val;
+    }
+
+    function set_company_id($val) {
+        $this->company_id = $val;
+    }
+
     function get_id() {
-        return $this->id;
+        return (int)$this->id;
     }
-    
+
     function get_name() {
         return $this->name;
     }
-    
-    function get_symbol() {
-        return $this->symbol;
+
+    function get_created_by() {
+        return $this->created_by;
     }
-    
-    function get_deleted() {
-        return $this->deleted;
+
+    function get_date_created() {
+        return $this->date_created;
     }
-    
-    function get_flag() {
-        return $this->flag;
+
+    function get_last_updated_by() {
+        return $this->last_updated_by;
     }
-    
-    function getSymbolInfo() {
-        $sql = "SELECT * FROM symbol limit 1";
-        $query = $this->db->query($sql);
+
+    function get_last_updated_at() {
+        return $this->last_updated_at;
+    }
+
+    function get_active() {
+        return $this->active;
+    }
+
+    function get_company_id() {
+        return (int)$this->company_id;
+    }
+
+    function getCurrencies() {
+        $sql = "SELECT * FROM currency where active=? and company_id=?";
+        $query = $this->db->query($sql, array('active' => $this->get_active(), 'company_id' => $this->get_company_id()));
+
+        if ($query->num_rows() > 0) {
+            return $query->result();
+        } else {
+            return null;
+        }
+    }
+
+    function getCurrencyDetails($id) {
+        $sql = "SELECT * FROM currency where id=?";
+        $query = $this->db->query($sql, array('id' => $id));
 
         if ($query->num_rows() > 0) {
             return $query->row();
         } else {
+            return null;
+        }
+    }
+
+    function createCurrency() {
+
+        $this->db->trans_start();
+        $sql = "INSERT INTO currency (name, created_by, date_created, company_id) values (?, ?, ?, ?)";
+        $this->db->query($sql,
+            array(
+                $this->get_name(),
+                $this->get_created_by(),
+                date($this->config->item('date_format')),
+                $this->get_company_id()
+            ));
+
+        $sql = 'SELECT id from currency where company_id = ? order by date_created desc limit 1';
+        $query = $this->db->query($sql, array('company_id' => $this->get_company_id()));
+
+        /* insert audit CREATE */
+        parent::insertAuditTrail($this->get_created_by(), 1, $query->row()->id, lang('create_new_currency'), $this->get_company_id(), $this->table_name);
+
+        $this->db->trans_complete();
+        if ($this->db->trans_status() === TRUE) {
+            return true;
+        } else {
             return false;
-        }       
+        }
+    }
+
+    function deactivateCurrency() {
+        $this->db->trans_start();
+        $data = array('active' => 0);
+
+        $this->db->where('id', $this->get_id());
+        $this->db->update('currency', $data);
+
+        /* insert audit DELETE */
+        parent::insertAuditTrail($this->get_created_by(), 3, $this->get_id(), lang('deactivate_currency'), $this->get_company_id(), $this->table_name);
+
+        $this->db->trans_complete();
+        if ($this->db->trans_status() === TRUE) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    function updateCurrency() {
+        $this->db->trans_start();
+        $data = array(
+            'name' => $this->get_name(),
+            'last_updated_by' => $this->get_last_updated_by(),
+            'last_updated_at' => date($this->config->item('date_format'))
+        );
+
+        $this->db->where('id', $this->get_id());
+        $this->db->update('currency', $data);
+
+        /* insert audit UPDATE */
+        parent::insertAuditTrail($this->get_last_updated_by(), 2, $this->get_id(), lang('update_currency'), $this->get_company_id(), $this->table_name);
+
+        $this->db->trans_complete();
+        if ($this->db->trans_status() === TRUE) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    function restoreCurrency() {
+        $this->db->trans_start();
+        $data = array('active' => 1,
+            'last_updated_by' => $this->get_last_updated_by(),
+            'last_updated_at' => date($this->config->item('date_format')
+        ));
+
+        $this->db->where('id', $this->get_id());
+        $this->db->update('currency', $data);
+
+        /* insert audit */
+        parent::insertAuditTrail($this->get_last_updated_by(), 2, $this->get_id(), lang('restore_currency'), $this->get_company_id(), $this->table_name);
+
+        $this->db->trans_complete();
+        if ($this->db->trans_status() === TRUE) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+
+    function currencyExists() {
+        $sql = "SELECT * FROM currency where name = ? and company_id = ?";
+        $query = $this->db->query($sql, array('name' => $this->get_name(), 'company_id' => $this->get_company_id()));
+
+        if ($query->num_rows() > 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    function recordExists() {
+        $sql = "SELECT * FROM currency where id!=? and name=? and company_id=?";
+        $query = $this->db->query($sql, array('id' => $this->get_id(), 'name' => $this->get_name(), 'company_id' => $this->get_company_id()));
+
+        if ($query->num_rows() > 0) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }
 

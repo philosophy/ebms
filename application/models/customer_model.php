@@ -10,7 +10,7 @@ class Customer_model extends CI_Model {
     private $last_updated_at;
     private $active = 1;
     private $company_id;
-    private $table_name = 'Customers';
+    private $table_name = 'customer';
 
     function __construct() {
         parent::__construct();
@@ -133,7 +133,7 @@ class Customer_model extends CI_Model {
         $data = array('active' => 0);
 
         $this->db->where('id', $this->get_id());
-        $this->db->update('customers', $data);
+        $this->db->update('customer', $data);
 
         /* insert audit DELETE */
         parent::insertAuditTrail($this->get_created_by(), 3, $this->get_id(), lang('deactivate_customer'), $this->get_company_id(), $this->table_name);
@@ -155,7 +155,7 @@ class Customer_model extends CI_Model {
         );
 
         $this->db->where('id', $this->get_id());
-        $this->db->update('customers', $data);
+        $this->db->update('customer', $data);
 
         /* insert audit UPDATE */
         parent::insertAuditTrail($this->get_last_updated_by(), 2, $this->get_id(), lang('update_customer'), $this->get_company_id(), $this->table_name);
@@ -176,7 +176,7 @@ class Customer_model extends CI_Model {
         ));
 
         $this->db->where('id', $this->get_id());
-        $this->db->update('customers', $data);
+        $this->db->update('customer', $data);
 
         /* insert audit */
         parent::insertAuditTrail($this->get_last_updated_by(), 2, $this->get_id(), lang('restore_customer'), $this->get_company_id(), $this->table_name);
@@ -213,11 +213,4 @@ class Customer_model extends CI_Model {
     }
 }
 
-?>
-<?php
-
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 ?>

@@ -77,11 +77,11 @@ $route['file_maintenance/department/delete/(:num)'] = 'file_maintenance/departme
 $route['file_maintenance/department/restore/(:num)'] = 'file_maintenance/department/restore/$1';
 $route['file_maintenance/department/get_deptedit_form/(:num)'] = 'file_maintenance/department/get_deptedit_form/$1';
 
-$route['file_maintenance/area_type'] = 'file_maintenance/area_type';
-$routes['file_maintenance/area_type/new_area_type'] = 'file_maintenance/area_type/new_area_type';
-$routes['file_maintenance/area_type/create_area_type'] = 'file_maintenance/area_type/create_area_type';
-$route['file_maintenance/area_type/delete/(:num)'] = 'file_maintenance/area_type/delete/$1';
-$route['file_maintenance/area_type/get_area_type_edit_form/(:num)'] = 'file_maintenance/area_type/get_area_type_edit_form/$1';
+$route['file_maintenance/area'] = 'file_maintenance/area';
+$routes['file_maintenance/area/new_area'] = 'file_maintenance/area/new_area';
+$routes['file_maintenance/area/create_area'] = 'file_maintenance/area/create_area';
+$route['file_maintenance/area/delete/(:num)'] = 'file_maintenance/area/delete/$1';
+$route['file_maintenance/area/get_area_edit_form/(:num)'] = 'file_maintenance/area/get_area_edit_form/$1';
 
 $route['file_maintenance/employee_status'] = 'file_maintenance/employee_status';
 $routes['file_maintenance/employee_status/new_employee_status'] = 'file_maintenance/employee_status/new_employee_status';
@@ -158,6 +158,29 @@ $route['file_maintenance/company_info'] = 'file_maintenance/deduction';
 $route['file_maintenance/company_info'] = 'file_maintenance/customer_type';
 $route['file_maintenance/company_info'] = 'file_maintenance/area';
 $route['file_maintenance/company_info'] = 'file_maintenance/currency';
+
+$route['file_maintenance/currency'] = 'file_maintenance/currency';
+$route['file_maintenance/currency/new_currency'] = 'file_maintenance/currency/new_currency';
+$route['file_maintenance/currency/create_currency'] = 'file_maintenance/currency/create_currency';
+$route['file_maintenance/currency/delete/(:num)'] = 'file_maintenance/currency/delete/$1';
+$route['file_maintenance/currency/get_currency_edit_form/(:num)'] = 'file_maintenance/currency/get_currency_edit_form/$1';
+
+$route['file_maintenance/earning'] = 'file_maintenance/earning';
+$route['file_maintenance/earning/new_earning'] = 'file_maintenance/earning/new_earning';
+$route['file_maintenance/earning/create_earning'] = 'file_maintenance/earning/create_earning';
+$route['file_maintenance/earning/delete/(:num)'] = 'file_maintenance/earning/delete/$1';
+$route['file_maintenance/earning/get_earning_edit_form/(:num)'] = 'file_maintenance/earning/get_earning_edit_form/$1';
+
+/* end of file maintenance */
+
+/* inventory */
+$route['inventory/products'] = 'inventory/products';
+$route['product/new_product'] = 'product/new_product';
+$route['product/create_product'] = 'product/create_product';
+$route['product/delete/(:num)'] = 'product/delete/$1';
+$route['product/get_product_edit_form/(:num)'] = 'product/get_product_edit_form/$1';
+/* end of inventory */
+
 
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */

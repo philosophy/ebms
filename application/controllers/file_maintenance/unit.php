@@ -125,13 +125,13 @@
 
                 /* unit should not be the same name with other department */
                 if($this->unitObj->recordExists()) {
-                    send_json_response(ERROR_LOG, HTTP_FAIL_PRECON, 'Department name already exists');
+                    send_json_response(ERROR_LOG, HTTP_FAIL_PRECON, 'Unit name already exists');
                     exit;
                 }
                 $result = $this->unitObj->updateUnit();
                 if ($result) {
                     /* push audit trail */
-                    send_json_response(INFO_LOG, HTTP_OK, 'successfully updated department ', array('msg' => 'success!', 'unit_id' => $id, 'unit_name' => $unit_name ));
+                    send_json_response(INFO_LOG, HTTP_OK, 'Successfully updated unit ', array('msg' => 'success!', 'unit_id' => $id, 'unit_name' => $unit_name ));
                 } else {
                     /* flash an error occured */
                 }

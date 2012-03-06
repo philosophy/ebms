@@ -1,7 +1,11 @@
 <article class="aside-left">
 
     <?php
-       $this->load->view('common/nav/employee_status_manager');
+       $data = array('list' => array('link' => 'file_maintenance/employee_status/index', 'text' => lang('employee_status_list')),
+                      'create' => array('link' => 'file_maintenance/employee_status/new_employee_status', 'text' => lang('create_new_employee_status')),
+                      'archive' => array('link' => 'file_maintenance/employee_status/archive', 'text' => lang('archive'))
+            );
+       $this->load->view('common/nav/left_nav_manager', $data);
     ?>
 </article>
 <article class="primary">

@@ -53,6 +53,8 @@
 
     $lang['inventory'] = 'Inventory';
     $lang['product_asset_list'] = 'Product/Asset List';
+    $lang['product_list'] = 'Product List';
+    $lang['asset_list'] = 'Asset List';
     $lang['item_receiving'] = 'Item Receiving';
     $lang['item_withdrawal'] = 'Item Withdrawal';
     $lang['item_adjustment'] = 'Item Adjustment';
@@ -97,7 +99,7 @@
 
     /* user */
     $lang['logout'] = 'Logout';
-    $lang['name'] = 'name';
+    $lang['name'] = 'Name';
     $lang['first_name'] = 'First Name';
     $lang['middle_name'] = 'Middle Name';
     $lang['last_name'] = 'Last Name';
@@ -127,7 +129,7 @@
     $lang['control_manager'] = 'Control Manager';
     $lang['audit_trail'] = 'Audit Trail';
     $lang['department_manager'] = 'Department Manager';
-    $lang['area_type_manager'] = 'Area Type Manager';
+    $lang['area_manager'] = 'Area Manager';
     $lang['employee_status_manager'] = 'Employee Status Manager';
     $lang['position_manager'] = 'Position Manager';
     $lang['unit_manager'] = 'Unit Manager';
@@ -138,6 +140,8 @@
     $lang['category_manager'] = 'Category Manager';
     $lang['sub_category_manager'] = 'Sub Category Manager';
     $lang['brand_manager'] = 'Brand Manager';
+    $lang['currency_manager'] = 'Currency Manager';
+    $lang['earning_manager'] = 'Earning Manager';
 
     /* page navs*/
     // control manager
@@ -156,21 +160,18 @@
     $lang['restore_this_department'] = 'Restore this department';
 
     // area-type manager
-    $lang['area_type_name'] = 'Area Type Name';
-    $lang['area_type_list'] = 'Area Type List';
-    $lang['create_area_type'] = 'Create Area Type';
-    $lang['description'] = 'Description';
-    $lang['name'] = 'Name';
-    $lang['delete_this_area_type'] = 'Delete this area type';
-    $lang['are_you_sure_to_delete_area_type'] = 'Are you sure you want to delete this area type?';
-    $lang['restore_this_area_type'] = 'Restore this area type';
-    $lang['are_you_sure_to_restore_area_type'] = 'Are you sure you want to restore this area type?';
+    $lang['area_name'] = 'Area Name';
+    $lang['area_list'] = 'Area List';
+    $lang['create_area'] = 'Create Area';   
+    $lang['delete_this_area'] = 'Delete this area';
+    $lang['are_you_sure_to_delete_area'] = 'Are you sure you want to delete this area?';
+    $lang['restore_this_area'] = 'Restore this area';
+    $lang['are_you_sure_to_restore_area'] = 'Are you sure you want to restore this area?';
 
     // employee-status manager
     $lang['employee_status_name'] = 'Employee Status Name';
     $lang['employee_status_list'] = 'Employee Status List';
-    $lang['create_employee_status'] = 'Create Employee Status';
-    $lang['name'] = 'Name';
+    $lang['create_employee_status'] = 'Create Employee Status';   
     $lang['delete_this_employee_status'] = 'Delete this employee status';
     $lang['are_you_sure_to_delete_employee_status'] = 'Are you sure you want to delete this employee status?';
     $lang['restore_this_employee_status'] = 'Restore this employee status';
@@ -179,8 +180,7 @@
     // position manager
     $lang['position_name'] = 'Position Name';
     $lang['position_list'] = 'Position List';
-    $lang['create_position'] = 'Create Position';
-    $lang['name'] = 'Name';
+    $lang['create_position'] = 'Create Position';   
     $lang['delete_this_position'] = 'Delete this position';
     $lang['are_you_sure_to_delete_position'] = 'Are you sure you want to delete this position?';
     $lang['restore_this_position'] = 'Restore this employee status';
@@ -189,8 +189,7 @@
     // unit manager
     $lang['unit_name'] = 'Unit Name';
     $lang['unit_list'] = 'Unit List';
-    $lang['create_unit'] = 'Create Unit';
-    $lang['name'] = 'Name';
+    $lang['create_unit'] = 'Create Unit';   
     $lang['delete_this_unit'] = 'Delete this unit';
     $lang['are_you_sure_to_delete_unit'] = 'Are you sure you want to delete this unit?';
     $lang['restore_this_unit'] = 'Restore this unit';
@@ -230,8 +229,7 @@
     // city manager
     $lang['city_name'] = 'City Name';
     $lang['city_list'] = 'City List';
-    $lang['create_city'] = 'Create City';
-    $lang['name'] = 'Name';
+    $lang['create_city'] = 'Create City';    
     $lang['delete_this_city'] = 'Delete this city';
     $lang['are_you_sure_to_delete_city'] = 'Are you sure you want to delete this city?';
     $lang['restore_this_city'] = 'Restore this city';
@@ -240,8 +238,7 @@
     //industry manager
     $lang['industry_name'] = 'Industry Name';
     $lang['industry_list'] = 'Industry List';
-    $lang['create_industry'] = 'Create Industry';
-    $lang['name'] = 'Name';
+    $lang['create_industry'] = 'Create Industry';   
     $lang['delete_this_industry'] = 'Delete this industry';
     $lang['are_you_sure_to_delete_industry'] = 'Are you sure you want to delete this industry?';
     $lang['restore_this_industry'] = 'Restore this industry';
@@ -250,8 +247,7 @@
     //location manager
     $lang['location_name'] = 'Location Name';
     $lang['location_list'] = 'Location List';
-    $lang['create_location'] = 'Create Location';
-    $lang['name'] = 'Name';
+    $lang['create_location'] = 'Create Location';   
     $lang['delete_this_location'] = 'Delete this location';
     $lang['are_you_sure_to_delete_location'] = 'Are you sure you want to delete this location?';
     $lang['restore_this_location'] = 'Restore this location';
@@ -260,8 +256,7 @@
      //customer manager
     $lang['customer_name'] = 'Customer Name';
     $lang['customer_list'] = 'Customer List';
-    $lang['create_customer'] = 'Create Customer';
-    $lang['name'] = 'Name';
+    $lang['create_customer'] = 'Create Customer';   
     $lang['delete_this_customer'] = 'Delete this customer';
     $lang['are_you_sure_to_delete_customer'] = 'Are you sure you want to delete this customer?';
     $lang['restore_this_customer'] = 'Restore this customer';
@@ -274,11 +269,27 @@
     $lang['restore_product'] = 'Restore Product';
     $lang['transfer_product'] = 'Transfer Product';
 
+    $lang['currency_name'] = 'Currency Name';
+    $lang['currency_list'] = 'Currency List';
+    $lang['create_currency'] = 'Create Currency';    
+    $lang['delete_this_currency'] = 'Delete this currency';
+    $lang['are_you_sure_to_delete_currency'] = 'Are you sure you want to delete this currency?';
+    $lang['restore_this_currency'] = 'Restore this currency';
+    $lang['are_you_sure_to_restore_currency'] = 'Are you sure you want to restore this currency?';
+    
+    $lang['earning_name'] = 'Earning Name';
+    $lang['earning_list'] = 'Earning List';
+    $lang['create_earning'] = 'Create Earning';   
+    $lang['delete_this_earning'] = 'Delete this earning';
+    $lang['are_you_sure_to_delete_earning'] = 'Are you sure you want to delete this earning?';
+    $lang['restore_this_earning'] = 'Restore this earning';
+    $lang['are_you_sure_to_restore_earning'] = 'Are you sure you want to restore this earning?';
+    
     /* error messages */
     $lang['unable_to_process_transaction'] = 'Unable to process transactions';
     $lang['username_cannot_be_blank'] = "Username can't be blank";
     $lang['department_name_exists'] = "Department name already exists";
-    $lang['area_type_name_exists'] = "Area type name already exists";
+    $lang['area_name_exists'] = "Area type name already exists";
     $lang['employee_status_name_exists'] = "Employee status name already exists";
     $lang['position_name_exists'] = "Position name already exists";
     $lang['unit_name_exists'] = "Unit name already exists";
@@ -286,6 +297,8 @@
     $lang['category_name_exists'] = "Category name already exists";
     $lang['sub_category_name_exists'] = "Sub Category name already exists";
     $lang['brand_name_exists'] = "Brand name already exists";
+    $lang['currency_name_exists'] = 'Currency name already exists';
+    $lang['earning_name_exists'] = 'Earning name already exists';
 
     /* profile info */
     $lang['username'] = 'Username';
@@ -318,10 +331,10 @@
     $lang['restore_department'] = 'Restore Department';
     $lang['create_new_department'] = 'Create new department';
 
-    $lang['create_new_area_type'] = 'Create new area type';
-    $lang['deactivate_area_type'] = 'Deactivate area type';
-    $lang['update_area_type'] = 'Update area type';
-    $lang['restore_area_type'] = 'Restore area type';
+    $lang['create_new_area'] = 'Create new area';
+    $lang['deactivate_area'] = 'Deactivate area';
+    $lang['update_area'] = 'Update area';
+    $lang['restore_area'] = 'Restore area';
 
     $lang['create_new_employee_status'] = 'Create new employee status';
     $lang['deactivate_employee_status'] = 'Deactivate employee status';
@@ -372,3 +385,13 @@
     $lang['restore_customer'] = 'Restore customer';
     $lang['deactivate_customer'] = 'Deactivate customer';
     $lang['create_new_customer'] = 'Create customer';
+    
+    $lang['create_new_currency'] = 'Create new currency';
+    $lang['deactivate_currency'] = 'Deactivate currency';
+    $lang['update_currency'] = 'Update currency';
+    $lang['restore_currency'] = 'Restore currency';
+    
+    $lang['create_new_earning'] = 'Create new earning';
+    $lang['deactivate_earning'] = 'Deactivate earning';
+    $lang['update_earning'] = 'Update earning';
+    $lang['restore_earning'] = 'Restore earning';

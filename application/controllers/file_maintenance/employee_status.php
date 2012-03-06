@@ -8,8 +8,8 @@
         function __construct() {
             parent::__construct();
             Application::authenticate_user();
-            $this->load->model('employee_status_model');
-            $this->statusObj = new $this->employee_status_model();
+            $this->load->model('Employee_status_model');
+            $this->statusObj = new $this->Employee_status_model();
         }
 
         function index() {
@@ -17,7 +17,7 @@
             $data['content'] = 'system_records/file_maintenance/employee_status/index';
             $data['active'] = 'list';
 
-            $this->statusObj->set_company_id($this->current_user()->company_id);
+            $this->statusObj->set_company_id($this->current_avatar->company_id);
             $this->employeeStatus = $this->statusObj->getEmployeeStatus();
 
             $this->parser->parse('layouts/application', $data);
@@ -38,8 +38,8 @@
         function create_employee_status() {
             /* These are only the required fields */
             $this->statusObj->set_name($this->input->post('employee_status_name'));
-            $this->statusObj->set_created_by($this->current_user()->id);
-            $this->statusObj->set_company_id($this->current_user()->company_id);
+            $this->statusObj->set_created_by($this->current_avatar->id);
+            $this->statusObj->set_company_id($this->current_avatar->company_id);
 
             $this->form_validation->set_rules('employee_status_name', 'Employee status name', 'required');
 
@@ -70,8 +70,8 @@
         function delete($id) {
             if ($this->_record_exist($id)) {
                 $this->statusObj->set_id($id);
-                $this->statusObj->set_created_by($this->current_user()->id);
-                $this->statusObj->set_company_id($this->current_user()->company_id);
+                $this->statusObj->set_created_by($this->current_avatar->id);
+                $this->statusObj->set_company_id($this->current_avatar->company_id);
 
                 $result = $this->statusObj->deactivateEmployeeStatus();
                 if ($result) {
@@ -90,7 +90,7 @@
             $data['active'] = 'archive';
 
             $this->statusObj->set_active(0);
-            $this->statusObj->set_company_id($this->current_user()->company_id);
+            $this->statusObj->set_company_id($this->current_avatar->company_id);
             $this->employeeStatus = $this->statusObj->getEmployeeStatus();
 
             $this->parser->parse('layouts/application', $data);
@@ -102,8 +102,7 @@
 
             /* check if record exist */
              if ($this->_record_exist($id)) {
-                $employee_status_name = $this->input->post('employee_status_name');
-                $description = $this->input->post('description');
+                $employee_status_name = $this->input->post('employee_status_name');               
 
                 /* TODO */
                 /* description len should not be less than 5 characters */
@@ -121,20 +120,19 @@
                 }
 
                 $this->statusObj->set_id($id);
-                $this->statusObj->set_name($employee_status_name);
-                $this->statusObj->set_description($description);
-                $this->statusObj->set_last_updated_by($this->current_user()->id);
-                $this->statusObj->set_company_id($this->current_user()->company_id);
+                $this->statusObj->set_name($employee_status_name);                
+                $this->statusObj->set_last_updated_by($this->current_avatar->id);
+                $this->statusObj->set_company_id($this->current_avatar->company_id);
 
                 /* employee status should not be the same name with other department */
                 if($this->statusObj->recordExists()) {
-                    send_json_response(ERROR_LOG, HTTP_FAIL_PRECON, 'Department name already exists');
+                    send_json_response(ERROR_LOG, HTTP_FAIL_PRECON, 'Employee status name already exists');
                     exit;
                 }
                 $result = $this->statusObj->updateEmployeeStatus();
                 if ($result) {
                     /* push audit trail */
-                    send_json_response(INFO_LOG, HTTP_OK, 'successfully updated department ', array('msg' => 'success!', 'employee_status_id' => $id, 'employee_status_name' => $employee_status_name ));
+                    send_json_response(INFO_LOG, HTTP_OK, 'successfully updated employee status ', array('msg' => 'success!', 'employee_status_id' => $id, 'employee_status_name' => $employee_status_name ));
                 } else {
                     /* flash an error occured */
                 }
@@ -144,8 +142,8 @@
         }
 
         function get_employee_status_edit_form($id) {
-            $this->status = $this->statusObj->getEmployeeStatusDetails($id);
-            if (!empty($this->status)) {
+            $this->employee_status = $this->statusObj->getEmployeeStatusDetails($id);
+            if (!empty($this->employee_status)) {
                 send_json_response(INFO_LOG, HTTP_OK, 'employee status edit form', array('html' => $this->load->view('system_records/file_maintenance/employee_status/_edit', '', true)));
             } else {
                 send_json_response(ERROR_LOG, HTTP_BAD_REQUEST, 'bad request');
@@ -156,8 +154,8 @@
             if ($this->_record_exist($id)) {
 
                 $this->statusObj->set_id($id);
-                $this->statusObj->set_last_updated_by($this->current_user()->id);
-                $this->statusObj->set_company_id($this->current_user()->company_id);
+                $this->statusObj->set_last_updated_by($this->current_avatar->id);
+                $this->statusObj->set_company_id($this->current_avatar->company_id);
 
                 $result = $this->statusObj->restoreEmployeeStatus();
                 if ($result) {
@@ -170,7 +168,7 @@
 
 
         private function _record_exist($id) {
-            $this->status = $this->employee_status_model->getEmployeeStatusDetails($id);
+            $this->status = $this->Employee_status_model->getEmployeeStatusDetails($id);
             if (empty($this->status)) {
                 return false;
             } else {

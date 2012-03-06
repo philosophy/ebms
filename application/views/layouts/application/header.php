@@ -44,15 +44,15 @@
     <div id="main-menu">
         <ul>
             <li class="main-menu-item">
-                <?php echo anchor('dashboard/index', lang('home'), array('class'=>($active_link == 'home') ? 'active' : '')); ?>
+                <?php echo anchor('dashboard/index', lang('home'), array('class' => ($active_link == 'home') ? 'active' : '')); ?>
             </li>
 
             <li class="main-menu-item">
-                <?php echo anchor('dashboard/index', lang('crm'), array('class'=>($active_link == 'crm') ? 'active' : '')); ?>
+                <?php echo anchor('dashboard/index', lang('crm'), array('class' => ($active_link == 'crm') ? 'active' : '')); ?>
             </li>
 
             <li class="main-menu-item with-sub-nav">
-                <?php echo anchor('dashboard/index', lang('sales'), array('class'=>($active_link == 'sales') ? '' : '')); ?>
+                <?php echo anchor('dashboard/index', lang('sales'), array('class' => ($active_link == 'sales') ? '' : '')); ?>
                 <ul class="sub-nav hide">
                     <li class="sub-nav-item">
                         <?php echo anchor('dashboard/index', lang('order_slip_records')); ?>
@@ -64,7 +64,7 @@
             </li>
 
             <li class="main-menu-item with-sub-nav">
-                <?php echo anchor('dashboard/index', lang('accounting'), array('class'=>($active_link == 'accounting') ? 'active' : '')); ?>
+                <?php echo anchor('dashboard/index', lang('accounting'), array('class' => ($active_link == 'accounting') ? 'active' : '')); ?>
                 <ul class="sub-nav hide">
                     <li class="sub-nav-item">
                         <?php echo anchor('dashboard/index', lang('accounts_receivable')); ?>
@@ -106,7 +106,7 @@
             </li>
 
             <li class="main-menu-item with-sub-nav">
-                <?php echo anchor('dashboard/index', lang('purchasing'), array('class'=>($active_link == 'purchasing') ? 'active' : '')); ?>
+                <?php echo anchor('dashboard/index', lang('purchasing'), array('class' => ($active_link == 'purchasing') ? 'active' : '')); ?>
                 <ul class="sub-nav hide">
                     <li class="sub-nav-item">
                         <?php echo anchor('dashboard/index', lang('purchase_requisition')); ?>
@@ -121,7 +121,7 @@
             </li>
 
             <li class="main-menu-item with-sub-nav">
-                <?php echo anchor('dashboard/index', lang('personnel'), array('class'=>($active_link == 'personnel') ? 'active' : '')); ?>
+                <?php echo anchor('dashboard/index', lang('personnel'), array('class' => ($active_link == 'personnel') ? 'active' : '')); ?>
                 <ul class="sub-nav hide">
                     <li class="sub-nav-item">
                         <?php echo anchor('dashboard/index', lang('employee_profile')); ?>
@@ -144,10 +144,13 @@
                 </ul>
             </li>
             <li class="main-menu-item with-sub-nav">
-                <?php echo anchor('dashboard/index', lang('inventory'), array('class'=>($active_link == 'inventory') ? 'active' : '')); ?>
+                <?php echo anchor('dashboard/index', lang('inventory'), array('class' => ($active_link == 'inventory') ? 'active' : '')); ?>
                 <ul class="sub-nav hide">
                     <li class="sub-nav-item">
                         <?php echo anchor('inventory/items', lang('product_asset_list')); ?>
+                    </li>
+                    <li class="sub-nav-item">
+                        <?php echo anchor('dashboard/index', lang('product_asset_list')); ?>
                     </li>
                     <li class="sub-nav-item">
                         <?php echo anchor('dashboard/index', lang('item_receiving')); ?>
@@ -162,7 +165,7 @@
             </li>
 
             <li class="main-menu-item with-sub-nav">
-                <?php echo anchor('dashboard/index', lang('reports'), array('class'=>($active_link == 'reports') ? 'active' : '')); ?>
+                <?php echo anchor('dashboard/index', lang('reports'), array('class' => ($active_link == 'reports') ? 'active' : '')); ?>
                 <ul class="sub-nav hide">
                     <li class="sub-nav-item">
                         <?php echo anchor('dashboard/index', lang('employee_profile_list')); ?>
@@ -230,14 +233,12 @@
             </li>
 
             <li class="main-menu-item with-sub-nav">
-                <?php echo anchor('dashboard/index', lang('system_records'), array('class'=>($active_link == 'system_records') ? 'active' : '')); ?>
+                <?php echo anchor('dashboard/index', lang('system_records'), array('class' => ($active_link == 'system_records') ? 'active' : '')); ?>
                 <ul class="sub-nav hide">
                     <li class="sub-nav-item">
                         <a href="#" class="sub-nav-a">File Maintenance</a>
                         <ul class="inner-nav hide">
-                            <li>
-                                <?php echo anchor('file_maintenance/company/index', lang('company_info')); ?>
-                            </li>
+
                             <li>
                                 <a href="Javascript:newPopup('/EBMS/apps/view/systemRecords/fileMaintenance/accountsManager/index.php',570,630)" id="sub-inner-a">
                                     Accounts Manager
@@ -249,50 +250,25 @@
                                 </a>
                             </li>
                             <li>
-                                <?php echo anchor('file_maintenance/employee_status/index', lang('employee_status_manager')); ?>
-                            </li>
-                            <li>
-                                <?php echo anchor('file_maintenance/position/index', lang('position_manager')); ?>
-                            </li>
-                            <li>
-                                <?php echo anchor('file_maintenance/department/index', lang('department_manager')); ?>
-                            </li>
-                            <li>
-                                <?php echo anchor('file_maintenance/area_type/index', lang('area_type_manager')); ?>
-                            </li>
-                             <li>
-                                <?php echo anchor('file_maintenance/location/index', lang('location_manager')); ?>
-                            </li>
-                            <li>
-                                <?php echo anchor('file_maintenance/customer/index', lang('customer_manager')); ?>
-                            </li>
-                            <li>
-                                <?php echo anchor('file_maintenance/industry/index', lang('industry_manager')); ?>
-                            </li>
-                            <li>
-                                <?php echo anchor('file_maintenance/category/index', lang('category_manager')); ?>
-                            </li>
-                            <li >
-                                <?php echo anchor('file_maintenance/sub_category/index', lang('sub_category_manager')); ?>
+                                <?php echo anchor('file_maintenance/area/index', lang('area_manager')); ?>
                             </li>
                             <li>
                                 <?php echo anchor('file_maintenance/brand/index', lang('brand_manager')); ?>
                             </li>
                             <li>
-                                <a href="Javascript:newPopup('/EBMS/apps/view/systemRecords/fileMaintenance/itemFieldManager/index.php',530,630)" id="sub-inner-a">
-                                    Item Field Manager
-                                </a>
-                            </li>
-                            <li >
-                                <a href="Javascript:newPopup('/EBMS/apps/view/systemRecords/fileMaintenance/employeeLeaveManager/index.php',500,630)" id="sub-inner-a">
-                                    Employee Leave Manager
-                                </a>
-                            </li>
-                            <li>
-                                <?php echo anchor('file_maintenance/unit/index', lang('unit_manager')); ?>
+                                <?php echo anchor('file_maintenance/category/index', lang('category_manager')); ?>
                             </li>
                             <li>
                                 <?php echo anchor('file_maintenance/city/index', lang('city_manager')); ?>
+                            </li>
+                            <li>
+                                <?php echo anchor('file_maintenance/company/index', lang('company_info')); ?>
+                            </li>
+                            <li>
+                                <?php echo anchor('file_maintenance/currency/index', lang('currency_manager')); ?>
+                            </li>
+                            <li>
+                                <?php echo anchor('file_maintenance/customer/index', lang('customer_manager')); ?>
                             </li>
                             <li >
                                 <a href="Javascript:newPopup('/EBMS/apps/view/systemRecords/fileMaintenance/deductionManager/index.php',570,630)" id="sub-inner-a">
@@ -300,15 +276,43 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="Javascript:newPopup('/EBMS/apps/view/systemRecords/fileMaintenance/earningManager/index.php',570,630)" id="sub-inner-a">
-                                    Earning Manager
+                                <?php echo anchor('file_maintenance/department/index', lang('department_manager')); ?>
+                            </li>
+                            <li>
+                                <?php echo anchor('file_maintenance/earning/index', lang('earning_manager')); ?>
+                            </li>
+                            <li>
+                                <?php echo anchor('file_maintenance/employee_status/index', lang('employee_status_manager')); ?>
+                            </li>
+                            <li >
+                                <a href="Javascript:newPopup('/EBMS/apps/view/systemRecords/fileMaintenance/employeeLeaveManager/index.php',500,630)" id="sub-inner-a">
+                                    Employee Leave Manager
                                 </a>
                             </li>
                             <li>
-                                <a href="Javascript:newPopup('/EBMS/apps/view/systemRecords/fileMaintenance/currencyManager/index.php',570,630)" id="sub-inner-a">
-                                    Currency Manager
+                                <?php echo anchor('file_maintenance/industry/index', lang('industry_manager')); ?>
+                            </li>
+                            <li>
+                                <a href="Javascript:newPopup('/EBMS/apps/view/systemRecords/fileMaintenance/itemFieldManager/index.php',530,630)" id="sub-inner-a">
+                                    Item Field Manager
                                 </a>
                             </li>
+                            <li>
+                                <?php echo anchor('file_maintenance/location/index', lang('location_manager')); ?>
+                            </li>
+                            <li>
+                                <?php echo anchor('file_maintenance/position/index', lang('position_manager')); ?>
+                            </li>
+                            <li >
+                                <?php echo anchor('file_maintenance/sub_category/index', lang('sub_category_manager')); ?>
+                            </li>
+                            <li>
+                                <?php echo anchor('file_maintenance/unit/index', lang('unit_manager')); ?>
+                            </li>
+
+
+
+
                         </ul>
                     </li>
                     <li class="sub-nav-item">
@@ -327,7 +331,7 @@
                     </li>
 
                     <li class="sub-nav-item">
-                        <?php echo anchor('users/'.Application::current_user()->id, lang('profile'), array('class'=>($active_link == 'system_records') ? 'active' : '')); ?>
+                        <?php echo anchor('users/' . Application::current_user()->id, lang('profile'), array('class' => ($active_link == 'system_records') ? 'active' : '')); ?>
                     </li>
                 </ul>
             </li>

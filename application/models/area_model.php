@@ -1,17 +1,16 @@
 <?php
 
-class Area_type_model extends CI_Model {
+class Area_model extends CI_Model {
 
     private $id = '';
     private $name = '';
-    private $description = '';
     private $created_by;
     private $date_created;
     private $last_updated_by;
     private $last_updated_at;
     private $active = 1;
     private $company_id;
-    private $table_name = 'area_types';
+    private $table_name = 'area';
 
     function __construct() {
         parent::__construct();
@@ -23,10 +22,6 @@ class Area_type_model extends CI_Model {
 
     function set_name($val) {
         $this->name = trim($val);
-    }
-
-    function set_description($val) {
-        $this->description = trim($val);
     }
 
     function set_active($val) {
@@ -61,10 +56,6 @@ class Area_type_model extends CI_Model {
         return $this->name;
     }
 
-    function get_description() {
-        return $this->description;
-    }
-
     function get_created_by() {
         return $this->created_by;
     }
@@ -89,8 +80,8 @@ class Area_type_model extends CI_Model {
         return (int)$this->company_id;
     }
 
-    function getAreaTypes() {
-        $sql = "SELECT * FROM area_types where active=? and company_id=?";
+    function getAreas() {
+        $sql = "SELECT * FROM area where active=? and company_id=?";
         $query = $this->db->query($sql, array('active' => $this->get_active(), 'company_id' => $this->get_company_id()));
 
         if ($query->num_rows() > 0) {
@@ -100,8 +91,8 @@ class Area_type_model extends CI_Model {
         }
     }
 
-    function getAreaTypeDetails($id) {
-        $sql = "SELECT * FROM area_types where id=?";
+    function getAreaDetails($id) {
+        $sql = "SELECT * FROM area where id=?";
         $query = $this->db->query($sql, array('id' => $id));
 
         if ($query->num_rows() > 0) {
@@ -111,24 +102,23 @@ class Area_type_model extends CI_Model {
         }
     }
 
-    function createAreaType() {
+    function createArea() {
 
         $this->db->trans_start();
-        $sql = "INSERT INTO area_types (name, description, created_by, date_created, company_id) values (?, ?, ?, ?, ?)";
+        $sql = "INSERT INTO area (name, created_by, date_created, company_id) values (?, ?, ?, ?)";
         $this->db->query($sql,
             array(
                 $this->get_name(),
-                $this->get_description(),
                 $this->get_created_by(),
                 date($this->config->item('date_format')),
                 $this->get_company_id()
             ));
 
-        $sql = 'SELECT id from area_types where company_id = ? order by date_created desc limit 1';
+        $sql = 'SELECT id from area where company_id = ? order by date_created desc limit 1';
         $query = $this->db->query($sql, array('company_id' => $this->get_company_id()));
 
         /* insert audit CREATE */
-        parent::insertAuditTrail($this->get_created_by(), 1, $query->row()->id, lang('create_new_area_type'), $this->get_company_id(), $this->table_name);
+        parent::insertAuditTrail($this->get_created_by(), 1, $query->row()->id, lang('create_new_area'), $this->get_company_id(), $this->table_name);
 
         $this->db->trans_complete();
         if ($this->db->trans_status() === TRUE) {
@@ -138,15 +128,15 @@ class Area_type_model extends CI_Model {
         }
     }
 
-    function deactivateAreaType() {
+    function deactivateArea() {
         $this->db->trans_start();
         $data = array('active' => 0);
 
         $this->db->where('id', $this->get_id());
-        $this->db->update('area_types', $data);
+        $this->db->update('area', $data);
 
         /* insert audit DELETE */
-        parent::insertAuditTrail($this->get_created_by(), 3, $this->get_id(), lang('deactivate_area_type'), $this->get_company_id(), $this->table_name);
+        parent::insertAuditTrail($this->get_created_by(), 3, $this->get_id(), lang('deactivate_area'), $this->get_company_id(), $this->table_name);
 
         $this->db->trans_complete();
         if ($this->db->trans_status() === TRUE) {
@@ -156,20 +146,19 @@ class Area_type_model extends CI_Model {
         }
     }
 
-    function updateAreaType() {
+    function updateArea() {
         $this->db->trans_start();
         $data = array(
             'name' => $this->get_name(),
-            'description' => $this->get_description(),
             'last_updated_by' => $this->get_last_updated_by(),
             'last_updated_at' => date($this->config->item('date_format'))
         );
 
         $this->db->where('id', $this->get_id());
-        $this->db->update('area_types', $data);
+        $this->db->update('area', $data);
 
         /* insert audit UPDATE */
-        parent::insertAuditTrail($this->get_last_updated_by(), 2, $this->get_id(), lang('update_area_type'), $this->get_company_id(), $this->table_name);
+        parent::insertAuditTrail($this->get_last_updated_by(), 2, $this->get_id(), lang('update_area'), $this->get_company_id(), $this->table_name);
 
         $this->db->trans_complete();
         if ($this->db->trans_status() === TRUE) {
@@ -179,7 +168,7 @@ class Area_type_model extends CI_Model {
         }
     }
 
-    function restoreAreaType() {
+    function restoreArea() {
         $this->db->trans_start();
         $data = array('active' => 1,
             'last_updated_by' => $this->get_last_updated_by(),
@@ -187,10 +176,10 @@ class Area_type_model extends CI_Model {
         ));
 
         $this->db->where('id', $this->get_id());
-        $this->db->update('area_types', $data);
+        $this->db->update('area', $data);
 
         /* insert audit */
-        parent::insertAuditTrail($this->get_last_updated_by(), 2, $this->get_id(), lang('restore_area_type'), $this->get_company_id(), $this->table_name);
+        parent::insertAuditTrail($this->get_last_updated_by(), 2, $this->get_id(), lang('restore_area'), $this->get_company_id(), $this->table_name);
 
         $this->db->trans_complete();
         if ($this->db->trans_status() === TRUE) {
@@ -201,8 +190,8 @@ class Area_type_model extends CI_Model {
     }
 
 
-    function areaTypeExists() {
-        $sql = "SELECT * FROM area_types where name = ? and company_id = ?";
+    function areaExists() {
+        $sql = "SELECT * FROM area where name = ? and company_id = ?";
         $query = $this->db->query($sql, array('name' => $this->get_name(), 'company_id' => $this->get_company_id()));
 
         if ($query->num_rows() > 0) {
@@ -213,7 +202,7 @@ class Area_type_model extends CI_Model {
     }
 
     function recordExists() {
-        $sql = "SELECT * FROM area_types where id!=? and name=? and company_id=?";
+        $sql = "SELECT * FROM area where id!=? and name=? and company_id=?";
         $query = $this->db->query($sql, array('id' => $this->get_id(), 'name' => $this->get_name(), 'company_id' => $this->get_company_id()));
 
         if ($query->num_rows() > 0) {

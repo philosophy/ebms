@@ -17,7 +17,7 @@
             $data['content'] = 'system_records/file_maintenance/customer/index';
             $data['active'] = 'list';
 
-            $this->customerObj->set_company_id($this->current_user()->company_id);
+            $this->customerObj->set_company_id($this->current_avatar->company_id);
             $this->customers = $this->customerObj->getCustomers();
 
             $this->parser->parse('layouts/application', $data);
@@ -103,11 +103,10 @@
             /* check if record exist */
              if ($this->_record_exist($id)) {
                 $customer_name = $this->input->post('customer_name');
-                $description = $this->input->post('description');
 
                 /* TODO */
-                /* description len should not be less than 5 characters */
-                /* description should not be empty */
+                /* customer len should not be less than 5 characters */
+                /* customer should not be empty */
 
                 /* validate unit name if empty*/
                 if(is_empty_null_value($customer_name)) {
@@ -122,7 +121,6 @@
 
                 $this->customerObj->set_id($id);
                 $this->customerObj->set_name($customer_name);
-                $this->customerObj->set_description($description);
                 $this->customerObj->set_last_updated_by($this->current_user()->id);
                 $this->customerObj->set_company_id($this->current_user()->company_id);
 
@@ -134,7 +132,7 @@
                 $result = $this->customerObj->updateCustomer();
                 if ($result) {
                     /* push audit trail */
-                    send_json_response(INFO_LOG, HTTP_OK, 'successfully updated customer ', array('msg' => 'success!', 'customer_id' => $id, 'customer_name' => $customer_name_name ));
+                    send_json_response(INFO_LOG, HTTP_OK, 'successfully updated customer ', array('msg' => 'success!', 'customer_id' => $id, 'customer_name' => $customer_name ));
                 } else {
                     /* flash an error occured */
                 }
@@ -144,8 +142,8 @@
         }
 
         function get_customer_edit_form($id) {
-            $this->status = $this->customerObj->getCustomerDetails($id);
-            if (!empty($this->status)) {
+            $this->customer = $this->customerObj->getCustomerDetails($id);
+            if (!empty($this->customer)) {
                 send_json_response(INFO_LOG, HTTP_OK, 'customer edit form', array('html' => $this->load->view('system_records/file_maintenance/customer/_edit', '', true)));
             } else {
                 send_json_response(ERROR_LOG, HTTP_BAD_REQUEST, 'bad request');

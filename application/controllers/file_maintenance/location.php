@@ -17,7 +17,7 @@
             $data['content'] = 'system_records/file_maintenance/location/index';
             $data['active'] = 'list';
 
-            $this->locationObj->set_company_id($this->current_user()->company_id);
+            $this->locationObj->set_company_id($this->current_avatar->company_id);
             $this->locations = $this->locationObj->getLocations();
 
             $this->parser->parse('layouts/application', $data);
@@ -103,11 +103,10 @@
             /* check if record exist */
              if ($this->_record_exist($id)) {
                 $location_name = $this->input->post('location_name');
-                $description = $this->input->post('description');
 
                 /* TODO */
-                /* description len should not be less than 5 characters */
-                /* description should not be empty */
+                /* location len should not be less than 5 characters */
+                /* location should not be empty */
 
                 /* validate unit name if empty*/
                 if(is_empty_null_value($location_name)) {
@@ -122,7 +121,6 @@
 
                 $this->locationObj->set_id($id);
                 $this->locationObj->set_name($location_name);
-                $this->locationObj->set_description($description);
                 $this->locationObj->set_last_updated_by($this->current_user()->id);
                 $this->locationObj->set_company_id($this->current_user()->company_id);
 
@@ -134,7 +132,7 @@
                 $result = $this->locationObj->updateLocation();
                 if ($result) {
                     /* push audit trail */
-                    send_json_response(INFO_LOG, HTTP_OK, 'successfully updated location ', array('msg' => 'success!', 'location_id' => $id, 'location_name' => $location_name_name ));
+                    send_json_response(INFO_LOG, HTTP_OK, 'successfully updated location ', array('msg' => 'success!', 'location_id' => $id, 'location_name' => $location_name ));
                 } else {
                     /* flash an error occured */
                 }
@@ -144,8 +142,8 @@
         }
 
         function get_location_edit_form($id) {
-            $this->status = $this->locationObj->getLocationDetails($id);
-            if (!empty($this->status)) {
+            $this->location = $this->locationObj->getLocationDetails($id);
+            if (!empty($this->location)) {
                 send_json_response(INFO_LOG, HTTP_OK, 'location edit form', array('html' => $this->load->view('system_records/file_maintenance/location/_edit', '', true)));
             } else {
                 send_json_response(ERROR_LOG, HTTP_BAD_REQUEST, 'bad request');

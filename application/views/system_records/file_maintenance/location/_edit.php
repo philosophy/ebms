@@ -1,15 +1,11 @@
-<?php $locationType = $this->locationType; ?>
+<?php $location = $this->location; ?>
 <?php
-    $hidden = array('location_id' => $locationType->id);
-    echo form_open('file_maintenance/location/update/' . $locationType->id, array('id' => 'location-edit'));
+    $hidden = array('location_id' => $location->id);
+    echo form_open('file_maintenance/location/update/' . $location->id, array('id' => 'location-edit'));
 ?>
 <fieldset>
     <label><?php echo lang('location_name'); ?></label>
-    <?php echo form_input(array('name' => 'location_name', 'id' => 'location-name', 'class' => 'required', 'placeholder'=>lang('location_name'), 'value' => $locationType->name)); ?>
-</fieldset>
-<fieldset>
-    <label><?php echo lang('description'); ?>:</label>
-    <?php echo form_textarea(array('name' => 'description', 'id' => 'description', 'placeholder' => lang('description'), 'value' => $locationType->description)); ?>
+    <?php echo form_input(array('name' => 'location_name', 'id' => 'location-name', 'class' => 'required', 'placeholder'=>lang('location_name'), 'value' => $location->name)); ?>
 </fieldset>
 <fieldset class="form-buttons">
     <?php echo form_submit('edit_form_submit', 'Update', array('id' => 'edit-location-submit')); ?>

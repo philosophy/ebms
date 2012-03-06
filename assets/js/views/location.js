@@ -24,7 +24,7 @@ com.ebms.views.location = {
         $('#location-edit').live('ajax:success', this.updateLocationSuccessCallback);
         $('#location-edit').live('ajax:error', this.updateLocationErrorCallback);
 
-        /* TODO: js validation for location (must not be null, must consist of atleast 5 characters) */
+        /* TODO: js validation for locations (must not be null, must consist of atleast 5 characters) */
     },
 
     updateLocationSuccessCallback: function(e, data) {
@@ -36,7 +36,7 @@ com.ebms.views.location = {
             $('#edit-location-wrapper form').fadeOut('slow', function() {
                 $(this).parent().addClass('hide');
                 $(this).remove();
-                $('#location-table-wrapper').fadeIn().removeClass('hide');
+                $('#locations-table-wrapper').fadeIn().removeClass('hide');
             });
 
             com.ebms.widgets.flash.flashMessage(data.message, 'notif');
@@ -84,7 +84,7 @@ com.ebms.views.location = {
         e.preventDefault();
         var $this = $(this);
 
-        $('#location-table-wrapper').hide();
+        $('#locations-table-wrapper').hide();
 
         /* show loader */
         var $loaderContainer = $('div.loader-container', 'article.primary');
@@ -99,7 +99,7 @@ com.ebms.views.location = {
                 $('#edit-location-wrapper').append(data.data.html).removeClass('hide').find('form').attr('data-remote', true).attr('data-type', 'json');
             },
             error: function() {
-                $('#edit-locations-wrapper').text('An error has occured, please refresh your page');
+                $('#edit-location-wrapper').text('An error has occured, please refresh your page');
             },
             complete: function() {
                 $loaderContainer.addClass('hide');
