@@ -42,14 +42,15 @@ $route['default_controller'] = "home";
 $route['404_override'] = '';
 
 /* user */
-$route['users/login'] = 'user/login';
-$route['users/logout'] = 'user/logout';
+$route['users/login'] = 'auth/login';
+$route['users/logout'] = 'auth/logout';
 $route['auth/login'] = 'auth/login';
 $route['users/(:num)'] = 'users/show/$1';
 $route['users/edit/(:num)'] = 'users/edit/$1';
 $route['users/edit_security_settings/(:num)'] = 'users/edit_security_settings/$1';
 $route['users/update/(:num)'] = 'users/update/$1';
 $route['users/delete/(:num)'] = 'users/delete/$1';
+$route['users/forgot_password'] = 'users/forgot_password';
 
 $route['dashboard/index'] = 'dashboard/index';
 $route['documentation/index'] = 'documentation/index';
@@ -141,6 +142,12 @@ $route['file_maintenance/brand/new_brand'] = 'file_maintenance/brand/new_brand';
 $route['file_maintenance/brand/create_brand'] = 'file_maintenance/brand/create_brand';
 $route['file_maintenance/brand/delete/(:num)'] = 'file_maintenance/brand/delete/$1';
 $route['file_maintenance/brand/get_brand_edit_form/(:num)'] = 'file_maintenance/brand/get_brand_edit_form/$1';
+
+$route['inventory/items'] = 'inventory/items';
+$route['inventory/items/get_new_item_form'] = 'inventory/items/get_new_item_form';
+$route['inventory/items/create_item'] = 'inventory/items/create_item';
+$route['inventory/items/delete/(:num)'] = 'inventory/items/delete/$1';
+$route['inventory/items/get_item_edit_form/(:num)'] = 'inventory/items/get_item_edit_form/$1';
 
 $route['file_maintenance/company_info'] = 'file_maintenance/accounts';
 $route['file_maintenance/company_info'] = 'file_maintenance/earning';

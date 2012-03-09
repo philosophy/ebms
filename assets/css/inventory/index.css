@@ -1,0 +1,51 @@
+/*
+    Document   : index
+    Created on : Mar 4, 2012, 10:54:45 PM
+    Author     : marc
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/*
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+.ui-dialog span.loader {
+    display: block;
+    margin: 30px auto;
+}
+
+div.ui-dialog.ui-widget {
+    width: auto !important;
+}
+
+#new-product-wrapper {
+
+}
+
+#new-product-wrapper.no-loader {
+    background: #C2D6BF;
+}
+
+#new-product-wrapper .left-section fieldset,
+#new-product-wrapper .right-section fieldset {
+    font-size: 11px;
+    font-family: "Tahoma";
+}
+
+#new-product-wrapper .left-section fieldset label,
+#new-product-wrapper .right-section fieldset label{
+    width: 90px;
+    display: inline-block;
+}
+
+#new-product-wrapper .left-section {
+    width: 270px;
+    float: left;
+    overflow: hidden;
+}
+
+#new-product-wrapper .right-section {
+    float: left;
+}

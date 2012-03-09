@@ -195,7 +195,7 @@
     $lang['are_you_sure_to_delete_unit'] = 'Are you sure you want to delete this unit?';
     $lang['restore_this_unit'] = 'Restore this unit';
     $lang['are_you_sure_to_restore_unit'] = 'Are you sure you want to restore this unit?';
-    
+
     // brand manager
     $lang['brand'] = 'Brand';
     $lang['brand_name'] = 'Brand Name';
@@ -236,7 +236,7 @@
     $lang['are_you_sure_to_delete_city'] = 'Are you sure you want to delete this city?';
     $lang['restore_this_city'] = 'Restore this city';
     $lang['are_you_sure_to_restore_city'] = 'Are you sure you want to restore this city?';
-    
+
     //industry manager
     $lang['industry_name'] = 'Industry Name';
     $lang['industry_list'] = 'Industry List';
@@ -256,7 +256,7 @@
     $lang['are_you_sure_to_delete_location'] = 'Are you sure you want to delete this location?';
     $lang['restore_this_location'] = 'Restore this location';
     $lang['are_you_sure_to_restore_location'] = 'Are you sure you want to restore this location?';
-    
+
      //customer manager
     $lang['customer_name'] = 'Customer Name';
     $lang['customer_list'] = 'Customer List';
@@ -266,7 +266,14 @@
     $lang['are_you_sure_to_delete_customer'] = 'Are you sure you want to delete this customer?';
     $lang['restore_this_customer'] = 'Restore this customer';
     $lang['are_you_sure_to_restore_customer'] = 'Are you sure you want to restore this customer?';
-    
+
+    //inventory item list
+    $lang['new_product'] = 'New Product';
+    $lang['edit_product'] = 'Edit Product';
+    $lang['delete_product'] = 'Delete Product';
+    $lang['restore_product'] = 'Restore Product';
+    $lang['transfer_product'] = 'Transfer Product';
+
     /* error messages */
     $lang['unable_to_process_transaction'] = 'Unable to process transactions';
     $lang['username_cannot_be_blank'] = "Username can't be blank";
@@ -295,6 +302,7 @@
     $lang['try_again'] = 'Try Again';
     $lang['no_records_found'] = 'No Records Found';
     $lang['an_error_occured'] = 'An error occured';
+    $lang['report'] = 'Report';
 
     /* audit trail messages */
     $lang['activate_user'] = 'Activate user';
@@ -329,7 +337,7 @@
     $lang['deactivate_unit'] = 'Deactivate unit';
     $lang['update_unit'] = 'Update unit';
     $lang['restore_unit'] = 'Restore unit';
-    
+
     $lang['create_new_brand'] = 'Create new brand';
     $lang['deactivate_brand'] = 'Deactivate brand';
     $lang['update_brand'] = 'Update brand';
@@ -349,17 +357,17 @@
     $lang['restore_city'] = 'Restore city';
     $lang['deactivate_city'] = 'Deactivate city';
     $lang['create_new_city'] = 'Create city';
-    
+
     $lang['update_industry'] = 'Update industry';
     $lang['restore_industry'] = 'Restore industry';
     $lang['deactivate_industry'] = 'Deactivate industry';
     $lang['create_new_industry'] = 'Create industry';
-    
+
     $lang['update_location'] = 'Update location';
     $lang['restore_location'] = 'Restore location';
     $lang['deactivate_location'] = 'Deactivate location';
     $lang['create_new_location'] = 'Create location';
-    
+
     $lang['update_customer'] = 'Update customer';
     $lang['restore_customer'] = 'Restore customer';
     $lang['deactivate_customer'] = 'Deactivate customer';

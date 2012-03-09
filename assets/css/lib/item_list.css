@@ -1,0 +1,158 @@
+/*
+    Document   : item_list
+    Created on : Mar 4, 2012, 4:01:33 PM
+    Author     : marc
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/*
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+.items-list-wrapper header {
+    background: #BFD4D4;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#BFD4D4', endColorstr='#85ADAD');
+    background: -webkit-gradient(linear, left top, left bottom, from(#BFD4D4), to(#85ADAD));
+    background: -moz-linear-gradient(top, #BFD4D4, #85ADAD);
+    border-bottom: 1px solid #5D7979;
+    height: 28px;
+    padding: 10px;
+    overflow: hidden;
+}
+
+.items-list-wrapper header h1 {
+    color: #243636;
+    text-shadow: 0 1px 0px #D1E0E0;
+    font-weight: bold;
+    font-size: 1.5em;
+    float: left;
+}
+
+.items-list-wrapper #list-options-wrapper {
+    float: left;
+    margin-left: 20px;
+}
+
+.items-list-wrapper .right-options {
+    overflow: hidden;
+    float: right;
+    position: relative;
+    width: 200px;
+}
+
+.items-list-wrapper #search {
+/*    overflow: hidden;*/
+    float: left;
+/*    position: relative;*/
+}
+
+.items-list-wrapper #search input {
+    padding-left: 0;
+    margin-left: 0;
+    height: 20px;
+}
+
+.items-list-wrapper #search button {
+    background: none;
+    text-indent: -2000px;
+    width: 30px;
+    height: 24px;
+    border: 0;
+    background:#fff url('../../image/icons/search-icon.png') no-repeat 4px 0;
+    position: absolute;
+/*    z-index: 9999;*/
+    top: 1px;
+    right: 45px;
+    border-left: 1px solid #CCC;
+    width: 33px;
+}
+
+.items-list-wrapper #search button:hover {
+    cursor: pointer;
+}
+
+.items-list-wrapper #print-report{
+    float: right;
+}
+
+.items-list-wrapper #print-report img {
+    width: 30px;
+    height: 30px;
+}
+
+.items-list-wrapper article.container {
+    width: 800px;
+    overflow: hidden;
+    border-bottom: 1px solid #CCC;
+}
+
+.items-list-wrapper div.items-nav {
+    float: left;
+    width: 60px;
+    background: #C2D6D6;
+    padding: 30px 0 20px;
+}
+
+.items-list-wrapper div.items-nav a {
+    display: block;
+    text-align: center;
+    padding-bottom: 5px;
+}
+
+.items-list-wrapper div.items-nav a.inactive {
+    opacity: 0.5;
+}
+
+.items-list-wrapper div.items-nav a.inactive:hover {
+    cursor: default;
+}
+
+.items-list-wrapper div.items-nav img {
+    padding: 3px;
+    background: #fff;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 9px;
+    border-radius: 5px;
+    width: 40px;
+    height: 40px;
+}
+
+.items-list-wrapper article.container div.list-primary {
+    float: right;
+    width: 740px;
+}
+
+.items-list-wrapper .table-list {
+    width: 100%;
+}
+
+.items-list-wrapper .table-list thead th {
+    border: 1px solid #E6EEEE;
+    font-family: "Tahoma";
+    font-weight: bold;
+    font-size: 0.85em;
+    color: #444;
+    padding: 10px 0;
+    background: #DFE4E4;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#DFE4E4', endColorstr='#C2D6D6');
+    background: -webkit-gradient(linear, left top, left bottom, from(#DFE4E4), to(#C2D6D6));
+    background: -moz-linear-gradient(top, rgb(223, 228, 228), #C2D6D6);
+    text-transform: capitalize;
+    font-size: 0.75em;
+}
+
+.items-list-wrapper .table-list tbody tr {
+    border-collapse: collapse;
+}
+
+.items-list-wrapper .table-list tbody td{
+    border: 1px solid #E6EEEE;
+    padding: 4px 0 0 13px;
+    font-family: "Tahoma";
+    font-size: 11px;
+    color: #444;
+    height: 20px;
+    text-shadow: 0px 1px 0px #D1E0E0;
+}

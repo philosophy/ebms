@@ -190,7 +190,7 @@ class Ion_auth
 		//get the details of the user, and thus his email address **before** sending a request to the model
 		$user = $this->get_user_by_identity($identity);
 		$email = $user->email;
-		
+
 		if ( $this->ci->ion_auth_model->forgotten_password($email) )   //changed
 		{
                         //we are doing this again to get the correct password reset request code
@@ -254,6 +254,7 @@ class Ion_auth
 				'new_password' => $new_password
 			);
 
+//			$message = $this->ci->load->view($this->ci->config->item('email_templates', 'ion_auth').$this->ci->config->item('email_forgot_password_complete', 'ion_auth'), $data, true);
 			$message = $this->ci->load->view($this->ci->config->item('email_templates', 'ion_auth').$this->ci->config->item('email_forgot_password_complete', 'ion_auth'), $data, true);
 
 			$this->ci->email->clear();
@@ -594,7 +595,7 @@ class Ion_auth
 	{
 		return $this->ci->ion_auth_model->get_users_by_email($email)->result();
 	}
-	
+
 	/**
 	 * Get User by Username
 	 *
@@ -616,7 +617,7 @@ class Ion_auth
 	{
 		return $this->ci->ion_auth_model->get_users_by_username($username)->result();
 	}
-	
+
 	/**
 	 * Get User by Identity
 	 *                              //copied from above ^

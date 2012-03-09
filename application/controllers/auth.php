@@ -52,12 +52,12 @@ class Auth extends CI_Controller {
                 // insert audit trail
                 $user = $this->ion_auth->get_user();
                 $audit = new $this->Audit_trail_model();
-                
+
                 $audit->set_user_id($user->id);
                 $audit->set_details(lang('user_login'));
                 $audit->set_date_created(date("Y-m-d H:i:s"));
                 $audit->insertUserActions();
-            
+
                 //redirect them back to the home page
                 $this->session->set_flashdata('message', $this->ion_auth->messages());
                 redirect($this->config->item('base_url'), 'refresh');
@@ -68,19 +68,19 @@ class Auth extends CI_Controller {
                 $this->data['email'] = $this->input->post('identity');
                 $this->data['password'] = $this->input->post('password');
                 $this->data['content'] = 'home/index';
-                
+
                 $this->parser->parse('layouts/application', $this->data);
-                
+
 //                redirect('auth/login', 'refresh'); //use redirects instead of loading views for compatibility with MY_Controller libraries
             }
         } else {  //the user is not logging in so display the login page
             //set the flash data error message if there is one
             $this->data['message'] = (validation_errors()) ? validation_errors() : $this->session->flashdata('message');
-                
+
             $this->data['email'] = $this->input->post('identity');
-            $this->data['password'] = $this->input->post('password');               
+            $this->data['password'] = $this->input->post('password');
             $this->data['content'] = 'home/index';
-            
+
             $this->load->view('layouts/application', $this->data);
         }
     }
@@ -89,7 +89,7 @@ class Auth extends CI_Controller {
     function logout() {
         $this->data['title'] = "Logout";
         $this->data['content'] = 'user/logout';
-        
+
         $this->session->set_flashdata('message', $this->lang->line('successfully_logout'));
         //log the user out
         $logout = $this->ion_auth->logout();

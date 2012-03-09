@@ -147,7 +147,7 @@
                 <?php echo anchor('dashboard/index', lang('inventory'), array('class'=>($active_link == 'inventory') ? 'active' : '')); ?>
                 <ul class="sub-nav hide">
                     <li class="sub-nav-item">
-                        <?php echo anchor('dashboard/index', lang('product_asset_list')); ?>
+                        <?php echo anchor('inventory/items', lang('product_asset_list')); ?>
                     </li>
                     <li class="sub-nav-item">
                         <?php echo anchor('dashboard/index', lang('item_receiving')); ?>

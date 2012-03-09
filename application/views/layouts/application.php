@@ -21,6 +21,8 @@
             echo css_asset('user_management/control_manager/list.css');
             echo css_asset('user_management/audit_trail/index.css');
             echo css_asset('lib/table_list.css');
+            echo css_asset('lib/item_list.css');
+            echo css_asset('inventory/index.css');
             echo css_asset('vendor/jquery-ui-1.8.17.custom.css');
             echo css_asset('vendor/jquery.dataTables.css');
             echo css_asset('lib/datepicker.css');
@@ -85,6 +87,7 @@
             echo js_asset('lib/confirm.js');
             echo js_asset('util/namespace_checker.js');
             echo js_asset('util/html5.js');
+            echo js_asset('lib/form_dialog.js');
             echo js_asset('views/dashboard.js');
             echo js_asset('views/users.js');
             echo js_asset('views/control_manager.js');
@@ -101,6 +104,7 @@
             echo js_asset('views/customer.js');
             echo js_asset('views/sub_category.js');
             echo js_asset('views/brand.js');
+            echo js_asset('views/items.js');
             echo js_asset('lib/flash.js');
         ?>
         <?php $this->load->view('layouts/application/page_specific_javascript'); ?>

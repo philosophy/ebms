@@ -3,12 +3,12 @@
 
 <div id="infoMessage"><?php echo $message;?></div>
 
-<?php echo form_open("auth/forgot_password");?>
+<?php echo form_open("users/forgot_password");?>
 
       <p><?php echo $identity_human;?>:<br />
       <?php echo form_input($identity);?>
       </p>
-      
+
       <p><?php echo form_submit('submit', 'Submit');?></p>
-      
+
 <?php echo form_close();?>
