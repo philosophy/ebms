@@ -4,13 +4,12 @@ class Company_model extends CI_Model {
 
     private $id = '';
     private $name = '';
-    private $address = '';
-    private $phone_no = '';
-    private $mobile_no = '';
-    private $fax_no = '';
-    private $email_address = '';
-    private $website = '';
-    private $logo = '';
+    private $created_by;
+    private $date_created;
+    private $last_updated_by;
+    private $last_updated_at;
+    private $active = 1;
+    private $company_id;
     private $table_name = 'company';
 
     function __construct() {
@@ -22,87 +21,178 @@ class Company_model extends CI_Model {
     }
 
     function set_name($val) {
-        $this->name = $val;
+        $this->name = trim($val);
     }
 
-    function set_address($val) {
-        $this->address = $val;
+    function set_active($val) {
+        $this->active = $val;
     }
 
-    function set_phone_no($val) {
-        $this->phone_no = $val;
+    function set_created_by($val) {
+        $this->created_by = $val;
     }
 
-    function set_mobile_no($val) {
-        $this->mobile_no = $val;
+    function set_date_created($val) {
+        $this->date_created = $val;
     }
 
-    function set_fax_no($val) {
-        $this->fax_no = $val;
+    function set_last_updated_by($val) {
+        $this->last_updated_by = $val;
     }
 
-    function set_email_address($val) {
-        $this->email_address = $val;
+    function set_last_updated_at($val) {
+        $this->last_updated_at = $val;
     }
 
-    function set_website($val) {
-        $this->website = $val;
-    }
-
-    function set_logo($val) {
-        $this->logo = $val;
+    function set_company_id($val) {
+        $this->company_id = $val;
     }
 
     function get_id() {
-        return $this->id;
+        return (int)$this->id;
     }
 
     function get_name() {
         return $this->name;
     }
 
-    function get_address() {
-        return $this->address;
+    function get_created_by() {
+        return $this->created_by;
     }
 
-    function get_phone_no() {
-        return $this->phone_no;
+    function get_date_created() {
+        return $this->date_created;
     }
 
-    function get_mobile_no() {
-        return $this->mobile_no;
+    function get_last_updated_by() {
+        return $this->last_updated_by;
     }
 
-    function get_fax_no() {
-        return $this->fax_no;
+    function get_last_updated_at() {
+        return $this->last_updated_at;
     }
 
-    function get_email_address() {
-        return $this->email_address;
+    function get_active() {
+        return $this->active;
     }
 
-    function get_website() {
-        return $this->website;
+    function get_company_id() {
+        return (int)$this->company_id;
     }
 
-    function get_logo() {
-        return $this->logo;
+    function getCompanies() {
+        $sql = "SELECT * FROM company where active=? and company_id=?";
+        $query = $this->db->query($sql, array('active' => $this->get_active(), 'company_id' => $this->get_company_id()));
+
+        if ($query->num_rows() > 0) {
+            return $query->result();
+        } else {
+            return null;
+        }
     }
 
-    function getCompanyInfo() {
-        $sql = "SELECT * FROM company limit 1";
-        $query = $this->db->query($sql);
+    function getCompanyDetails($id) {
+        $sql = "SELECT * FROM company where id=?";
+        $query = $this->db->query($sql, array('id' => $id));
 
         if ($query->num_rows() > 0) {
             return $query->row();
+        } else {
+            return null;
+        }
+    }
+
+    function createCompany() {
+
+        $this->db->trans_start();
+        $sql = "INSERT INTO company (name, created_by, date_created, company_id) values (?, ?, ?, ?)";
+        $this->db->query($sql,
+            array(
+                $this->get_name(),
+                $this->get_created_by(),
+                date($this->config->item('date_format')),
+                $this->get_company_id()
+            ));
+
+        $sql = 'SELECT id from company where company_id = ? order by date_created desc limit 1';
+        $query = $this->db->query($sql, array('company_id' => $this->get_company_id()));
+
+        /* insert audit CREATE */
+        parent::insertAuditTrail($this->get_created_by(), 1, $query->row()->id, lang('create_new_company'), $this->get_company_id(), $this->table_name);
+
+        $this->db->trans_complete();
+        if ($this->db->trans_status() === TRUE) {
+            return true;
         } else {
             return false;
         }
     }
 
+    function deactivateCompany() {
+        $this->db->trans_start();
+        $data = array('active' => 0);
+
+        $this->db->where('id', $this->get_id());
+        $this->db->update('company', $data);
+
+        /* insert audit DELETE */
+        parent::insertAuditTrail($this->get_created_by(), 3, $this->get_id(), lang('deactivate_company'), $this->get_company_id(), $this->table_name);
+
+        $this->db->trans_complete();
+        if ($this->db->trans_status() === TRUE) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    function updateCompany() {
+        $this->db->trans_start();
+        $data = array(
+            'name' => $this->get_name(),
+            'last_updated_by' => $this->get_last_updated_by(),
+            'last_updated_at' => date($this->config->item('date_format'))
+        );
+
+        $this->db->where('id', $this->get_id());
+        $this->db->update('company', $data);
+
+        /* insert audit UPDATE */
+        parent::insertAuditTrail($this->get_last_updated_by(), 2, $this->get_id(), lang('update_company'), $this->get_company_id(), $this->table_name);
+
+        $this->db->trans_complete();
+        if ($this->db->trans_status() === TRUE) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    function restoreCompany() {
+        $this->db->trans_start();
+        $data = array('active' => 1,
+            'last_updated_by' => $this->get_last_updated_by(),
+            'last_updated_at' => date($this->config->item('date_format')
+        ));
+
+        $this->db->where('id', $this->get_id());
+        $this->db->update('company', $data);
+
+        /* insert audit */
+        parent::insertAuditTrail($this->get_last_updated_by(), 2, $this->get_id(), lang('restore_company'), $this->get_company_id(), $this->table_name);
+
+        $this->db->trans_complete();
+        if ($this->db->trans_status() === TRUE) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+
     function companyExists() {
-        $sql = "SELECT * FROM company WHERE id = ?";
-        $query = $this->db->query($sql, array($this->get_id()));
+        $sql = "SELECT * FROM company where name = ? and company_id = ?";
+        $query = $this->db->query($sql, array('name' => $this->get_name(), 'company_id' => $this->get_company_id()));
 
         if ($query->num_rows() > 0) {
             return true;
@@ -111,26 +201,16 @@ class Company_model extends CI_Model {
         }
     }
 
-    function updateCompany() {
-        $data = array(
-                    'name' => $this->get_name(),
-                    'address' => $this->get_address(),
-                    'phone_no' => $this->get_phone_no(),
-                    'mobile_no' => $this->get_mobile_no(),
-                    'fax_no' => $this->get_fax_no(),
-                    'email_address' => $this->get_email_address(),
-                    'website' => $this->get_website(),
-                    'logo' => $this->get_logo()
-                );
+    function recordExists() {
+        $sql = "SELECT * FROM company where id!=? and name=? and company_id=?";
+        $query = $this->db->query($sql, array('id' => $this->get_id(), 'name' => $this->get_name(), 'company_id' => $this->get_company_id()));
 
-        $this->db->where('id', $this->get_id());
-
-        /* insert audit UPDATE */
-//        parent::insertAuditTrail($this->get_created_by(), 1, $query->row()->id, lang('create_new_unit'), $this->get_company_id(), $this->table_name);
-
-        return $this->db->update('company', $data);
+        if ($query->num_rows() > 0) {
+            return true;
+        } else {
+            return false;
+        }
     }
-
 }
 
 ?>

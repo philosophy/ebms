@@ -262,7 +262,10 @@
                                 <?php echo anchor('file_maintenance/city/index', lang('city_manager')); ?>
                             </li>
                             <li>
-                                <?php echo anchor('file_maintenance/company/index', lang('company_info')); ?>
+                                <?php echo anchor('file_maintenance/company_info/index', lang('company_info')); ?>
+                            </li>
+                            <li>
+                                <?php echo anchor('file_maintenance/company/index', lang('company_manager')); ?>
                             </li>
                             <li>
                                 <?php echo anchor('file_maintenance/currency/index', lang('currency_manager')); ?>
@@ -270,10 +273,8 @@
                             <li>
                                 <?php echo anchor('file_maintenance/customer/index', lang('customer_manager')); ?>
                             </li>
-                            <li >
-                                <a href="Javascript:newPopup('/EBMS/apps/view/systemRecords/fileMaintenance/deductionManager/index.php',570,630)" id="sub-inner-a">
-                                    Deduction Manager
-                                </a>
+                            <li>
+                                <?php echo anchor('file_maintenance/deduction/index', lang('deduction_manager')); ?>
                             </li>
                             <li>
                                 <?php echo anchor('file_maintenance/department/index', lang('department_manager')); ?>

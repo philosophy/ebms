@@ -8,7 +8,7 @@
             Company Info
         </h3>
         <?php
-        echo form_open('file_maintenance/company/update/'.$this->companyId, array('id' => 'edit-company-info'));
+        echo form_open('file_maintenance/company_info/update/'.$this->companyId_info, array('id' => 'edit-company-info'));
         ?>
             <fieldset>
                 <label>Company Name:</label>
@@ -44,7 +44,7 @@
             </fieldset>
 
             <?php echo form_submit('edit_form_submit', 'Update', 'class="button-theme-a"'); ?>
-            <?php echo anchor(site_url('file_maintenance/company'), 'Cancel', array('id' => 'cancel-update')); ?>
+            <?php echo anchor(site_url('file_maintenance/company_info'), 'Cancel', array('id' => 'cancel-update')); ?>
         <?php echo form_close(); ?>
     </section>
 </article>

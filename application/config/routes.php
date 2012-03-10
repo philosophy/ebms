@@ -64,9 +64,9 @@ $route['user_management/control_manager/get_useredit_form/(:num)'] = 'user_manag
 $route['user_management/audit_trail'] = 'user_management/audit_trail/index';
 
 /* file_maintenance */
-$route['file_maintenance/company_info'] = 'file_maintenance/company';
-$route['file_maintenance/company_info/edit/(:num)'] = 'file_maintenance/company/edit/$1';
-$route['file_maintenance/company_info/update/(:num)'] = 'file_maintenance/company/update/$1';
+$route['file_maintenance/company_info'] = 'file_maintenance/company_info';
+$route['file_maintenance/company_info/edit/(:num)'] = 'file_maintenance/company_info/edit/$1';
+$route['file_maintenance/company_info/update/(:num)'] = 'file_maintenance/company_info/update/$1';
 
 $route['file_maintenance/department'] = 'file_maintenance/department';
 $route['file_maintenance/department/new_department'] = 'file_maintenance/department/new_department';
@@ -170,6 +170,18 @@ $route['file_maintenance/earning/new_earning'] = 'file_maintenance/earning/new_e
 $route['file_maintenance/earning/create_earning'] = 'file_maintenance/earning/create_earning';
 $route['file_maintenance/earning/delete/(:num)'] = 'file_maintenance/earning/delete/$1';
 $route['file_maintenance/earning/get_earning_edit_form/(:num)'] = 'file_maintenance/earning/get_earning_edit_form/$1';
+
+$route['file_maintenance/deduction'] = 'file_maintenance/deduction';
+$route['file_maintenance/deduction/new_deduction'] = 'file_maintenance/deduction/new_deduction';
+$route['file_maintenance/deduction/create_deduction'] = 'file_maintenance/deduction/create_deduction';
+$route['file_maintenance/deduction/delete/(:num)'] = 'file_maintenance/deduction/delete/$1';
+$route['file_maintenance/deduction/get_deduction_edit_form/(:num)'] = 'file_maintenance/deduction/get_deduction_edit_form/$1';
+
+$route['file_maintenance/company'] = 'file_maintenance/company';
+$route['file_maintenance/company/new_company'] = 'file_maintenance/company/new_company';
+$route['file_maintenance/company/create_company'] = 'file_maintenance/company/create_company';
+$route['file_maintenance/company/delete/(:num)'] = 'file_maintenance/company/delete/$1';
+$route['file_maintenance/company/get_company_edit_form/(:num)'] = 'file_maintenance/company/get_company_edit_form/$1';
 
 /* end of file maintenance */
 

@@ -20,7 +20,7 @@
             $data['content'] = 'system_records/file_maintenance/brand/index';
             $data['active'] = 'list';
 
-            $this->brandObj->set_company_id($this->current_user()->company_id);
+            $this->brandObj->set_company_id($this->current_avatar->company_id);
             $this->brands = $this->brandObj->getBrands();
             
             $this->sub_categories = $this->brandObj->getSubCategories();
@@ -47,8 +47,8 @@
             /* These are only the required fields */
             $this->brandObj->set_name($this->input->post('brand_name'));
             $this->brandObj->set_sub_category_id($this->input->post('sub_category'));
-            $this->brandObj->set_created_by($this->current_user()->id);
-            $this->brandObj->set_company_id($this->current_user()->company_id);
+            $this->brandObj->set_created_by($this->current_avatar->id);
+            $this->brandObj->set_company_id($this->current_avatar->company_id);
 
             $this->form_validation->set_rules('sub_category', 'sub category', 'required');
             $this->form_validation->set_rules('brand_name', 'brand name', 'required');
@@ -80,8 +80,8 @@
         function delete($id) {
             if ($this->_record_exist($id)) {
                 $this->brandObj->set_id($id);
-                $this->brandObj->set_created_by($this->current_user()->id);
-                $this->brandObj->set_company_id($this->current_user()->company_id);
+                $this->brandObj->set_created_by($this->current_avatar->id);
+                $this->brandObj->set_company_id($this->current_avatar->company_id);
 
                 $result = $this->brandObj->deactivateBrand();
                 if ($result) {
@@ -170,7 +170,7 @@
             $this->sub_categories = $this->Sub_category_model->getSubCategoriesByCategoryId();            
             
             if (!empty($this->brand)) {
-                send_json_response(INFO_LOG, HTTP_OK, 'brand edit form', array('html' => $this->load->view('system_records/file_maintenance/brand/_edit', '', true), 'category_id' => $this->sub_category->category_id));
+                send_json_response(INFO_LOG, HTTP_OK, 'brand edit form', array('html' => $this->load->view('system_records/file_maintenance/brand/_edit', '', true), 'category_id' => $this->sub_category->sub_category_id));
             } else {
                 send_json_response(ERROR_LOG, HTTP_BAD_REQUEST, 'bad request');
             }

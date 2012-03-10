@@ -57,7 +57,7 @@ com.ebms.views.brand = {
         }
     },
 
-    updateUnitErrorCallback: function() {
+    updateBrandErrorCallback: function() {
 
     },
 

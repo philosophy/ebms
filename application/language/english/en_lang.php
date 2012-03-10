@@ -88,7 +88,7 @@
 
     /*File Maintenance*/
     $lang['company_info'] = 'Company Information';
-    $lang['edit_company'] = 'Edit Company Information';
+    $lang['edit_company_info'] = 'Edit Company Information';
 
     /* system notifications */
     $lang['payables'] = 'Payables';
@@ -142,6 +142,8 @@
     $lang['brand_manager'] = 'Brand Manager';
     $lang['currency_manager'] = 'Currency Manager';
     $lang['earning_manager'] = 'Earning Manager';
+    $lang['deduction_manager'] = 'Deduction Manager';
+    $lang['company_manager'] = 'Company Manager';
 
     /* page navs*/
     // control manager
@@ -269,6 +271,7 @@
     $lang['restore_product'] = 'Restore Product';
     $lang['transfer_product'] = 'Transfer Product';
 
+    //currency manager
     $lang['currency_name'] = 'Currency Name';
     $lang['currency_list'] = 'Currency List';
     $lang['create_currency'] = 'Create Currency';    
@@ -277,6 +280,7 @@
     $lang['restore_this_currency'] = 'Restore this currency';
     $lang['are_you_sure_to_restore_currency'] = 'Are you sure you want to restore this currency?';
     
+    //earning manager
     $lang['earning_name'] = 'Earning Name';
     $lang['earning_list'] = 'Earning List';
     $lang['create_earning'] = 'Create Earning';   
@@ -284,6 +288,24 @@
     $lang['are_you_sure_to_delete_earning'] = 'Are you sure you want to delete this earning?';
     $lang['restore_this_earning'] = 'Restore this earning';
     $lang['are_you_sure_to_restore_earning'] = 'Are you sure you want to restore this earning?';
+    
+    //deduction manager
+    $lang['deduction_name'] = 'Deduction Name';
+    $lang['deduction_list'] = 'Deduction List';
+    $lang['create_deduction'] = 'Create Deduction';   
+    $lang['delete_this_deduction'] = 'Delete this deduction';
+    $lang['are_you_sure_to_delete_deduction'] = 'Are you sure you want to delete this deduction?';
+    $lang['restore_this_deduction'] = 'Restore this deduction';
+    $lang['are_you_sure_to_restore_deduction'] = 'Are you sure you want to restore this deduction?';
+    
+    //company manager
+    $lang['company_name'] = 'Company Name';
+    $lang['company_list'] = 'Company List';
+    $lang['create_company'] = 'Create Company';   
+    $lang['delete_this_company'] = 'Delete this company';
+    $lang['are_you_sure_to_delete_company'] = 'Are you sure you want to delete this company?';
+    $lang['restore_this_company'] = 'Restore this company';
+    $lang['are_you_sure_to_restore_company'] = 'Are you sure you want to restore this company?';
     
     /* error messages */
     $lang['unable_to_process_transaction'] = 'Unable to process transactions';
@@ -299,6 +321,8 @@
     $lang['brand_name_exists'] = "Brand name already exists";
     $lang['currency_name_exists'] = 'Currency name already exists';
     $lang['earning_name_exists'] = 'Earning name already exists';
+    $lang['deduction_name_exists'] = 'Deduction name already exists';
+    $lang['company_name_exists'] = 'Company name already exists';
 
     /* profile info */
     $lang['username'] = 'Username';
@@ -395,3 +419,13 @@
     $lang['deactivate_earning'] = 'Deactivate earning';
     $lang['update_earning'] = 'Update earning';
     $lang['restore_earning'] = 'Restore earning';
+    
+    $lang['create_new_deduction'] = 'Create new deduction';
+    $lang['deactivate_deduction'] = 'Deactivate deduction';
+    $lang['update_deduction'] = 'Update deduction';
+    $lang['restore_deduction'] = 'Restore deduction';
+    
+    $lang['create_new_company'] = 'Create new company';
+    $lang['deactivate_company'] = 'Deactivate company';
+    $lang['update_company'] = 'Update company';
+    $lang['restore_company'] = 'Restore company';

@@ -91,7 +91,7 @@
             echo js_asset('views/dashboard.js');
             echo js_asset('views/users.js');
             echo js_asset('views/control_manager.js');
-            echo js_asset('views/company.js');
+            echo js_asset('views/company_info.js');
             echo js_asset('views/department.js');
             echo js_asset('views/area.js');
             echo js_asset('views/employee_status.js');
@@ -107,6 +107,8 @@
             echo js_asset('views/items.js');
             echo js_asset('views/currency.js');
             echo js_asset('views/earning.js');
+            echo js_asset('views/deduction.js');
+            echo js_asset('views/company.js');
             echo js_asset('lib/flash.js');
         ?>
         <?php $this->load->view('layouts/application/page_specific_javascript'); ?>
