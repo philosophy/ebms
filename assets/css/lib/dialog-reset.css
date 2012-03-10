@@ -1,0 +1,12 @@
+.ui-dialog span.loader {
+    display: block;
+    margin: 30px auto;
+}
+
+div.ui-dialog.ui-widget {
+    width: auto !important;
+    min-width: 300px;
+    font-size: 12px;
+    font-family: "Tahoma";
+    min-height: 100px;    
+}

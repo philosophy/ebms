@@ -196,3 +196,7 @@ section.items-list-wrapper .items-list tbody td{
     text-shadow: 0px 1px 0px #D1E0E0;
 }
 
+span.tips {    
+    font-size: 11px;
+    font-weight: bold;
+}

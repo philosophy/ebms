@@ -20,12 +20,15 @@
             echo css_asset('user/edit.css');
             echo css_asset('user_management/control_manager/list.css');
             echo css_asset('user_management/audit_trail/index.css');
+            echo css_asset('employees/profile.css');
             echo css_asset('lib/table_list.css');
             echo css_asset('lib/item_list.css');
+            echo css_asset('lib/tabs.css');
             echo css_asset('inventory/index.css');
             echo css_asset('vendor/jquery-ui-1.8.17.custom.css');
             echo css_asset('vendor/jquery.dataTables.css');
             echo css_asset('lib/datepicker.css');
+            echo css_asset('lib/dialog-reset.css');
         ?>
 
             <!--[if lt IE 9]>
@@ -109,6 +112,7 @@
             echo js_asset('views/earning.js');
             echo js_asset('views/deduction.js');
             echo js_asset('views/company.js');
+            echo js_asset('views/employees.js');
             echo js_asset('lib/flash.js');
         ?>
         <?php $this->load->view('layouts/application/page_specific_javascript'); ?>

@@ -193,6 +193,10 @@ $route['product/delete/(:num)'] = 'product/delete/$1';
 $route['product/get_product_edit_form/(:num)'] = 'product/get_product_edit_form/$1';
 /* end of inventory */
 
+/* personnel */
+$route['employees/profile'] = 'personnel/employees';
+$route['employee/get_new_employee_form'] = 'personnel/employees/get_new_employee_form';
+/* end of personnel */
 
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */

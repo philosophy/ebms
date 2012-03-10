@@ -429,3 +429,6 @@
     $lang['deactivate_company'] = 'Deactivate company';
     $lang['update_company'] = 'Update company';
     $lang['restore_company'] = 'Restore company';
+
+    /* general */
+    $lang['with_asterisk_required'] = 'Fields with asterisk(*) are required.';

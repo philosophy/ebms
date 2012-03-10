@@ -11,15 +11,6 @@
    Syntax recommendation http://www.w3.org/TR/REC-CSS2/
 */
 
-.ui-dialog span.loader {
-    display: block;
-    margin: 30px auto;
-}
-
-div.ui-dialog.ui-widget {
-    width: auto !important;
-}
-
 #new-product-wrapper {
 
 }

@@ -124,7 +124,7 @@
                 <?php echo anchor('dashboard/index', lang('personnel'), array('class' => ($active_link == 'personnel') ? 'active' : '')); ?>
                 <ul class="sub-nav hide">
                     <li class="sub-nav-item">
-                        <?php echo anchor('dashboard/index', lang('employee_profile')); ?>
+                        <?php echo anchor('employees/profile', lang('employee_profile')); ?>
                     </li>
                     <li class="sub-nav-item">
                         <?php echo anchor('dashboard/index', lang('employee_schedule')); ?>
@@ -148,9 +148,6 @@
                 <ul class="sub-nav hide">
                     <li class="sub-nav-item">
                         <?php echo anchor('inventory/items', lang('product_asset_list')); ?>
-                    </li>
-                    <li class="sub-nav-item">
-                        <?php echo anchor('dashboard/index', lang('product_asset_list')); ?>
                     </li>
                     <li class="sub-nav-item">
                         <?php echo anchor('dashboard/index', lang('item_receiving')); ?>
