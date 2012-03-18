@@ -1,6 +1,6 @@
-<section>    
+<section>
     <?php
-        echo form_open('personnel/employees/create/', array('id' => 'new-employee-form'));
+        echo form_open('employees/create/', array('id' => 'new-employee-form', 'data-remote' => 'true', 'data-type' => 'json'));
     ?>
     <ul>
         <li><a href="#general">General</a></li>
@@ -8,7 +8,7 @@
         <li><a href="#educational-background">Background</a></li>
         <li><a href="#payroll">Payroll Details</a></li>
     </ul>
-    
+
     <div id="general">
         <?php $this->load->view('personnel/employee/_general_info'); ?>
     </div>
@@ -16,18 +16,14 @@
         <?php $this->load->view('personnel/employee/_employment_info'); ?>
     </div>
     <div id="educational-background">
-        Background tab
-        <div class="buttons-wrapper">
-            <?php echo form_button(array('class' => 'previous-button', 'data-step' => '1', 'content' => 'Previous')); ?>
-            <?php echo form_button(array('class' => 'next-button', 'data-step' => '3', 'content' => 'Next')); ?>
-        </div>
+        <?php $this->load->view('personnel/employee/_educational_background'); ?>
     </div>
     <div id="payroll">
-        Payroll tab
-        <div class="buttons-wrapper">            
-            <?php echo form_button(array('class' => 'previous-button', 'data-step' => '2', 'content' => 'Previous')); ?>
-            <?php echo form_submit('new_employee_submit', 'Submit'); ?>
-        </div>    
+        <?php $this->load->view('personnel/employee/_payroll'); ?>
     </div>
     <?php echo form_close(); ?>
 </section>
+
+<script>
+    var employmentStatus = <?php echo json_encode($this->employment_status); ?>;
+</script>

@@ -1,6 +1,6 @@
 <?php
 
-    class Employee extends CI_Model {
+    class Employees_model extends CI_Model {
         private $employee_code;
         private $first_name;
         private $middle_name;
@@ -26,7 +26,11 @@
         private $last_updated_by;
         private $last_updated_at;
         private $company_id;
-        
+        private $work_experience = array();
+        private $educational_background = array();
+        private $table_name = 'employees';
+        public $empPrefix = 'EMP-';
+
         function set_employee_code($val) {
             $this->employee_code = trim($val);
         }
@@ -100,9 +104,15 @@
             $this->last_updated_at = $val;
         }
         function set_company_id($val) {
-            $this->company_id = trim($val);
+            $this->company_id = $val;
         }
-        
+        function set_work_experience($val) {
+            $this->work_experience = $val;
+        }
+        function set_educational_background($val) {
+            $this->educational_background = $val;
+        }
+
         function get_employee_code() {
             return $this->employee_code;
         }
@@ -122,7 +132,7 @@
             return $this->date_of_birth;
         }
         function get_gender() {
-            return int($this->gender);
+            return (int)$this->gender;
         }
         function get_marital_status() {
             return (int)$this->marital_status;
@@ -155,16 +165,16 @@
             return $this->active;
         }
         function get_employee_status_id() {
-            return $this->employee_status_id;
+            return (int)$this->employee_status_id;
         }
         function get_department_id() {
-            return $this->department_id;
+            return (int)$this->department_id;
         }
         function get_position_id() {
-            return $this->position_id;
+            return (int)$this->position_id;
         }
         function get_created_by() {
-            return $this->created_by;
+            return (int)$this->created_by;
         }
         function get_date_created() {
             return $this->date_created;
@@ -176,8 +186,103 @@
             return $this->last_updated_at;
         }
         function get_company_id() {
-            return $this->company_id;
-        }        
+            return (int)$this->company_id;
+        }
+        function get_work_experience() {
+            return $this->work_experience;
+        }
+        function get_educational_background() {
+            return $this->educational_background;
+        }
+
+        function createEmployee(){
+            $this->db->trans_start();
+            $sql = "INSERT INTO employees (employee_code, first_name, middle_name, last_name, address, date_of_birth, gender, marital_status, home_phone, work_phone, date_hired, ".
+                    "sss_no, tin_no, philhealth, pagibig, salary, employee_status_id, department_id, position_id, created_by, date_created, company_id) ".
+                    "values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+
+            $this->db->query($sql,
+                array(
+                    $this->get_employee_code(),
+                    $this->get_first_name(),
+                    $this->get_middle_name(),
+                    $this->get_last_name(),
+                    $this->get_address(),
+                    $this->get_date_of_birth(),
+                    $this->get_gender(),
+                    $this->get_marital_status(),
+                    $this->get_home_phone(),
+                    $this->get_work_phone(),
+                    $this->get_date_hired(),
+                    $this->get_sss_no(),
+                    $this->get_tin_no(),
+                    $this->get_philhealth(),
+                    $this->get_pagibig(),
+                    $this->get_salary(),
+                    $this->get_employee_status_id(),
+                    $this->get_department_id(),
+                    $this->get_position_id(),
+                    $this->get_created_by(),
+                    date($this->config->item('date_format')),
+                    $this->get_company_id(),
+                ));
+
+            $employee_id = $this->db->insert_id();
+
+            /* insert into work experience */
+            foreach($this->get_work_experience() as $exp) {
+                $sql = 'INSERT INTO work_experience (company_name, date_started, date_ended, work_description, created_by, date_created, employee_id) '.
+                       'values (?, ?, ?, ?, ?, ?, ?)';
+
+                $this->db->query($sql,
+                        array(
+                            $exp['company_name'],
+                            $exp['date_started'],
+                            $exp['date_ended'],
+                            $exp['work_description'],
+                            $this->get_created_by(),
+                            date($this->config->item('date_format')),
+                            $employee_id
+                        ));
+            }
+
+            /* insert education */
+            foreach($this->get_educational_background() as $edu) {
+                $sql = 'INSERT INTO educational_background (school_name, date_graduated, remarks, created_by, date_created, employee_id) '.
+                       'values (?, ?, ?, ?, ?, ?)';
+
+                $this->db->query($sql,
+                        array(
+                            $edu['school_name'],
+                            $edu['date_graduated'],
+                            $edu['remarks'],
+                            $this->get_created_by(),
+                            date($this->config->item('date_format')),
+                            $employee_id
+                        ));
+
+            }
+
+            parent::insertAuditTrail($this->get_created_by(), 1, $employee_id, lang('create_new_employee'), $this->get_company_id(), $this->table_name);
+
+            $this->db->trans_complete();
+            if ($this->db->trans_status() === TRUE) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+        function getMaxEmpId() {
+            $sql = "SELECT max(id) as id from employees where company_id = ?";
+
+            $query = $this->db->query($sql, array('company_id' => $this->get_company_id()));
+            if($query->num_rows() > 0) {
+                return (int)$query->row()->id;
+            } else {
+                return 0;
+            }
+        }
     }
 
 ?>

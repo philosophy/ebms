@@ -164,7 +164,7 @@
     // area-type manager
     $lang['area_name'] = 'Area Name';
     $lang['area_list'] = 'Area List';
-    $lang['create_area'] = 'Create Area';   
+    $lang['create_area'] = 'Create Area';
     $lang['delete_this_area'] = 'Delete this area';
     $lang['are_you_sure_to_delete_area'] = 'Are you sure you want to delete this area?';
     $lang['restore_this_area'] = 'Restore this area';
@@ -173,7 +173,7 @@
     // employee-status manager
     $lang['employee_status_name'] = 'Employee Status Name';
     $lang['employee_status_list'] = 'Employee Status List';
-    $lang['create_employee_status'] = 'Create Employee Status';   
+    $lang['create_employee_status'] = 'Create Employee Status';
     $lang['delete_this_employee_status'] = 'Delete this employee status';
     $lang['are_you_sure_to_delete_employee_status'] = 'Are you sure you want to delete this employee status?';
     $lang['restore_this_employee_status'] = 'Restore this employee status';
@@ -182,7 +182,7 @@
     // position manager
     $lang['position_name'] = 'Position Name';
     $lang['position_list'] = 'Position List';
-    $lang['create_position'] = 'Create Position';   
+    $lang['create_position'] = 'Create Position';
     $lang['delete_this_position'] = 'Delete this position';
     $lang['are_you_sure_to_delete_position'] = 'Are you sure you want to delete this position?';
     $lang['restore_this_position'] = 'Restore this employee status';
@@ -191,7 +191,7 @@
     // unit manager
     $lang['unit_name'] = 'Unit Name';
     $lang['unit_list'] = 'Unit List';
-    $lang['create_unit'] = 'Create Unit';   
+    $lang['create_unit'] = 'Create Unit';
     $lang['delete_this_unit'] = 'Delete this unit';
     $lang['are_you_sure_to_delete_unit'] = 'Are you sure you want to delete this unit?';
     $lang['restore_this_unit'] = 'Restore this unit';
@@ -231,7 +231,7 @@
     // city manager
     $lang['city_name'] = 'City Name';
     $lang['city_list'] = 'City List';
-    $lang['create_city'] = 'Create City';    
+    $lang['create_city'] = 'Create City';
     $lang['delete_this_city'] = 'Delete this city';
     $lang['are_you_sure_to_delete_city'] = 'Are you sure you want to delete this city?';
     $lang['restore_this_city'] = 'Restore this city';
@@ -240,7 +240,7 @@
     //industry manager
     $lang['industry_name'] = 'Industry Name';
     $lang['industry_list'] = 'Industry List';
-    $lang['create_industry'] = 'Create Industry';   
+    $lang['create_industry'] = 'Create Industry';
     $lang['delete_this_industry'] = 'Delete this industry';
     $lang['are_you_sure_to_delete_industry'] = 'Are you sure you want to delete this industry?';
     $lang['restore_this_industry'] = 'Restore this industry';
@@ -249,7 +249,7 @@
     //location manager
     $lang['location_name'] = 'Location Name';
     $lang['location_list'] = 'Location List';
-    $lang['create_location'] = 'Create Location';   
+    $lang['create_location'] = 'Create Location';
     $lang['delete_this_location'] = 'Delete this location';
     $lang['are_you_sure_to_delete_location'] = 'Are you sure you want to delete this location?';
     $lang['restore_this_location'] = 'Restore this location';
@@ -258,7 +258,7 @@
      //customer manager
     $lang['customer_name'] = 'Customer Name';
     $lang['customer_list'] = 'Customer List';
-    $lang['create_customer'] = 'Create Customer';   
+    $lang['create_customer'] = 'Create Customer';
     $lang['delete_this_customer'] = 'Delete this customer';
     $lang['are_you_sure_to_delete_customer'] = 'Are you sure you want to delete this customer?';
     $lang['restore_this_customer'] = 'Restore this customer';
@@ -274,39 +274,39 @@
     //currency manager
     $lang['currency_name'] = 'Currency Name';
     $lang['currency_list'] = 'Currency List';
-    $lang['create_currency'] = 'Create Currency';    
+    $lang['create_currency'] = 'Create Currency';
     $lang['delete_this_currency'] = 'Delete this currency';
     $lang['are_you_sure_to_delete_currency'] = 'Are you sure you want to delete this currency?';
     $lang['restore_this_currency'] = 'Restore this currency';
     $lang['are_you_sure_to_restore_currency'] = 'Are you sure you want to restore this currency?';
-    
+
     //earning manager
     $lang['earning_name'] = 'Earning Name';
     $lang['earning_list'] = 'Earning List';
-    $lang['create_earning'] = 'Create Earning';   
+    $lang['create_earning'] = 'Create Earning';
     $lang['delete_this_earning'] = 'Delete this earning';
     $lang['are_you_sure_to_delete_earning'] = 'Are you sure you want to delete this earning?';
     $lang['restore_this_earning'] = 'Restore this earning';
     $lang['are_you_sure_to_restore_earning'] = 'Are you sure you want to restore this earning?';
-    
+
     //deduction manager
     $lang['deduction_name'] = 'Deduction Name';
     $lang['deduction_list'] = 'Deduction List';
-    $lang['create_deduction'] = 'Create Deduction';   
+    $lang['create_deduction'] = 'Create Deduction';
     $lang['delete_this_deduction'] = 'Delete this deduction';
     $lang['are_you_sure_to_delete_deduction'] = 'Are you sure you want to delete this deduction?';
     $lang['restore_this_deduction'] = 'Restore this deduction';
     $lang['are_you_sure_to_restore_deduction'] = 'Are you sure you want to restore this deduction?';
-    
+
     //company manager
     $lang['company_name'] = 'Company Name';
     $lang['company_list'] = 'Company List';
-    $lang['create_company'] = 'Create Company';   
+    $lang['create_company'] = 'Create Company';
     $lang['delete_this_company'] = 'Delete this company';
     $lang['are_you_sure_to_delete_company'] = 'Are you sure you want to delete this company?';
     $lang['restore_this_company'] = 'Restore this company';
     $lang['are_you_sure_to_restore_company'] = 'Are you sure you want to restore this company?';
-    
+
     /* error messages */
     $lang['unable_to_process_transaction'] = 'Unable to process transactions';
     $lang['username_cannot_be_blank'] = "Username can't be blank";
@@ -323,6 +323,8 @@
     $lang['earning_name_exists'] = 'Earning name already exists';
     $lang['deduction_name_exists'] = 'Deduction name already exists';
     $lang['company_name_exists'] = 'Company name already exists';
+    $lang['first_name_cant_be_blank'] = "First name can't be blank";
+    $lang['please_try_again'] = 'An error has occured, please try again';
 
     /* profile info */
     $lang['username'] = 'Username';
@@ -409,26 +411,48 @@
     $lang['restore_customer'] = 'Restore customer';
     $lang['deactivate_customer'] = 'Deactivate customer';
     $lang['create_new_customer'] = 'Create customer';
-    
+
     $lang['create_new_currency'] = 'Create new currency';
     $lang['deactivate_currency'] = 'Deactivate currency';
     $lang['update_currency'] = 'Update currency';
     $lang['restore_currency'] = 'Restore currency';
-    
+
     $lang['create_new_earning'] = 'Create new earning';
     $lang['deactivate_earning'] = 'Deactivate earning';
     $lang['update_earning'] = 'Update earning';
     $lang['restore_earning'] = 'Restore earning';
-    
+
     $lang['create_new_deduction'] = 'Create new deduction';
     $lang['deactivate_deduction'] = 'Deactivate deduction';
     $lang['update_deduction'] = 'Update deduction';
     $lang['restore_deduction'] = 'Restore deduction';
-    
+
     $lang['create_new_company'] = 'Create new company';
     $lang['deactivate_company'] = 'Deactivate company';
     $lang['update_company'] = 'Update company';
     $lang['restore_company'] = 'Restore company';
 
+    $lang['create_new_employee'] = 'Create new employee';
+
     /* general */
     $lang['with_asterisk_required'] = 'Fields with asterisk(*) are required.';
+
+    /* start of personnel employee profile */
+
+    /* employment info */
+    $lang['date_work_started'] = 'Date Started';
+    $lang['date_work_ended'] = 'Date Ended';
+    $lang['date_hired'] = 'Date Hired';
+    $lang['school_name'] = 'School Name';
+    $lang['year_graduated'] = 'Year Graduated';
+    $lang['remarks'] = 'Remarks';
+    $lang['add'] = 'Add';
+
+    /* payroll details */
+    $lang['sss_number'] = 'SSS Number';
+    $lang['philhealth_number'] = 'Philhealth Number';
+    $lang['tin_number'] = 'Tin Number';
+    $lang['pagibig_number'] = 'Pagibig Number';
+
+    /* end of personnel employee profile */
+

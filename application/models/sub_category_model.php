@@ -89,11 +89,11 @@ class Sub_category_model extends CI_Model {
             return null;
         }
     }
-    
+
     function getSubCategoriesByCategoryId() {
         $sql = "SELECT s.id as id, s.code, s.name as name, c.name as category FROM sub_category as s inner join category as c where c.id = s.category_id and s.active=? and s.company_id=? and s.category_id = ?";
         $query = $this->db->query($sql, array('active' => $this->get_active(), 'company_id' => $this->get_company_id(), 'category_id' => $this->get_category_id()));
-        
+
         if ($query->num_rows() > 0) {
             return $query->result();
         } else {
@@ -136,7 +136,7 @@ class Sub_category_model extends CI_Model {
                 $this->get_company_id(),
                 $this->get_category_id()
             ));
-        
+
         $sql = 'SELECT id from sub_category where company_id = ? order by date_created desc limit 1';
         $query = $this->db->query($sql, array('company_id' => $this->get_company_id()));
 

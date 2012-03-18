@@ -152,7 +152,7 @@
             }
         }
 
-        function get_sub_category_edit_form($id) {            
+        function get_sub_category_edit_form($id) {
             $this->sub_category = $this->subCategoryObj->getSubCategoryDetails($id);
             $this->subCategoryObj->set_company_id($this->current_avatar->company_id);
             $this->categories = $this->subCategoryObj->getCategories();
