@@ -1,7 +1,7 @@
 com.ebms.widgets.base = {
     init: function() {
     },
-    
+
     initDatePicker: function(elem) {
         elem.datepicker({
             dateFormat: 'yy-mm-dd',
@@ -10,7 +10,8 @@ com.ebms.widgets.base = {
             buttonImage: elem.attr('data-datepicker-img-url'),
             buttonImageOnly: true,
             changeYear: true,
-            changeMonth: true
+            changeMonth: true,
+            yearRange: '1960:2012'
         });
     }
 };

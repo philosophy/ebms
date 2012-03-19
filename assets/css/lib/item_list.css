@@ -147,6 +147,14 @@
     border-collapse: collapse;
 }
 
+.items-list-wrapper .table-list tbody tr.selected {
+    background:#A3C2C2;
+}
+
+.items-list-wrapper .table-list tbody tr.inactive td{
+    color: red;
+}
+
 .items-list-wrapper .table-list tbody td{
     border: 1px solid #E6EEEE;
     padding: 4px 0 0 13px;

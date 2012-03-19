@@ -156,3 +156,30 @@
 #new-employee-dialog #educational-background #educational-background-details article ul li .remarks-background {
     width: 180px;
 }
+
+#pagination {
+    float: right;
+    margin: 15px 10px 0 0;
+}
+
+.buttons-wrapper span.loader.hide {
+    display: none;
+}
+
+.items-list-wrapper .table-list tbody td.background {
+    width: 12px;
+    height: 24px;
+}
+
+.items-list-wrapper .table-list tbody td.female.background {
+    background: url('../../image/icons/empGirlIcon.png') no-repeat;
+}
+
+.items-list-wrapper .table-list tbody td.male.background {
+    background: url('../../image/icons/empBoyIcon.png') no-repeat;
+}
+
+.items-list-wrapper .table-list tbody tr.inactive td.background {
+    background: url('../../image/icons/deleted-icon.png') no-repeat;
+}
+

@@ -1,6 +1,7 @@
 <?php
 
     class Employees_model extends CI_Model {
+        private $id;
         private $employee_code;
         private $first_name;
         private $middle_name;
@@ -17,7 +18,7 @@
         private $philhealth;
         private $pagibig;
         private $salary;
-        private $active;
+        private $active = 1;
         private $employee_status_id;
         private $department_id;
         private $position_id;
@@ -29,8 +30,13 @@
         private $work_experience = array();
         private $educational_background = array();
         private $table_name = 'employees';
+        private $limit;
+        private $offset;
         public $empPrefix = 'EMP-';
 
+        function set_id($val) {
+            $this->id = $val;
+        }
         function set_employee_code($val) {
             $this->employee_code = trim($val);
         }
@@ -112,7 +118,16 @@
         function set_educational_background($val) {
             $this->educational_background = $val;
         }
+        function set_limit($val) {
+            $this->limit = $val;
+        }
+        function set_offset($val) {
+            $this->offset = $val;
+        }
 
+        function get_id() {
+            return (int)$this->id;
+        }
         function get_employee_code() {
             return $this->employee_code;
         }
@@ -162,7 +177,7 @@
             return $this->salary;
         }
         function get_active() {
-            return $this->active;
+            return (int)$this->active;
         }
         function get_employee_status_id() {
             return (int)$this->employee_status_id;
@@ -193,6 +208,12 @@
         }
         function get_educational_background() {
             return $this->educational_background;
+        }
+        function get_limit() {
+            return (int)$this->limit;
+        }
+        function get_offset() {
+            return (int)$this->offset;
         }
 
         function createEmployee(){
@@ -282,6 +303,63 @@
             } else {
                 return 0;
             }
+        }
+
+        function getEmployees() {
+            $sql = "SELECT e.*, d.name as department, p.name as position, s.name as status  FROM employees AS e INNER JOIN departments as d on d.id = e.department_id INNER JOIN employee_status AS s ON s.id = e.employee_status_id INNER JOIN positions AS p on p.id = e.position_id where e.company_id=? order by e.active desc, e.first_name LIMIT ? OFFSET ?";
+            $query = $this->db->query($sql, array('company_id' => $this->get_company_id(), 'LIMIT' => $this->get_limit(), 'OFFSET' => $this->get_offset()));
+
+            if ($query->num_rows() > 0) {
+                return $query->result();
+            } else {
+                return null;
+            }
+        }
+
+        function deactivateEmployee() {
+            $this->db->trans_start();
+            $data = array('active' => 0);
+
+            $this->db->where('id', $this->get_id());
+            $this->db->update('employees', $data);
+
+            /* insert audit DELETE */
+            parent::insertAuditTrail($this->get_created_by(), 3, $this->get_id(), lang('delete_employee'), $this->get_company_id(), $this->table_name);
+
+            $this->db->trans_complete();
+            if ($this->db->trans_status() === TRUE) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+        function activateEmployee() {
+            $this->db->trans_start();
+            $data = array('active' => 1);
+
+            $this->db->where('id', $this->get_id());
+            $this->db->update('employees', $data);
+
+            /* insert audit DELETE */
+            parent::insertAuditTrail($this->get_created_by(), 2, $this->get_id(), lang('restore_employee'), $this->get_company_id(), $this->table_name);
+
+            $this->db->trans_complete();
+            if ($this->db->trans_status() === TRUE) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+        function countEmployees() {
+            $query = $this->db->get_where('employees', array('company_id'=>$this->get_company_id()));
+            return $query->num_rows();
+        }
+
+        function recordExists($id=null) {
+            $query = $this->db->get_where('employees', array('company_id'=>$this->get_company_id(), 'id'=>$id));
+            return $query->num_rows();
         }
     }
 

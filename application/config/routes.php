@@ -195,8 +195,11 @@ $route['product/get_product_edit_form/(:num)'] = 'product/get_product_edit_form/
 
 /* personnel */
 $route['employees/profile'] = 'personnel/employees';
+$route['employees/profile/index'] = 'personnel/employees';
+$route['employees/profile/index/(:num)'] = 'personnel/employees';
 $route['employee/get_new_employee_form'] = 'personnel/employees/get_new_employee_form';
 $route['employees/create'] = 'personnel/employees/create';
+$route['employees/delete/(:num)'] = 'personnel/employees/delete/$1';
 /* end of personnel */
 
 /* End of file routes.php */

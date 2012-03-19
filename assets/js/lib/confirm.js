@@ -16,7 +16,7 @@ com.ebms.widgets.confirm = function() {
     bindBehaviors: function() {
       $('#'+dialogCancelBtn).live('click', self.destroyModalDialog);
       $('#'+dialogConfirmBtn).live('click', self.processRequest);
-      
+
       $('a.confirm-link').live('click', self.showModalDialog);
 
       $('#confirm-dialog').live('ajax:success', function() {
@@ -40,12 +40,14 @@ com.ebms.widgets.confirm = function() {
     },
 
     showModalDialog: function(e) {
+      if($(this).hasClass('inactive')){return false;}
+      
       e.stopPropagation();
       e.preventDefault();
       var $confirmLink = $(this);
       $modalbox = $('#confirm-dialog');
       $modalbox.dialog('destroy');                                 // destroy modal dialog
-      
+
       var dialogTitle = $confirmLink.data('dialog-title');             // set modal title
       var dialogMessage = $confirmLink.data('dialog-confirm-message'); // set modal message.
       var deletePath = $confirmLink.attr('href');                      // set delete path

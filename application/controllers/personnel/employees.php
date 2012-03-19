@@ -2,6 +2,7 @@
     class Employees extends Application {
 
         public $employment_status;
+        public $employees;
         private $employeeObj;
 
         function __construct() {
@@ -12,13 +13,28 @@
             $this->load->model('Position_model');
             $this->load->model('Employees_model');
             $this->employeeObj = new $this->Employees_model();
+            $this->employeeObj->set_company_id($this->current_avatar->company_id);
         }
 
         function index() {
             $data['content'] = 'personnel/employee/profile';
             $data['title'] = lang('employee_profile');
-            $this->parser->parse('layouts/application', $data);
 
+            $config['base_url'] = base_url().'employees/profile/index/';
+            $config['total_rows'] = $this->employeeObj->countEmployees();
+            $config['per_page'] = 10;
+            $config['next_link'] = '&gt;';
+            $config['prev_link'] = '&lt;';
+            $config['num_links'] = 2;
+            $config['uri_segment'] = 4;
+
+            $this->employeeObj->set_limit($config['per_page']);
+            $this->employeeObj->set_offset($this->uri->segment(4));
+            $this->employees = $this->employeeObj->getEmployees();
+            $this->pagination->initialize($config);
+            $data['pagination_links'] = $this->pagination->create_links();
+
+            $this->parser->parse('layouts/application', $data);
             $this->output->enable_profiler(TRUE);
         }
 
@@ -75,10 +91,9 @@
             if(is_empty_null_value($educational_background)) {
                 $educational_background = array();
             }
-            $this->employeeObj->set_company_id($this->current_avatar->company_id);
             /* TODO generate employee code */
-
-            $this->employeeObj->set_employee_code($this->generate_employee_code());
+            $employee_no = $this->generate_employee_code();
+            $this->employeeObj->set_employee_code($employee_no);
             $this->employeeObj->set_first_name($first_name);
             $this->employeeObj->set_middle_name($middle_name);
             $this->employeeObj->set_last_name($last_name);
@@ -103,9 +118,45 @@
 
             $result = $this->employeeObj->createEmployee();
             if ($result) {
-                send_json_response(INFO_LOG, HTTP_OK, 'new employee form', array('html' => 'test'));
+                $name = $first_name.' '.$last_name;
+                $department_name = $this->Department_model->getDepartment($department)->name;
+                $position_name = $this->Position_model->getPosition($position)->name;
+                $status_name = $this->Status_model->getPosition($status)->name;
+                send_json_response(INFO_LOG, HTTP_OK, lang('successfully_created_employee'), array('employee' => array('employee_no' => $employee_no, 'name' => $name, 'department' => $department_name, 'status' => $status_name)));
             } else {
                 send_json_response(ERROR_LOG, HTTP_FAIL_PRECON, lang('please_try_again'));
+            }
+        }
+
+        function delete($id) {
+            if ($this->_record_exist($id)) {
+                $this->employeeObj->set_id($id);
+                $this->employeeObj->set_created_by($this->current_avatar->id);
+
+                $result = $this->employeeObj->deactivateEmployee();
+                if ($result) {
+                    send_json_response(INFO_LOG, HTTP_OK, 'successfully deleted employee', array('employee_id' => $id));
+                } else {
+                    send_json_response(ERROR_LOG, HTTP_FAIL_PRECON, 'unable to delete employee');
+                }
+            } else {
+                show_error(lang('unable_to_process_transaction'));
+            }
+        }
+
+        function restore($id) {
+            if ($this->_record_exist($id)) {
+                $this->employeeObj->set_id($id);
+                $this->employeeObj->set_created_by($this->current_avatar->id);
+
+                $result = $this->employeeObj->restoreEmployee();
+                if ($result) {
+                    send_json_response(INFO_LOG, HTTP_OK, 'successfully restored employee', array('employee_id' => $id));
+                } else {
+                    send_json_response(ERROR_LOG, HTTP_FAIL_PRECON, 'unable to restore employee');
+                }
+            } else {
+                show_error(lang('unable_to_process_transaction'));
             }
         }
 
@@ -114,6 +165,15 @@
             $empId = $this->employeeObj->getMaxEmpID();
             $code = ($empId > 0) ? substr(100000 + $empId, 1) : '000001';
             return $this->employeeObj->empPrefix.date('Y').'-'.$code;
+        }
+
+        private function _record_exist($id) {
+            $record = $this->employeeObj->recordExists($id);
+            if ($record > 0) {
+                return false;
+            } else {
+                return true;
+            }
         }
     }
 ?>

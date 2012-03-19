@@ -19,7 +19,7 @@
 
             $auditTrail->set_limit($config['per_page']);
             $auditTrail->set_offset($this->uri->segment(4));
-            $data['actions'] = $auditTrail->getUserActions();;
+            $data['actions'] = $auditTrail->getUserActions();
             $data['title'] = lang('audit_trail');
             $data['content'] = 'system_records/user_management/audit_trail/index';
 

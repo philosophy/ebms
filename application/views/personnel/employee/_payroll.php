@@ -30,4 +30,5 @@
 <div class="buttons-wrapper">
     <?php echo form_button(array('class' => 'previous-button', 'data-step' => '2', 'content' => 'Previous')); ?>
     <?php echo form_submit('new_employee_submit', 'Submit'); ?>
+    <span class="loader hide"></span>
 </div>

@@ -1,3 +1,6 @@
+<?php
+    $employees_len = count($this->employees);
+?>
 <article class="primary">
     <section id="employee-list" class="items-list-wrapper">
         <header>
@@ -28,7 +31,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#" id="delete-employee" class="inactive" data-title="Delete Employee">
+                        <a href="#" id="delete-employee" class="inactive delete-data confirm-link" data-title="<?php echo lang('delete_employee'); ?>" data-dialog-confirm-message="<?php echo lang('are_you_sure_you_want_to_delete_employee'); ?>" data-dialog-method="delete" data-dialog-remote='true' data-dialog-title="<?php echo lang('delete_employee');?>" data-dialog-type='json' data-class='archive'>
                             <?php echo image_asset('crud_icons/deleteIcon.png', '', array('alt' => lang('delete_employee'))); ?>
                         </a>
                     </li>
@@ -48,6 +51,7 @@
                 <table id="item-actions-list" class="table-list">
                     <thead>
                         <tr>
+                            <th></th>
                             <th>Employee No.</th>
                             <th>Name</th>
                             <th>Department</th>
@@ -56,20 +60,14 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <?php if (isset($actions) && !empty($actions) && count($actions) > 0) { ?>
-                        <?php } else { ?>
-                            <tr>
-                                <td colspan="5">
-                                    <h3>No data found.</h3>
-                                </td>
-                            </tr>
-                        <?php } ?>
+                       <?php $this->load->view('personnel/employee/_employee_list', array('employees_len' => $employees_len)); ?>
                     </tbody>
                 </table>
-                <?php// echo $pagination_links; ?>
             </div>
         </article>
-
+        <div id="pagination">
+            <?php echo $pagination_links; ?>
+        </div>
     </section>
 </article>
 

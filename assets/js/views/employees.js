@@ -6,6 +6,7 @@ com.ebms.views.employees = {
     eduPrefix: 'EDU_',
     eduLen: 0,
     newEmployeeTab: null,
+    // TODO add validation for creating an employee!
 
     init: function() {
         /* new employee form */
@@ -24,6 +25,114 @@ com.ebms.views.employees = {
         });
 
         $('.previous-button, .next-button').live('click', this.pagiForm);
+
+        $('#new-employee-form').live('ajax:before', this.newEmployeeBeforeHandler);
+        $('#new-employee-form').live('ajax:success', this.newEmployeeSuccessHandler);
+        $('#new-employee-form').live('ajax:error', this.newEmployeeErrorHandler);
+        $('#new-employee-form').live('ajax:complete', this.newEmployeeCompleteHandler);
+
+        $('#item-actions-list').delegate('tr', 'click', function() {
+            var $this = $(this);
+            //reset
+            $this.siblings().removeClass('selected');
+            com.ebms.views.employees.disableEditDeleteEmp();
+            com.ebms.views.employees.disableRestoreEmp();
+
+            $this.addClass('selected');
+            if($this.hasClass('active')) {
+                com.ebms.views.employees.enableEditDeleteEmp();
+                $('#delete-employee').attr('href', $this.data('delete-url'));
+
+                //update edit-employee href
+            } else if ($this.hasClass('inactive')) {
+                com.ebms.views.employees.enableRestoreEmp();
+                $('#restore-employee').attr('href', $this.data('restore-url'));
+            }
+
+        });
+
+        $('#dialog-confirm-btn.archive').live('ajax:success', this.deleteEmployeeSuccessHandler);
+        $('#delete-employee.inactive').live('click', function(e){
+            e.preventDefault();
+            e.stopPropagation();
+            if (e.cancelBubble) {
+                e.cancelBubble = true;
+            }
+            return false;
+        });
+    },
+
+    deleteEmployeeSuccessHandler: function(e, data) {
+        if (data.code == 200) {
+            // remove employee from list
+            $('tr[data-employee-id="'+data.data.employee_id+'"]').fadeOut('slow', function() {
+                $(this).remove();
+            });
+
+            // flash message
+            com.ebms.widgets.flash.flashMessage(data.message, 'info');
+            com.ebms.views.employees.disableEditDeleteEmp();
+        }
+    },
+
+    enableEditDeleteEmp: function() {
+        $('#edit-employee').removeClass('inactive');
+        $('#delete-employee').removeClass('inactive');
+    },
+
+    disableEditDeleteEmp: function() {
+        $('#edit-employee').addClass('inactive');
+        $('#delete-employee').addClass('inactive');
+    },
+
+    enableRestoreEmp: function() {
+        $('#restore-employee').removeClass('inactive');
+    },
+
+    disableRestoreEmp: function() {
+        $('#restore-employee').addClass('inactive');
+    },
+
+    newEmployeeBeforeHandler: function() {
+        var $payroll = $('#new-employee-form #payroll');
+        $('.buttons-wrapper button, .buttons-wrapper input', $payroll).addClass('hide');
+        $('.buttons-wrapper span.loader', $payroll).removeClass('hide');
+    },
+
+    newEmployeeSuccessHandler: function(e, data) {
+        //TODO add employee to list
+
+        $('#new-employee-dialog').dialog('destroy');
+
+        //flash message
+        com.ebms.widgets.flash.flashMessage(data.data.message, 'info');
+
+        //reset dialog fields
+        com.ebms.views.employees.resetNewEmployeeForm();
+    },
+
+    newEmployeeCompleteHandler: function() {
+        var $payroll = $('#new-employee-form #payroll');
+        $('.buttons-wrapper button, .buttons-wrapper input', $payroll).removeClass('hide');
+        $('.buttons-wrapper span.loader', $payroll).addClass('hide');
+    },
+
+    newEmployeeErrorHandler: function() {
+        //flash message
+        com.ebms.widgets.flash.flashMessage($('#flash').data('error-message'), 'info');
+    },
+
+    resetNewEmployeeForm: function() {
+        var newEmpDialog = $('#new-employee-dialog');
+        $('.general input, .general textarea', newEmpDialog).val('');
+
+        $('.employment-info input, .employment-info textarea', newEmpDialog).val('');
+        $('.work-experience-details', newEmpDialog).find('article ul li, article ul input').remove();
+
+        $('.educational-background, .educational-background textarea', newEmpDialog).val('');
+        $('.educational-background-details', newEmpDialog).find('article ul li, article ul input').remove();
+
+        $('.payroll input, .payroll textarea', newEmpDialog).val('');
     },
 
     pagiForm: function(e) {

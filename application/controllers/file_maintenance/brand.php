@@ -2,7 +2,7 @@
     class Brand extends Application {
 
         public $brands = null;
-        public $brand = null;        
+        public $brand = null;
         public $categories = null;
         public $sub_categories = null;
         public $sub_category = null;
@@ -22,9 +22,9 @@
 
             $this->brandObj->set_company_id($this->current_avatar->company_id);
             $this->brands = $this->brandObj->getBrands();
-            
+
             $this->sub_categories = $this->brandObj->getSubCategories();
-            
+
             $this->parser->parse('layouts/application', $data);
 
             parent::enableProfiler();
@@ -153,22 +153,22 @@
             }
         }
 
-        function get_brand_edit_form($id) {       
+        function get_brand_edit_form($id) {
             $this->brandObj->set_company_id($this->current_avatar->id);
             $this->brand = $this->brandObj->getBrandDetails($id);
             $this->brandObj->set_company_id($this->current_avatar->company_id);
             $this->categories = $this->brandObj->getCategories();
-            
+
             /* get category_id of subcategory */
-            $this->load->model('Sub_category_model');   
+            $this->load->model('Sub_category_model');
             $this->sub_category = $this->Sub_category_model->getSubCategoryDetails($this->brand->sub_category_id);
-            
+
             $this->Sub_category_model->set_category_id($this->sub_category->category_id);
             $this->Sub_category_model->set_company_id($this->current_avatar->company_id);
-            
-            /* select sub categories for a particular */            
-            $this->sub_categories = $this->Sub_category_model->getSubCategoriesByCategoryId();            
-            
+
+            /* select sub categories for a particular */
+            $this->sub_categories = $this->Sub_category_model->getSubCategoriesByCategoryId();
+
             if (!empty($this->brand)) {
                 send_json_response(INFO_LOG, HTTP_OK, 'brand edit form', array('html' => $this->load->view('system_records/file_maintenance/brand/_edit', '', true), 'category_id' => $this->sub_category->sub_category_id));
             } else {
