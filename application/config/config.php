@@ -376,3 +376,10 @@ function __autoload($class) {
 }
 
 $config['date_format'] = "Y-m-d H:i:s";
+$config['pagination_base_url'] = '';
+$config['pagination_per_page'] = 10;
+$config['pagination_next_link'] = '&gt;';
+$config['pagination_prev_link'] = '&lt;';
+$config['pagination_num_links'] = 2;
+$config['pagination_uri_segment'] = 4;
+$config['pagination_anchor_class'] = 'class="pagination-links"';

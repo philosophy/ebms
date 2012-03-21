@@ -42,6 +42,7 @@ com.ebms.views.employees = {
             if($this.hasClass('active')) {
                 com.ebms.views.employees.enableEditDeleteEmp();
                 $('#delete-employee').attr('href', $this.data('delete-url'));
+                $('#edit-employee').data('edit-url', $this.data('edit-url'));
 
                 //update edit-employee href
             } else if ($this.hasClass('inactive')) {
@@ -52,14 +53,54 @@ com.ebms.views.employees = {
         });
 
         $('#dialog-confirm-btn.archive').live('ajax:success', this.deleteEmployeeSuccessHandler);
-        $('#delete-employee.inactive').live('click', function(e){
-            e.preventDefault();
-            e.stopPropagation();
-            if (e.cancelBubble) {
-                e.cancelBubble = true;
-            }
-            return false;
+        $('#dialog-confirm-btn.restore').live('ajax:success', this.restoreEmployeeSuccessHandler);
+        $('#edit-employee').click(this.getEditEmployeeForm);
+
+        $('a.pagination-links').live('click', this.browseHandler);
+    },
+
+    browseHandler: function(e) {
+        e.preventDefault();
+        var tableWrapper = $('div.table-wrapper');
+        var $this = $(this);
+
+        tableWrapper.html('<span class="loader"></span>');
+
+        $.ajax({
+           dataType: 'json',
+           type: 'GET',
+           url: $this.attr('href'),
+           success: function(data) {
+               if (data.code === 200) {
+                    tableWrapper.html(data.data.html).fadeIn();
+               }
+
+           }
         });
+        //make an ajax request to fetch new set of tables
+        return false;
+    },
+
+    getEditEmployeeForm: function(e) {
+        e.preventDefault();
+        var emp_id;
+
+        // fetch edit form
+
+        //show loader
+    },
+
+    restoreEmployeeSuccessHandler: function(e, data) {
+        if (data.code == 200) {
+            var row = $('tr[data-employee-id="'+data.data.employee_id+'"]');
+            // restore employee from list
+            row.removeClass('inactive selected');
+            $('#restore-employee').addClass('inactive');
+
+            // flash message
+            com.ebms.widgets.flash.flashMessage(data.message, 'info');
+            com.ebms.views.employees.disableEditDeleteEmp();
+        }
     },
 
     deleteEmployeeSuccessHandler: function(e, data) {
@@ -189,8 +230,6 @@ com.ebms.views.employees = {
             work += ('<div class="desc-work-exp">' + workDescription.val() + '</div></li>');
 
             $('#work-experience-details article ul').append(work);
-
-            var index = $('')
 
             var work_exp = '<input type="hidden" name="work_exp['+ ns.expCtr +'][company_name]" value="' + company.val() + '" data-counter="' + ns.expPrefix + ns.expCtr +'" />';
             work_exp += '<input type="hidden" name="work_exp['+ ns.expCtr +'][date_started]" value="'+ dateWorkStarted.val() + '" data-counter="' + ns.expPrefix + ns.expCtr + '" />';

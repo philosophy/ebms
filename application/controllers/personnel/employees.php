@@ -20,13 +20,14 @@
             $data['content'] = 'personnel/employee/profile';
             $data['title'] = lang('employee_profile');
 
-            $config['base_url'] = base_url().'employees/profile/index/';
+            $config['base_url'] = base_url().'employees/profile/browse/';
             $config['total_rows'] = $this->employeeObj->countEmployees();
-            $config['per_page'] = 10;
-            $config['next_link'] = '&gt;';
-            $config['prev_link'] = '&lt;';
-            $config['num_links'] = 2;
-            $config['uri_segment'] = 4;
+            $config['per_page'] = $this->config->item('pagination_per_page');
+            $config['next_link'] = $this->config->item('pagination_next_link');
+            $config['prev_link'] = $this->config->item('pagination_prev_link');
+            $config['num_links'] = $this->config->item('pagination_num_links');
+            $config['uri_segment'] = $this->config->item('pagination_uri_segment');
+            $config['anchor_class'] = $this->config->item('pagination_anchor_class');
 
             $this->employeeObj->set_limit($config['per_page']);
             $this->employeeObj->set_offset($this->uri->segment(4));
@@ -36,6 +37,26 @@
 
             $this->parser->parse('layouts/application', $data);
             $this->output->enable_profiler(TRUE);
+        }
+
+        function browse($offset=0) {
+            $config['base_url'] = base_url().'employees/profile/browse/';
+            $config['total_rows'] = $this->employeeObj->countEmployees();
+            $config['per_page'] = $this->config->item('pagination_per_page');
+            $config['next_link'] = $this->config->item('pagination_next_link');
+            $config['prev_link'] = $this->config->item('pagination_prev_link');
+            $config['num_links'] = $this->config->item('pagination_num_links');
+            $config['uri_segment'] = $this->config->item('pagination_uri_segment');
+            $config['anchor_class'] = $this->config->item('pagination_anchor_class');
+
+            $this->employeeObj->set_limit($config['per_page']);
+            $this->employeeObj->set_offset((!empty($offset) && $offset != NULL) ? $offset : 0);
+            $this->employees = $this->employeeObj->getEmployees();
+            $this->pagination->initialize($config);
+            $data['pagination_links'] = $this->pagination->create_links();
+            $data['employees_len'] = count($this->employees);
+
+            send_json_response(INFO_LOG, HTTP_OK, 'browse employee form', array('html' => $this->load->view('personnel/employee/_employee_list', $data, true)));
         }
 
         function get_new_employee_form() {
@@ -160,6 +181,28 @@
             }
         }
 
+        function search() {
+            $data['content'] = 'personnel/employee/profile';
+            $data['title'] = lang('employee_search_results');
+
+            $config['base_url'] = base_url().'employees/profile/index/';
+            $config['total_rows'] = $this->employeeObj->countEmployees();
+            $config['per_page'] = 10;
+            $config['next_link'] = '&gt;';
+            $config['prev_link'] = '&lt;';
+            $config['num_links'] = 2;
+            $config['uri_segment'] = 4;
+
+            $this->employeeObj->set_limit($config['per_page']);
+            $this->employeeObj->set_offset($this->uri->segment(4));
+            $this->employees = $this->employeeObj->getEmployees();
+            $this->pagination->initialize($config);
+            $data['pagination_links'] = $this->pagination->create_links();
+
+            $this->parser->parse('layouts/application', $data);
+            $this->output->enable_profiler(TRUE);
+        }
+
         private function generate_employee_code() {
             $this->employeeObj->set_company_id($this->current_avatar->company_id);
             $empId = $this->employeeObj->getMaxEmpID();
@@ -168,11 +211,11 @@
         }
 
         private function _record_exist($id) {
-            $record = $this->employeeObj->recordExists($id);
+            $record = $this->employeeObj->recordExists((int)$id);
             if ($record > 0) {
-                return false;
-            } else {
                 return true;
+            } else {
+                return false;
             }
         }
     }

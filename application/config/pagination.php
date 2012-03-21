@@ -5,10 +5,11 @@
  * and open the template in the editor.
  */
 
-$config['pagination']['base_url'] = '';
-$config['pagination']['total_rows' ] = 200;
-$config['pagination']['per_page'] = 20;
-$config['pagination']['use_page_numbers'] = TRUE;
-$config['pagination']['page_query_string'] = TRUE;
-
+    $config['per_page'] = 10;
+    $config['next_link'] = '&gt;';
+    $config['prev_link'] = '&lt;';
+    $config['num_links'] = 2;
+    $config['uri_segment'] = 4;
+    $config['base_url'] = '';
+    $config['total_rows'] = '';
 ?>

@@ -30,8 +30,8 @@
         private $work_experience = array();
         private $educational_background = array();
         private $table_name = 'employees';
-        private $limit;
-        private $offset;
+        private $limit = 10;
+        private $offset = 0;
         public $empPrefix = 'EMP-';
 
         function set_id($val) {
@@ -334,7 +334,7 @@
             }
         }
 
-        function activateEmployee() {
+        function restoreEmployee() {
             $this->db->trans_start();
             $data = array('active' => 1);
 

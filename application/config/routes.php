@@ -200,6 +200,10 @@ $route['employees/profile/index/(:num)'] = 'personnel/employees';
 $route['employee/get_new_employee_form'] = 'personnel/employees/get_new_employee_form';
 $route['employees/create'] = 'personnel/employees/create';
 $route['employees/delete/(:num)'] = 'personnel/employees/delete/$1';
+$route['employees/restore/(:num)'] = 'personnel/employees/restore/$1';
+$route['employees/search'] = 'personnel/employees/search';
+$route['employees/profile/browse/(:num)'] =  'personnel/employees/browse/$1';
+$route['employees/profile/browse'] =  'personnel/employees/browse';
 /* end of personnel */
 
 /* End of file routes.php */

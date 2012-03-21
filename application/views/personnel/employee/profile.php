@@ -8,10 +8,7 @@
                 Employee List
             </h1>
             <div class="right-options">
-                <div id="search">
-                    <input type="text" id="search-input" />
-                    <button type="button" id="go">search</button>
-                </div>
+                <?php $this->load->view('common/_search_form', array('url' => site_url('employees/search'), 'id' => 'new-employee-form')); ?>
                 <div id="print-report">
                     <?php echo image_asset('icons/pdf-icon.png', '', array('alt' => lang('report'))); ?>
                 </div>
@@ -22,7 +19,7 @@
                 <ul>
                     <li>
                         <a href="#" id="new-employee" data-title="New Employee">
-                            <?php echo image_asset('crud_icons/newIcon.png', '', array('alt' => lang('new_employeet'))); ?>
+                            <?php echo image_asset('crud_icons/newIcon.png', '', array('alt' => lang('new_employee'))); ?>
                         </a>
                     </li>
                     <li>
@@ -36,38 +33,17 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#" id="restore-employee" class="inactive" data-title="Restore Employee">
+                        <a href="#" id="restore-employee" class="inactive restore-data" data-title="<?php echo lang('restore_employee'); ?>" data-dialog-confirm-message="<?php echo lang('are_you_sure_you_want_to_restore_employee'); ?>" data-dialog-method="put" data-dialog-remote="true" data-dialog-title="<?php echo lang('restore_employee'); ?>" data-dialog-type='json' data-class='restore' >
                             <?php echo image_asset('crud_icons/restoreIcon.png', '', array('alt' => lang('restore_employee'))); ?>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" id="transfer-employee" class="inactive" data-title="Transfer  Employee">
-                            <?php echo image_asset('crud_icons/transferIcon.png', '', array('alt' => lang('transfer_employee'))); ?>
                         </a>
                     </li>
                 </ul>
             </div>
-            <div id="list" class="list-primary">
-                <table id="item-actions-list" class="table-list">
-                    <thead>
-                        <tr>
-                            <th></th>
-                            <th>Employee No.</th>
-                            <th>Name</th>
-                            <th>Department</th>
-                            <th>Position</th>
-                            <th>Status</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                       <?php $this->load->view('personnel/employee/_employee_list', array('employees_len' => $employees_len)); ?>
-                    </tbody>
-                </table>
+            <div class="table-wrapper">
+                <?php $this->load->view('personnel/employee/_employee_list', array('employees_len' => $employees_len)); ?>
             </div>
         </article>
-        <div id="pagination">
-            <?php echo $pagination_links; ?>
-        </div>
+
     </section>
 </article>
 
