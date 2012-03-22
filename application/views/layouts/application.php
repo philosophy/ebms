@@ -118,5 +118,6 @@
         <?php $this->load->view('layouts/application/page_specific_javascript'); ?>
         <?php $this->load->view('layouts/application/flash_message'); ?>
         <?php $this->load->view('common/dialogs/_confirm_dialog'); ?>
+        <?php $this->load->view('layouts/application/_js_translations'); ?>
     </body>
 </html>

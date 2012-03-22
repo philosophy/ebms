@@ -40,23 +40,51 @@
         }
 
         function browse($offset=0) {
-            $config['base_url'] = base_url().'employees/profile/browse/';
-            $config['total_rows'] = $this->employeeObj->countEmployees();
-            $config['per_page'] = $this->config->item('pagination_per_page');
-            $config['next_link'] = $this->config->item('pagination_next_link');
-            $config['prev_link'] = $this->config->item('pagination_prev_link');
-            $config['num_links'] = $this->config->item('pagination_num_links');
-            $config['uri_segment'] = $this->config->item('pagination_uri_segment');
-            $config['anchor_class'] = $this->config->item('pagination_anchor_class');
 
-            $this->employeeObj->set_limit($config['per_page']);
-            $this->employeeObj->set_offset((!empty($offset) && $offset != NULL) ? $offset : 0);
-            $this->employees = $this->employeeObj->getEmployees();
-            $this->pagination->initialize($config);
-            $data['pagination_links'] = $this->pagination->create_links();
-            $data['employees_len'] = count($this->employees);
+            $name = $this->input->get('name', true);
 
-            send_json_response(INFO_LOG, HTTP_OK, 'browse employee form', array('html' => $this->load->view('personnel/employee/_employee_list', $data, true)));
+            if (empty($name)) {
+                $config['base_url'] = base_url().'employees/profile/browse/';
+                $config['per_page'] = $this->config->item('pagination_per_page');
+                $config['next_link'] = $this->config->item('pagination_next_link');
+                $config['prev_link'] = $this->config->item('pagination_prev_link');
+                $config['num_links'] = $this->config->item('pagination_num_links');
+                $config['uri_segment'] = $this->config->item('pagination_uri_segment');
+                $config['anchor_class'] = $this->config->item('pagination_anchor_class');
+                $config['total_rows'] = $this->employeeObj->countEmployees();
+
+                $this->employeeObj->set_limit($config['per_page']);
+                $this->employeeObj->set_offset((!empty($offset) && $offset != NULL) ? $offset : 0);
+                $this->employees = $this->employeeObj->getEmployees();
+                $this->pagination->initialize($config);
+                $data['pagination_links'] = $this->pagination->create_links();
+                $data['employees_len'] = count($this->employees);
+
+                send_json_response(INFO_LOG, HTTP_OK, 'browse employee form', array('html' => $this->load->view('personnel/employee/_employee_list', $data, true)));
+            } else {
+                $config['base_url'] = base_url().'employees/profile/browse/';
+                $config['per_page'] = $this->config->item('pagination_per_page');
+                $config['next_link'] = $this->config->item('pagination_next_link');
+                $config['prev_link'] = $this->config->item('pagination_prev_link');
+                $config['num_links'] = $this->config->item('pagination_num_links');
+                $config['uri_segment'] = $this->config->item('pagination_uri_segment');
+                $config['anchor_class'] = $this->config->item('pagination_anchor_class');
+
+
+                $this->employeeObj->set_limit($config['per_page']);
+                $this->employeeObj->set_offset((!empty($offset) && $offset != NULL) ? $offset : 0);
+                $this->employeeObj->set_search($name);
+                $this->employees = $this->employeeObj->getEmployeesBySearch();
+                $employees_len = $this->employeeObj->countEmployeesBySearch();
+                $config['total_rows'] = $employees_len;
+                $this->pagination->initialize($config);
+                $data['pagination_links'] = $this->pagination->create_links();
+
+                $data['employees_len'] = $employees_len;
+
+                send_json_response(INFO_LOG, HTTP_OK, 'search employee form', array('html' => $this->load->view('personnel/employee/_employee_list', $data, true), 'count' => $employees_len));
+            }
+
         }
 
         function get_new_employee_form() {
@@ -179,28 +207,6 @@
             } else {
                 show_error(lang('unable_to_process_transaction'));
             }
-        }
-
-        function search() {
-            $data['content'] = 'personnel/employee/profile';
-            $data['title'] = lang('employee_search_results');
-
-            $config['base_url'] = base_url().'employees/profile/index/';
-            $config['total_rows'] = $this->employeeObj->countEmployees();
-            $config['per_page'] = 10;
-            $config['next_link'] = '&gt;';
-            $config['prev_link'] = '&lt;';
-            $config['num_links'] = 2;
-            $config['uri_segment'] = 4;
-
-            $this->employeeObj->set_limit($config['per_page']);
-            $this->employeeObj->set_offset($this->uri->segment(4));
-            $this->employees = $this->employeeObj->getEmployees();
-            $this->pagination->initialize($config);
-            $data['pagination_links'] = $this->pagination->create_links();
-
-            $this->parser->parse('layouts/application', $data);
-            $this->output->enable_profiler(TRUE);
         }
 
         private function generate_employee_code() {

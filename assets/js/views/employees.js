@@ -57,6 +57,20 @@ com.ebms.views.employees = {
         $('#edit-employee').click(this.getEditEmployeeForm);
 
         $('a.pagination-links').live('click', this.browseHandler);
+        $('#search-employee-form').submit(this)
+        $('#search-employee-form').live('ajax:success', this.successSearchHandler);
+
+    },
+
+    beforeSearchHandler: function() {
+        //display loader and hide contents
+        $('div.table-wrapper').html('<span class="loader"></span>');
+    },
+
+    successSearchHandler: function(e, data) {
+        if (data.code === 200) {
+            $('div.table-wrapper').html(data.data.html).fadeIn();
+        }
     },
 
     browseHandler: function(e) {
@@ -65,8 +79,11 @@ com.ebms.views.employees = {
         var $this = $(this);
 
         tableWrapper.html('<span class="loader"></span>');
-
+        var data = {
+            name: $.trim($('#search-input').val())
+        };
         $.ajax({
+           data: data,
            dataType: 'json',
            type: 'GET',
            url: $this.attr('href'),
@@ -74,8 +91,11 @@ com.ebms.views.employees = {
                if (data.code === 200) {
                     tableWrapper.html(data.data.html).fadeIn();
                }
-
+           },
+           error: function() {
+               alert('An error has occured, please refresh your page');
            }
+
         });
         //make an ajax request to fetch new set of tables
         return false;

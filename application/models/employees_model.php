@@ -30,6 +30,7 @@
         private $work_experience = array();
         private $educational_background = array();
         private $table_name = 'employees';
+        private $search = '';
         private $limit = 10;
         private $offset = 0;
         public $empPrefix = 'EMP-';
@@ -124,6 +125,9 @@
         function set_offset($val) {
             $this->offset = $val;
         }
+        function set_search($val) {
+            $this->search = trim($val);
+        }
 
         function get_id() {
             return (int)$this->id;
@@ -215,6 +219,9 @@
         function get_offset() {
             return (int)$this->offset;
         }
+        function get_search() {
+            return $this->search;
+        }
 
         function createEmployee(){
             $this->db->trans_start();
@@ -303,6 +310,27 @@
             } else {
                 return 0;
             }
+        }
+
+        function getEmployeesBySearch() {
+            $sql = "SELECT e.*, d.name as department, p.name as position, s.name as status  FROM employees AS e INNER JOIN departments as d on d.id = e.department_id INNER JOIN employee_status AS s ON s.id = e.employee_status_id INNER JOIN positions AS p on p.id = e.position_id where e.company_id=? and e.first_name LIKE ? order by e.active desc, e.first_name LIMIT ? OFFSET ?";
+            $query = $this->db->query($sql, array('company_id' => $this->get_company_id(), 'like' => '%'.$this->get_search().'%', 'LIMIT' => $this->get_limit(), 'OFFSET' => $this->get_offset()));
+
+            if ($query->num_rows() > 0) {
+                return $query->result();
+            } else {
+                return null;
+            }
+        }
+
+        function countEmployeesBySearch() {
+            $sql = "SELECT * from employees where company_id = ? and (first_name like ? or last_name like ?)";
+            $query = $this->db->query($sql, array(
+               'company_id' => $this->get_company_id(),
+               'first_name' => $this->get_search(),
+               'last_name' => $this->get_search()
+            ));
+            return $query->num_rows();
         }
 
         function getEmployees() {

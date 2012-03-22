@@ -8,7 +8,7 @@
                 Employee List
             </h1>
             <div class="right-options">
-                <?php $this->load->view('common/_search_form', array('url' => site_url('employees/search'), 'id' => 'new-employee-form')); ?>
+                <?php $this->load->view('common/_search_form', array('url' => site_url('employees/profile/browse'), 'id' => 'search-employee-form')); ?>
                 <div id="print-report">
                     <?php echo image_asset('icons/pdf-icon.png', '', array('alt' => lang('report'))); ?>
                 </div>
