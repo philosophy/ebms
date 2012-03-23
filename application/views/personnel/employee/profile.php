@@ -33,7 +33,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#" id="restore-employee" class="inactive restore-data" data-title="<?php echo lang('restore_employee'); ?>" data-dialog-confirm-message="<?php echo lang('are_you_sure_you_want_to_restore_employee'); ?>" data-dialog-method="put" data-dialog-remote="true" data-dialog-title="<?php echo lang('restore_employee'); ?>" data-dialog-type='json' data-class='restore' >
+                        <a href="#" id="restore-employee" class="inactive restore-data confirm-link" data-title="<?php echo lang('restore_employee'); ?>" data-dialog-confirm-message="<?php echo lang('are_you_sure_you_want_to_restore_employee'); ?>" data-dialog-method="put" data-dialog-remote="true" data-dialog-title="<?php echo lang('restore_employee'); ?>" data-dialog-type='json' data-class='restore' >
                             <?php echo image_asset('crud_icons/restoreIcon.png', '', array('alt' => lang('restore_employee'))); ?>
                         </a>
                     </li>

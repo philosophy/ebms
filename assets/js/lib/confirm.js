@@ -41,7 +41,7 @@ com.ebms.widgets.confirm = function() {
 
     showModalDialog: function(e) {
       if($(this).hasClass('inactive')){return false;}
-      
+
       e.stopPropagation();
       e.preventDefault();
       var $confirmLink = $(this);
@@ -119,8 +119,9 @@ com.ebms.widgets.confirm = function() {
       }
     },
 
-    destroyModalDialog: function() {
+    destroyModalDialog: function(e) {
       $modalbox.dialog('close');
+      e.preventDefault();
     },
 
     handleAjaxError: function() {
