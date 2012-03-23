@@ -1,7 +1,7 @@
 <div id="notifications">
-    <a href="#", id="notification-link">
-        <?php 
-            echo image_asset('icons/notifIcon.png', '', array('title' => lang('user_guide'), 'id' => 'notif-img')); 
+    <a href="#" id="notification-link">
+        <?php
+            echo image_asset('icons/notifIcon.png', '', array('title' => lang('user_guide'), 'id' => 'notif-img'));
         ?>
     </a>
     <ul id="notification-list" class="hide">
@@ -14,7 +14,7 @@
         </li>
         <li class='notif-items'>
             <a href='/EBMS/apps/view/accounting/companyPayables/?page=accounting&menu=company-payables' id="notif-receivables">
-                <i></i>                
+                <i></i>
                 <span class='title'><?php echo lang('receivables'); ?></span>
                 <span class='count'>0</span>
             </a>

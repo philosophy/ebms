@@ -1,6 +1,7 @@
 <!DOCTYPE HTML>
 <html>
     <head>
+        <link rel="shortcut icon" href=<?php echo image_asset_url('logo/ebms-logo-mini.png'); ?> />
         <title><?php echo isset($title) ? $title : $this->lang->line('ebms_home'); ?></title>
         <?php
             echo css_asset('base.css');
