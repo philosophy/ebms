@@ -1,7 +1,6 @@
 <section>
     <?php
-        echo form_open($url, array('id' => $form_id, 'data-remote' => 'true', 'data-type' => 'json'));
-        $is_employee = isset($this->employee) && !empty($this->employee);
+        echo form_open('employees/create/', array('id' => 'new-employee-form', 'data-remote' => 'true', 'data-type' => 'json'));
     ?>
     <ul>
         <li><a href="#general">General</a></li>
@@ -11,16 +10,16 @@
     </ul>
 
     <div id="general">
-        <?php $this->load->view('personnel/employee/_general_info', array('is_employee' => $is_employee, 'edit_page' => $edit)); ?>
+        <?php $this->load->view('personnel/employee/_general_info'); ?>
     </div>
     <div id="employment-info">
-        <?php $this->load->view('personnel/employee/_employment_info', array('is_employee' => $is_employee, 'edit_page' => $edit)); ?>
+        <?php $this->load->view('personnel/employee/_employment_info'); ?>
     </div>
     <div id="educational-background">
-        <?php $this->load->view('personnel/employee/_educational_background', array('is_employee' => $is_employee, 'edit_page' => $edit)); ?>
+        <?php $this->load->view('personnel/employee/_educational_background'); ?>
     </div>
     <div id="payroll">
-        <?php $this->load->view('personnel/employee/_payroll', array('is_employee' => $is_employee, 'edit_page' => $edit)); ?>
+        <?php $this->load->view('personnel/employee/_payroll'); ?>
     </div>
     <?php echo form_close(); ?>
 </section>
