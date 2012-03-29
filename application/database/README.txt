@@ -11,3 +11,13 @@ active (1 = true, 0 = false)
 /* employees */
 1. gender field (0-male, 1-female)
 2. marital_status field (0-single, 1-married, 2-widowed)
+
+/* employee schedule */
+Days:
+    0 - Sunday
+    1 - Monday
+    2 - Tuesday
+    3 - Wednesday
+    4 - Thursday
+    5 - Friday
+    6 - Saturday

@@ -13,10 +13,13 @@
         <tbody>
             <?php if (isset($this->employees) && !empty($this->employees) && $employees_len > 0) { ?>
                 <?php foreach ($this->employees as $emp) {
+                    
                     $delete_url = site_url('employees/delete/'.$emp->id);
                     $restore_url = site_url('personnel/employees/restore/'.$emp->id);
+                    $update_url = site_url('personnel/employees/update/'.$emp->id);
+                    $edit_url = site_url('employees/get_edit_employee_form/'.$emp->id);
                 ?>
-                    <tr data-employee-id ="<?php echo $emp->id; ?>" data-delete-url ="<?php echo $delete_url; ?>" data-restore-url =<?php echo $restore_url;?> class="<?php echo ($emp->active == true) ? 'active' : 'inactive' ?>">
+                    <tr data-employee-id ="<?php echo $emp->id; ?>" data-delete-url ="<?php echo $delete_url; ?>" data-restore-url = "<?php echo $restore_url;?>" data-edit-url = "<?php echo $edit_url;?>" class="<?php echo ($emp->active == true) ? 'active' : 'inactive' ?>">
                         <td class="background <?php echo $emp->gender == 0 ? 'male' : 'female'; ?>"></td>
                         <td><?php echo $emp->employee_code ?></td>
                         <td><?php echo $emp->first_name . ' ' . $emp->last_name; ?></td>

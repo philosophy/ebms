@@ -323,6 +323,26 @@
             }
         }
 
+        function getWorkExperience($id=null) {
+            $sql = "SELECT * from work_experience where employee_id=?";
+            $query = $this->db->query($sql, array('employee_id' => ($id != NULL) ? $id : $this->get_id()));
+            if ($query->num_rows() > 0) {
+                return $query->result();
+            } else {
+                return NULL;
+            }
+        }
+
+        function getEducationalBackground($id=null) {
+            $sql = "SELECT * from educational_background where employee_id=?";
+            $query = $this->db->query($sql, array('employee_id' => ($id != NULL) ? $id : $this->get_id()));
+            if ($query->num_rows() > 0) {
+                return $query->result();
+            } else {
+                return NULL;
+            }
+        }
+
         function countEmployeesBySearch() {
             $sql = "SELECT * from employees where company_id = ? and (first_name like ? or last_name like ?)";
             $query = $this->db->query($sql, array(
@@ -339,6 +359,17 @@
 
             if ($query->num_rows() > 0) {
                 return $query->result();
+            } else {
+                return null;
+            }
+        }
+
+        function getEmployeeDetails() {
+            $sql = "SELECT * FROM employees where id = ?";
+            $query = $this->db->query($sql, array('id' => $this->get_id()));
+
+            if ($query->num_rows() > 0) {
+                return $query->row();
             } else {
                 return null;
             }

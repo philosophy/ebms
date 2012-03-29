@@ -198,6 +198,7 @@ $route['employees/profile'] = 'personnel/employees';
 $route['employees/profile/index'] = 'personnel/employees';
 $route['employees/profile/index/(:num)'] = 'personnel/employees';
 $route['employee/get_new_employee_form'] = 'personnel/employees/get_new_employee_form';
+$route['employees/get_edit_employee_form/(:num)'] = 'personnel/employees/get_edit_employee_form/$1';
 $route['employees/create'] = 'personnel/employees/create';
 $route['employees/delete/(:num)'] = 'personnel/employees/delete/$1';
 $route['employees/restore/(:num)'] = 'personnel/employees/restore/$1';

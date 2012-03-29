@@ -1,4 +1,4 @@
-<div id="flash" class="hide" data-error-message = <?php echo lang('please_try_again'); ?>>
+<div id="flash" class="hide" data-error-message = "<?php echo lang('please_try_again'); ?>">
     <div data-content-key="flash" class= "content">
         <?php
             if(strlen($this->session->flashdata('msg')) > 0) {

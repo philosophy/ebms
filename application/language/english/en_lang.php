@@ -455,6 +455,12 @@
     $lang['year_graduated'] = 'Year Graduated';
     $lang['remarks'] = 'Remarks';
     $lang['add'] = 'Add';
+    $lang['address'] = 'Address';
+    $lang['date_of_birth'] = 'Date of Birth';
+    $lang['remove_work_experience'] = 'Remove work experience';
+    $lang['are_you_sure_you_want_to_remove_work_exp'] = 'Are you sure you want to remove work experience?';
+    $lang['remove_educational_background'] = 'Remove educational background';
+    $lang['are_you_sure_you_want_to_remove_edu_background'] = 'Are you sure you want to remove this educational background?';
 
     /* payroll details */
     $lang['sss_number'] = 'SSS Number';

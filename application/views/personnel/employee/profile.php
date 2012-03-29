@@ -63,7 +63,3 @@
 <div id="restore-employee-dialog" class="hide">
     <span class="loader"></span>
 </div>
-
-<div id="transfer-employee-dialog" class="hide">
-    <span class="loader"></span>
-</div>

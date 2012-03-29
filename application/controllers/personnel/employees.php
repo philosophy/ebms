@@ -3,6 +3,7 @@
 
         public $employment_status;
         public $employees;
+        public $employee;
         private $employeeObj;
 
         function __construct() {
@@ -96,7 +97,23 @@
             $this->positions = $this->Position_model->getPositions();
             $this->departments = $this->Department_model->getDepartments();
 
-            send_json_response(INFO_LOG, HTTP_OK, 'new employee form', array('html' => $this->load->view('personnel/employee/_new_employee_form', '', true)));
+            send_json_response(INFO_LOG, HTTP_OK, 'new employee form', array('html' => $this->load->view('personnel/employee/_new_employee_form', array('url' => 'employees/create', 'form_id' => 'new-employee-form', 'edit' => false), true)));
+        }
+
+        function get_edit_employee_form($id) {
+            $this->Employee_status_model->set_company_id($this->current_avatar->company_id);
+            $this->Department_model->set_company_id($this->current_avatar->company_id);
+            $this->Position_model->set_company_id($this->current_avatar->company_id);
+            $this->employeeObj->set_id($id);
+
+            $this->employment_status = $this->Employee_status_model->getEmployeeStatus();
+            $this->positions = $this->Position_model->getPositions();
+            $this->departments = $this->Department_model->getDepartments();
+            $this->employee = $this->employeeObj->getEmployeeDetails();
+            $this->work_experience = $this->employeeObj->getWorkExperience();
+            $this->educational_background = $this->employeeObj->getEducationalBackground();
+
+            send_json_response(INFO_LOG, HTTP_OK, 'edit employee form', array('html' => $this->load->view('personnel/employee/_new_employee_form', array('url' => 'employees/update'.$this->employee->id, 'form_id' => 'edit-employee-form', 'edit' => true), true)));
         }
 
         function create() {
@@ -169,8 +186,8 @@
             if ($result) {
                 $name = $first_name.' '.$last_name;
                 $department_name = $this->Department_model->getDepartment($department)->name;
-                $position_name = $this->Position_model->getPosition($position)->name;
-                $status_name = $this->Status_model->getPosition($status)->name;
+                $position_name = $this->Position_model->getPositionDetails($position)->name;
+                $status_name = $this->Employee_status_model->getEmployeeStatusDetails($employment_status)->name;
                 send_json_response(INFO_LOG, HTTP_OK, lang('successfully_created_employee'), array('employee' => array('employee_no' => $employee_no, 'name' => $name, 'department' => $department_name, 'status' => $status_name)));
             } else {
                 send_json_response(ERROR_LOG, HTTP_FAIL_PRECON, lang('please_try_again'));
@@ -212,7 +229,7 @@
         private function generate_employee_code() {
             $this->employeeObj->set_company_id($this->current_avatar->company_id);
             $empId = $this->employeeObj->getMaxEmpID();
-            $code = ($empId > 0) ? substr(100000 + $empId, 1) : '000001';
+            $code = substr(1000000 + $empId, 1);
             return $this->employeeObj->empPrefix.date('Y').'-'.$code;
         }
 
