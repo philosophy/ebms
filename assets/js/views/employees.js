@@ -161,15 +161,22 @@ com.ebms.views.employees = {
     },
 
     newEmployeeSuccessHandler: function(e, data) {
-        //TODO add employee to list
+        
+        if (data.code == 200) {
+            //TODO add employee to list
+            $('#new-employee-dialog').dialog('destroy');
 
-        $('#new-employee-dialog').dialog('destroy');
+            //flash message
+            com.ebms.widgets.flash.flashMessage(data.message, 'success');
+            //flash message
+            com.ebms.widgets.flash.flashMessage(data.data.message, 'info');
 
-        //flash message
-        com.ebms.widgets.flash.flashMessage(data.message, 'success');
-
-        //reset dialog fields
-        com.ebms.views.employees.resetNewEmployeeForm();
+            //reset dialog fields
+            com.ebms.views.employees.resetNewEmployeeForm();
+        } else {
+            //flash message
+            com.ebms.widgets.flash.flashMessage(data.message, 'error');
+        }
     },
 
     newEmployeeCompleteHandler: function() {
