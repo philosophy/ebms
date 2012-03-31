@@ -204,6 +204,7 @@ $route['employees/delete/(:num)'] = 'personnel/employees/delete/$1';
 $route['employees/restore/(:num)'] = 'personnel/employees/restore/$1';
 $route['employees/profile/browse/(:num)'] =  'personnel/employees/browse/$1';
 $route['employees/profile/browse'] =  'personnel/employees/browse';
+$route['employee_schedule'] = 'personnel/employee_schedule';
 /* end of personnel */
 
 /* End of file routes.php */
