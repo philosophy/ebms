@@ -7,17 +7,17 @@ class Migration_Add_Employee_Schedule_Table extends CI_Migration {
     public function up() {
         $this->dbforge->add_field(array(
             'id' => array(
-                'type' => 'INT',                
+                'type' => 'INT',
                 'null' => FALSE,
                 'auto_increment' => TRUE
             ),
 
             'day' => array(
-                'type' => 'INT',                
+                'type' => 'INT',
                 'null' => FALSE
             ),
             'start_time' => array(
-                'type' => 'DATETIME',                                                
+                'type' => 'DATETIME',
                 'null' => FALSE
             ),
             'end_time' => array(
@@ -25,7 +25,7 @@ class Migration_Add_Employee_Schedule_Table extends CI_Migration {
                 'null' => FALSE
             ),
             'start_break_time' => array(
-                'type' => 'DATETIME',                                                
+                'type' => 'DATETIME',
                 'null' => FALSE
             ),
             'end_break_time' => array(
@@ -37,7 +37,7 @@ class Migration_Add_Employee_Schedule_Table extends CI_Migration {
                 'null' => FALSE
             ),
             'created_by' => array(
-                'type' => 'INT', 
+                'type' => 'INT',
                 'null' => FALSE
             ),
             'date_created_by' => array(
@@ -53,7 +53,7 @@ class Migration_Add_Employee_Schedule_Table extends CI_Migration {
                 'null' => TRUE
             ),
             'employee_id' => array(
-                'int' => 'INT',
+                'type' => 'INT',
                 'null' => FALSE
             )
         ));
