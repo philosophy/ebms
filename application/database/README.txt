@@ -21,3 +21,6 @@ Days:
     4 - Thursday
     5 - Friday
     6 - Saturday
+
+/* Naming Convention: */
+1. Table names should be plural. (e.g. positions)
