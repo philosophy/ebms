@@ -2,7 +2,7 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Migration_Create_Customers_Table extends CI_Migration {
+class Migration_Create_Locations_Table extends CI_Migration {
 
     public function up() {
         $this->dbforge->add_field(array(
@@ -11,11 +11,6 @@ class Migration_Create_Customers_Table extends CI_Migration {
                 'constraint' => '11',
                 'null' => FALSE,
                 'auto_increment' => TRUE
-            ),
-            'code' => array(
-                'type' => 'VARCHAR',
-                'constraint' => '10',
-                'null' => FALSE
             ),
             'name' => array(
                 'type' => 'VARCHAR',
@@ -52,10 +47,10 @@ class Migration_Create_Customers_Table extends CI_Migration {
             )
             ));
         $this->dbforge->add_key('id', TRUE);
-        $this->dbforge->create_table('customers');
+        $this->dbforge->create_table('locations');
     }
 
     public function down() {
-        $this->dbforge->drop_table('customers');
+        $this->dbforge->drop_table('locations');
     }
 }

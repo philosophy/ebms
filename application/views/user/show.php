@@ -101,44 +101,44 @@
             </div>
         </section>
 
-        <section id="employment-info">
+<!--        <section id="employment-info">
             <h3>Employment Info</h3>
             <fieldset>
                 <label>Date Hired:</label>
-                <span><?php echo $user->date_hired; ?></span>
+                <span><?php// echo $user->date_hired; ?></span>
             </fieldset>
             <fieldset>
                 <label>SSS Number:</label>
                 <span>
-                    <?php echo $user->sss_no; ?>
+                    <?php //echo $user->sss_no; ?>
                 </span>
             </fieldset>
             <fieldset>
                 <label>TIN Number:</label>
-                <span><?php echo $user->tin_no; ?></span>
+                <span><?php// echo $user->tin_no; ?></span>
             </fieldset>
             <fieldset>
                 <label>Philhealth Number:</label>
-                <span><?php echo $user->philhealth; ?></span>
+                <span><?php// echo $user->philhealth; ?></span>
             </fieldset>
             <fieldset>
                 <label>Pagibig:</label>
-                <span><?php echo $user->pagibig; ?></span>
+                <span><?php// echo $user->pagibig; ?></span>
             </fieldset>
             <fieldset>
                 <label>Salary:</label>
-                <span><?php echo $user->salary; ?></span>
+                <span><?php// echo $user->salary; ?></span>
             </fieldset>
             <fieldset>
                 <label>Employment Status:</label>
                 <span>
-                    <?php
+                    <?php/*
                     if (isset($user->employee_status_id)) {
                         echo $this->employee_status[$user->employee_status_id];
-                    }
+                    }*/
                     ?>
                 </span>
             </fieldset>
-        </section>
+        </section>-->
     </div>
 </article>

@@ -37,7 +37,7 @@
                 echo ('no user!');
                 die();
             }
-            $this->output->enable_profiler(TRUE);
+            parent::enableProfiler();
         }
 
         function edit($id) {
@@ -49,7 +49,7 @@
                     $data['content'] = 'user/edit';
                     $this->parser->parse('layouts/application', $data);
 
-                    $this->output->enable_profiler(TRUE);
+                    parent::enableProfiler();
                 }
             } else {
                 show_404();
@@ -234,6 +234,7 @@
                 $user->set_userid($id);
                 $user->set_securityQuestionId($security_question_id);
                 $user->set_securityAnswer($security_answer);
+                $user->set_last_updated_by($this->current_avatar->id);
 
                 $result = $user->updateSecuritySettings();
                 if ($result) {

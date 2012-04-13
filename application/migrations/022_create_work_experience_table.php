@@ -2,7 +2,7 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Migration_Create_Customers_Table extends CI_Migration {
+class Migration_Create_Work_Experience_Table extends CI_Migration {
 
     public function up() {
         $this->dbforge->add_field(array(
@@ -12,14 +12,22 @@ class Migration_Create_Customers_Table extends CI_Migration {
                 'null' => FALSE,
                 'auto_increment' => TRUE
             ),
-            'code' => array(
-                'type' => 'VARCHAR',
-                'constraint' => '10',
-                'null' => FALSE
-            ),
-            'name' => array(
+            'company_name' => array(
                 'type' => 'VARCHAR',
                 'constraint' => '255',
+                'null' => FALSE,
+            ),
+            'date_started' => array(
+                'type' => 'DATE',
+                'null' => FALSE
+            ),
+            'date_ended' => array(
+                'type' => 'DATE',
+                'null' => FALSE
+            ),
+            'work_description' => array(
+                'type' => 'VARCHAR',
+                'constraint' => '500',
                 'null' => FALSE
             ),
             'created_by' => array(
@@ -45,17 +53,17 @@ class Migration_Create_Customers_Table extends CI_Migration {
                 'default' => '1',
                 'null' => FALSE
             ),
-            'company_id' => array(
+            'employee_id' => array(
                 'type' => 'INT',
                 'constraint' => '11',
                 'null' => FALSE
             )
             ));
         $this->dbforge->add_key('id', TRUE);
-        $this->dbforge->create_table('customers');
+        $this->dbforge->create_table('work_experience');
     }
 
     public function down() {
-        $this->dbforge->drop_table('customers');
+        $this->dbforge->drop_table('work_experience');
     }
 }

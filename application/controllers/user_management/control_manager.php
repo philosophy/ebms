@@ -102,7 +102,7 @@
             $data['content'] = 'system_records/user_management/control_manager/archive';
             $data['active'] = 'archive';
 
-            $this->db->where('archive =', 1);
+            $this->db->where('active =', 1);
             $this->users = $this->ion_auth->get_users();
 
             $this->parser->parse('layouts/application', $data);

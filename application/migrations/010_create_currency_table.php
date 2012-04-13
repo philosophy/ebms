@@ -43,6 +43,11 @@ class Migration_Create_Currency_Table extends CI_Migration {
                 'type' => 'INT',
                 'default' => '1',
                 'null' => FALSE
+            ),
+            'company_id' => array(
+                'type' => 'INT',
+                'constraint' => '11',
+                'null' => FALSE
             )
             ));
         $this->dbforge->add_key('id', TRUE);

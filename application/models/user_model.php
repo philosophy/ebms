@@ -198,16 +198,35 @@ class User_model extends CI_Model {
     }
 
     function updateSecuritySettings() {
-        $result = $this->ion_auth->update_user($this->get_userid(), array(
+/*        $result = $this->ion_auth->update_user($this->get_userid(), array(
             'security_question_id' => $this->get_securityQuestionId(),
             'security_answer' => $this->get_securityAnswer()
-        ));
+        ));*/
 
-        if ($result === TRUE) {
-            /* insert audit UPDATE */
-            parent::insertAuditTrail($this->get_userid(), 2, $this->get_userid(), lang('update_security'), $this->get_company_id(), $this->table_name);
+        $this->db->trans_start();
+        $data = array(
+            'security_question_id' => $this->get_securityQuestionId(),
+            'security_answer' => $this->get_securityAnswer()
+        );
+
+        $this->db->where('id', $this->get_userid());
+        $this->db->update('users', $data);
+
+        /* insert audit UPDATE */
+        parent::insertAuditTrail($this->get_last_updated_by(), 2, $this->get_userid(), lang('update_employee_status'), $this->get_company_id(), $this->table_name);
+
+        $this->db->trans_complete();
+        if ($this->db->trans_status() === TRUE) {
+            return true;
+        } else {
+            return false;
         }
-        return $result;
+
+//        if ($result === TRUE) {
+//            /* insert audit UPDATE */
+//            parent::insertAuditTrail($this->get_userid(), 2, $this->get_userid(), lang('update_security'), $this->get_company_id(), $this->table_name);
+//        }
+//        return $result;
     }
 
     function updatePassword() {

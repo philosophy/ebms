@@ -20,12 +20,12 @@ class Migration_Create_Audit_Trail_Table extends CI_Migration {
             'subject_id' => array(
                 'type' => 'INT',
                 'constraint' => '11',
-                'null' => FALSE
+                'null' => TRUE
             ),
             'type' => array(
                 'type' => 'INT',
                 'constraint' => '11',
-                'null' => FALSE
+                'null' => TRUE
             ),
             'details' => array(
                 'type' => 'VARCHAR',

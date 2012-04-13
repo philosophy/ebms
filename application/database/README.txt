@@ -23,4 +23,4 @@ Days:
     6 - Saturday
 
 /* Naming Convention: */
-1. Table names should be plural. (e.g. positions)
+1. Table names should be plural. (e.g. positions, locations)

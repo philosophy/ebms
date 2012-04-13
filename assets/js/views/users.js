@@ -2,7 +2,7 @@ com.ebms.views.users = {
     init: function() {
         $('.edit-link').click(this.displayEditAccount);
         $('.cancel-link').live('click', this.hideEditForm);
-        
+
     },
 
     updateProfileSubmitHandler: function() {
@@ -105,7 +105,7 @@ com.ebms.views.users = {
                     rangelength: [5,32]
                 },
                 first_name: {
-                    required: true, 
+                    required: true,
                     number: false,
                     rangelength: [1,32]
                 },
@@ -128,14 +128,14 @@ com.ebms.views.users = {
                 date_of_birth: {
                     required:true
                 }
-                               
+
             },
-            
+
             messages: {
                 username: {
                     required: "Username can't be blank",
                     rangelength: "Please enter a valid username"
-                },          
+                },
                 first_name: {
                     required: "First name can't be blank",
                     number: "First name can't contain numbers",
@@ -160,7 +160,7 @@ com.ebms.views.users = {
                 date_of_birth: {
                     required: "Date of birth can't be blank"
                 }
-                                
+
             },
             submitHandler: function(form) {
                 if( $('#personal-info label.error:visible').length > 0 ) {
@@ -260,13 +260,14 @@ com.ebms.views.users = {
             success: function(data) {
                 if(data.code === 200) {
                     var txt;
-                    if (securityAnswer === '0') {
+                    if (data.data.security_question_id === '0') {
                         txt = 'What is your favorite snack?';
-                    } else if (securityAnswer === '1') {
+                    } else if (data.data.security_question_id === '1') {
                         txt = "What is your mother's maiden name?";
-                    }  else if (securityAnswer === '2') {
+                    }  else if (data.data.security_question_id === '2') {
                         txt = "What is your pet's name?";
                     }
+                    
                     $('#security-question').text(txt);
                     /* remove the form */
                     $('#user-edit-security-settings').fadeOut('slow', function() {
@@ -394,10 +395,10 @@ com.ebms.views.users = {
             success: function(data) {
                 $info.find('div.loader').hide();
                 $info.append(data.data.html).fadeIn();
-                
-                /* initialize datepicker */                
+
+                /* initialize datepicker */
                 com.ebms.widgets.base.initDatePicker($('#date_of_birth'));
-                
+
                 var id = $(data.data.html).attr('id');
                 if (id === 'user-edit') {
                     com.ebms.views.users.initEditProfileValidations();
