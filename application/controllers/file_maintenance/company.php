@@ -53,15 +53,9 @@
                     /* TODO: return with errors */
                 }
             } else {
-                /* return with errors */
-//                $data['title'] =  $this->lang->line('create_department');
-//                $data['content'] = 'system_records/file_maintenance/department/new';
-//                $data['active'] = 'create';
-
                 $this->session->set_flashdata('msg', lang('an_error_occured'));
                 $this->session->set_flashdata('msg_class', 'error');
                 redirect('file_maintenance/company/new_company', 'refresh');
-//                $this->parser->parse('layouts/application', $data);
             }
 
             parent::enableProfiler();

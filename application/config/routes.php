@@ -180,6 +180,7 @@ $route['file_maintenance/deduction/get_deduction_edit_form/(:num)'] = 'file_main
 $route['file_maintenance/company'] = 'file_maintenance/company';
 $route['file_maintenance/company/new_company'] = 'file_maintenance/company/new_company';
 $route['file_maintenance/company/create_company'] = 'file_maintenance/company/create_company';
+$route['file_maintenance/company/update/(:num)'] = 'file_maintenance/company/update/$1';
 $route['file_maintenance/company/delete/(:num)'] = 'file_maintenance/company/delete/$1';
 $route['file_maintenance/company/get_company_edit_form/(:num)'] = 'file_maintenance/company/get_company_edit_form/$1';
 

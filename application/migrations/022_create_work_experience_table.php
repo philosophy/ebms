@@ -35,7 +35,7 @@ class Migration_Create_Work_Experience_Table extends CI_Migration {
                 'constraint' => '11',
                 'null' => FALSE
             ),
-            'date_created_by' => array(
+            'date_created' => array(
                 'type' => 'DATETIME',
                 'null' => FALSE
             ),

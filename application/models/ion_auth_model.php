@@ -985,7 +985,7 @@ class Ion_auth_model extends CI_Model
             $this->db->trans_begin();
 
             $this->db->where('id', $id);
-            $this->db->update($this->tables['users'], array('archive'=>1));
+            $this->db->update($this->tables['users'], array('archive'=>0));
 
             if ($this->db->trans_status() === FALSE) {
                 $this->db->trans_rollback();
@@ -1003,7 +1003,7 @@ class Ion_auth_model extends CI_Model
             $this->db->trans_begin();
 
             $this->db->where('id', $id);
-            $this->db->update($this->tables['users'], array('archive'=>0));
+            $this->db->update($this->tables['users'], array('archive'=>1));
 
             if ($this->db->trans_status() === FALSE) {
                 $this->db->trans_rollback();

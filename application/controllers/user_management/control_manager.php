@@ -21,7 +21,7 @@
                     $title = $this->lang->line('user_list');
                     $content = 'system_records/user_management/control_manager/index';
                     $active = 'list';
-                    $this->db->where('archive =', 0);
+                    $this->db->where('active =', 1);
                     $this->users = $this->ion_auth->get_users();
                 break;
 
@@ -102,7 +102,7 @@
             $data['content'] = 'system_records/user_management/control_manager/archive';
             $data['active'] = 'archive';
 
-            $this->db->where('active =', 1);
+            $this->db->where('active =', 0);
             $this->users = $this->ion_auth->get_users();
 
             $this->parser->parse('layouts/application', $data);

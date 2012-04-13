@@ -81,8 +81,8 @@ class Company_model extends CI_Model {
     }
 
     function getCompanies() {
-        $sql = "SELECT * FROM company where active=? and company_id=?";
-        $query = $this->db->query($sql, array('active' => $this->get_active(), 'company_id' => $this->get_company_id()));
+        $sql = "SELECT * FROM company where active=?";
+        $query = $this->db->query($sql, array('active' => $this->get_active()));
 
         if ($query->num_rows() > 0) {
             return $query->result();
@@ -105,20 +105,18 @@ class Company_model extends CI_Model {
     function createCompany() {
 
         $this->db->trans_start();
-        $sql = "INSERT INTO company (name, created_by, date_created, company_id) values (?, ?, ?, ?)";
+        $sql = "INSERT INTO company (name, created_by, date_created) values (?, ?, ?)";
         $this->db->query($sql,
             array(
                 $this->get_name(),
                 $this->get_created_by(),
-                date($this->config->item('date_format')),
-                $this->get_company_id()
+                date($this->config->item('date_format'))
             ));
 
-        $sql = 'SELECT id from company where company_id = ? order by date_created desc limit 1';
-        $query = $this->db->query($sql, array('company_id' => $this->get_company_id()));
+        $query = $this->db->query('SELECT id from company order by date_created desc limit 1');
 
         /* insert audit CREATE */
-        parent::insertAuditTrail($this->get_created_by(), 1, $query->row()->id, lang('create_new_company'), $this->get_company_id(), $this->table_name);
+        parent::insertAuditTrail($this->get_created_by(), 1, $query->row()->id, lang('create_new_company'), $query-row()->id, $this->table_name);
 
         $this->db->trans_complete();
         if ($this->db->trans_status() === TRUE) {
@@ -191,8 +189,8 @@ class Company_model extends CI_Model {
 
 
     function companyExists() {
-        $sql = "SELECT * FROM company where name = ? and company_id = ?";
-        $query = $this->db->query($sql, array('name' => $this->get_name(), 'company_id' => $this->get_company_id()));
+        $sql = "SELECT * FROM company where name = ?";
+        $query = $this->db->query($sql, array('name' => $this->get_name()));
 
         if ($query->num_rows() > 0) {
             return true;
@@ -202,8 +200,8 @@ class Company_model extends CI_Model {
     }
 
     function recordExists() {
-        $sql = "SELECT * FROM company where id!=? and name=? and company_id=?";
-        $query = $this->db->query($sql, array('id' => $this->get_id(), 'name' => $this->get_name(), 'company_id' => $this->get_company_id()));
+        $sql = "SELECT * FROM company where id!=? and name=?";
+        $query = $this->db->query($sql, array('id' => $this->get_id(), 'name' => $this->get_name()));
 
         if ($query->num_rows() > 0) {
             return true;

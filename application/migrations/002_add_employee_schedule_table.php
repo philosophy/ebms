@@ -40,7 +40,7 @@ class Migration_Add_Employee_Schedule_Table extends CI_Migration {
                 'type' => 'INT',
                 'null' => FALSE
             ),
-            'date_created_by' => array(
+            'date_created' => array(
                 'type' => 'DATETIME',
                 'null' => FALSE
             ),

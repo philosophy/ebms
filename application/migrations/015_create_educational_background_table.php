@@ -31,7 +31,7 @@ class Migration_Create_Educational_Background_Table extends CI_Migration {
                 'constraint' => '11',
                 'null' => FALSE
             ),
-            'date_created_by' => array(
+            'date_created' => array(
                 'type' => 'DATETIME',
                 'null' => FALSE
             ),
