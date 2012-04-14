@@ -11,7 +11,7 @@ class Company_info_model extends CI_Model {
     private $email_address = '';
     private $website = '';
     private $logo = '';
-    private $table_name = 'company_info';
+    private $table_name = 'company';
 
     function __construct() {
         parent::__construct();
@@ -90,8 +90,8 @@ class Company_info_model extends CI_Model {
     }
 
     function getCompanyInfo() {
-        $sql = "SELECT * FROM company_info limit 1";
-        $query = $this->db->query($sql);
+        $sql = "SELECT * FROM company where id = ? limit 1";
+        $query = $this->db->query($sql, array('id' => $this->get_id()));
 
         if ($query->num_rows() > 0) {
             return $query->row();
@@ -101,7 +101,7 @@ class Company_info_model extends CI_Model {
     }
 
     function company_infoExists() {
-        $sql = "SELECT * FROM company_info WHERE id = ?";
+        $sql = "SELECT * FROM company WHERE id = ?";
         $query = $this->db->query($sql, array($this->get_id()));
 
         if ($query->num_rows() > 0) {
@@ -119,8 +119,8 @@ class Company_info_model extends CI_Model {
                     'mobile_no' => $this->get_mobile_no(),
                     'fax_no' => $this->get_fax_no(),
                     'email_address' => $this->get_email_address(),
-                    'website' => $this->get_website(),
-                    'logo' => $this->get_logo()
+                    'website' => $this->get_website()
+//                    'logo' => $this->get_logo()
                 );
 
         $this->db->where('id', $this->get_id());
@@ -128,7 +128,7 @@ class Company_info_model extends CI_Model {
         /* insert audit UPDATE */
 //        parent::insertAuditTrail($this->get_created_by(), 1, $query->row()->id, lang('create_new_unit'), $this->get_company_info_id(), $this->table_name);
 
-        return $this->db->update('company_info', $data);
+        return $this->db->update('company', $data);
     }
 
 }

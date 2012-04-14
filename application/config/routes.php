@@ -64,7 +64,7 @@ $route['user_management/control_manager/get_useredit_form/(:num)'] = 'user_manag
 $route['user_management/audit_trail'] = 'user_management/audit_trail/index';
 
 /* file_maintenance */
-$route['file_maintenance/company_info'] = 'file_maintenance/company_info';
+$route['file_maintenance/company_info'] = 'file_maintenance/company_info/index';
 $route['file_maintenance/company_info/edit/(:num)'] = 'file_maintenance/company_info/edit/$1';
 $route['file_maintenance/company_info/update/(:num)'] = 'file_maintenance/company_info/update/$1';
 
@@ -151,13 +151,6 @@ $route['inventory/items/get_item_edit_form/(:num)'] = 'inventory/items/get_item_
 
 $route['sample/file_upload'] = 'sample/file_upload';
 $route['sample/file_upload/do_upload'] = 'sample/file_upload/do_upload';
-
-$route['file_maintenance/company_info'] = 'file_maintenance/accounts';
-$route['file_maintenance/company_info'] = 'file_maintenance/earning';
-$route['file_maintenance/company_info'] = 'file_maintenance/deduction';
-$route['file_maintenance/company_info'] = 'file_maintenance/customer_type';
-$route['file_maintenance/company_info'] = 'file_maintenance/area';
-$route['file_maintenance/company_info'] = 'file_maintenance/currency';
 
 $route['file_maintenance/currency'] = 'file_maintenance/currency';
 $route['file_maintenance/currency/new_currency'] = 'file_maintenance/currency/new_currency';

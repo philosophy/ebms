@@ -38,10 +38,10 @@
             <label>Website:</label>
             <?php echo form_input(array('name' => 'website', 'id' => 'username', 'value' => $this->company_info->website)); ?>
         </fieldset>
-        <fieldset>
+<!--        <fieldset>
             <label>Logo:</label>
-            <?php echo form_input(array('name' => 'logo', 'id' => 'logo', 'value' => $this->company_info->logo)); ?>                
-        </fieldset>
+            <?php //echo form_input(array('name' => 'logo', 'id' => 'logo', 'value' => $this->company_info->logo)); ?>
+        </fieldset>-->
 
         <?php echo form_submit('edit_form_submit', 'Update', 'class="button-theme-a"'); ?>
         <?php echo anchor(site_url('file_maintenance/company_info'), 'Cancel', array('id' => 'cancel-update')); ?>

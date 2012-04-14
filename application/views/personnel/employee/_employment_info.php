@@ -19,18 +19,22 @@
     <label>Position:</label>
     <select name="position">
         <option>Select Position</option>
-            <?php foreach ($this->positions as $position) { ?>
+        <?php if (count($this->positions) > 0) {
+             foreach ($this->positions as $position) { ?>
                 <option value=<?php echo $position->id; ?>><?php echo $position->name; ?></option>
-            <?php } ?>
+            <?php }
+        } ?>
     </select>
 </fieldset>
 <fieldset>
     <label>Employment Status:</label>
     <select name="employment_status" id="employment-status">
         <option>Select Status</option>
-        <?php foreach ($this->employment_status as $status) { ?>
-            <option value=<?php echo $status->id; ?>><?php echo $status->name; ?></option>
-        <?php } ?>
+        <?php if (count($this->positions) > 0) {
+            foreach ($this->employment_status as $status) { ?>
+                <option value=<?php echo $status->id; ?>><?php echo $status->name; ?></option>
+            <?php }
+        } ?>
     </select>
 </fieldset>
 <section id="work-experience">

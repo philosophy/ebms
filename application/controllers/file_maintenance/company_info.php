@@ -16,6 +16,7 @@ class Company_info extends Application {
         $data['title'] = lang('company_info');
 
         $company_info = new $this->Company_info_model();
+        $company_info->set_id($this->current_avatar->id);
         $this->company_info = $company_info->getCompanyInfo();
 
         $this->parser->parse('layouts/application', $data);
@@ -27,7 +28,8 @@ class Company_info extends Application {
         $data['content'] = 'system_records/file_maintenance/company_info/edit';
         $data['title'] = lang('edit_company_info');
 
-        $company_info = new $this->Company_model();
+        $company_info = new $this->Company_info_model();
+        $company_info->set_id($id);
         $this->company_info = $company_info->getCompanyInfo();
 
         $this->parser->parse('layouts/application', $data);
@@ -58,9 +60,9 @@ class Company_info extends Application {
                 $company_info->set_fax_no($this->input->post('fax_no'));
                 $company_info->set_email_address($this->input->post('email_address'));
                 $company_info->set_website($this->input->post('website'));
-                $company_info->set_logo($this->input->post('logo'));
+//                $company_info->set_logo($this->input->post('logo'));
 
-                $result = $company_info->updateCompany();
+                $result = $company_info->updateCompany_info();
                 if ($result) {
                     $audit = new $this->Audit_trail_model();
 
