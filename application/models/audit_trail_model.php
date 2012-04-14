@@ -116,7 +116,7 @@ class Audit_trail_model extends CI_Model {
     }
 
     function getUserActions() {
-        $sql = "SELECT * FROM audit_trail as trail inner join users as u where u.id = trail.user_id LIMIT ? OFFSET ?";
+        $sql = "SELECT * FROM audit_trail as trail inner join users as u where u.id = trail.user_id order by date_created desc LIMIT ? OFFSET ?";
         $query = $this->db->query($sql, array($this->get_limit(), $this->get_offset()));
 
         return $query->result();

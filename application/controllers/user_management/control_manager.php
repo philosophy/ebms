@@ -3,6 +3,7 @@
 
         public $users = null;
         public $user = null;
+        public $companies = null;
 
         function __construct() {
             parent::__construct();
@@ -50,6 +51,8 @@
             $data['content'] = 'system_records/user_management/control_manager/new';
             $data['active'] = 'create';
 
+            $this->companies = $this->Company_model->getCompanies();
+
             $this->parser->parse('layouts/application', $data);
 
             $this->output->enable_profiler(TRUE);
@@ -58,25 +61,30 @@
         function create_user() {
             $user = new $this->User_model();
 
-            /* These are only the required fields */
             $user->set_username($this->input->post('username'));
             $user->set_first_name($this->input->post('first_name'));
+            $user->set_middle_name($this->input->post('middle_name'));
             $user->set_last_name($this->input->post('last_name'));
-            $user->set_address($this->input->post('address'));
             $user->set_email($this->input->post('email'));
+            $user->set_address($this->input->post('address'));
+            $user->set_gender($this->input->post('gender'));
+            $user->set_date_of_birth($this->input->post('date_of_birth'));
             $user->set_password($this->input->post('password'));
             $user->set_group_id($this->input->post('group_id'));
             $user->set_created_by($this->current_avatar->id);
-            $user->set_company_id($this->current_avatar->company_id);
+            $user->set_company_id($this->input->post('company'));
+
 
             $this->load->library('form_validation');
 
+            /* These are only the required fields */
             $this->form_validation->set_rules('username', 'Username', 'required');
             $this->form_validation->set_rules('first_name', 'First Name', 'required');
             $this->form_validation->set_rules('last_name', 'Last Name', 'required');
             $this->form_validation->set_rules('address', 'Address', 'required');
             $this->form_validation->set_rules('password', 'Password', 'required');
             $this->form_validation->set_rules('email', 'Email', 'required');
+            $this->form_validation->set_rules('company', 'Company', 'required');
 
             if ($this->form_validation->run() == TRUE) {
                 $result = $user->createUser();
@@ -91,6 +99,8 @@
                 $data['title'] =  $this->lang->line('create_user');
                 $data['content'] = 'system_records/user_management/control_manager/new';
                 $data['active'] = 'create';
+
+                $this->companies = $this->Company_model->getCompanies();
 
                 $this->parser->parse('layouts/application', $data);
             }
@@ -113,6 +123,7 @@
         function get_useredit_form($id){
             $this->user = $this->ion_auth->get_user($id);
             if ($this->user) {
+                $this->companies = $this->Company_model->getCompanies();
                 send_json_response(INFO_LOG, HTTP_OK, 'user edit account form', array('html' => $this->load->view('system_records/user_management/control_manager/_edit', '', true)));
             } else {
                 send_json_response(ERROR_LOG, HTTP_BAD_REQUEST, 'bad request');
@@ -131,10 +142,11 @@
                 $address = $_POST['address'];
                 $gender = $_POST['gender'];
                 $date_of_birth = $_POST['date_of_birth'];
-                $status_id = $_POST['status_id'];
-                $home_phone = $_POST['home_phone'];
-                $work_phone = $_POST['work_phone'];
-                $group_id = $_POST['group_id'];
+                $company = $_POST['company'];
+//                $status_id = $_POST['status_id'];
+//                $home_phone = $_POST['home_phone'];
+//                $work_phone = $_POST['work_phone'];
+//                $group_id = $_POST['group_id'];
 
                 /* TODO */
 
@@ -153,11 +165,6 @@
                     send_json_response(ERROR_LOG, HTTP_FAIL_PRECON, 'first name is required');
                     exit;
                 }
-                /*check the string length*/
-                if(is_length_valid($first_name)) {
-                    send_json_response(ERROR_LOG, HTTP_FAIL_PRECON, 'first name must be more than 4 characters');
-                    exit;
-                }
                 /*letters only*/
                 if(no_number($first_name)) {
                     send_json_response(ERROR_LOG, HTTP_FAIL_PRECON, 'first name must consist of strings only');
@@ -172,11 +179,6 @@
                     exit;
                 }
 
-                /*check the string length*/
-                if(is_length_valid($last_name)) {
-                    send_json_response(ERROR_LOG, HTTP_FAIL_PRECON, 'It must be more than 4 characters');
-                    exit;
-                }
                 /*letters only*/
                 if(no_number($last_name)) {
                     send_json_response(ERROR_LOG, HTTP_FAIL_PRECON, 'Letters only');
@@ -194,11 +196,12 @@
                 $user->set_address($address);
                 $user->set_gender($gender);
                 $user->set_date_of_birth($date_of_birth);
-                $user->set_status_id($status_id);
-                $user->set_home_phone($home_phone);
-                $user->set_work_phone($work_phone);
-                $user->set_group_id($group_id);
+//                $user->set_status_id($status_id);
+//                $user->set_home_phone($home_phone);
+//                $user->set_work_phone($work_phone);
+//                $user->set_group_id($group_id);
                 $user->set_company_id($this->current_avatar->company_id);
+                $user->set_user_company_id($company);
                 $user->set_last_updated_by($this->current_avatar->id);
 
                 $result = $user->update_user();

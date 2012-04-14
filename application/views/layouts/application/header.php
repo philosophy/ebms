@@ -262,9 +262,6 @@
                                 <?php echo anchor('file_maintenance/company_info/index', lang('company_info')); ?>
                             </li>
                             <li>
-                                <?php echo anchor('file_maintenance/company/index', lang('company_manager')); ?>
-                            </li>
-                            <li>
                                 <?php echo anchor('file_maintenance/currency/index', lang('currency_manager')); ?>
                             </li>
                             <li>
@@ -316,9 +313,15 @@
                     <li class="sub-nav-item">
                         <a href="#" class="sub-nav-a"><?php echo lang('user_management'); ?></a>
                         <ul class="inner-nav hide" id="user-management-nav">
-                            <li >
-                                <?php echo anchor('user_management/control_manager/', lang('control_manager'), array('class' => 'sub-nav-a')); ?>
-                            </li>
+                            <!-- update this condition - quick fix for now -->
+                            <?php if ($this->current_avatar->id == 1) { ?>
+                                <li>
+                                    <?php echo anchor('file_maintenance/company/index', lang('company_manager')); ?>
+                                </li>
+                                <li >
+                                    <?php echo anchor('user_management/control_manager/', lang('control_manager'), array('class' => 'sub-nav-a')); ?>
+                                </li>
+                            <?php } ?>
                             <li >
                                 <?php echo anchor('user_management/audit_trail/', lang('audit_trail'), array('class' => 'sub-nav-a')); ?>
                             </li>

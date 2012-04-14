@@ -21,6 +21,7 @@ class User_model extends CI_Model {
     private $group_id = 2;
     private $table_name = 'users';
     private $company_id;
+    private $user_company_id;
     private $updated_at;
     private $created_by;
     private $last_updated_by;
@@ -83,6 +84,9 @@ class User_model extends CI_Model {
     function set_company_id($val) {
         $this->company_id = $val;
     }
+    function set_user_company_id($val) {
+        $this->user_company_id = $val;
+    }
     function set_created_by($val) {
         $this->created_by = $val;
     }
@@ -144,6 +148,9 @@ class User_model extends CI_Model {
     function get_company_id() {
         return (int)$this->company_id;
     }
+    function get_user_company_id() {
+        return (int)$this->user_company_id;
+    }
     function get_created_by() {
         return (int)$this->company_id;
     }
@@ -183,10 +190,11 @@ class User_model extends CI_Model {
             'address' => $this->get_address(),
             'gender' => $this->get_gender(),
             'date_of_birth' => $this->get_date_of_birth(),
-            'status_id' => $this->get_status_id(),
-            'home_phone' => $this->get_home_phone(),
-            'work_phone' => $this->get_work_phone(),
-            'group_id' => $this->get_group_id()
+            'company_id' => $this->get_user_company_id()
+//            'status_id' => $this->get_status_id(),
+//            'home_phone' => $this->get_home_phone(),
+//            'work_phone' => $this->get_work_phone(),
+//            'group_id' => $this->get_group_id()
         ));
 
         if ($result === TRUE) {
@@ -286,16 +294,20 @@ class User_model extends CI_Model {
                         'last_name' => $this->get_last_name(),
                         'middle_name' => $this->get_middle_name(),
                         'address' => $this->get_address(),
-                        'group_id' => $this->get_group_id()
+                        'gender' => $this->get_gender(),
+                        'date_of_birth' => $this->get_date_of_birth(),
+//                        'group_id' => $this->get_group_id(),
+                        'company_id' => $this->get_company_id(),
+                        'group_id' => 2 // making user a member as default since admin belongs to sir pedraza only
                     )
                 );
 
-        $sql = 'SELECT id from users where company_id = ? and created_by = ? order by date_created desc limit 1';
+        $sql = 'SELECT id from users where company_id = ? and created_by = ? order by created_on desc limit 1';
         $query = $this->db->query($sql, array('company_id' => $this->get_company_id(), 'created_by' => $this->get_created_by()));
 
         if ($result === TRUE) {
-            /* insert audit UPDATE */
-            parent::insertAuditTrail($this->get_created_by(), 2, $query->row()->id, lang('create_user'), $this->get_company_id(), $this->table_name);
+            /* insert audit ADD */
+            parent::insertAuditTrail($this->get_created_by(), 1, $query->row()->id, lang('create_user'), $this->get_company_id(), $this->table_name);
         }
         return $result;
     }
