@@ -107,11 +107,7 @@
                     send_json_response(ERROR_LOG, HTTP_FAIL_PRECON, 'first name is required');
                     exit;
                 }
-                /*check the string length*/
-                if(is_length_valid($first_name)) {
-                    send_json_response(ERROR_LOG, HTTP_FAIL_PRECON, 'It must be more than 4 characters');
-                    exit;
-                }
+
                 /*letters only*/
                 if(no_number($first_name)) {
                     send_json_response(ERROR_LOG, HTTP_FAIL_PRECON, 'Letters only');
@@ -121,21 +117,16 @@
                 /***********************************************************************************/
 
                 /* validate middle name if empty */
-                if(is_empty_null_value($middle_name)) {
-                    send_json_response(ERROR_LOG, HTTP_FAIL_PRECON, 'middle name is required');
-                    exit;
-                }
-
-                /*check the string length*/
-                if(is_length_valid($middle_name)) {
-                    send_json_response(ERROR_LOG, HTTP_FAIL_PRECON, 'It must be more than 4 characters');
-                    exit;
-                }
+//                if(is_empty_null_value($middle_name)) {
+//                    send_json_response(ERROR_LOG, HTTP_FAIL_PRECON, 'middle name is required');
+//                    exit;
+//                }
+//                }
                 /*letters only*/
-                if(no_number($middle_name)) {
-                    send_json_response(ERROR_LOG, HTTP_FAIL_PRECON, 'Letters only');
-                    exit;
-                }
+//                if(no_number($middle_name)) {
+//                    send_json_response(ERROR_LOG, HTTP_FAIL_PRECON, 'Letters only');
+//                    exit;
+//                }
 
                 /***********************************************************************************/
 
@@ -145,11 +136,6 @@
                     exit;
                 }
 
-                /*check the string length*/
-                if(is_length_valid($last_name)) {
-                    send_json_response(ERROR_LOG, HTTP_FAIL_PRECON, 'It must be more than 4 characters');
-                    exit;
-                }
                 /*letters only*/
                 if(no_number($last_name)) {
                     send_json_response(ERROR_LOG, HTTP_FAIL_PRECON, 'Letters only');
@@ -157,7 +143,6 @@
                 }
 
                 /***********************************************************************************/
-
 
                 /* validate address */
                 if(is_empty_null_value($address)) {
@@ -171,28 +156,16 @@
                 }
 
                 /* validate home_phone */
-                if(no_letter($home_phone)) {
-                    send_json_response(ERROR_LOG, HTTP_FAIL_PRECON, 'all number');
-                    exit;
-                }
-
-                /*number length*/
-                if(is_length_number_valid($home_phone)) {
-                    send_json_response(ERROR_LOG, HTTP_FAIL_PRECON, 'home phone number must not be less than 11 characters');
+                if(!empty($home_phone) && no_letter($home_phone)) {
+                    send_json_response(ERROR_LOG, HTTP_FAIL_PRECON, 'home phone ' . lang('must_be_a_number_only'));
                     exit;
                 }
 
                 /*****************************************************************************/
 
                 /* validate work_phone */
-                if(no_letter($work_phone)) {
-                    send_json_response(ERROR_LOG, HTTP_FAIL_PRECON, 'all number');
-                    exit;
-                }
-
-                /*number length*/
-                if(is_length_number_valid($work_phone)) {
-                    send_json_response(ERROR_LOG, HTTP_FAIL_PRECON, '11');
+                if(!empty($work_phone) && no_letter($work_phone)) {
+                    send_json_response(ERROR_LOG, HTTP_FAIL_PRECON, 'work phone ' . lang('must_be_a_number_only'));
                     exit;
                 }
 

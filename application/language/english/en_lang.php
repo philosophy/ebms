@@ -326,6 +326,7 @@
     $lang['company_name_exists'] = 'Company name already exists';
     $lang['first_name_cant_be_blank'] = "First name can't be blank";
     $lang['please_try_again'] = 'An error has occured, please try again';
+    $lang['must_be_a_number_only'] = 'Must be a number only';
 
     /* profile info */
     $lang['username'] = 'Username';

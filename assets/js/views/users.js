@@ -101,29 +101,24 @@ com.ebms.views.users = {
             rules: {
                 /* todo add other validations - ms. she */
                 username: {
-                    required: true,
-                    rangelength: [5,32]
+                    required: true
                 },
                 first_name: {
                     required: true,
-                    number: false,
-                    rangelength: [1,32]
+                    number: false
                 },
                 middle_name: {
-                    required: true,
-                    rangelength: [1,32]
+                    required: true
                 },
                 last_name:{
-                    required: true,
-                    rangelength: [2,32]
+                    required: true
                 },
                 email: {
                     required: true,
                     email: true
                 },
                 address: {
-                    required: true,
-                    rangelength: [5,32]
+                    required: true
                 },
                 date_of_birth: {
                     required:true
@@ -267,7 +262,7 @@ com.ebms.views.users = {
                     }  else if (data.data.security_question_id === '2') {
                         txt = "What is your pet's name?";
                     }
-                    
+
                     $('#security-question').text(txt);
                     /* remove the form */
                     $('#user-edit-security-settings').fadeOut('slow', function() {
