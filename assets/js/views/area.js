@@ -41,6 +41,8 @@ com.ebms.views.area = {
 
             com.ebms.widgets.flash.flashMessage(data.message, 'notif');
         } else {
+            $('#area-edit').find('fieldset.form-buttons span.loader').remove();
+            $('#area-edit').find('input[type="submit"], a', 'fieldset.form-buttons').removeAttr('disabled');
             com.ebms.widgets.flash.flashMessage(data.message, 'error');
         }
     },

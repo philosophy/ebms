@@ -113,7 +113,7 @@ class Sub_category_model extends CI_Model {
     }
 
     function getSubCategoryDetails($id) {
-        $sql = "SELECT s.id as id, s.code, s.name as name, c.name, c.name as category, c.id as category_id FROM sub_category as s inner join category as c where c.id = s.category_id and s.id=?";
+        $sql = "SELECT s.id as id, s.code, s.name as name, c.name as category, c.id as category_id FROM sub_category as s inner join category as c where c.id = s.category_id and s.id=?";
         $query = $this->db->query($sql, array('id' => $id));
 
         if ($query->num_rows() > 0) {

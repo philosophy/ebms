@@ -17,6 +17,11 @@ class Migration_Create_Sub_Category_Table extends CI_Migration {
                 'constraint' => '100',
                 'null' => FALSE
             ),
+            'category_id' => array(
+                'type' => 'INT',
+                'constraint' => '11',
+                'null' => FALSE
+            ),
             'name' => array(
                 'type' => 'VARCHAR',
                 'constraint' => '255',

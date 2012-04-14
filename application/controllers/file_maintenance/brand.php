@@ -120,12 +120,12 @@
                 /* brand name should not be empty */
 
                 /* validate sub_category name if empty*/
-                if(is_empty_null_value($sub_category_name)) {
+                if(is_empty_null_value($brand_name)) {
                     send_json_response(ERROR_LOG, HTTP_FAIL_PRECON, 'brand name is required');
                     exit;
                 }
                 /*check the string length*/
-                if(strlen($sub_category_name) < 3) {
+                if(strlen($brand_name) < 3) {
                     send_json_response(ERROR_LOG, HTTP_FAIL_PRECON, 'brand name must atleast be 3 characters long');
                     exit;
                 }
@@ -170,7 +170,7 @@
             $this->sub_categories = $this->Sub_category_model->getSubCategoriesByCategoryId();
 
             if (!empty($this->brand)) {
-                send_json_response(INFO_LOG, HTTP_OK, 'brand edit form', array('html' => $this->load->view('system_records/file_maintenance/brand/_edit', '', true), 'category_id' => $this->sub_category->sub_category_id));
+                send_json_response(INFO_LOG, HTTP_OK, 'brand edit form', array('html' => $this->load->view('system_records/file_maintenance/brand/_edit', '', true), 'category_id' => $this->sub_category->id));
             } else {
                 send_json_response(ERROR_LOG, HTTP_BAD_REQUEST, 'bad request');
             }
@@ -189,6 +189,8 @@
                 } else {
                     send_json_response(ERROR_LOG, HTTP_FAIL_PRECON, 'unable to restore brand');
                 }
+            } else {
+                send_json_response(ERROR_LOG, HTTP_FAIL_PRECON, 'unable to restore brand');
             }
         }
 

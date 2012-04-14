@@ -41,6 +41,8 @@ com.ebms.views.earning = {
 
             com.ebms.widgets.flash.flashMessage(data.message, 'notif');
         } else {
+            $('#earning-edit').find('fieldset.form-buttons span.loader').remove();
+            $('#earning-edit').find('input[type="submit"], a', 'fieldset.form-buttons').removeAttr('disabled');
             com.ebms.widgets.flash.flashMessage(data.message, 'error');
         }
     },

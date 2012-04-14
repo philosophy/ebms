@@ -43,6 +43,8 @@ com.ebms.views.department = {
 
             com.ebms.widgets.flash.flashMessage(data.message, 'notif');
         } else {
+            $('#department-edit').find('fieldset.form-buttons span.loader').remove();
+            $('#department-edit').find('input[type="submit"], a', 'fieldset.form-buttons').removeAttr('disabled');
             com.ebms.widgets.flash.flashMessage(data.message, 'error');
         }
     },

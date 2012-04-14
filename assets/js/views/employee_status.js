@@ -41,6 +41,8 @@ com.ebms.views.employee_status = {
 
             com.ebms.widgets.flash.flashMessage(data.message, 'notif');
         } else {
+            $('#employee-status-edit').find('fieldset.form-buttons span.loader').remove();
+            $('#employee-status-edit').find('input[type="submit"], a', 'fieldset.form-buttons').removeAttr('disabled');
             com.ebms.widgets.flash.flashMessage(data.message, 'error');
         }
     },

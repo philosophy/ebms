@@ -41,6 +41,8 @@ com.ebms.views.deduction = {
 
             com.ebms.widgets.flash.flashMessage(data.message, 'notif');
         } else {
+            $('#deduction-edit').find('fieldset.form-buttons span.loader').remove();
+            $('#deduction-edit').find('input[type="submit"], a', 'fieldset.form-buttons').removeAttr('disabled');
             com.ebms.widgets.flash.flashMessage(data.message, 'error');
         }
     },

@@ -12,10 +12,10 @@ com.ebms.views.brand = {
                 $this.find('fieldset.form-buttons').append('<span class="loader"></span>');
                 $this.find('input[type="submit"], a', 'fieldset.form-buttons').attr('disabled', 'disabled');
             });
-            
-            $('#brand-edit').live('ajax:success', this.updatebrandSuccessCallback);
+
+            $('#brand-edit').live('ajax:success', this.updateBrandSuccessCallback);
             $('#brand-edit').live('ajax:error', this.updateBrandErrorCallback);
-            
+
         } else if ($('#wrapper.brand.archive').length > 0) {
             this.initBrandManagerArchive();
         }
@@ -24,16 +24,16 @@ com.ebms.views.brand = {
         $('#dialog-confirm-btn.restore').live('ajax:success', this.restoreSuccessCallback);
 
         $('td.action.edit a').live('click', this.editBrandHandler);
-            
+
         $('#category').live('change', function(e) {
             var categoryId = $(this).val();
             var options = '<option>Select Sub Category</option>';
-            $.each(sub_categories, function(i, sub) {                
+            $.each(sub_categories, function(i, sub) {
                 if (sub.category_id === categoryId) {
                     options += '<option value="'+ sub.id +'">' + sub.name + '</option>';
                 }
             });
-            
+
             $('#sub-category').html(options);
         });
         /* TODO: js validation for unit (must not be null, must consist of atleast 5 characters) */
@@ -53,6 +53,8 @@ com.ebms.views.brand = {
 
             com.ebms.widgets.flash.flashMessage(data.message, 'notif');
         } else {
+            $('#brand-edit').find('fieldset.form-buttons span.loader').remove();
+            $('#brand-edit').find('input[type="submit"], a', 'fieldset.form-buttons').removeAttr('disabled');
             com.ebms.widgets.flash.flashMessage(data.message, 'error');
         }
     },

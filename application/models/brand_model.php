@@ -50,7 +50,7 @@ class Brand_model extends CI_Model {
     function set_category_id($val) {
         $this->category_id = $val;
     }
-    
+
     function get_id() {
         return (int)$this->id;
     }
@@ -95,7 +95,7 @@ class Brand_model extends CI_Model {
             return null;
         }
     }
-    
+
     function getSubCategoriesByCategory() {
         $sql = "SELECT * FROM sub_category where active=? and company_id=?";
         $query = $this->db->query($sql, array('active' => $this->get_active(), 'company_id' => $this->get_company_id()));
@@ -106,7 +106,7 @@ class Brand_model extends CI_Model {
             return null;
         }
     }
-    
+
     function getSubCategories() {
         $sql = "SELECT * FROM sub_category where active=? and company_id=?";
         $query = $this->db->query($sql, array('active' => $this->get_active(), 'company_id' => $this->get_company_id()));
@@ -130,9 +130,9 @@ class Brand_model extends CI_Model {
     }
 
     function getBrandDetails($id) {
-        $sql = "SELECT b.id as id, b.name as name, b.sub_category_id, s.name as sub_category, c.name as category FROM brands as b inner join sub_category as s inner join category as c where b.sub_category_id = s.id and c.id = s.category_id and b.id = ? and b.active=? and s.company_id=?";
-        $query = $this->db->query($sql, array('id' => $id, 'active' => $this->get_active(), 'company_id' => $this->get_company_id()));
-                
+        $sql = "SELECT b.id as id, b.name as name, b.sub_category_id, s.name as sub_category, c.name as category FROM brands as b inner join sub_category as s inner join category as c where b.sub_category_id = s.id and c.id = s.category_id and b.id = ?";
+        $query = $this->db->query($sql, array('id' => (int)$id));
+
         if ($query->num_rows() > 0) {
             return $query->row();
         } else {
@@ -144,14 +144,14 @@ class Brand_model extends CI_Model {
         $this->db->trans_start();
         $sql = "INSERT INTO brands (name, created_by, date_created, company_id, sub_category_id) values (?, ?, ?, ?, ?)";
         $this->db->query($sql,
-            array(                
+            array(
                 $this->get_name(),
                 $this->get_created_by(),
                 date($this->config->item('date_format')),
                 $this->get_company_id(),
                 $this->get_sub_category_id()
             ));
-        
+
         $sql = 'SELECT id from brands where company_id = ? and sub_category_id = ? order by date_created desc limit 1';
         $query = $this->db->query($sql, array('company_id' => $this->get_company_id(), 'sub_category_id' => $this->get_sub_category_id()));
 

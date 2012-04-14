@@ -4,7 +4,7 @@
 <article class="aside-left">
     <?php
         $data = array('list' => array('link' => 'file_maintenance/brand/index', 'text' => lang('brand_list')),
-                      'create' => array('link' => 'file_maintenance/brand/new_sub_category', 'text' => lang('create_brand')),
+                      'create' => array('link' => 'file_maintenance/brand/new_brand', 'text' => lang('create_brand')),
                       'archive' => array('link' => 'file_maintenance/brand/archive', 'text' => lang('archive'))
             );
         $this->load->view('common/nav/left_nav_manager', $data);
@@ -37,9 +37,9 @@
                             <td><?php echo $brand->sub_category; ?></td>
                             <td><?php echo $brand->category; ?></td>
                         </tr>
-                        
+
                     <?php } ?>
-                </tbody>                
+                </tbody>
             </table>
         <?php } else { ?>
             <p><?php echo lang('no_records_found'); ?></p>

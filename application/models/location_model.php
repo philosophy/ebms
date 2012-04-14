@@ -10,7 +10,7 @@ class Location_model extends CI_Model {
     private $last_updated_at;
     private $active = 1;
     private $company_id;
-    private $table_name = 'location';
+    private $table_name = 'locations';
 
     function __construct() {
         parent::__construct();
@@ -81,7 +81,7 @@ class Location_model extends CI_Model {
     }
 
     function getLocations() {
-        $sql = "SELECT * FROM location where active=? and company_id=?";
+        $sql = "SELECT * FROM locations where active=? and company_id=?";
         $query = $this->db->query($sql, array('active' => $this->get_active(), 'company_id' => $this->get_company_id()));
 
         if ($query->num_rows() > 0) {
@@ -92,7 +92,7 @@ class Location_model extends CI_Model {
     }
 
     function getLocationDetails($id) {
-        $sql = "SELECT * FROM location where id=?";
+        $sql = "SELECT * FROM locations where id=?";
         $query = $this->db->query($sql, array('id' => $id));
 
         if ($query->num_rows() > 0) {
@@ -105,7 +105,7 @@ class Location_model extends CI_Model {
     function createLocation() {
 
         $this->db->trans_start();
-        $sql = "INSERT INTO location (name, created_by, date_created, company_id) values (?, ?, ?, ?)";
+        $sql = "INSERT INTO locations (name, created_by, date_created, company_id) values (?, ?, ?, ?)";
         $this->db->query($sql,
             array(
                 $this->get_name(),
@@ -114,7 +114,7 @@ class Location_model extends CI_Model {
                 $this->get_company_id()
             ));
 
-        $sql = 'SELECT id from location where company_id = ? order by date_created desc limit 1';
+        $sql = 'SELECT id from locations where company_id = ? order by date_created desc limit 1';
         $query = $this->db->query($sql, array('company_id' => $this->get_company_id()));
 
         /* insert audit CREATE */
@@ -133,7 +133,7 @@ class Location_model extends CI_Model {
         $data = array('active' => 0);
 
         $this->db->where('id', $this->get_id());
-        $this->db->update('location', $data);
+        $this->db->update('locations', $data);
 
         /* insert audit DELETE */
         parent::insertAuditTrail($this->get_created_by(), 3, $this->get_id(), lang('deactivate_location'), $this->get_company_id(), $this->table_name);
@@ -155,7 +155,7 @@ class Location_model extends CI_Model {
         );
 
         $this->db->where('id', $this->get_id());
-        $this->db->update('location', $data);
+        $this->db->update('locations', $data);
 
         /* insert audit UPDATE */
         parent::insertAuditTrail($this->get_last_updated_by(), 2, $this->get_id(), lang('update_location'), $this->get_company_id(), $this->table_name);
@@ -176,7 +176,7 @@ class Location_model extends CI_Model {
         ));
 
         $this->db->where('id', $this->get_id());
-        $this->db->update('location', $data);
+        $this->db->update('locations', $data);
 
         /* insert audit */
         parent::insertAuditTrail($this->get_last_updated_by(), 2, $this->get_id(), lang('restore_location'), $this->get_company_id(), $this->table_name);
@@ -191,7 +191,7 @@ class Location_model extends CI_Model {
 
 
     function locationExists() {
-        $sql = "SELECT * FROM location where name = ? and company_id = ?";
+        $sql = "SELECT * FROM locations where name = ? and company_id = ?";
         $query = $this->db->query($sql, array('name' => $this->get_name(), 'company_id' => $this->get_company_id()));
 
         if ($query->num_rows() > 0) {
@@ -202,7 +202,7 @@ class Location_model extends CI_Model {
     }
 
     function recordExists() {
-        $sql = "SELECT * FROM location where id!=? and name=? and company_id=?";
+        $sql = "SELECT * FROM locations where id!=? and name=? and company_id=?";
         $query = $this->db->query($sql, array('id' => $this->get_id(), 'name' => $this->get_name(), 'company_id' => $this->get_company_id()));
 
         if ($query->num_rows() > 0) {

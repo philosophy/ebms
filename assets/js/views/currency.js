@@ -41,6 +41,8 @@ com.ebms.views.currency = {
 
             com.ebms.widgets.flash.flashMessage(data.message, 'notif');
         } else {
+            $('#currency-edit').find('fieldset.form-buttons span.loader').remove();
+            $('#currency-edit').find('input[type="submit"], a', 'fieldset.form-buttons').removeAttr('disabled');
             com.ebms.widgets.flash.flashMessage(data.message, 'error');
         }
     },

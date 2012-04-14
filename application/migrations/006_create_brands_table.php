@@ -17,6 +17,11 @@ class Migration_Create_Brands_Table extends CI_Migration {
                 'constraint' => '255',
                 'null' => FALSE
             ),
+            'sub_category_id' => array(
+                'type' => 'INT',
+                'constraint' => '11',
+                'null' => FALSE
+            ),
             'created_by' => array(
                 'type' => 'INT',
                 'constraint' => '11',

@@ -41,6 +41,8 @@ com.ebms.views.location = {
 
             com.ebms.widgets.flash.flashMessage(data.message, 'notif');
         } else {
+            $('#location-edit').find('fieldset.form-buttons span.loader').remove();
+            $('#location-edit').find('input[type="submit"], a', 'fieldset.form-buttons').removeAttr('disabled');
             com.ebms.widgets.flash.flashMessage(data.message, 'error');
         }
     },
