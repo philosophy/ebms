@@ -10,7 +10,7 @@ class Position_model extends CI_Model {
     private $last_updated_at;
     private $active = 1;
     private $company_id;
-    private $table_name = 'position';
+    private $table_name = 'positions';
 
     function __construct() {
         parent::__construct();

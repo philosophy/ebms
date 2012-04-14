@@ -60,6 +60,17 @@ com.ebms.views.employees = {
         $('#search-employee-form').submit(this)
         $('#search-employee-form').live('ajax:success', this.successSearchHandler);
 
+        //override destroy modal dialog in confirm js
+        com.ebms.widgets.confirm.destroyModalDialog = this.destroyModalDialog;
+    },
+
+    destroyModalDialog: function(e) {
+        $('#confirm-dialog').dialog('destroy');
+        e.preventDefault();
+
+        //clean up class of buttons
+        $('#dialog-confirm-btn').removeClass('archive restore');
+        $('#dialog-tryagain-btn').removeClass('archive restore');
     },
 
     beforeSearchHandler: function() {
@@ -115,6 +126,7 @@ com.ebms.views.employees = {
             var row = $('tr[data-employee-id="'+data.data.employee_id+'"]');
             // restore employee from list
             row.removeClass('inactive selected');
+            row.addClass('active');
             $('#restore-employee').addClass('inactive');
 
             // flash message
@@ -126,9 +138,10 @@ com.ebms.views.employees = {
     deleteEmployeeSuccessHandler: function(e, data) {
         if (data.code == 200) {
             // remove employee from list
-            $('tr[data-employee-id="'+data.data.employee_id+'"]').fadeOut('slow', function() {
-                $(this).remove();
-            });
+//            $('tr[data-employee-id="'+data.data.employee_id+'"]').fadeOut('slow', function() {
+//                $(this).remove();
+//            });
+            $('tr[data-employee-id="'+data.data.employee_id+'"]').removeClass('active').addClass('inactive');
 
             // flash message
             com.ebms.widgets.flash.flashMessage(data.message, 'info');
@@ -161,15 +174,13 @@ com.ebms.views.employees = {
     },
 
     newEmployeeSuccessHandler: function(e, data) {
-        
+
         if (data.code == 200) {
             //TODO add employee to list
             $('#new-employee-dialog').dialog('destroy');
 
             //flash message
             com.ebms.widgets.flash.flashMessage(data.message, 'success');
-            //flash message
-            com.ebms.widgets.flash.flashMessage(data.data.message, 'info');
 
             //reset dialog fields
             com.ebms.views.employees.resetNewEmployeeForm();
@@ -192,15 +203,15 @@ com.ebms.views.employees = {
 
     resetNewEmployeeForm: function() {
         var newEmpDialog = $('#new-employee-dialog');
-        $('.general input, .general textarea', newEmpDialog).val('');
+        $('#general input, #general textarea', newEmpDialog).val('');
 
-        $('.employment-info input, .employment-info textarea', newEmpDialog).val('');
-        $('.work-experience-details', newEmpDialog).find('article ul li, article ul input').remove();
+        $('#employment-info input, #employment-info textarea', newEmpDialog).val('');
+        $('#work-experience-details', newEmpDialog).find('article ul li, article ul input').remove();
 
-        $('.educational-background, .educational-background textarea', newEmpDialog).val('');
-        $('.educational-background-details', newEmpDialog).find('article ul li, article ul input').remove();
+        $('#educational-background, #educational-background textarea', newEmpDialog).val('');
+        $('#educational-background-details', newEmpDialog).find('article ul li, article ul input').remove();
 
-        $('.payroll input, .payroll textarea', newEmpDialog).val('');
+        $('#payroll input, #payroll textarea', newEmpDialog).val('');
     },
 
     pagiForm: function(e) {
@@ -216,10 +227,14 @@ com.ebms.views.employees = {
             dataType: 'json',
             type: 'GET',
             success: function(data) {
+                var ns = com.ebms.views.employees;
                 employeeWrapper.find(".loader").remove().end().addClass('no-loader');
                 employeeWrapper.html(data.data.html).fadeIn();
 
-                com.ebms.views.employees.newEmployeeTab = employeeWrapper.tabs().addClass('ui-tabs-vertical ui-helper-clearfix');
+                ns.newEmployeeTab = employeeWrapper.tabs({
+                    select: ns.validateNewEmployeeForm
+                }).addClass('ui-tabs-vertical ui-helper-clearfix');
+                ns.initNewEmployeeFormValidation();
 		employeeWrapper.removeClass('ui-corner-top').addClass('ui-corner-left');
 
                 /* realign the dialog to center */
@@ -236,6 +251,76 @@ com.ebms.views.employees = {
                 alert('an error has occured');
             }
         })
+    },
+
+    initNewEmployeeFormValidation: function() {
+         var newEmployee = {
+            rules: {
+                first_name: {
+                    required: true
+                },
+                middle_name: {
+                    required: true
+                },
+                last_name:{
+                    required: true
+                },
+                email: {
+                    required: true,
+                    email: true
+                },
+                address: {
+                    required: true
+                },
+                date_of_birth: {
+                    required:true
+                },
+                date_hired: {
+                    required:true
+                },
+                salary: {
+                    required:true
+                }
+
+            },
+
+            messages: {
+                first_name: {
+                    required: "First name can't be blank"
+                },
+                middle_name: {
+                    required: "Middle name can't be blank"
+                },
+                last_name: {
+                    required: "Last name can't be blank"
+                },
+                email: {
+                    required: "E-mail can't be blank",
+                    rangelength: "Invaid email format"
+                },
+                address: {
+                    required: "Address can't be blank"
+                },
+                date_of_birth: {
+                    required: "Date of birth can't be blank"
+                },
+                date_of_birth: {
+                    required: "Date hired can't be blank"
+                },
+                salary: {
+                    required: "Salary can't be blank"
+                }
+
+            }
+        };
+
+        $('#new-employee-form').validate(newEmployee);
+    },
+
+    validateNewEmployeeForm: function(e) {
+        if (!$('#new-employee-form').valid()) {
+            e.preventDefault();
+        }
     },
 
     initWorkExperience: function() {

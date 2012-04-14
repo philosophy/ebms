@@ -55,6 +55,21 @@
 #new-employee-dialog div.ui-tabs-panel h1{
     text-decoration: underline;
 }
+
+#new-employee-dialog #general fieldset textarea {
+    width: 120px;
+}
+
+#new-employee-dialog #general fieldset label.error,
+#new-employee-dialog #work-experience-details fieldset label.error,
+#new-employee-dialog #educational-background fieldset label.error,
+#new-employee-dialog #payroll fieldset label.error,
+#new-employee-dialog #employment-info fieldset label.error {
+    top: 12px;
+    font-size: 0.85em;
+    left: 298px;
+}
+
 #new-employee-dialog #employment-info #work-experience work-description{
     min-width: 250px;
     max-width: 250px;

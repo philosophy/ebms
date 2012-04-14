@@ -19,8 +19,8 @@ com.ebms.widgets.confirm = function() {
 
       $('a.confirm-link').live('click', self.showModalDialog);
 
-      $('#confirm-dialog').live('ajax:success', function() {
-        self.destroyModalDialog();
+      $('#confirm-dialog').live('ajax:success', function(e) {
+        self.destroyModalDialog(e);
       }).live('ajax:error', function() {
         self.handleAjaxError();
       });

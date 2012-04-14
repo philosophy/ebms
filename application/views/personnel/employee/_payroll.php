@@ -3,7 +3,7 @@
 </span>
 
 <fieldset>
-    <label>Regular Salary:</label>
+    <label>Regular Salary*:</label>
     <?php echo form_input(array('name' => 'salary', 'id' => 'salary', 'placeholder' => lang('salary'))); ?>
 </fieldset>
 

@@ -3,13 +3,13 @@
 </span>
 
 <fieldset>
-    <label>Date Hired:</label>
+    <label>Date Hired*:</label>
     <?php echo form_input(array('name' => 'date_hired', 'id' => 'date-hired', 'placeholder' => lang('date_hired'), 'data-datepicker-img-url' => image_asset_url('calendar.gif'))); ?>
 </fieldset>
 <fieldset>
     <label>Department:</label>
     <select name="department">
-        <option>Select Department</option>
+<!--        <option>Select Department</option>-->
             <?php foreach ($this->departments as $dept) { ?>
                 <option value=<?php echo $dept->id; ?>><?php echo $dept->name; ?></option>
             <?php } ?>
@@ -18,7 +18,7 @@
 <fieldset>
     <label>Position:</label>
     <select name="position">
-        <option>Select Position</option>
+<!--        <option>Select Position</option>-->
         <?php if (count($this->positions) > 0) {
              foreach ($this->positions as $position) { ?>
                 <option value=<?php echo $position->id; ?>><?php echo $position->name; ?></option>
@@ -29,8 +29,8 @@
 <fieldset>
     <label>Employment Status:</label>
     <select name="employment_status" id="employment-status">
-        <option>Select Status</option>
-        <?php if (count($this->positions) > 0) {
+<!--        <option>Select Status</option>-->
+        <?php if (count($this->employment_status) > 0) {
             foreach ($this->employment_status as $status) { ?>
                 <option value=<?php echo $status->id; ?>><?php echo $status->name; ?></option>
             <?php }

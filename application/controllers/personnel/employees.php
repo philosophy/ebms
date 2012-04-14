@@ -168,10 +168,10 @@
             $result = $this->employeeObj->createEmployee();
             if ($result) {
                 $name = $first_name.' '.$last_name;
-                $department_name = $this->Department_model->getDepartment($department)->name;
-                $position_name = $this->Position_model->getPosition($position)->name;
-                $status_name = $this->Status_model->getPosition($status)->name;
-                send_json_response(INFO_LOG, HTTP_OK, lang('successfully_created_employee'), array('employee' => array('employee_no' => $employee_no, 'name' => $name, 'department' => $department_name, 'status' => $status_name)));
+//                $department_name = $this->Department_model->getDepartment($department)->name;
+//                $position_name = $this->Position_model->getPosition($position)->name;
+//                $status_name = $this->Status_model->getStatus($status)->name;
+                send_json_response(INFO_LOG, HTTP_OK, lang('successfully_created_employee'), array('employee' => array('employee_no' => $employee_no, 'name' => $name)));
             } else {
                 send_json_response(ERROR_LOG, HTTP_FAIL_PRECON, lang('please_try_again'));
             }
