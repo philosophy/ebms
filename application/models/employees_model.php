@@ -375,6 +375,37 @@
             }
         }
 
+        function updateGeneralInfo() {
+            $this->db->trans_start();
+
+            $data = array(
+                'first_name' => $this->get_first_name(),
+                'middle_name' => $this->get_middle_name(),
+                'last_name' => $this->get_last_name(),
+                'address' => $this->get_address(),
+                'date_of_birth' => $this->get_date_of_birth(),
+                'gender' => $this->get_gender(),
+                'marital_status' => $this->get_marital_status(),
+                'home_phone' => $this->get_home_phone(),
+                'work_phone' => $this->get_work_phone(),
+                'last_updated_by' => $this->get_last_updated_by(),
+                'last_updated_at' => date($this->config->item('date_format'))
+            );
+
+            $this->db->where('id', $this->get_id());
+            $this->db->update('employees', $data);
+
+            /* insert audit UPDATE */
+            parent::insertAuditTrail($this->get_last_updated_by(), 2, $this->get_id(), lang('update_employee'), $this->get_company_id(), $this->table_name);
+
+            $this->db->trans_complete();
+            if ($this->db->trans_status() === TRUE) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+
         function deactivateEmployee() {
             $this->db->trans_start();
             $data = array('active' => 0);

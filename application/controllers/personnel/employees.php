@@ -3,6 +3,9 @@
 
         public $employment_status;
         public $employees;
+        public $departments;
+        public $positions;
+        public $employee;
         private $employeeObj;
 
         function __construct() {
@@ -34,6 +37,8 @@
             $this->employees = $this->employeeObj->getEmployees();
             $this->pagination->initialize($config);
             $data['pagination_links'] = $this->pagination->create_links();
+
+            $this->_load_employment_info();
 
             $this->parser->parse('layouts/application', $data);
             $this->output->enable_profiler(TRUE);
@@ -88,15 +93,18 @@
         }
 
         function get_new_employee_form() {
-            $this->Employee_status_model->set_company_id($this->current_avatar->company_id);
-            $this->Department_model->set_company_id($this->current_avatar->company_id);
-            $this->Position_model->set_company_id($this->current_avatar->company_id);
-
-            $this->employment_status = $this->Employee_status_model->getEmployeeStatus();
-            $this->positions = $this->Position_model->getPositions();
-            $this->departments = $this->Department_model->getDepartments();
+            $this->_load_employment_info();
 
             send_json_response(INFO_LOG, HTTP_OK, 'new employee form', array('html' => $this->load->view('personnel/employee/_new_employee_form', '', true)));
+        }
+
+        function get_edit_employee_form($id) {
+            $this->employeeObj->set_id($id);
+            $this->employee = $this->employeeObj->getEmployeeDetails();
+
+            $this->_load_employment_info();
+
+            send_json_response(INFO_LOG, HTTP_OK, 'new employee form', array('html' => $this->load->view('personnel/employee/_edit_employee_form', '', true)));
         }
 
         function create() {
@@ -177,6 +185,44 @@
             }
         }
 
+        function update_general_info() {
+            $id = $this->input->post('id', TRUE);
+            $first_name = $this->input->post('first_name', TRUE);
+            $middle_name = $this->input->post('middle_name', TRUE);
+            $last_name = $this->input->post('last_name', TRUE);
+            $address = $this->input->post('address', TRUE);
+            $date_of_birth = $this->input->post('date_of_birth', TRUE);
+            $gender = $this->input->post('gender', TRUE);
+            $marital_status = $this->input->post('marital_status', TRUE);
+            $home_phone = $this->input->post('home_phone', TRUE);
+            $work_phone = $this->input->post('work_phone', TRUE);
+
+            /* TODO: more backend validation */
+            if(is_empty_null_value($first_name)) {
+                send_json_response(ERROR_LOG, HTTP_FAIL_PRECON, lang('first_name_cant_be_blank'));
+                exit;
+            }
+
+            $this->employeeObj->set_id($id);
+            $this->employeeObj->set_first_name($first_name);
+            $this->employeeObj->set_middle_name($middle_name);
+            $this->employeeObj->set_last_name($last_name);
+            $this->employeeObj->set_address($address);
+            $this->employeeObj->set_date_of_birth($date_of_birth);
+            $this->employeeObj->set_gender($gender);
+            $this->employeeObj->set_marital_status($marital_status);
+            $this->employeeObj->set_home_phone($home_phone);
+            $this->employeeObj->set_work_phone($work_phone);
+            $this->employeeObj->set_company_id($this->current_avatar->company_id);
+            $this->employeeObj->set_last_updated_by($this->current_avatar->id);
+
+            if ($this->employeeObj->updateGeneralInfo()) {
+                send_json_response(INFO_LOG, HTTP_OK, lang('successfully_updated_employee_info'), array('employee' => array('id' => $id)));
+            } else {
+                send_json_response(ERROR_LOG, HTTP_FAIL_PRECON, lang('please_try_again'));
+            }
+        }
+
         function delete($id) {
             if ($this->_record_exist($id)) {
                 $this->employeeObj->set_id($id);
@@ -223,6 +269,16 @@
             } else {
                 return false;
             }
+        }
+
+        private function _load_employment_info() {
+            $this->Employee_status_model->set_company_id($this->current_avatar->company_id);
+            $this->Department_model->set_company_id($this->current_avatar->company_id);
+            $this->Position_model->set_company_id($this->current_avatar->company_id);
+
+            $this->employment_status = $this->Employee_status_model->getEmployeeStatus();
+            $this->positions = $this->Position_model->getPositions();
+            $this->departments = $this->Department_model->getDepartments();
         }
     }
 ?>

@@ -436,8 +436,10 @@
 
     $lang['create_new_employee'] = 'Create new employee';
     $lang['successfully_created_employee'] = 'Successfully created a new employee';
+    $lang['successfully_updated_employee_info'] = 'Successfully updated employee info';
     $lang['delete_employee'] = 'Delete Employee';
     $lang['edit_employee'] = 'Edit Employee';
+    $lang['update_employee'] = 'Update Employee';
     $lang['restore_employee'] = 'Restore Employee';
     $lang['new_employee'] = 'New Employee';
     $lang['are_you_sure_you_want_to_delete_employee'] = 'Are you sure you want to delete this employee?';

@@ -6,6 +6,7 @@ com.ebms.views.employees = {
     eduPrefix: 'EDU_',
     eduLen: 0,
     newEmployeeTab: null,
+    editEmployeeTab: null,
     // TODO add validation for creating an employee!
 
     init: function() {
@@ -18,7 +19,7 @@ com.ebms.views.employees = {
                 modal: true,
                 closeOnEscape: true,
                 open: com.ebms.views.employees.getNewEmployeeForm
-            })
+            });
 
             e.preventDefault();
             return false;
@@ -54,7 +55,23 @@ com.ebms.views.employees = {
 
         $('#dialog-confirm-btn.archive').live('ajax:success', this.deleteEmployeeSuccessHandler);
         $('#dialog-confirm-btn.restore').live('ajax:success', this.restoreEmployeeSuccessHandler);
-        $('#edit-employee').click(this.getEditEmployeeForm);
+        $('#edit-employee').click(function(e) {
+            $('#edit-employee-dialog').dialog({
+                title: $(this).attr('data-title'),
+                resizable: false,
+                draggable: false,
+                modal: true,
+                closeOnEscape: true,
+                open: com.ebms.views.employees.getEditEmployeeForm,
+                close: function() {
+                    //destroy tabs
+                    $(this).tabs('destroy');
+                }
+            })
+
+            e.preventDefault();
+            return false;
+        });
 
         $('a.pagination-links').live('click', this.browseHandler);
         $('#search-employee-form').submit(this)
@@ -62,6 +79,12 @@ com.ebms.views.employees = {
 
         //override destroy modal dialog in confirm js
         com.ebms.widgets.confirm.destroyModalDialog = this.destroyModalDialog;
+
+        $('.close-button').live('click', function() {
+           $(this).closest('.ui-dialog-content').dialog('close');
+        });
+
+        $('#general-info-form').live('ajax:success', this.successUpdateGenInfo);
     },
 
     destroyModalDialog: function(e) {
@@ -114,11 +137,55 @@ com.ebms.views.employees = {
 
     getEditEmployeeForm: function(e) {
         e.preventDefault();
-        var emp_id;
+        var employeeWrapper = $('#edit-employee-dialog');
+        var url = $('#edit-employee').data('edit-url');
 
-        // fetch edit form
+        $.ajax({
+            url: url,
+            dataType: 'json',
+            type: 'GET',
+            success: function(data) {
+                var ns = com.ebms.views.employees;
+                employeeWrapper.find(".loader").remove().end();
+                employeeWrapper.addClass('hide').html(data.data.html);
 
-        //show loader
+                ns.editEmployeeTab = employeeWrapper.tabs({
+                    create: function() {
+                        $(this).fadeIn();
+                    }
+                }).addClass('ui-tabs-vertical ui-helper-clearfix');
+                ns.initEditEmployeeFormValidation();
+		employeeWrapper.removeClass('ui-corner-top').addClass('ui-corner-left');
+
+                /* realign the dialog to center */
+                employeeWrapper.dialog('option', 'position', 'center');
+                employeeWrapper.data('with-form', 'true');
+                $('button, input[type="submit"]', employeeWrapper).button();
+
+                //init datepicker
+                com.ebms.widgets.base.initDatePicker($('#date-of-birth, #date-work-started, #date-work-ended, #date-hired', employeeWrapper));
+//                com.ebms.views.employees.initWorkExperience();
+//                com.ebms.views.employees.initEducationalBackground();
+            },
+            error: function() {
+                alert('an error has occured');
+            }
+        })
+    },
+
+    successUpdateGenInfo: function(e, data) {
+        if (data.code === 200) {
+            /* update info in table */
+            var table = $('#item-actions-list');
+            table.find('tr[data-employee-id="'+ data.data.employee_id + '"]').find('td.name').text(data.data.first_name + ' ' + data.data.last_name);
+            com.ebms.widgets.flash.flashMessage(data.message);
+        } else if (data.code === 412) {
+            com.ebms.widgets.flash.flashMessage(data.message, 'error');
+        }
+    },
+
+    errorUpdateGenInfo: function() {
+
     },
 
     restoreEmployeeSuccessHandler: function(e, data) {
@@ -243,7 +310,7 @@ com.ebms.views.employees = {
                 $('button, input[type="submit"]', employeeWrapper).button();
 
                 //init datepicker
-                com.ebms.widgets.base.initDatePicker($('#date-of-birth, #date-work-started, #date-work-ended, #date-hired'));
+                com.ebms.widgets.base.initDatePicker($('#date-of-birth, #date-work-started, #date-work-ended, #date-hired', employeeWrapper));
                 com.ebms.views.employees.initWorkExperience();
                 com.ebms.views.employees.initEducationalBackground();
             },
@@ -251,6 +318,83 @@ com.ebms.views.employees = {
                 alert('an error has occured');
             }
         })
+    },
+
+    initEditEmployeeFormValidation: function() {
+        var generalInfo = {
+            rules: {
+                first_name: {
+                    required: true
+                },
+                middle_name: {
+                    required: true
+                },
+                last_name:{
+                    required: true
+                },
+                email: {
+                    required: true,
+                    email: true
+                },
+                address: {
+                    required: true
+                },
+                date_of_birth: {
+                    required:true
+                }
+            },
+
+            messages: {
+                first_name: {
+                    required: "First name can't be blank"
+                },
+                middle_name: {
+                    required: "Middle name can't be blank"
+                },
+                last_name: {
+                    required: "Last name can't be blank"
+                },
+                email: {
+                    required: "E-mail can't be blank",
+                    rangelength: "Invaid email format"
+                },
+                address: {
+                    required: "Address can't be blank"
+                },
+                date_of_birth: {
+                    required: "Date of birth can't be blank"
+                }
+            }
+        };
+
+        var employmentInfo = {
+            rule: {
+                date_hired: {
+                    required:true
+                }
+            },
+            messages: {
+                date_of_birth: {
+                    required: "Date hired can't be blank"
+                }
+            }
+        };
+
+        var payroll = {
+            rules: {
+                salary: {
+                    required:true
+                }
+            },
+            messages: {
+                salary: {
+                    required: "Salary can't be blank"
+                }
+            }
+
+        };
+
+        $('#general-info-form').validate(generalInfo);
     },
 
     initNewEmployeeFormValidation: function() {
@@ -304,7 +448,7 @@ com.ebms.views.employees = {
                 date_of_birth: {
                     required: "Date of birth can't be blank"
                 },
-                date_of_birth: {
+                date_hired: {
                     required: "Date hired can't be blank"
                 },
                 salary: {

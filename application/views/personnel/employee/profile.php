@@ -63,3 +63,9 @@
 <div id="restore-employee-dialog" class="hide">
     <span class="loader"></span>
 </div>
+
+<script>
+    var employmentStatus = <?php echo json_encode($this->employment_status); ?>;
+    var departments = <?php echo json_encode($this->departments); ?>;
+    var positions = <?php echo json_encode($this->positions); ?>;
+</script>

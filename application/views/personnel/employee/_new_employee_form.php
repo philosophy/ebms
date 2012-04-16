@@ -23,7 +23,3 @@
     </div>
     <?php echo form_close(); ?>
 </section>
-
-<script>
-    var employmentStatus = <?php echo json_encode($this->employment_status); ?>;
-</script>
