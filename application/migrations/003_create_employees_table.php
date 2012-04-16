@@ -62,7 +62,7 @@ class Migration_Create_Employees_Table extends CI_Migration {
                 'null' => TRUE,
             ),
             'date_hired' => array(
-                'type' => 'DATETIME',
+                'type' => 'DATE',
                 'null' => TRUE
             ),
             'sss_no' => array(
