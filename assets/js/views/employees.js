@@ -7,6 +7,7 @@ com.ebms.views.employees = {
     eduLen: 0,
     newEmployeeTab: null,
     editEmployeeTab: null,
+    editEmployeeDialog: null,
     // TODO add validation for creating an employee!
 
     init: function() {
@@ -85,6 +86,8 @@ com.ebms.views.employees = {
         });
 
         $('#general-info-form').live('ajax:success', this.successUpdateGenInfo);
+        $('#edit-employment-info-form').live('ajax:success', this.successUpdateEmploymentInfo);
+        this.initWorkExperience();
     },
 
     destroyModalDialog: function(e) {
@@ -150,10 +153,11 @@ com.ebms.views.employees = {
                 employeeWrapper.addClass('hide').html(data.data.html);
 
                 ns.editEmployeeTab = employeeWrapper.tabs({
-                    create: function() {
+                    show: function() {
                         $(this).fadeIn();
                     }
                 }).addClass('ui-tabs-vertical ui-helper-clearfix');
+                ns.editEmployeeDialog = $('#edit-employee-dialog');
                 ns.initEditEmployeeFormValidation();
 		employeeWrapper.removeClass('ui-corner-top').addClass('ui-corner-left');
 
@@ -163,8 +167,7 @@ com.ebms.views.employees = {
                 $('button, input[type="submit"]', employeeWrapper).button();
 
                 //init datepicker
-                com.ebms.widgets.base.initDatePicker($('#date-of-birth, #date-work-started, #date-work-ended, #date-hired', employeeWrapper));
-//                com.ebms.views.employees.initWorkExperience();
+                com.ebms.widgets.base.initDatePicker($('.date-of-birth, .date-work-started, .date-work-ended, .date-hired', employeeWrapper));
 //                com.ebms.views.employees.initEducationalBackground();
             },
             error: function() {
@@ -185,7 +188,22 @@ com.ebms.views.employees = {
     },
 
     errorUpdateGenInfo: function() {
+    },
 
+    successUpdateEmploymentInfo: function(e, data) {
+        if (data.code === 200) {
+            /* update info in table */
+            var ns = com.ebms.views.employees;
+            var table = $('#item-actions-list');
+            var row = table.find('tr[data-employee-id="'+data.data.employee_id+'"]');
+            row.find('td.dept').text($('select[name="department"] option:selected', ns.editEmployeeDialog).text());
+            row.find('td.pos').text($('select[name="position"] option:selected', ns.editEmployeeDialog).text());
+            row.find('td.status').text($('select[name="employment_status"] option:selected', ns.editEmployeeDialog).text());
+
+            com.ebms.widgets.flash.flashMessage(data.message);
+        } else {
+            com.ebms.widgets.flash.flashMessage(data.message, 'error');
+        }
     },
 
     restoreEmployeeSuccessHandler: function(e, data) {
@@ -310,8 +328,7 @@ com.ebms.views.employees = {
                 $('button, input[type="submit"]', employeeWrapper).button();
 
                 //init datepicker
-                com.ebms.widgets.base.initDatePicker($('#date-of-birth, #date-work-started, #date-work-ended, #date-hired', employeeWrapper));
-                com.ebms.views.employees.initWorkExperience();
+                com.ebms.widgets.base.initDatePicker($('.date-of-birth, .date-work-started, .date-work-ended, .date-hired', employeeWrapper));
                 com.ebms.views.employees.initEducationalBackground();
             },
             error: function() {
@@ -468,16 +485,17 @@ com.ebms.views.employees = {
     },
 
     initWorkExperience: function() {
-        $('#add-work-experience').live('click', function() {
+        $('.add-work-experience').live('click', function() {
+            var form = $(this).closest('form');
             var ns = com.ebms.views.employees;
             ns.expCtr++;
             ns.expLen++;
             var company, dateWorkStarted, dateWorkEnded, workDescription, work = '';
 
-            company = $('#company-name');
-            dateWorkStarted = $('#date-work-started');
-            dateWorkEnded = $('#date-work-ended');
-            workDescription = $('#work-description');
+            company = $('.company-name', form);
+            dateWorkStarted = $('.date-work-started', form);
+            dateWorkEnded = $('.date-work-ended', form);
+            workDescription = $('.work-description', form);
 
             work += '<li><div class="delete-work-exp"><a href="#" class="delete-work" data-counter = "'+ ns.ctr +'">X</a></div>';
             work += ('<div class="company-work-exp">' + company.val() + '</div>');
@@ -485,13 +503,13 @@ com.ebms.views.employees = {
             work += ('<div class="date-work-exp">' + dateWorkEnded.val() + '</div>');
             work += ('<div class="desc-work-exp">' + workDescription.val() + '</div></li>');
 
-            $('#work-experience-details article ul').append(work);
+            $('.work-experience-details article ul', form).append(work);
 
             var work_exp = '<input type="hidden" name="work_exp['+ ns.expCtr +'][company_name]" value="' + company.val() + '" data-counter="' + ns.expPrefix + ns.expCtr +'" />';
             work_exp += '<input type="hidden" name="work_exp['+ ns.expCtr +'][date_started]" value="'+ dateWorkStarted.val() + '" data-counter="' + ns.expPrefix + ns.expCtr + '" />';
             work_exp += '<input type="hidden" name="work_exp['+ ns.expCtr +'][date_ended]" value="'+ dateWorkEnded.val() + '" data-counter="' + ns.expPrefix + ns.expCtr + '" />';
             work_exp += '<input type="hidden" name="work_exp['+ ns.expCtr +'][work_description]" value="'+ workDescription.val() + '" data-counter="' + ns.expPrefix + ns.expCtr + '" />';
-            $('#work-experience-details article').append(work_exp);
+            $('.work-experience-details article', form).append(work_exp);
 
             // clear the fields
             company.val('');

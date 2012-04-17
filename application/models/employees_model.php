@@ -406,6 +406,55 @@
             }
         }
 
+        function updateEmployee() {
+            $id = $this->get_id();
+            $date_hired = $this->get_date_hired();
+            $dept_id = $this->get_department_id();
+            $pos_id = $this->get_position_id();
+            $emp_status_id = $this->get_employee_status_id();
+
+
+            if (isset($id)) {
+                $this->db->where('id', $id);
+            }
+            if (isset($date_hired)) {
+                $this->db->set('date_hired', $date_hired);
+            }
+            if (isset($dept_id)) {
+                $this->db->set('department_id', $dept_id);
+            }
+            if (isset($pos_id)) {
+                $this->db->set('position_id', $pos_id);
+            }
+            if (isset($emp_status_id)) {
+                $this->db->set('employee_status_id', $emp_status_id);
+            }
+
+            $this->db->update('employees');
+
+            /* insert into work experience */
+            foreach($this->get_work_experience() as $exp) {
+                $sql = 'INSERT INTO work_experience (company_name, date_started, date_ended, work_description, created_by, date_created, employee_id) '.
+                       'values (?, ?, ?, ?, ?, ?, ?)';
+
+                $this->db->query($sql,
+                        array(
+                            $exp['company_name'],
+                            $exp['date_started'],
+                            $exp['date_ended'],
+                            $exp['work_description'],
+                            $this->get_last_updated_by(),
+                            date($this->config->item('date_format')),
+                            $id
+                        ));
+            }
+
+            /* insert audit UPDATE */
+            parent::insertAuditTrail($this->get_last_updated_by(), 2, $this->get_id(), lang('update_employee'), $this->get_company_id(), $this->table_name);
+
+            return $this->db->affected_rows();
+        }
+
         function deactivateEmployee() {
             $this->db->trans_start();
             $data = array('active' => 0);
@@ -450,6 +499,29 @@
         function recordExists($id=null) {
             $query = $this->db->get_where('employees', array('company_id'=>$this->get_company_id(), 'id'=>$id));
             return $query->num_rows();
+        }
+
+        function deleteWorkExperience($id) {
+            $this->db->trans_start();
+
+            $this->db->where('id', $id);
+            $this->db->delete('work_experience');
+
+            $this->db->trans_complete();
+            if ($this->db->trans_status() === TRUE) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+        function _required($required, $data) {
+            foreach ($required as $field) {
+                if (!isset($data[$field])) {
+                    return FALSE;
+                }
+            }
+            return TRUE;
         }
     }
 

@@ -73,10 +73,8 @@
 
 #new-employee-dialog #general fieldset label.error,
 #edit-employee-dialog #edit-general fieldset label.error,
-#new-employee-dialog #work-experience-details fieldset label.error,
-#edit-employee-dialog #edit-work-experience-details fieldset label.error,
+#new-employee-dialog .work-experience-details fieldset label.error,
 #new-employee-dialog #educational-background fieldset label.error,
-#edit-employee-dialog #edit-educational-background fieldset label.error,
 #new-employee-dialog #payroll fieldset label.error,
 #edit-employee-dialog #edit-payroll fieldset label.error,
 #new-employee-dialog #employment-info fieldset label.error,
@@ -97,54 +95,54 @@
     margin: 5px 0 0 137px;
 }
 
-#new-employee-dialog #employment-info #work-experience-details,
-#edit-employee-dialog #edit-employment-info #work-experience-details,
-#new-employee-dialog #educational-background #educational-background-details,
-#edit-employee-dialog #edit-educational-background #educational-background-details {
+#employment-info .work-experience-details,
+#edit-employment-info .work-experience-details,
+#educational-background #educational-background-details,
+#edit-educational-background #educational-background-details {
     border-top: solid 2px #373939;
     margin-top: 10px;
 }
 
-#new-employee-dialog #employment-info #work-experience-details header,
-#edit-employee-dialog #edit-employment-info #work-experience-details header,
+#employment-info .work-experience-details header,
+#edit-employment-info .work-experience-details header,
 #new-employee-dialog #educational-background #educational-background-details header,
 #edit-employee-dialog edit- #educational-background-details header {
     background: #94959D;
     padding: 5px;
 }
-#new-employee-dialog #employment-info #work-experience-details header > ul,
-#edit-employee-dialog #edit-employment-info #work-experience-details header > ul,
+#employment-info .work-experience-details header > ul,
+#edit-employment-info .work-experience-details header > ul,
 #new-employee-dialog #educational-background #educational-background-details header > ul,
 #edit-employee-dialog #edit-educational-background #educational-background-details header > ul {
     overflow: hidden;
     padding: 10px 0;
 }
 
-#new-employee-dialog #employment-info #work-experience-details header > ul li,
-#edit-employee-dialog #edit-employment-info #work-experience-details header > ul li,
+#employment-info .work-experience-details header > ul li,
+#edit-employment-info .work-experience-details header > ul li,
 #new-employee-dialog #educational-background #educational-background-details header > ul li,
 #edit-employee-dialog #edit-educational-background #educational-background-details header > ul li {
     float: left;
 }
 
-#new-employee-dialog #employment-info #work-experience-details header > ul li#company-title,
-#edit-employee-dialog #edit-employment-info #work-experience-details header > ul li#company-title {
+#employment-info .work-experience-details .company-title,
+#edit-employment-info .work-experience-details .company-title {
     width: 130px;
     margin-left: 20px;
 }
-#new-employee-dialog #employment-info #work-experience-details header > ul li#start-date,
-#edit-employee-dialog #edit-employment-info #work-experience-details header > ul li#start-date,
-#new-employee-dialog #employment-info #work-experience-details header > ul li#end-date,
-#edit-employee-dialog #edit-employment-info #work-experience-details header > ul li#end-date {
+#employment-info .work-experience-details .start-date,
+#edit-employment-info .work-experience-details .start-date,
+#employment-info .work-experience-details .end-date,
+#edit-employment-info .work-experience-details .end-date {
     width: 80px;
 }
-#new-employee-dialog #employment-info #work-experience-details header > ul li#work-desc,
-#edit-employee-dialog #edit-employment-info #work-experience-details header > ul li#work-desc {
+#employment-info .work-experience-details .work-desc,
+#edit-employment-info .work-experience-details .work-desc {
     width: 158px;
 }
 
-#new-employee-dialog #employment-info #work-experience-details article,
-#edit-employee-dialog #edit-employment-info #work-experience-details article,
+#employment-info .work-experience-details article,
+#edit-employment-info .work-experience-details article,
 #new-employee-dialog #educational-background #educational-background-details article,
 #edit-employee-dialog #edit-educational-background #educational-background-details article {
     border: 1px solid #888;
@@ -152,41 +150,41 @@
     overflow: hidden;
 }
 
-#new-employee-dialog #employment-info #work-experience-details article ul li,
-#edit-employee-dialog #edit-employment-info #work-experience-details article ul li,
+#employment-info .work-experience-details article ul li,
+#edit-employment-info .work-experience-details article ul li,
 #new-employee-dialog #educational-background #educational-background-details article ul li,
 #edit-employee-dialog #edit-educational-background #educational-background-details article ul li {
     overflow: hidden;
     margin-bottom: 5px;
 }
-#new-employee-dialog #employment-info #work-experience-details article ul li > div,
-#edit-employee-dialog #edit-employment-info #work-experience-details article ul li > div,
+#employment-info .work-experience-details article ul li > div,
+#edit-employment-info .work-experience-details article ul li > div,
 #new-employee-dialog #educational-background #educational-background-details article ul li > div,
 #edit-employee-dialog #edit-educational-background #educational-background-details article ul li > div{
     float: left;
     overflow: hidden;
     text-overflow: ellipsis;
 }
-#new-employee-dialog #employment-info #work-experience-details article ul li .company-work-exp,
-#edit-employee-dialog #edit-employment-info #work-experience-details article ul li .company-work-exp {
+#employment-info .work-experience-details li .company-work-exp,
+#edit-employment-info .work-experience-details li .company-work-exp {
     width: 130px;
 }
-#new-employee-dialog #employment-info #work-experience-details article ul li .date-work-exp,
-#edit-employee-dialog #edit-employment-info #work-experience-details article ul li .date-work-exp {
+#employment-info .work-experience-details li .date-work-exp,
+#edit-employment-info .work-experience-details li .date-work-exp {
     width: 80px;
 }
-#new-employee-dialog #employment-info #work-experience-details article ul li .desc-work-exp,
-#edit-employee-dialog #edit-employment-info #work-experience-details article ul li .desc-work-exp {
+#employment-info .work-experience-details .desc-work-exp,
+#edit-employment-info .work-experience-details .desc-work-exp {
     width: 158px;
 }
-#new-employee-dialog #employment-info #work-experience-details article ul li .delete-work-exp,
-#edit-employee-dialog #edit-employment-info #work-experience-details article ul li .delete-work-exp,
+#employment-info .work-experience-details .delete-work-exp,
+#edit-employment-info .work-experience-details .delete-work-exp,
 #new-employee-dialog #educational-background #educational-background-details article ul li .delete-edu-background,
 #edit-employee-dialog #edit-educational-background #educational-background-details article ul li .delete-edu-background {
     width: 20px;
 }
-#new-employee-dialog #employment-info #work-experience-details article ul li .delete-work-exp a,
-#edit-employee-dialog #edit-employment-info #work-experience-details article ul li .delete-work-exp a,
+#employment-info .work-experience-details .delete-work-exp a,
+#edit-employment-info .work-experience-details .delete-work-exp a,
 #new-employee-dialog #educational-background #educational-background-details article ul li .delete-edu-background a,
 #edit-employee-dialog #edit-educational-background #educational-background-details article ul li .delete-edu-background a {
     background: url('../../image/icons/30x30-common-icons-sprite.png') no-repeat -6px -547px transparent;

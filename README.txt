@@ -19,4 +19,4 @@ http://stackoverflow.com/questions/2519933/git-clone-repo-across-local-file-syst
 4. git pull - if a conflict occurs fix the conflict
 4. git push
 
-
+/* current_avatar refers to current user */

@@ -6,6 +6,7 @@
         public $departments;
         public $positions;
         public $employee;
+        public $work_experience;
         private $employeeObj;
 
         function __construct() {
@@ -101,7 +102,7 @@
         function get_edit_employee_form($id) {
             $this->employeeObj->set_id($id);
             $this->employee = $this->employeeObj->getEmployeeDetails();
-
+            $this->work_experience = $this->employeeObj->getWorkExperience($id);
             $this->_load_employment_info();
 
             send_json_response(INFO_LOG, HTTP_OK, 'new employee form', array('html' => $this->load->view('personnel/employee/_edit_employee_form', '', true)));
@@ -223,6 +224,34 @@
             }
         }
 
+        function update_employment_info() {
+            $id = $this->input->post('id', TRUE);
+            $date_hired = $this->input->post('date_hired', TRUE);
+            $department_id = $this->input->post('department', TRUE);
+            $position_id = $this->input->post('position', TRUE);
+            $employee_status_id = $this->input->post('employment_status', TRUE);
+            $work_exp = $this->input->post('work_exp', TRUE);
+
+            /* TODO: more backend validation */
+            if(is_empty_null_value($work_exp)) {
+                $work_exp = array();
+            }
+
+            $this->employeeObj->set_id($id);
+            $this->employeeObj->set_date_hired($date_hired);
+            $this->employeeObj->set_department_id($department_id);
+            $this->employeeObj->set_position_id($position_id);
+            $this->employeeObj->set_employee_status_id($employee_status_id);
+            $this->employeeObj->set_work_experience($work_exp);
+            $this->employeeObj->set_last_updated_by($this->current_avatar->id);
+
+            if ($this->employeeObj->updateEmployee()) {
+                send_json_response(INFO_LOG, HTTP_OK, lang('successfully_updated_employee_info'), array('employee_id' => $id));
+            } else {
+                send_json_response(ERROR_LOG, HTTP_FAIL_PRECON, lang('please_try_again'));
+            }
+        }
+
         function delete($id) {
             if ($this->_record_exist($id)) {
                 $this->employeeObj->set_id($id);
@@ -236,6 +265,16 @@
                 }
             } else {
                 show_error(lang('unable_to_process_transaction'));
+            }
+        }
+
+        function delete_work_experience($id) {
+            $this->employeeObj->set_last_updated_by($this->current_avatar->id);
+
+            if($this->employeeObj->deleteWorkExperience($id)) {
+                send_json_response(INFO_LOG, HTTP_OK, 'successfully deleted work experience', array('work_experience_id' => $id));
+            } else {
+                send_json_response(ERROR_LOG, HTTP_FAIL_PRECON, 'unable to delete work experience');
             }
         }
 

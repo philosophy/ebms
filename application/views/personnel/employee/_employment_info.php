@@ -4,7 +4,7 @@
 
 <fieldset>
     <label>Date Hired*:</label>
-    <?php echo form_input(array('name' => 'date_hired', 'id' => 'date-hired', 'placeholder' => lang('date_hired'), 'data-datepicker-img-url' => image_asset_url('calendar.gif'))); ?>
+    <?php echo form_input(array('name' => 'date_hired', 'class' => 'date-hired', 'placeholder' => lang('date_hired'), 'data-datepicker-img-url' => image_asset_url('calendar.gif'))); ?>
 </fieldset>
 <fieldset>
     <label>Department:</label>
@@ -41,29 +41,29 @@
     <h1>Work Experience</h1>
     <fieldset>
         <label>Company Name:</label>
-        <?php echo form_input(array('id' => 'company-name', 'placeholder' => lang('company_name'))); ?>
+        <?php echo form_input(array('class' => 'company-name', 'placeholder' => lang('company_name'))); ?>
     </fieldset>
     <fieldset>
         <label>Date Started:</label>
-        <?php echo form_input(array('id' => 'date-work-started', 'placeholder' => lang('date_work_started'), 'data-datepicker-img-url' => image_asset_url('calendar.gif'))); ?>
+        <?php echo form_input(array('class' => 'date-work-started', 'placeholder' => lang('date_work_started'), 'data-datepicker-img-url' => image_asset_url('calendar.gif'))); ?>
     </fieldset>
     <fieldset>
         <label>Date Ended:</label>
-        <?php echo form_input(array('id' => 'date-work-ended', 'placeholder' => lang('date_work_ended'), 'data-datepicker-img-url' => image_asset_url('calendar.gif'))); ?>
+        <?php echo form_input(array('class' => 'date-work-ended', 'placeholder' => lang('date_work_ended'), 'data-datepicker-img-url' => image_asset_url('calendar.gif'))); ?>
     </fieldset>
     <fieldset>
         <label>Work Description:</label>
-        <?php echo form_textarea(array('name' => 'work_description', 'id' => 'work-description', 'placeholder' => lang('work_description'), 'rows' => '2')); ?>
+        <?php echo form_textarea(array('name' => 'work_description', 'class' => 'work-description', 'placeholder' => lang('work_description'), 'rows' => '2')); ?>
     </fieldset>
-    <?php echo form_button(array('id'=>'add-work-experience', 'content' => 'Add')); ?>
+    <?php echo form_button(array('class'=>'add-work-experience', 'content' => 'Add')); ?>
 
-    <div id="work-experience-details">
+    <div class="work-experience-details">
         <header>
             <ul>
-                <li id="company-title">Company Name</li>
-                <li id="start-date">Start Date</li>
-                <li id="end-date">End Date</li>
-                <li id="work-desc">Work Description</li>
+                <li class="company-title">Company Name</li>
+                <li class="start-date">Start Date</li>
+                <li class="end-date">End Date</li>
+                <li class="work-desc">Work Description</li>
             </ul>
         </header>
         <article>

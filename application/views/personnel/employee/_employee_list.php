@@ -22,9 +22,9 @@
                         <td class="background <?php echo $emp->gender == 0 ? 'male' : 'female'; ?>"></td>
                         <td><?php echo $emp->employee_code ?></td>
                         <td class="name"><?php echo $emp->first_name . ' ' . $emp->last_name; ?></td>
-                        <td><?php echo $emp->department; ?></td>
-                        <td><?php echo $emp->position; ?></td>
-                        <td><?php echo $emp->status ?></td>
+                        <td class="dept"><?php echo $emp->department; ?></td>
+                        <td class="pos"><?php echo $emp->position; ?></td>
+                        <td class="status"><?php echo $emp->status ?></td>
                     </tr>
                 <?php } ?>
             <?php } else { ?>
