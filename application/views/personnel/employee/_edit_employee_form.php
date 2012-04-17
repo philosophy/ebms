@@ -23,7 +23,12 @@
         <?php echo form_close(); ?>
     </div>
     <div id="edit-educational-background" class="educational-background">
+         <?php
+            echo form_open('employees/update_educational_background/'.$this->employee->id, array('id' => 'edit-educataional-background-form', 'data-remote' => 'true', 'data-type' => 'json'));
+            echo form_input(array('name' => 'id', 'value' => $this->employee->id, 'type' => 'hidden'));
+        ?>
         <?php $this->load->view('personnel/employee/_edit_educational_background', array('employee' => $this->employee)); ?>
+        <?php echo form_close(); ?>
     </div>
     <div id="edit-payroll" class="payroll">
         <?php $this->load->view('personnel/employee/_edit_payroll', array('employee' => $this->employee)); ?>

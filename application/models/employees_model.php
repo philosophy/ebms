@@ -413,7 +413,6 @@
             $pos_id = $this->get_position_id();
             $emp_status_id = $this->get_employee_status_id();
 
-
             if (isset($id)) {
                 $this->db->where('id', $id);
             }
@@ -447,6 +446,23 @@
                             date($this->config->item('date_format')),
                             $id
                         ));
+            }
+
+            /* insert education */
+            foreach($this->get_educational_background() as $edu) {
+                $sql = 'INSERT INTO educational_background (school_name, date_graduated, remarks, created_by, date_created, employee_id) '.
+                       'values (?, ?, ?, ?, ?, ?)';
+
+                $this->db->query($sql,
+                        array(
+                            $edu['school_name'],
+                            $edu['date_graduated'],
+                            $edu['remarks'],
+                            $this->get_last_updated_by(),
+                            date($this->config->item('date_format')),
+                            $id
+                        ));
+
             }
 
             /* insert audit UPDATE */
@@ -506,6 +522,20 @@
 
             $this->db->where('id', $id);
             $this->db->delete('work_experience');
+
+            $this->db->trans_complete();
+            if ($this->db->trans_status() === TRUE) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+        function deleteEducationalBackground($id) {
+            $this->db->trans_start();
+
+            $this->db->where('id', $id);
+            $this->db->delete('educational_background');
 
             $this->db->trans_complete();
             if ($this->db->trans_status() === TRUE) {

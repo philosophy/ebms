@@ -97,31 +97,31 @@
 
 #employment-info .work-experience-details,
 #edit-employment-info .work-experience-details,
-#educational-background #educational-background-details,
-#edit-educational-background #educational-background-details {
+#educational-background .educational-background-details,
+#edit-educational-background .educational-background-details {
     border-top: solid 2px #373939;
     margin-top: 10px;
 }
 
 #employment-info .work-experience-details header,
 #edit-employment-info .work-experience-details header,
-#new-employee-dialog #educational-background #educational-background-details header,
-#edit-employee-dialog edit- #educational-background-details header {
+#educational-background .educational-background-details header,
+#edit-educational-background .educational-background-details header {
     background: #94959D;
     padding: 5px;
 }
 #employment-info .work-experience-details header > ul,
 #edit-employment-info .work-experience-details header > ul,
-#new-employee-dialog #educational-background #educational-background-details header > ul,
-#edit-employee-dialog #edit-educational-background #educational-background-details header > ul {
+#educational-background .educational-background-details header > ul,
+#edit-educational-background .educational-background-details header > ul {
     overflow: hidden;
     padding: 10px 0;
 }
 
 #employment-info .work-experience-details header > ul li,
 #edit-employment-info .work-experience-details header > ul li,
-#new-employee-dialog #educational-background #educational-background-details header > ul li,
-#edit-employee-dialog #edit-educational-background #educational-background-details header > ul li {
+#educational-background .educational-background-details header > ul li,
+#edit-educational-background .educational-background-details header > ul li {
     float: left;
 }
 
@@ -143,8 +143,8 @@
 
 #employment-info .work-experience-details article,
 #edit-employment-info .work-experience-details article,
-#new-employee-dialog #educational-background #educational-background-details article,
-#edit-employee-dialog #edit-educational-background #educational-background-details article {
+#educational-background .educational-background-details article,
+#edit-educational-background .educational-background-details article {
     border: 1px solid #888;
     padding: 5px;
     overflow: hidden;
@@ -152,15 +152,15 @@
 
 #employment-info .work-experience-details article ul li,
 #edit-employment-info .work-experience-details article ul li,
-#new-employee-dialog #educational-background #educational-background-details article ul li,
-#edit-employee-dialog #edit-educational-background #educational-background-details article ul li {
+#educational-background .educational-background-details article ul li,
+#edit-educational-background .educational-background-details article ul li {
     overflow: hidden;
     margin-bottom: 5px;
 }
 #employment-info .work-experience-details article ul li > div,
 #edit-employment-info .work-experience-details article ul li > div,
-#new-employee-dialog #educational-background #educational-background-details article ul li > div,
-#edit-employee-dialog #edit-educational-background #educational-background-details article ul li > div{
+#educational-background .educational-background-details article ul li > div,
+#edit-educational-background .educational-background-details article ul li > div{
     float: left;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -179,43 +179,43 @@
 }
 #employment-info .work-experience-details .delete-work-exp,
 #edit-employment-info .work-experience-details .delete-work-exp,
-#new-employee-dialog #educational-background #educational-background-details article ul li .delete-edu-background,
-#edit-employee-dialog #edit-educational-background #educational-background-details article ul li .delete-edu-background {
+#educational-background .educational-background-details li .delete-edu-background,
+#edit-educational-background .educational-background-details li .delete-edu-background {
     width: 20px;
 }
 #employment-info .work-experience-details .delete-work-exp a,
 #edit-employment-info .work-experience-details .delete-work-exp a,
-#new-employee-dialog #educational-background #educational-background-details article ul li .delete-edu-background a,
-#edit-employee-dialog #edit-educational-background #educational-background-details article ul li .delete-edu-background a {
+#educational-background .educational-background-details li .delete-edu-background a,
+#edit-educational-background .educational-background-details li .delete-edu-background a {
     background: url('../../image/icons/30x30-common-icons-sprite.png') no-repeat -6px -547px transparent;
     display: block;
     text-indent: -2000em;
     height: 16px;
 }
 
-#new-employee-dialog #educational-background #educational-background-details header > ul li#school-name,
-#edit-employee-dialog #edit-educational-background #educational-background-details header > ul li#school-name {
+#educational-background .educational-background-details header > li.school-name,
+#edit-educational-background .educational-background-details header > li.school-name {
     width: 150px;
     margin-left: 20px;
 }
-#new-employee-dialog #educational-background #educational-background-details header > ul li#year-graduated,
-#edit-employee-dialog #edit-educational-background #educational-background-details header > ul li#year-graduated {
+#educational-background .educational-background-details header > li.year-graduated,
+#edit-educational-background .educational-background-details header > li.year-graduated {
     width: 100px;
 }
-#new-employee-dialog #educational-background #educational-background-details header > ul li#remarks,
-#edit-employee-dialog #edit-educational-background #educational-background-details header > ul li#remarks {
+#educational-background .educational-background-details header > li.remarks,
+#edit-educational-background .educational-background-details header > li.remarks {
     width: 200px;
 }
-#new-employee-dialog #educational-background #educational-background-details article ul li .school-name-background,
-#edit-employee-dialog #edit-educational-background #educational-background-details article ul li .school-name-background {
+#educational-background .educational-background-details li .school-name-background,
+#edit-educational-background .educational-background-details li .school-name-background {
     width: 150px;
 }
-#new-employee-dialog #educational-background #educational-background-details article ul li .year-graduated-background,
-#edit-employee-dialog #edit-educational-background #educational-background-details article ul li .year-graduated-background {
+#educational-background .educational-background-details li .year-graduated-background,
+#edit-educational-background .educational-background-details li .year-graduated-background {
     width: 100px;
 }
-#new-employee-dialog #educational-background #educational-background-details article ul li .remarks-background,
-#edit-employee-dialog #edit-educational-background #educational-background-details article ul li .remarks-background {
+#educational-background .educational-background-details li .remarks-background,
+#edit-educational-background .educational-background-details li .remarks-background {
     width: 180px;
 }
 

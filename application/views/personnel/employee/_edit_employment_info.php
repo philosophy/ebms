@@ -72,7 +72,7 @@
                     if(count($this->work_experience) > 0) {
                         foreach($this->work_experience as $exp) { ?>
                             <li class="current">
-                                <div class="delete-work-exp"><a href=<?php echo site_url('employees/work_experience/'.$exp->id.'/delete') ?> class="remove-work-exp confirm-link" data-dialog-confirm-message="<?php echo lang('are_you_sure_you_want_to_remove_work_exp'); ?>" data-dialog-method="delete" data-dialog-remote='true' data-dialog-title="<?php echo lang('remove_work_experience');?>" data-dialog-type='json' data-class='delete-work-exp'>X</a></div>
+                                <div class="delete-work-exp"><a href="<?php echo site_url('employees/work_experience/'.$exp->id.'/delete') ?>" class="remove-work-exp confirm-link" data-dialog-confirm-message="<?php echo lang('are_you_sure_you_want_to_remove_work_exp'); ?>" data-dialog-method="delete" data-dialog-remote='true' data-dialog-title="<?php echo lang('remove_work_experience');?>" data-dialog-type='json' data-class='delete-work-exp'>X</a></div>
                                 <div class="company-work-exp"><?php echo $exp->company_name; ?></div>
                                 <div class="date-work-exp"><?php echo $exp->date_started; ?></div>
                                 <div class="date-work-exp"><?php echo $exp->date_ended; ?></div>

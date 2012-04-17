@@ -7,6 +7,7 @@
         public $positions;
         public $employee;
         public $work_experience;
+        public $educational_background;
         private $employeeObj;
 
         function __construct() {
@@ -103,6 +104,7 @@
             $this->employeeObj->set_id($id);
             $this->employee = $this->employeeObj->getEmployeeDetails();
             $this->work_experience = $this->employeeObj->getWorkExperience($id);
+            $this->educational_background = $this->employeeObj->getEducationalBackground($id);
             $this->_load_employment_info();
 
             send_json_response(INFO_LOG, HTTP_OK, 'new employee form', array('html' => $this->load->view('personnel/employee/_edit_employee_form', '', true)));
@@ -252,6 +254,26 @@
             }
         }
 
+        function update_educational_background() {
+            $id = $this->input->post('id', TRUE);
+            $educational_background = $this->input->post('educational_background', TRUE);
+
+            /* TODO: more backend validation */
+            if(is_empty_null_value($educational_background)) {
+                $educational_background = array();
+            }
+
+            $this->employeeObj->set_id($id);
+            $this->employeeObj->set_educational_background($educational_background);
+            $this->employeeObj->set_last_updated_by($this->current_avatar->id);
+
+            if ($this->employeeObj->updateEmployee()) {
+                send_json_response(INFO_LOG, HTTP_OK, lang('successfully_updated_employee_info'), array('employee_id' => $id));
+            } else {
+                send_json_response(ERROR_LOG, HTTP_FAIL_PRECON, lang('please_try_again'));
+            }
+        }
+
         function delete($id) {
             if ($this->_record_exist($id)) {
                 $this->employeeObj->set_id($id);
@@ -275,6 +297,16 @@
                 send_json_response(INFO_LOG, HTTP_OK, 'successfully deleted work experience', array('work_experience_id' => $id));
             } else {
                 send_json_response(ERROR_LOG, HTTP_FAIL_PRECON, 'unable to delete work experience');
+            }
+        }
+
+        function delete_educational_background($id) {
+            $this->employeeObj->set_last_updated_by($this->current_avatar->id);
+
+            if($this->employeeObj->deleteEducationalBackground($id)) {
+                send_json_response(INFO_LOG, HTTP_OK, 'successfully deleted educational background', array('edu_background_id' => $id));
+            } else {
+                send_json_response(ERROR_LOG, HTTP_FAIL_PRECON, 'unable to delete educational background');
             }
         }
 

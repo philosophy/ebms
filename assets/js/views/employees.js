@@ -88,6 +88,7 @@ com.ebms.views.employees = {
         $('#general-info-form').live('ajax:success', this.successUpdateGenInfo);
         $('#edit-employment-info-form').live('ajax:success', this.successUpdateEmploymentInfo);
         this.initWorkExperience();
+        this.initEducationalBackground();
     },
 
     destroyModalDialog: function(e) {
@@ -168,7 +169,6 @@ com.ebms.views.employees = {
 
                 //init datepicker
                 com.ebms.widgets.base.initDatePicker($('.date-of-birth, .date-work-started, .date-work-ended, .date-hired', employeeWrapper));
-//                com.ebms.views.employees.initEducationalBackground();
             },
             error: function() {
                 alert('an error has occured');
@@ -329,7 +329,6 @@ com.ebms.views.employees = {
 
                 //init datepicker
                 com.ebms.widgets.base.initDatePicker($('.date-of-birth, .date-work-started, .date-work-ended, .date-hired', employeeWrapper));
-                com.ebms.views.employees.initEducationalBackground();
             },
             error: function() {
                 alert('an error has occured');
@@ -536,26 +535,27 @@ com.ebms.views.employees = {
     },
 
     initEducationalBackground: function() {
-        $('#add-educational-background').live('click', function() {
+        $('.add-educational-background').live('click', function() {
+            var form = $(this).closest('form');
             var school, yearGraduated, remarks, background = '';
             var ns = com.ebms.views.employees;
                 ns.eduCtr++;
 
-            school = $('#school-name');
-            yearGraduated = $('#year-graduated');
-            remarks = $('#remarks');
+            school = $('.school-name', form);
+            yearGraduated = $('.year-graduated', form);
+            remarks = $('.remarks', form);
 
             background += '<li><div class="delete-edu-background"><a href="#" class="delete-edu" data-counter="' + ns.eduCtr + '">X</a></div>';
             background += ('<div class="school-name-background">' + school.val() + '</div>');
             background += ('<div class="year-graduated-background">' + yearGraduated.val() + '</div>');
             background += ('<div class="remarks-background">' + remarks.val() + '</div>');
 
-            $('#educational-background-details article ul').append(background);
+            $('.educational-background-details article ul', form).append(background);
 
             var edu_background = '<input type="hidden" name="educational_background['+ ns.eduCtr +'][school_name]" value="' + school.val() + '" data-counter="' + ns.eduPrefix + ns.eduCtr +'" />';
             edu_background += '<input type="hidden" name="educational_background['+ ns.eduCtr +'][date_graduated]" value="'+ yearGraduated.val() + '" data-counter="' + ns.eduPrefix + ns.eduCtr + '" />';
             edu_background += '<input type="hidden" name="educational_background['+ ns.eduCtr +'][remarks]" value="'+ remarks.val() + '" data-counter="' + ns.eduPrefix + ns.eduCtr + '" />';
-            $('#educational-background-details article').append(edu_background);
+            $('.educational-background-details article', form).append(edu_background);
 
             // clear the fields
             school.val('');

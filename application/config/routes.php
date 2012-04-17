@@ -196,6 +196,7 @@ $route['employees/get_edit_employee_form/(:num)'] = 'personnel/employees/get_edi
 $route['employees/create'] = 'personnel/employees/create';
 $route['employees/update_general_info/(:num)'] = 'personnel/employees/update_general_info';
 $route['employees/update_employment_info/(:num)'] = 'personnel/employees/update_employment_info';
+$route['employees/update_educational_background/(:num)'] = 'personnel/employees/update_educational_background';
 $route['employees/delete/(:num)'] = 'personnel/employees/delete/$1';
 $route['employees/restore/(:num)'] = 'personnel/employees/restore/$1';
 $route['employees/profile/browse/(:num)'] =  'personnel/employees/browse/$1';
@@ -203,6 +204,7 @@ $route['employees/profile/browse'] =  'personnel/employees/browse';
 $route['employee_schedule'] = 'personnel/employee_schedule';
 
 $route['employees/work_experience/(:num)/delete'] = 'personnel/employees/delete_work_experience/$1';
+$route['employees/educational_background/(:num)/delete'] = 'personnel/employees/delete_educational_background/$1';
 /* end of personnel */
 
 /* End of file routes.php */
