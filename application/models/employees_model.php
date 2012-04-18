@@ -407,11 +407,18 @@
         }
 
         function updateEmployee() {
+            $this->db->trans_start();
             $id = $this->get_id();
             $date_hired = $this->get_date_hired();
             $dept_id = $this->get_department_id();
             $pos_id = $this->get_position_id();
             $emp_status_id = $this->get_employee_status_id();
+            $salary = $this->get_salary();
+            $sss_no = $this->get_sss_no();
+            $philhealth = $this->get_philhealth();
+            $tin_no = $this->get_tin_no();
+            $pagibig = $this->get_pagibig();
+            $active = $this->get_active();
 
             if (isset($id)) {
                 $this->db->where('id', $id);
@@ -419,14 +426,32 @@
             if (isset($date_hired)) {
                 $this->db->set('date_hired', $date_hired);
             }
-            if (isset($dept_id)) {
+            if (isset($dept_id) && $dept_id != 0 ) {
                 $this->db->set('department_id', $dept_id);
             }
-            if (isset($pos_id)) {
+            if (isset($pos_id) && $pos_id != 0) {
                 $this->db->set('position_id', $pos_id);
             }
-            if (isset($emp_status_id)) {
+            if (isset($emp_status_id) && $emp_status_id != 0) {
                 $this->db->set('employee_status_id', $emp_status_id);
+            }
+            if (isset($salary)) {
+                $this->db->set('salary', $salary);
+            }
+            if (isset($sss_no)) {
+                $this->db->set('sss_no', $sss_no);
+            }
+            if (isset($philhealth)) {
+                $this->db->set('philhealth', $philhealth);
+            }
+            if (isset($tin_no)) {
+                $this->db->set('tin_no', $tin_no);
+            }
+            if (isset($pagibig)) {
+                $this->db->set('pagibig', $pagibig);
+            }
+            if (isset($active)) {
+                $this->db->set('active', $active);
             }
 
             $this->db->update('employees');
@@ -468,7 +493,12 @@
             /* insert audit UPDATE */
             parent::insertAuditTrail($this->get_last_updated_by(), 2, $this->get_id(), lang('update_employee'), $this->get_company_id(), $this->table_name);
 
-            return $this->db->affected_rows();
+            $this->db->trans_complete();
+            if ($this->db->trans_status() === TRUE) {
+                return true;
+            } else {
+                return false;
+            }
         }
 
         function deactivateEmployee() {

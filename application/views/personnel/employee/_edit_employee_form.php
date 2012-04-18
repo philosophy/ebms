@@ -31,6 +31,11 @@
         <?php echo form_close(); ?>
     </div>
     <div id="edit-payroll" class="payroll">
+         <?php
+            echo form_open('employees/update_payroll/'.$this->employee->id, array('id' => 'edit-payroll-form', 'data-remote' => 'true', 'data-type' => 'json'));
+            echo form_input(array('name' => 'id', 'value' => $this->employee->id, 'type' => 'hidden'));
+        ?>
         <?php $this->load->view('personnel/employee/_edit_payroll', array('employee' => $this->employee)); ?>
+        <?php echo form_close(); ?>
     </div>
 </section>

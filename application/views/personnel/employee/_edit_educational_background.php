@@ -43,3 +43,4 @@
 <div class="buttons-wrapper">
     <?php echo form_submit(array('class' => 'update-button', 'value' => 'Update')); ?>
     <?php echo form_button(array('class' => 'close-button', 'content' => 'Close')); ?>
+</div>

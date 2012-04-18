@@ -197,6 +197,7 @@ $route['employees/create'] = 'personnel/employees/create';
 $route['employees/update_general_info/(:num)'] = 'personnel/employees/update_general_info';
 $route['employees/update_employment_info/(:num)'] = 'personnel/employees/update_employment_info';
 $route['employees/update_educational_background/(:num)'] = 'personnel/employees/update_educational_background';
+$route['employees/update_payroll/(:num)'] = 'personnel/employees/update_payroll';
 $route['employees/delete/(:num)'] = 'personnel/employees/delete/$1';
 $route['employees/restore/(:num)'] = 'personnel/employees/restore/$1';
 $route['employees/profile/browse/(:num)'] =  'personnel/employees/browse/$1';

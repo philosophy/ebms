@@ -33,7 +33,7 @@ com.ebms.views.employees = {
         $('#new-employee-form').live('ajax:error', this.newEmployeeErrorHandler);
         $('#new-employee-form').live('ajax:complete', this.newEmployeeCompleteHandler);
 
-        $('#item-actions-list').delegate('tr', 'click', function() {
+        $('#item-actions-list tr').live('click', function() {
             var $this = $(this);
             //reset
             $this.siblings().removeClass('selected');
@@ -87,6 +87,7 @@ com.ebms.views.employees = {
 
         $('#general-info-form').live('ajax:success', this.successUpdateGenInfo);
         $('#edit-employment-info-form').live('ajax:success', this.successUpdateEmploymentInfo);
+        $('#edit-payroll-form').live('ajax:success', this.successUpdatePayroll);
         this.initWorkExperience();
         this.initEducationalBackground();
     },
@@ -143,6 +144,8 @@ com.ebms.views.employees = {
         e.preventDefault();
         var employeeWrapper = $('#edit-employee-dialog');
         var url = $('#edit-employee').data('edit-url');
+
+        employeeWrapper.html('<span class="loader"></span>').dialog('option', 'position', 'center');
 
         $.ajax({
             url: url,
@@ -202,6 +205,14 @@ com.ebms.views.employees = {
 
             com.ebms.widgets.flash.flashMessage(data.message);
         } else {
+            com.ebms.widgets.flash.flashMessage(data.message, 'error');
+        }
+    },
+
+    successUpdatePayroll: function(e, data) {
+        if (data.code === 200) {
+            com.ebms.widgets.flash.flashMessage(data.message);
+        } else if (data.code === 412) {
             com.ebms.widgets.flash.flashMessage(data.message, 'error');
         }
     },

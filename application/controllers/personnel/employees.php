@@ -34,8 +34,9 @@
             $config['uri_segment'] = $this->config->item('pagination_uri_segment');
             $config['anchor_class'] = $this->config->item('pagination_anchor_class');
 
+            $offset = $this->uri->segment(4);
             $this->employeeObj->set_limit($config['per_page']);
-            $this->employeeObj->set_offset($this->uri->segment(4));
+            $this->employeeObj->set_offset(empty($offset) ? 0 : $offset);
             $this->employees = $this->employeeObj->getEmployees();
             $this->pagination->initialize($config);
             $data['pagination_links'] = $this->pagination->create_links();
@@ -265,6 +266,31 @@
 
             $this->employeeObj->set_id($id);
             $this->employeeObj->set_educational_background($educational_background);
+            $this->employeeObj->set_last_updated_by($this->current_avatar->id);
+
+            if ($this->employeeObj->updateEmployee()) {
+                send_json_response(INFO_LOG, HTTP_OK, lang('successfully_updated_employee_info'), array('employee_id' => $id));
+            } else {
+                send_json_response(ERROR_LOG, HTTP_FAIL_PRECON, lang('please_try_again'));
+            }
+        }
+
+        function update_payroll() {
+            $id = $this->input->post('id', TRUE);
+            $salary = $this->input->post('salary', TRUE);
+            $sss_no = $this->input->post('sss_no', TRUE);
+            $philhealth = $this->input->post('philhealth', TRUE);
+            $tin_no = $this->input->post('tin_no', TRUE);
+            $pagibig = $this->input->post('pagibig', TRUE);
+
+            /* TODO: more backend validation */
+
+            $this->employeeObj->set_id($id);
+            $this->employeeObj->set_salary($salary);
+            $this->employeeObj->set_sss_no($sss_no);
+            $this->employeeObj->set_philhealth($philhealth);
+            $this->employeeObj->set_tin_no($tin_no);
+            $this->employeeObj->set_pagibig($pagibig);
             $this->employeeObj->set_last_updated_by($this->current_avatar->id);
 
             if ($this->employeeObj->updateEmployee()) {
