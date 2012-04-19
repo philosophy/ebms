@@ -92,7 +92,8 @@
     float: left;
     width: 60px;
     background: #C2D6D6;
-    padding: 30px 0 20px;
+    padding: 30px 0 0;
+    min-height: 345px;
 }
 
 .items-list-wrapper div.items-nav a {

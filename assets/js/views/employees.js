@@ -90,6 +90,7 @@ com.ebms.views.employees = {
         $('#edit-payroll-form').live('ajax:success', this.successUpdatePayroll);
         this.initWorkExperience();
         this.initEducationalBackground();
+        this.initEmployeeItems();
     },
 
     destroyModalDialog: function(e) {
@@ -585,6 +586,10 @@ com.ebms.views.employees = {
             e.preventDefault();
             return false;
         });
+    },
+
+    initEmployeeItems: function() {
+        $('#employee-items').tabs().fadeIn();
     }
 
 };

@@ -464,6 +464,7 @@
     $lang['are_you_sure_you_want_to_remove_work_exp'] = 'Are you sure you want to remove work experience?';
     $lang['remove_educational_background'] = 'Remove educational background';
     $lang['are_you_sure_you_want_to_remove_edu_background'] = 'Are you sure you want to remove this educational background?';
+    $lang['please_select_an_employee_record'] = 'Please select an employee record';
 
     /* payroll details */
     $lang['sss_number'] = 'SSS Number';

@@ -45,6 +45,9 @@
         </article>
 
     </section>
+    <section id="employee-items">
+        <?php $this->load->view('personnel/employee/_employee_items'); ?>
+    </section>
 </article>
 
 
