@@ -13,6 +13,18 @@ com.ebms.widgets.base = {
             changeMonth: true,
             yearRange: '1960:2012'
         });
+    },
+
+    errorMessage: function(msg) {
+        var defaultMsg = 'an error has occured';
+        if (msg !== undefined) {
+            defaultMsg = msg;
+        }
+        alert(defaultMsg);
+    },
+
+    reAlignDialog: function(elem, position) {
+        elem.dialog('option', 'position', position !== undefined ? position : 'center');
     }
 };
 

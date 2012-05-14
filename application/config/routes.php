@@ -202,7 +202,10 @@ $route['employees/delete/(:num)'] = 'personnel/employees/delete/$1';
 $route['employees/restore/(:num)'] = 'personnel/employees/restore/$1';
 $route['employees/profile/browse/(:num)'] =  'personnel/employees/browse/$1';
 $route['employees/profile/browse'] =  'personnel/employees/browse';
-$route['employee_schedule'] = 'personnel/employee_schedule';
+
+$route['employee_schedules'] = 'personnel/employee_schedules';
+$route['employee_schedules/get_new_employee_sched_form'] = 'personnel/employee_schedules/get_new_employee_sched_form';
+$route['employee_schedules/create'] = 'personnel/employee_schedules/create';
 
 $route['employees/work_experience/(:num)/delete'] = 'personnel/employees/delete_work_experience/$1';
 $route['employees/educational_background/(:num)/delete'] = 'personnel/employees/delete_educational_background/$1';

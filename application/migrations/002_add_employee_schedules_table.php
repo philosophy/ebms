@@ -2,7 +2,7 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Migration_Add_Employee_Schedule_Table extends CI_Migration {
+class Migration_Add_Employee_Schedules_Table extends CI_Migration {
 
     public function up() {
         $this->dbforge->add_field(array(
@@ -17,23 +17,24 @@ class Migration_Add_Employee_Schedule_Table extends CI_Migration {
                 'null' => FALSE
             ),
             'start_time' => array(
-                'type' => 'DATETIME',
+                'type' => 'TIME',
                 'null' => FALSE
             ),
             'end_time' => array(
-                'type' => 'DATETIME',
+                'type' => 'TIME',
                 'null' => FALSE
             ),
             'start_break_time' => array(
-                'type' => 'DATETIME',
+                'type' => 'TIME',
                 'null' => FALSE
             ),
             'end_break_time' => array(
-                'type' => 'DATETIME',
+                'type' => 'TIME',
                 'null' => FALSE
             ),
             'active' => array(
                 'type' => 'TINYINT',
+                'default' => '1',
                 'null' => FALSE
             ),
             'created_by' => array(
@@ -53,6 +54,10 @@ class Migration_Add_Employee_Schedule_Table extends CI_Migration {
                 'null' => TRUE
             ),
             'employee_id' => array(
+                'type' => 'INT',
+                'null' => FALSE
+            ),
+            'company_id' => array(
                 'type' => 'INT',
                 'null' => FALSE
             )

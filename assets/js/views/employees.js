@@ -345,7 +345,7 @@ com.ebms.views.employees = {
             error: function() {
                 alert('an error has occured');
             }
-        })
+        });
     },
 
     initEditEmployeeFormValidation: function() {

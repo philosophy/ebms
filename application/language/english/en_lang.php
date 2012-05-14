@@ -327,6 +327,9 @@
     $lang['first_name_cant_be_blank'] = "First name can't be blank";
     $lang['please_try_again'] = 'An error has occured, please try again';
     $lang['must_be_a_number_only'] = 'Must be a number only';
+    $lang['employee_cant_be_blank'] = "Employee can't be blank";
+    $lang['time_in_cant_be_blank'] = "Time in can't be blank";
+    $lang['time_out_cant_be_blank'] = "Time out can't be blank";
 
     /* profile info */
     $lang['username'] = 'Username';
@@ -435,6 +438,7 @@
     $lang['restore_company'] = 'Restore company';
 
     $lang['create_new_employee'] = 'Create new employee';
+    $lang['create_new_employee_schedule'] = 'Create new employee schedule';
     $lang['successfully_created_employee'] = 'Successfully created a new employee';
     $lang['successfully_updated_employee_info'] = 'Successfully updated employee info';
     $lang['delete_employee'] = 'Delete Employee';
@@ -471,6 +475,12 @@
     $lang['philhealth_number'] = 'Philhealth Number';
     $lang['tin_number'] = 'Tin Number';
     $lang['pagibig_number'] = 'Pagibig Number';
+
+    /* employee schedule */
+    $lang['employee_name'] = 'Employee Name';
+    $lang['select_employee'] = 'Select Employee';
+    $lang['select_days'] = 'Select Days';
+    $lang['successfully_created_emp_schedule'] = 'Successfully created employee schedule';
 
     /* end of personnel employee profile */
 

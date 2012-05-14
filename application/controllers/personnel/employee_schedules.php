@@ -1,9 +1,10 @@
 <?php
-    class Employee_Schedule extends Application {
+    class Employee_Schedules extends Employees_Base {
 
-        public $employment_status;
+        public $employee_schedules;
         public $employees;
         private $employeeObj;
+        private $schedObj;
 
         function __construct() {
             parent::__construct();
@@ -12,15 +13,17 @@
             $this->load->model('Department_model');
             $this->load->model('Position_model');
             $this->load->model('Employees_model');
+            $this->load->model('Employee_Schedules_model');
             $this->employeeObj = new $this->Employees_model();
-            $this->employeeObj->set_company_id($this->current_avatar->company_id);
+            $this->schedObj = new $this->Employee_Schedules_model();
+            $this->schedObj->set_company_id($this->current_avatar->company_id);
         }
 
         function index() {
-            $data['content'] = 'personnel/employee/profile';
-            $data['title'] = lang('employee_profile');
+            $data['content'] = 'personnel/employee_schedules/index';
+            $data['title'] = lang('employee_schedule');
 
-            $config['base_url'] = base_url().'employees/profile/browse/';
+            $config['base_url'] = base_url().'employees/employee_schedule/browse/';
             $config['total_rows'] = $this->employeeObj->countEmployees();
             $config['per_page'] = $this->config->item('pagination_per_page');
             $config['next_link'] = $this->config->item('pagination_next_link');
@@ -87,91 +90,65 @@
 
         }
 
-        function get_new_employee_form() {
-            $this->Employee_status_model->set_company_id($this->current_avatar->company_id);
-            $this->Department_model->set_company_id($this->current_avatar->company_id);
-            $this->Position_model->set_company_id($this->current_avatar->company_id);
+        function get_new_employee_sched_form() {
+            $this->schedObj->set_company_id($this->current_avatar->id);
 
-            $this->employment_status = $this->Employee_status_model->getEmployeeStatus();
-            $this->positions = $this->Position_model->getPositions();
-            $this->departments = $this->Department_model->getDepartments();
+            $this->employeeObj->set_limit(100);
+            $this->employeeObj->set_company_id($this->current_avatar->company_id);
+            $employees = $this->employeeObj->getEmployeesData();
+            $employeesWithSched = $this->employeeObj->getEmployeesWithSchedule();
 
-            send_json_response(INFO_LOG, HTTP_OK, 'new employee form', array('html' => $this->load->view('personnel/employee/_new_employee_form', '', true)));
+            function array_compare($v1, $v2) {
+                if ($v1===$v2) {
+                    return 0;
+                }
+                return 1;
+            }
+
+            $this->employees = array_udiff($employees, $employeesWithSched, 'array_compare');
+            send_json_response(INFO_LOG, HTTP_OK, 'new employee sched form', array('html' => $this->load->view('personnel/employee_schedules/_new_employee_schedule_form', '', true)));
         }
 
         function create() {
-            $first_name = $this->input->post('first_name', TRUE);
-            $middle_name = $this->input->post('middle_name', TRUE);
-            $last_name = $this->input->post('last_name', TRUE);
-            $address = $this->input->post('address', TRUE);
-            $date_of_birth = $this->input->post('date_of_birth', TRUE);
-            $gender = $this->input->post('gender', TRUE);
-            $marital_status = $this->input->post('marital_status', TRUE);
-            $home_phone = $this->input->post('home_phone', TRUE);
-            $work_phone = $this->input->post('work_phone', TRUE);
-            $date_hired = $this->input->post('date_hired', TRUE);
-            $department = $this->input->post('department', TRUE);
-            $position = $this->input->post('position', TRUE);
-            $employment_status = $this->input->post('employment_status');
+            $emp_id = $this->input->post('employee', TRUE);
+            $days = $this->input->post('days', TRUE);
+            $time_in = $this->input->post('time_in', TRUE);
+            $time_out = $this->input->post('time_out', TRUE);
+            $start_break_time = $this->input->post('start_break_time', TRUE);
+            $end_break_time = $this->input->post('end_break_time', TRUE);
 
-            $work_exp = $this->input->post('work_exp', TRUE);
-            $educational_background = $this->input->post('educational_background', TRUE);
-
-            $salary = $this->input->post('salary', TRUE);
-            $sss_no = $this->input->post('sss_no', TRUE);
-            $philhealth = $this->input->post('philhealth', TRUE);
-            $tin_no = $this->input->post('tin_no', TRUE);
-            $pagibig = $this->input->post('pagibig', TRUE);
-
-            /* validate employee info */
-            /* first_name must not be blank */
-            /* last_name must not be blank */
-            /* address must not be blank */
-
-            if(is_empty_null_value($first_name)) {
-                send_json_response(ERROR_LOG, HTTP_FAIL_PRECON, lang('first_name_cant_be_blank'));
+            /* validate employee schedule */
+            /* employee must not be blank */
+            /* time_in must not be blank */
+            /* time_out must not be blank */
+            /* timein must be less than timeout */
+            if(empty($emp_id)) {
+                send_json_response(ERROR_LOG, HTTP_FAIL_PRECON, lang('employee_cant_be_blank'));
                 exit;
             }
 
-            if(is_empty_null_value($work_exp)) {
-                $work_exp = array();
+            if(empty($time_in)) {
+                send_json_response(ERROR_LOG, HTTP_FAIL_PRECON, lang('time_in_cant_be_blank'));
+                exit;
             }
 
-            if(is_empty_null_value($educational_background)) {
-                $educational_background = array();
+            if(empty($time_out)) {
+                send_json_response(ERROR_LOG, HTTP_FAIL_PRECON, lang('time_out_cant_be_blank'));
+                exit;
             }
-            /* TODO generate employee code */
-            $employee_no = $this->generate_employee_code();
-            $this->employeeObj->set_employee_code($employee_no);
-            $this->employeeObj->set_first_name($first_name);
-            $this->employeeObj->set_middle_name($middle_name);
-            $this->employeeObj->set_last_name($last_name);
-            $this->employeeObj->set_address($address);
-            $this->employeeObj->set_date_of_birth($date_of_birth);
-            $this->employeeObj->set_gender($gender);
-            $this->employeeObj->set_marital_status($marital_status);
-            $this->employeeObj->set_home_phone($home_phone);
-            $this->employeeObj->set_work_phone($work_phone);
-            $this->employeeObj->set_date_hired($date_hired);
-            $this->employeeObj->set_department_id($department);
-            $this->employeeObj->set_position_id($position);
-            $this->employeeObj->set_employee_status_id($employment_status);
-            $this->employeeObj->set_salary($salary);
-            $this->employeeObj->set_sss_no($sss_no);
-            $this->employeeObj->set_philhealth($philhealth);
-            $this->employeeObj->set_tin_no($tin_no);
-            $this->employeeObj->set_pagibig($pagibig);
-            $this->employeeObj->set_created_by($this->current_avatar->id);
-            $this->employeeObj->set_work_experience($work_exp);
-            $this->employeeObj->set_educational_background($educational_background);
 
-            $result = $this->employeeObj->createEmployee();
+            $this->schedObj->set_days($days);
+            $this->schedObj->set_start_time($time_in);
+            $this->schedObj->set_end_time($time_out);
+            $this->schedObj->set_start_break_time($start_break_time);
+            $this->schedObj->set_end_break_time($end_break_time);
+            $this->schedObj->set_employee_id($emp_id);
+            $this->schedObj->set_created_by($this->current_avatar->id);
+            $this->schedObj->set_company_id($this->current_avatar->company_id);
+
+            $result = $this->schedObj->createEmployeeSchedule();
             if ($result) {
-                $name = $first_name.' '.$last_name;
-                $department_name = $this->Department_model->getDepartment($department)->name;
-                $position_name = $this->Position_model->getPosition($position)->name;
-                $status_name = $this->Status_model->getPosition($status)->name;
-                send_json_response(INFO_LOG, HTTP_OK, lang('successfully_created_employee'), array('employee' => array('employee_no' => $employee_no, 'name' => $name, 'department' => $department_name, 'status' => $status_name)));
+                send_json_response(INFO_LOG, HTTP_OK, lang('successfully_created_emp_schedule'), array('employee' => array('employee_no' => $emp_id)));
             } else {
                 send_json_response(ERROR_LOG, HTTP_FAIL_PRECON, lang('please_try_again'));
             }

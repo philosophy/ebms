@@ -1,0 +1,31 @@
+#new-schedule {
+    min-width: 420px;
+}
+
+#schedule-details {
+    border-top: 1px solid #CCC;
+    padding-top: 10px;
+    margin-top: 10px;
+}
+
+#days-list {
+    overflow: hidden;
+    float: left;
+}
+
+#time-wrapper {
+    padding-left: 50px;
+    float: left;
+    overflow: hidden;
+}
+
+.button-panel {
+    display: block;
+    clear: both;
+    float: right;
+}
+
+#time-wrapper fieldset label{
+    width: 95px;
+    display: inline-block;
+}

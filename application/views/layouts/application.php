@@ -22,6 +22,7 @@
             echo css_asset('user_management/control_manager/list.css');
             echo css_asset('user_management/audit_trail/index.css');
             echo css_asset('employees/profile.css');
+            echo css_asset('employee_schedules/index.css');
             echo css_asset('lib/table_list.css');
             echo css_asset('lib/item_list.css');
             echo css_asset('lib/tabs.css');
@@ -51,6 +52,7 @@
             echo js_asset('vendor/jquery.validate.js');
             echo js_asset('vendor/jquery.dataTables.min.js');
             echo js_asset('vendor/rails.js');
+            echo js_asset('vendor/jquery-ui-timepicker-addon.js');
         ?>
     </head>
     <body>
@@ -114,6 +116,7 @@
             echo js_asset('views/deduction.js');
             echo js_asset('views/company.js');
             echo js_asset('views/employees.js');
+            echo js_asset('views/employee_schedules.js');
             echo js_asset('lib/flash.js');
         ?>
         <?php $this->load->view('layouts/application/page_specific_javascript'); ?>

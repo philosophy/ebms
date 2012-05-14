@@ -127,7 +127,7 @@
                         <?php echo anchor('employees/profile', lang('employee_profile')); ?>
                     </li>
                     <li class="sub-nav-item">
-                        <?php echo anchor('dashboard/index', lang('employee_schedule')); ?>
+                        <?php echo anchor('employee_schedules', lang('employee_schedule')); ?>
                     </li>
                     <li class="sub-nav-item">
                         <?php echo anchor('dashboard/index', lang('employee_time_sheet_records')); ?>

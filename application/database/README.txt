@@ -14,13 +14,14 @@ active (1 = true, 0 = false)
 
 /* employee schedule */
 Days:
-    0 - Sunday
     1 - Monday
     2 - Tuesday
     3 - Wednesday
     4 - Thursday
     5 - Friday
     6 - Saturday
+    7 - Sunday
 
 /* Naming Convention: */
 1. Table names should be plural. (e.g. positions, locations)
+
