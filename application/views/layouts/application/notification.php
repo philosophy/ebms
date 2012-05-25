@@ -34,7 +34,7 @@
             </a>
         </li>
         <li class='notif-items'>
-            <a href='/EBMS/apps/view/accounting/companyPayables/?page=accounting&menu=company-payables' id="notif-approvals">
+            <a href='/EBMS/apps/view/accounting/companyPayables/?page=accounting&menu=company-payables' id="notif-critical-stock">
                 <i></i>
                 <span class='title'><?php echo lang('critical_stock_level'); ?></span>
                 <span class='count'>0</span>
