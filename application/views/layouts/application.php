@@ -3,35 +3,7 @@
     <head>
         <link rel="shortcut icon" href=<?php echo image_asset_url('logo/ebms-logo-mini.png'); ?> />
         <title><?php echo isset($title) ? $title : $this->lang->line('ebms_home'); ?></title>
-        <?php
-            echo css_asset('base.css');
-            echo css_asset('reset.css');
-            echo css_asset('body.css');
-            echo css_asset('header.css');
-            echo css_asset('button.css');
-            echo css_asset('footer.css');
-            echo css_asset('lib/clock.css');
-            echo css_asset('lib/flash.css');
-            echo css_asset('lib/dialog.css');
-//            $index_css = $this->router->class.'/index.css';
-//            echo css_asset($index_css);
-            echo css_asset('home/index.css');
-            echo css_asset('dashboard/index.css');
-            echo css_asset('user/index.css');
-            echo css_asset('user/edit.css');
-            echo css_asset('user_management/control_manager/list.css');
-            echo css_asset('user_management/audit_trail/index.css');
-            echo css_asset('employees/profile.css');
-            echo css_asset('employee_schedules/index.css');
-            echo css_asset('lib/table_list.css');
-            echo css_asset('lib/item_list.css');
-            echo css_asset('lib/tabs.css');
-            echo css_asset('inventory/index.css');
-            echo css_asset('vendor/jquery-ui-1.8.17.custom.css');
-            echo css_asset('vendor/jquery.dataTables.css');
-            echo css_asset('lib/datepicker.css');
-            echo css_asset('lib/dialog-reset.css');
-        ?>
+        <?php $this->load->view('layouts/application/_css_files'); ?>
 
             <!--[if lt IE 9]>
             <script>
@@ -85,40 +57,7 @@
 
         </div>
 
-        <?php
-            echo js_asset('app.js');
-            echo js_asset('lib/base.js');
-            echo js_asset('lib/clock.js');
-            echo js_asset('lib/header.js');
-            echo js_asset('lib/confirm.js');
-            echo js_asset('util/namespace_checker.js');
-            echo js_asset('util/html5.js');
-            echo js_asset('lib/form_dialog.js');
-            echo js_asset('views/dashboard.js');
-            echo js_asset('views/users.js');
-            echo js_asset('views/control_manager.js');
-            echo js_asset('views/company_info.js');
-            echo js_asset('views/department.js');
-            echo js_asset('views/area.js');
-            echo js_asset('views/employee_status.js');
-            echo js_asset('views/position.js');
-            echo js_asset('views/unit.js');
-            echo js_asset('views/category.js');
-            echo js_asset('views/city.js');
-            echo js_asset('views/industry.js');
-            echo js_asset('views/location.js');
-            echo js_asset('views/customer.js');
-            echo js_asset('views/sub_category.js');
-            echo js_asset('views/brand.js');
-            echo js_asset('views/items.js');
-            echo js_asset('views/currency.js');
-            echo js_asset('views/earning.js');
-            echo js_asset('views/deduction.js');
-            echo js_asset('views/company.js');
-            echo js_asset('views/employees.js');
-            echo js_asset('views/employee_schedules.js');
-            echo js_asset('lib/flash.js');
-        ?>
+        <?php $this->load->view('layouts/application/_js_files'); ?>
         <?php $this->load->view('layouts/application/page_specific_javascript'); ?>
         <?php $this->load->view('layouts/application/flash_message'); ?>
         <?php $this->load->view('common/dialogs/_confirm_dialog'); ?>

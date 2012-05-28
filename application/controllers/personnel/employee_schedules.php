@@ -17,25 +17,25 @@
             $this->employeeObj = new $this->Employees_model();
             $this->schedObj = new $this->Employee_Schedules_model();
             $this->schedObj->set_company_id($this->current_avatar->company_id);
+            $this->employeeObj->set_company_id($this->current_avatar->company_id);
+
+            $method = $this->router->method;
+            if ($method == 'index' || $method == 'browse') {
+                parent::set_config();
+                $this->set_sched_config();
+            }
         }
+
+
 
         function index() {
             $data['content'] = 'personnel/employee_schedules/index';
             $data['title'] = lang('employee_schedule');
 
-            $config['base_url'] = base_url().'employees/employee_schedule/browse/';
-            $config['total_rows'] = $this->employeeObj->countEmployees();
-            $config['per_page'] = $this->config->item('pagination_per_page');
-            $config['next_link'] = $this->config->item('pagination_next_link');
-            $config['prev_link'] = $this->config->item('pagination_prev_link');
-            $config['num_links'] = $this->config->item('pagination_num_links');
-            $config['uri_segment'] = $this->config->item('pagination_uri_segment');
-            $config['anchor_class'] = $this->config->item('pagination_anchor_class');
-
-            $this->employeeObj->set_limit($config['per_page']);
-            $this->employeeObj->set_offset($this->uri->segment(4));
-            $this->employees = $this->employeeObj->getEmployees();
-            $this->pagination->initialize($config);
+            $this->schedObj->set_limit($this->pagination_config['per_page']);
+            $this->schedObj->set_offset($this->uri->segment(4));
+            $this->employees = $this->schedObj->getEmployeesWithSchedule();
+            $this->pagination->initialize($this->pagination_config);
             $data['pagination_links'] = $this->pagination->create_links();
 
             $this->parser->parse('layouts/application', $data);
@@ -47,52 +47,30 @@
             $name = $this->input->get('name', true);
 
             if (empty($name)) {
-                $config['base_url'] = base_url().'employees/profile/browse/';
-                $config['per_page'] = $this->config->item('pagination_per_page');
-                $config['next_link'] = $this->config->item('pagination_next_link');
-                $config['prev_link'] = $this->config->item('pagination_prev_link');
-                $config['num_links'] = $this->config->item('pagination_num_links');
-                $config['uri_segment'] = $this->config->item('pagination_uri_segment');
-                $config['anchor_class'] = $this->config->item('pagination_anchor_class');
-                $config['total_rows'] = $this->employeeObj->countEmployees();
+                $this->schedObj->set_limit($this->pagination_config['per_page']);
+                $this->schedObj->set_offset((!empty($offset) && $offset != NULL) ? $offset : 0);
+                $this->employees = $this->schedObj->getEmployeesWithSchedule();
+                $this->pagination->initialize($this->pagination_config);
+                $data['pagination_links'] = $this->pagination->create_links();
 
-                $this->employeeObj->set_limit($config['per_page']);
+                $data['emp_len'] = count($this->employees);
+
+                send_json_response(INFO_LOG, HTTP_OK, 'browse employee form', array('html' => $this->load->view('personnel/employee_schedules/_employee_schedule_list', $data, true)));
+            } else {
+                $this->employeeObj->set_limit($this->pagination_config['per_page']);
                 $this->employeeObj->set_offset((!empty($offset) && $offset != NULL) ? $offset : 0);
                 $this->employees = $this->employeeObj->getEmployees();
-                $this->pagination->initialize($config);
+                $this->pagination->initialize($this->pagination_config);
                 $data['pagination_links'] = $this->pagination->create_links();
                 $data['employees_len'] = count($this->employees);
 
-                send_json_response(INFO_LOG, HTTP_OK, 'browse employee form', array('html' => $this->load->view('personnel/employee/_employee_list', $data, true)));
-            } else {
-                $config['base_url'] = base_url().'employees/profile/browse/';
-                $config['per_page'] = $this->config->item('pagination_per_page');
-                $config['next_link'] = $this->config->item('pagination_next_link');
-                $config['prev_link'] = $this->config->item('pagination_prev_link');
-                $config['num_links'] = $this->config->item('pagination_num_links');
-                $config['uri_segment'] = $this->config->item('pagination_uri_segment');
-                $config['anchor_class'] = $this->config->item('pagination_anchor_class');
+                send_json_response(INFO_LOG, HTTP_OK, 'search employee form', array('html' => $this->load->view('personnel/employee_schedules/_employee_schedule_list', $data, true)));
 
-
-                $this->employeeObj->set_limit($config['per_page']);
-                $this->employeeObj->set_offset((!empty($offset) && $offset != NULL) ? $offset : 0);
-                $this->employeeObj->set_search($name);
-                $this->employees = $this->employeeObj->getEmployeesBySearch();
-                $employees_len = $this->employeeObj->countEmployeesBySearch();
-                $config['total_rows'] = $employees_len;
-                $this->pagination->initialize($config);
-                $data['pagination_links'] = $this->pagination->create_links();
-
-                $data['employees_len'] = $employees_len;
-
-                send_json_response(INFO_LOG, HTTP_OK, 'search employee form', array('html' => $this->load->view('personnel/employee/_employee_list', $data, true), 'count' => $employees_len));
             }
 
         }
 
         function get_new_employee_sched_form() {
-            $this->schedObj->set_company_id($this->current_avatar->id);
-
             $this->employeeObj->set_limit(100);
             $this->employeeObj->set_company_id($this->current_avatar->company_id);
             $employees = $this->employeeObj->getEmployeesData();
@@ -137,6 +115,11 @@
                 exit;
             }
 
+            if(isset($days)) {
+                send_json_response(ERROR_LOG, HTTP_FAIL_PRECON, lang('days_cant_be_blank'));
+                exit;
+            }
+
             $this->schedObj->set_days($days);
             $this->schedObj->set_start_time($time_in);
             $this->schedObj->set_end_time($time_out);
@@ -144,7 +127,6 @@
             $this->schedObj->set_end_break_time($end_break_time);
             $this->schedObj->set_employee_id($emp_id);
             $this->schedObj->set_created_by($this->current_avatar->id);
-            $this->schedObj->set_company_id($this->current_avatar->company_id);
 
             $result = $this->schedObj->createEmployeeSchedule();
             if ($result) {
@@ -200,6 +182,12 @@
             } else {
                 return false;
             }
+        }
+
+        private function set_sched_config() {
+            $this->pagination_config['base_url'] = base_url().'employee_schedules/browse/';
+            $this->pagination_config['total_rows'] = count($this->schedObj->getEmployeesWithSchedule());
+            $this->pagination_config['per_page'] = 1;
         }
     }
 ?>

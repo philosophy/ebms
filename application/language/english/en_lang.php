@@ -330,6 +330,7 @@
     $lang['employee_cant_be_blank'] = "Employee can't be blank";
     $lang['time_in_cant_be_blank'] = "Time in can't be blank";
     $lang['time_out_cant_be_blank'] = "Time out can't be blank";
+    $lang['days_cant_be_blank'] = "Days can't be blank.";
 
     /* profile info */
     $lang['username'] = 'Username';

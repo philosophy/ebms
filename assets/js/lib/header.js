@@ -7,8 +7,8 @@ com.ebms.widgets.header = {
             over: com.ebms.widgets.header.displayOrbNav,
             timeout: 300,
             out: com.ebms.widgets.header.hideOrbNav
-        };      
-        
+        };
+
         var navSettings = {
             sensitivity: 2,
             interval: 100,
@@ -16,10 +16,10 @@ com.ebms.widgets.header = {
             timeout: 300,
             out: this.hideSubNav
         }
-        
+
 //        $('#orb-cont').hoverIntent(orbSettings);
         $('#main-menu .with-sub-nav').hoverIntent(navSettings);
-        
+
         $(document).click(this.toggleMenu);
 
         $('ul.sub-nav li.sub-nav-item').mouseenter(function(e) {
@@ -28,7 +28,7 @@ com.ebms.widgets.header = {
             $(this).find('ul.inner-nav').addClass('hide');
         });
     },
-    
+
     toggleMenu: function(e) {
         var elem = e.target;
         var ns = com.ebms.widgets.header;
@@ -38,33 +38,33 @@ com.ebms.widgets.header = {
         } else if (elem.id === 'orb-link' || elem.id === 'orb-img') {
             ns.displayOrbNav();
             ns.hideNotificationNav();
-        } else {            
+        } else {
             ns.hideOrbNav();
             ns.hideNotificationNav();
         }
     },
-    
+
     displayOrbNav: function() {
         $('#orb-nav').removeClass('hide');
     },
-    
+
     hideOrbNav: function() {
         $('#orb-nav').addClass('hide');
     },
-    
+
     displayNotificationNav: function() {
         $('#notification-list').removeClass('hide');
     },
-    
+
     hideNotificationNav: function() {
         $('#notification-list').addClass('hide');
     },
-    
+
     displaySubNav: function(elem) {
         var $this = $(elem.target);
         $this.closest('ul > li.main-menu-item').find('> ul').removeClass('hide');
     },
-    
+
     hideSubNav: function(elem) {
         var $this = $(elem.target);
         $this.closest('ul > li.main-menu-item').find('> ul').addClass('hide');

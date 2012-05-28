@@ -29,3 +29,92 @@
     width: 95px;
     display: inline-block;
 }
+
+.sched-img {
+    width: 20px;
+    height: 20px;
+}
+
+div.grid-list-data header.employee {
+    border-color: #E6EEEE;
+    background: lightBlue;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    line-height: 20px;
+    border-bottom: 2px solid #CCC;
+    position: relative;
+}
+
+header.employee span i {
+    width: 25px;
+    height: 25px;
+    position: absolute;
+    background: url('../../image/icons/empsched-icon.png') no-repeat scroll transparent;
+    background-size: 30px 30px;
+    top: 0;
+    left: 7px;
+}
+
+div.grid-list-data h3.employee-name {
+    font-weight: bold;
+    font-family: "Tahoma";
+    font-size: 0.95em;
+    color: #444;
+    padding-left: 30px;
+}
+
+section.grid-list ul.header .day {
+    width: 90px;
+    padding-left: 50px;
+}
+
+section.grid-list ul.header .start-break-time {
+    padding: 7px 10px 7px;
+}
+
+section.grid-list ul.header .start-time {
+    width: 100px;
+}
+
+section.grid-list ul.header .end-time {
+    width: 100px;
+}
+
+div.grid-list-data ul.data > li {
+    position: relative;
+}
+
+div.grid-list-data ul.data .day {
+    width: 90px;
+    padding: 10px 0 10px 50px !important;
+}
+
+div.grid-list-data ul.data .info {
+    padding-right: 19px;
+}
+
+div.grid-list-data ul.data .start-time {
+    width: 100px;
+}
+
+div.grid-list-data ul.data .end-time {
+    width: 100px;
+}
+
+div.grid-list-data ul.data .start-break-time {
+    width: 93px;
+}
+
+div.grid-list-data ul.data .end-break-time {
+    width: 100px;
+}
+
+ul.data span.schedule > i {
+    background: url('../../image/icons/schedule-icon.png') no-repeat scroll transparent;
+    width: 25px;
+    height: 25px;
+    display: inline-block;
+    position: absolute;
+    top: 4px;
+    left: 10px;
+}

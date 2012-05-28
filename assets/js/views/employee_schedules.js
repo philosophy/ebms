@@ -13,14 +13,18 @@ com.ebms.views.employee_schedules = {
         });
 
         $('#new-employee-schedule-form').live('ajax:success', this.newSchedSuccessHandler);
+
+        $('a.pagination-links', $('#wrapper.employee_schedules')).live('click', com.ebms.widgets.browse.browseHandler);
     },
 
     newSchedSuccessHandler: function(e, data) {
-        
+
         if (data.code === 200) {
             com.ebms.widgets.flash.flashMessage(data.message, 'success')
             $('#new-employee-sched-dialog').dialog('destroy');
             window.location.reload();
+        } else if (data.code === 412) {
+            com.ebms.widgets.flash.flashMessage(data.message, 'error');
         }
     },
 

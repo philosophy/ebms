@@ -1,0 +1,35 @@
+<?php
+    echo js_asset('app.js');
+    echo js_asset('lib/base.js');
+    echo js_asset('lib/clock.js');
+    echo js_asset('lib/header.js');
+    echo js_asset('lib/confirm.js');
+    echo js_asset('util/namespace_checker.js');
+    echo js_asset('util/html5.js');
+    echo js_asset('lib/form_dialog.js');
+    echo js_asset('lib/browse.js');
+    echo js_asset('views/dashboard.js');
+    echo js_asset('views/users.js');
+    echo js_asset('views/control_manager.js');
+    echo js_asset('views/company_info.js');
+    echo js_asset('views/department.js');
+    echo js_asset('views/area.js');
+    echo js_asset('views/employee_status.js');
+    echo js_asset('views/position.js');
+    echo js_asset('views/unit.js');
+    echo js_asset('views/category.js');
+    echo js_asset('views/city.js');
+    echo js_asset('views/industry.js');
+    echo js_asset('views/location.js');
+    echo js_asset('views/customer.js');
+    echo js_asset('views/sub_category.js');
+    echo js_asset('views/brand.js');
+    echo js_asset('views/items.js');
+    echo js_asset('views/currency.js');
+    echo js_asset('views/earning.js');
+    echo js_asset('views/deduction.js');
+    echo js_asset('views/company.js');
+    echo js_asset('views/employees.js');
+    echo js_asset('views/employee_schedules.js');
+    echo js_asset('lib/flash.js');
+?>

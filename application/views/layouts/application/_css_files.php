@@ -1,0 +1,30 @@
+<?php
+     echo css_asset('base.css');
+    echo css_asset('reset.css');
+    echo css_asset('body.css');
+    echo css_asset('header.css');
+    echo css_asset('button.css');
+    echo css_asset('footer.css');
+    echo css_asset('lib/clock.css');
+    echo css_asset('lib/flash.css');
+    echo css_asset('lib/dialog.css');
+//            $index_css = $this->router->class.'/index.css';
+//            echo css_asset($index_css);
+    echo css_asset('home/index.css');
+    echo css_asset('dashboard/index.css');
+    echo css_asset('user/index.css');
+    echo css_asset('user/edit.css');
+    echo css_asset('user_management/control_manager/list.css');
+    echo css_asset('user_management/audit_trail/index.css');
+    echo css_asset('employees/profile.css');
+    echo css_asset('employee_schedules/index.css');
+    echo css_asset('lib/table_list.css');
+    echo css_asset('lib/item_list.css');
+    echo css_asset('lib/grid_list.css');
+    echo css_asset('lib/tabs.css');
+    echo css_asset('inventory/index.css');
+    echo css_asset('vendor/jquery-ui-1.8.17.custom.css');
+    echo css_asset('vendor/jquery.dataTables.css');
+    echo css_asset('lib/datepicker.css');
+    echo css_asset('lib/dialog-reset.css');
+?>

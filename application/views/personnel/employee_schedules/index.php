@@ -1,5 +1,5 @@
 <?php
-    $sched_len = count($this->employee_schedules);
+    $emp_len = count($this->employees);
 ?>
 <article class="primary">
     <section id="employee-schedule-list" class="items-list-wrapper">
@@ -40,7 +40,7 @@
                 </ul>
             </div>
             <div class="table-wrapper">
-                <?php $this->load->view('personnel/employee_schedules/_employee_schedule_list', array('sched_len' => $sched_len)); ?>
+                <?php $this->load->view('personnel/employee_schedules/_employee_schedule_list', array('emp_len' => $emp_len)); ?>
             </div>
         </article>
 

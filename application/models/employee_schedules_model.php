@@ -1,6 +1,10 @@
 <?php
 
-    class Employee_Schedules_model extends CI_Model {
+    class Employee_Schedules_model extends Employee_Base_Model {
+
+        public function __construct() {
+            parent::__construct();
+        }
         public $days_of_week = array(1=>'Monday', 2=>'Tuesday', 3=>'Wednesday', 4=>'Thursday', 5=>'Friday', 6=>'Saturday', 7=>'Sunday');
 
         private $id;
@@ -18,11 +22,8 @@
         private $date_created;
         private $last_updated_by;
         private $last_updated_at;
-        private $company_id;
         private $table_name = 'employee_schedule';
         private $search = '';
-        private $limit = 10;
-        private $offset = 0;
 
         function set_id($val) {
             $this->id = $val;
@@ -193,8 +194,8 @@
             return $query->num_rows();
         }
 
-        function getEmployeeSchedule() {
-            $sql = "SELECT e.*, d.name as department, p.name as position, s.name as status  FROM employees AS e INNER JOIN departments as d on d.id = e.department_id INNER JOIN employee_status AS s ON s.id = e.employee_status_id INNER JOIN positions AS p on p.id = e.position_id where e.company_id=? order by e.active desc, e.first_name LIMIT ? OFFSET ?";
+        function getEmployeesWithSchedule() {
+            $sql = "SELECT distinct e.* FROM employees AS e INNER JOIN employee_schedules as sched on sched.employee_id = e.id where e.company_id=? order by e.active desc, e.first_name LIMIT ? OFFSET ?";
             $query = $this->db->query($sql, array('company_id' => $this->get_company_id(), 'LIMIT' => $this->get_limit(), 'OFFSET' => $this->get_offset()));
 
             if ($query->num_rows() > 0) {
@@ -213,6 +214,19 @@
             } else {
                 return null;
             }
+        }
+
+        function getEmployeeSched($options=array()) {
+            if (isset($options['employee_id'])) {
+                $this->db->where('employee_id', $options['employee_id']);
+            }
+
+            $this->db->select('sched.*');
+            $this->db->from('employees');
+            $this->db->join('employee_schedules as sched', 'employees.id = sched.employee_id');
+
+            $query = $this->db->get();
+            return $query->result_array();
         }
 
         function updateGeneralInfo() {

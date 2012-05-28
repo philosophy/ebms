@@ -63,7 +63,7 @@ $autoload['libraries'] = array('parser', 'session', 'ion_auth', 'pagination', 'f
 |	$autoload['helper'] = array('url', 'file');
 */
 
-$autoload['helper'] = array('url', 'asset', 'file', 'form', 'text', 'language', 'MY_application_helper', 'MY_function_helper');
+$autoload['helper'] = array('url', 'asset', 'file', 'form', 'text', 'language', 'MY_application_helper', 'MY_function_helper', 'MY_array_helper');
 
 
 /*

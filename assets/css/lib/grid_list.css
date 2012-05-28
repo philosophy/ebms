@@ -1,0 +1,77 @@
+section.grid-list {
+    width: 100%;
+    border: 1px solid white;
+/*    background: #DFE4E4;*/
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#DFE4E4', endColorstr='#C2D6D6');
+    background: -webkit-gradient(linear, left top, left bottom, from(#DFE4E4), to(#C2D6D6));
+    background: -moz-linear-gradient(top, rgb(223, 228, 228), #C2D6D6);
+}
+
+ul.header {
+    overflow: hidden;
+    border-bottom: 1px solid #CCC;
+}
+
+section.grid-list ul.header li {
+    float: left;
+    border-left: 1px solid #E6EEEE;
+    padding: 7px 0 7px 30px;
+    text-align: left;
+}
+
+section.grid-list ul.header li:first-child {
+    border-left: 0px;
+}
+
+section.grid-list ul.header li:last-child {
+    border-right: 0px;
+}
+
+section.grid-list ul.header li h2 {
+    font-family: "Tahoma";
+    font-weight: bold;
+    font-size: 0.75em;
+    color: #444;
+}
+
+div.grid-list-data {
+    clear: both;
+}
+
+div.grid-list-data ul.data {
+    background: #fff;
+}
+
+div.grid-list-data ul.data div.info {
+    float: left;
+    text-align: left;
+}
+
+div.grid-list-data ul.data li {
+    overflow: hidden;
+}
+
+div.grid-list-data ul.data li:hover {
+    background-color: #D3D6FF !important;
+}
+
+section.grid-list ul.data li > div {
+    border-left: 1px solid #E6EEEE;
+    padding: 10px 0 10px 10px;
+}
+
+section.grid-list ul.data li > div:first-child {
+    border-left: 0;
+}
+
+section.grid-list ul.data li > div:last-child {
+    border-right: 0;
+}
+
+section.grid-list ul.data li {
+    font-family: "Tahoma";
+    font-size: 11px;
+    color: #444;
+    text-shadow: 0px 1px 0px #D1E0E0;
+    border-bottom: 1px solid #E6EEEE;
+}
