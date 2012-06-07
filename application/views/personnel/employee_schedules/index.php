@@ -18,23 +18,23 @@
             <div class="items-nav">
                 <ul>
                     <li>
-                        <a href="#" id="new-employee-schedule" data-title="New Employee">
-                            <?php echo image_asset('crud_icons/newIcon.png', '', array('alt' => lang('new_employee'))); ?>
+                        <a href="#" id="new-employee-schedule" data-title=<?php echo lang('new_schedule'); ?>>
+                            <?php echo image_asset('crud_icons/newIcon.png', '', array('title' => lang('new_schedule'))); ?>
                         </a>
                     </li>
                     <li>
-                        <a href="#" id="edit-employee-schedule" class="inactive" data-title="Edit Employee">
-                            <?php echo image_asset('crud_icons/editIcon.png', '', array('alt' => lang('edit_employee'))); ?>
+                        <a href="#" id="edit-employee-schedule" class="inactive" data-title=<?php echo lang('edit_schedule'); ?>>
+                            <?php echo image_asset('crud_icons/editIcon.png', '', array('title' => lang('edit_schedule'))); ?>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" id="edit-multiple-employee-schedule" class="edit-multiple-data" data-title="<?php echo lang('edit_multiple_schedule'); ?>">
+                            <?php echo image_asset('crud_icons/multipleEditIcon.png', '', array('title' => lang('edit_multiple_schedule'))); ?>
                         </a>
                     </li>
                     <li>
                         <a href="#" id="delete-employee-schedule" class="inactive delete-data confirm-link" data-title="<?php echo lang('delete_employee'); ?>" data-dialog-confirm-message="<?php echo lang('are_you_sure_you_want_to_delete_employee'); ?>" data-dialog-method="delete" data-dialog-remote='true' data-dialog-title="<?php echo lang('delete_employee');?>" data-dialog-type='json' data-class='archive'>
-                            <?php echo image_asset('crud_icons/deleteIcon.png', '', array('alt' => lang('delete_employee'))); ?>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" id="restore-employee-schedule" class="inactive restore-data confirm-link" data-title="<?php echo lang('restore_employee'); ?>" data-dialog-confirm-message="<?php echo lang('are_you_sure_you_want_to_restore_employee'); ?>" data-dialog-method="put" data-dialog-remote="true" data-dialog-title="<?php echo lang('restore_employee'); ?>" data-dialog-type='json' data-class='restore' >
-                            <?php echo image_asset('crud_icons/restoreIcon.png', '', array('alt' => lang('restore_employee'))); ?>
+                            <?php echo image_asset('crud_icons/deleteIcon.png', '', array('title' => lang('delete_employee'))); ?>
                         </a>
                     </li>
                 </ul>
@@ -58,13 +58,14 @@
     <span class="loader"></span>
 </div>
 
+<div id="edit-multiple-sched-dialog" class="hide" data-ajax-url=<?php echo site_url('employee_schedules/get_edit_multiple_sched'); ?>>
+    <span class="loader"></span>
+</div>
+
 <div id="delete-employee-dialog" class="hide">
     <span class="loader"></span>
 </div>
 
-<div id="restore-employee-dialog" class="hide">
-    <span class="loader"></span>
-</div>
 
 <!--<script>
     var employmentStatus = <?php //echo json_encode($this->employment_status); ?>;

@@ -20,7 +20,7 @@
                         <span>
                             <i class="icon"></i>
                         </span>
-                        <h3 class="employee-name"><?php echo $emp->first_name.' '.$emp->last_name ?></h3>
+                        <h3 class="employee-name" data-employee-id="<?php echo $emp->id; ?>"><?php echo $emp->first_name.' '.$emp->last_name ?></h3>
                     </header>
                     <ul class="employee-schedules data">
                         <?php foreach($scheds as $sched) { ?>

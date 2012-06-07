@@ -205,7 +205,9 @@ $route['employees/profile/browse'] =  'personnel/employees/browse';
 
 $route['employee_schedules'] = 'personnel/employee_schedules';
 $route['employee_schedules/get_new_employee_sched_form'] = 'personnel/employee_schedules/get_new_employee_sched_form';
+$route['employee_schedules/get_edit_multiple_sched'] = 'personnel/employee_schedules/get_edit_multiple_sched';
 $route['employee_schedules/create'] = 'personnel/employee_schedules/create';
+$route['employee_schedules/update_multiple_schedules'] = 'personnel/employee_schedules/update_multiple_schedules';
 $route['employee_schedules/browse/(:num)'] = 'personnel/employee_schedules/browse/$1';
 $route['employee_schedules/browse'] = 'personnel/employee_schedules/browse';
 

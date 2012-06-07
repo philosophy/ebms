@@ -482,6 +482,10 @@
     $lang['select_employee'] = 'Select Employee';
     $lang['select_days'] = 'Select Days';
     $lang['successfully_created_emp_schedule'] = 'Successfully created employee schedule';
+    $lang['new_schedule'] = 'New Schedule';
+    $lang['edit_schedule'] = 'Edit Schedule';
+    $lang['edit_multiple_schedule'] = 'Edit Multiple Schedule';
+    $lang['delete_schedule'] = 'Delete Schedule';
 
     /* end of personnel employee profile */
 

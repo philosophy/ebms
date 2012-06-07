@@ -173,6 +173,28 @@
             }
         }
 
+        function create_employee_schedule($options=array()) {
+            $this->db->trans_start();
+            $sql = "INSERT INTO employee_schedules(day, start_time, end_time, start_break_time, end_break_time, ".
+                    "created_by, date_created, company_id, employee_id) ".
+                    "values (?, ?, ?, ?, ?, ?, ?, ? ,?)";
+
+            $this->db->query($sql, array(
+                $options['day'],
+                $options['start_time'],
+                $options['end_time'],
+                $options['start_break_time'],
+                $options['end_break_time'],
+                $options['created_by'],
+                date($this->config->item('date_format')),
+                $options['company_id'],
+                $options['employee_id']
+            ));
+
+            $this->db->trans_complete();
+            return $this->db->trans_status();
+        }
+
         function getEmployeeScheduleBySearch() {
             $sql = "SELECT e.*, d.name as department, p.name as position, s.name as status  FROM employees AS e INNER JOIN departments as d on d.id = e.department_id INNER JOIN employee_status AS s ON s.id = e.employee_status_id INNER JOIN positions AS p on p.id = e.position_id where e.company_id=? and e.first_name LIKE ? order by e.active desc, e.first_name LIMIT ? OFFSET ?";
             $query = $this->db->query($sql, array('company_id' => $this->get_company_id(), 'like' => '%'.$this->get_search().'%', 'LIMIT' => $this->get_limit(), 'OFFSET' => $this->get_offset()));
@@ -229,213 +251,43 @@
             return $query->result_array();
         }
 
-        function updateGeneralInfo() {
+        function record_exists($emp_id, $day) {
+            $query = $this->db->get_where('employee_schedules', array('employee_id'=>$emp_id, 'day'=>$day));
+            return $query->results();
+        }
+
+        function update_employee_schedule($options=array()) {
             $this->db->trans_start();
-
-            $data = array(
-                'first_name' => $this->get_first_name(),
-                'middle_name' => $this->get_middle_name(),
-                'last_name' => $this->get_last_name(),
-                'address' => $this->get_address(),
-                'date_of_birth' => $this->get_date_of_birth(),
-                'gender' => $this->get_gender(),
-                'marital_status' => $this->get_marital_status(),
-                'home_phone' => $this->get_home_phone(),
-                'work_phone' => $this->get_work_phone(),
-                'last_updated_by' => $this->get_last_updated_by(),
-                'last_updated_at' => date($this->config->item('date_format'))
-            );
-
-            $this->db->where('id', $this->get_id());
-            $this->db->update('employees', $data);
+            if (isset($options['employee_id'])) {
+                $this->db->where('employee_id', $options['employee_id']);
+            }
+            if (isset($options['day'])) {
+                $this->db->where('day', $options['day']);
+            }
+            if (isset($options['start_time'])) {
+                $this->db->set('start_time', $options['start_time']);
+            }
+            if (isset($options['end_time'])) {
+                $this->db->set('end_time', $options['end_time']);
+            }
+            if (isset($options['start_break_time'])) {
+                $this->db->set('start_break_time', $options['start_break_time']);
+            }
+            if (isset($options['end_break_time'])) {
+                $this->db->set('end_break_time', $options['end_break_time']);
+            }
+            $this->db->update('employee_schedules');
 
             /* insert audit UPDATE */
-            parent::insertAuditTrail($this->get_last_updated_by(), 2, $this->get_id(), lang('update_employee'), $this->get_company_id(), $this->table_name);
+//            parent::insertAuditTrail($options['last_updated_by'], 2, $this->get_id(), lang('update_employee'), $this->get_company_id(), $this->table_name);
 
             $this->db->trans_complete();
-            if ($this->db->trans_status() === TRUE) {
+
+            if ($this->db->trans_status() === TRUE && $this->db->affected_rows()) {
                 return true;
             } else {
                 return false;
             }
-        }
-
-        function updateEmployee() {
-            $this->db->trans_start();
-            $id = $this->get_id();
-            $date_hired = $this->get_date_hired();
-            $dept_id = $this->get_department_id();
-            $pos_id = $this->get_position_id();
-            $emp_status_id = $this->get_employee_status_id();
-            $salary = $this->get_salary();
-            $sss_no = $this->get_sss_no();
-            $philhealth = $this->get_philhealth();
-            $tin_no = $this->get_tin_no();
-            $pagibig = $this->get_pagibig();
-            $active = $this->get_active();
-
-            if (isset($id)) {
-                $this->db->where('id', $id);
-            }
-            if (isset($date_hired)) {
-                $this->db->set('date_hired', $date_hired);
-            }
-            if (isset($dept_id) && $dept_id != 0 ) {
-                $this->db->set('department_id', $dept_id);
-            }
-            if (isset($pos_id) && $pos_id != 0) {
-                $this->db->set('position_id', $pos_id);
-            }
-            if (isset($emp_status_id) && $emp_status_id != 0) {
-                $this->db->set('employee_status_id', $emp_status_id);
-            }
-            if (isset($salary)) {
-                $this->db->set('salary', $salary);
-            }
-            if (isset($sss_no)) {
-                $this->db->set('sss_no', $sss_no);
-            }
-            if (isset($philhealth)) {
-                $this->db->set('philhealth', $philhealth);
-            }
-            if (isset($tin_no)) {
-                $this->db->set('tin_no', $tin_no);
-            }
-            if (isset($pagibig)) {
-                $this->db->set('pagibig', $pagibig);
-            }
-            if (isset($active)) {
-                $this->db->set('active', $active);
-            }
-
-            $this->db->update('employees');
-
-            /* insert into work experience */
-            foreach($this->get_work_experience() as $exp) {
-                $sql = 'INSERT INTO work_experience (company_name, date_started, date_ended, work_description, created_by, date_created, employee_id) '.
-                       'values (?, ?, ?, ?, ?, ?, ?)';
-
-                $this->db->query($sql,
-                        array(
-                            $exp['company_name'],
-                            $exp['date_started'],
-                            $exp['date_ended'],
-                            $exp['work_description'],
-                            $this->get_last_updated_by(),
-                            date($this->config->item('date_format')),
-                            $id
-                        ));
-            }
-
-            /* insert education */
-            foreach($this->get_educational_background() as $edu) {
-                $sql = 'INSERT INTO educational_background (school_name, date_graduated, remarks, created_by, date_created, employee_id) '.
-                       'values (?, ?, ?, ?, ?, ?)';
-
-                $this->db->query($sql,
-                        array(
-                            $edu['school_name'],
-                            $edu['date_graduated'],
-                            $edu['remarks'],
-                            $this->get_last_updated_by(),
-                            date($this->config->item('date_format')),
-                            $id
-                        ));
-
-            }
-
-            /* insert audit UPDATE */
-            parent::insertAuditTrail($this->get_last_updated_by(), 2, $this->get_id(), lang('update_employee'), $this->get_company_id(), $this->table_name);
-
-            $this->db->trans_complete();
-            if ($this->db->trans_status() === TRUE) {
-                return true;
-            } else {
-                return false;
-            }
-        }
-
-        function deactivateEmployee() {
-            $this->db->trans_start();
-            $data = array('active' => 0);
-
-            $this->db->where('id', $this->get_id());
-            $this->db->update('employees', $data);
-
-            /* insert audit DELETE */
-            parent::insertAuditTrail($this->get_created_by(), 3, $this->get_id(), lang('delete_employee'), $this->get_company_id(), $this->table_name);
-
-            $this->db->trans_complete();
-            if ($this->db->trans_status() === TRUE) {
-                return true;
-            } else {
-                return false;
-            }
-        }
-
-        function restoreEmployee() {
-            $this->db->trans_start();
-            $data = array('active' => 1);
-
-            $this->db->where('id', $this->get_id());
-            $this->db->update('employees', $data);
-
-            /* insert audit DELETE */
-            parent::insertAuditTrail($this->get_created_by(), 2, $this->get_id(), lang('restore_employee'), $this->get_company_id(), $this->table_name);
-
-            $this->db->trans_complete();
-            if ($this->db->trans_status() === TRUE) {
-                return true;
-            } else {
-                return false;
-            }
-        }
-
-        function countEmployees() {
-            $query = $this->db->get_where('employees', array('company_id'=>$this->get_company_id()));
-            return $query->num_rows();
-        }
-
-        function recordExists($id=null) {
-            $query = $this->db->get_where('employees', array('company_id'=>$this->get_company_id(), 'id'=>$id));
-            return $query->num_rows();
-        }
-
-        function deleteWorkExperience($id) {
-            $this->db->trans_start();
-
-            $this->db->where('id', $id);
-            $this->db->delete('work_experience');
-
-            $this->db->trans_complete();
-            if ($this->db->trans_status() === TRUE) {
-                return true;
-            } else {
-                return false;
-            }
-        }
-
-        function deleteEducationalBackground($id) {
-            $this->db->trans_start();
-
-            $this->db->where('id', $id);
-            $this->db->delete('educational_background');
-
-            $this->db->trans_complete();
-            if ($this->db->trans_status() === TRUE) {
-                return true;
-            } else {
-                return false;
-            }
-        }
-
-        function _required($required, $data) {
-            foreach ($required as $field) {
-                if (!isset($data[$field])) {
-                    return FALSE;
-                }
-            }
-            return TRUE;
         }
     }
 

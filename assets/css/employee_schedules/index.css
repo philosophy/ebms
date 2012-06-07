@@ -118,3 +118,8 @@ ul.data span.schedule > i {
     top: 4px;
     left: 10px;
 }
+
+span.emp-name {
+    font-weight: bold;
+    text-decoration: underline;
+}

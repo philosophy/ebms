@@ -55,6 +55,10 @@ div.grid-list-data ul.data li:hover {
     background-color: #D3D6FF !important;
 }
 
+div.grid-list-data ul.data li.selected {
+    background-color: #A3C2C2;
+}
+
 section.grid-list ul.data li > div {
     border-left: 1px solid #E6EEEE;
     padding: 10px 0 10px 10px;

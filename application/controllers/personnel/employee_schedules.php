@@ -1,7 +1,7 @@
 <?php
     class Employee_Schedules extends Employees_Base {
 
-        public $employee_schedules;
+        public $employee_schedules, $emp_id, $days, $start_break_time, $end_break_time, $start_time, $end_time;
         public $employees;
         private $employeeObj;
         private $schedObj;
@@ -23,6 +23,8 @@
             if ($method == 'index' || $method == 'browse') {
                 parent::set_config();
                 $this->set_sched_config();
+            } else if ($method == 'update_multiple_schedules') {
+                $this->ensureScheduleRequired();
             }
         }
 
@@ -85,6 +87,52 @@
 
             $this->employees = array_udiff($employees, $employeesWithSched, 'array_compare');
             send_json_response(INFO_LOG, HTTP_OK, 'new employee sched form', array('html' => $this->load->view('personnel/employee_schedules/_new_employee_schedule_form', '', true)));
+        }
+
+        function get_edit_multiple_sched() {
+            send_json_response(INFO_LOG, HTTP_OK, 'edit multiple employee sched form', array('html' => $this->load->view('personnel/employee_schedules/_edit_multiple_sched', '', true)));
+        }
+
+        function update_multiple_schedules() {
+            $len = count($this->days);
+            $has_error = false;
+            for($i = 0; $i < $len; $i++) {
+                $query = $this->db->get_where('employee_schedules', array('employee_id' => $this->emp_id, 'day' =>$this->days[$i]));
+                if ($query->num_rows() > 0) {
+                    //update
+                    $this->Employee_Schedules_model->update_employee_schedule(array(
+                        'employee_id' => $this->emp_id,
+                        'day' => $this->days[$i],
+                        'start_time' => $this->start_time,
+                        'end_time' => $this->end_time,
+                        'start_break_time' => $this->start_break_time,
+                        'end_break_time' => $this->end_break_time,
+                        'last_updated_by' => $this->current_avatar->id,
+                        'last_updated_at' => date($this->config->item('date_format'))
+                    ));
+                } else {
+                    //create new record
+                    $data = array(
+                        'day' => $this->days[$i],
+                        'start_time' => $this->start_time,
+                        'end_time' => $this->end_time,
+                        'start_break_time' => $this->start_break_time,
+                        'end_break_time' => $this->end_break_time,
+                        'created_by' => $this->current_avatar->id,
+                        'company_id' => $this->current_avatar->company_id,
+                        'employee_id' => $this->emp_id
+                    );
+                    if (!$this->Employee_Schedules_model->create_employee_schedule($data)) {
+                        $has_error = true;
+                    }
+                }
+            }
+
+            if ($has_error) {
+                send_json_response(INFO_LOG, HTTP_OK, 'updated multiple employee schedule with some errors');
+            } else {
+                send_json_response(INFO_LOG, HTTP_OK, 'successfully updated multiple employee schedule');
+            }
         }
 
         function create() {
@@ -175,9 +223,8 @@
             return $this->employeeObj->empPrefix.date('Y').'-'.$code;
         }
 
-        private function _record_exist($id) {
-            $record = $this->employeeObj->recordExists((int)$id);
-            if ($record > 0) {
+        private function _record_exist($emp_id, $day) {
+            if ($this->schedObj->$this->Employee_Schedules_model->record_exists((int)$emp_id, (int)$day) > 0) {
                 return true;
             } else {
                 return false;
@@ -188,6 +235,35 @@
             $this->pagination_config['base_url'] = base_url().'employee_schedules/browse/';
             $this->pagination_config['total_rows'] = count($this->schedObj->getEmployeesWithSchedule());
             $this->pagination_config['per_page'] = 1;
+        }
+
+        private function ensureScheduleRequired() {
+            $this->emp_id = $this->input->post('emp_id', TRUE);
+            $this->days = $this->input->post('days', TRUE);
+            $this->start_time = $this->input->post('time_in', TRUE);
+            $this->end_time = $this->input->post('time_out', TRUE);
+            $this->start_break_time = $this->input->post('start_break_time', TRUE);
+            $this->end_break_time = $this->input->post('end_break_time', TRUE);
+
+            if(empty($this->emp_id)) {
+                send_json_response(ERROR_LOG, HTTP_FAIL_PRECON, lang('employee_cant_be_blank'));
+                exit;
+            }
+
+            if(empty($this->start_time)) {
+                send_json_response(ERROR_LOG, HTTP_FAIL_PRECON, lang('time_in_cant_be_blank'));
+                exit;
+            }
+
+            if(empty($this->end_time)) {
+                send_json_response(ERROR_LOG, HTTP_FAIL_PRECON, lang('time_out_cant_be_blank'));
+                exit;
+            }
+
+            if(empty($this->days)) {
+                send_json_response(ERROR_LOG, HTTP_FAIL_PRECON, lang('days_cant_be_blank'));
+                exit;
+            }
         }
     }
 ?>

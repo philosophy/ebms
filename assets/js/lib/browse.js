@@ -15,6 +15,10 @@ com.ebms.widgets.browse = {
            success: function(data) {
                if (data.code === 200) {
                     tableWrapper.html(data.data.html).fadeIn();
+
+                    if (com.ebms.widgets.browse.callback !== undefined) {
+                        com.ebms.widgets.browse.callback();
+                    }
                }
            },
            error: function() {

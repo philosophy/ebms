@@ -25,6 +25,17 @@ com.ebms.widgets.base = {
 
     reAlignDialog: function(elem, position) {
         elem.dialog('option', 'position', position !== undefined ? position : 'center');
+    },
+
+    initButtons: function(selector, wrapper) {
+        $(selector, wrapper).button();
+    },
+
+    initTimePicker: function(selector, wrapper) {
+        $(selector, wrapper).timepicker({
+            ampm: false,
+            timeFormat: 'hh:mm:ss'
+        });
     }
 };
 
