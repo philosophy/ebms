@@ -1,5 +1,6 @@
 <?php
     echo js_asset('app.js');
+    echo js_asset('lib/ajax.js');
     echo js_asset('lib/base.js');
     echo js_asset('lib/clock.js');
     echo js_asset('lib/header.js');

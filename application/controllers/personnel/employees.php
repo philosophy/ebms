@@ -355,7 +355,7 @@
         private function generate_employee_code() {
             $this->employeeObj->set_company_id($this->current_avatar->company_id);
             $empId = $this->employeeObj->getMaxEmpID();
-            $code = ($empId > 0) ? substr(100000 + $empId, 1) : '000001';
+            $code = ($empId > 0) ? substr(1000000 + $empId, 1) : '000001';
             return $this->employeeObj->empPrefix.date('Y').'-'.$code;
         }
 

@@ -54,7 +54,7 @@
     <span class="loader"></span>
 </div>
 
-<div id="edit-employee-dialog" class="hide">
+<div id="edit-employee-sched-dialog" class="hide" data-ajax-url=<?php echo site_url('employee_schedules/get_edit_employee_sched_form/'.$this->employees[0]->id); ?>>
     <span class="loader"></span>
 </div>
 

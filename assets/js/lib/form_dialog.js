@@ -11,6 +11,9 @@
             }
 
             $(this).live('click', function(e) {
+
+                if ($(this).hasClass('inactive')) { e.preventDefault(); return false; }
+
                 // default modal dialog settings
                 var $modalbox = $(formId),
                 dialogTitle = '',

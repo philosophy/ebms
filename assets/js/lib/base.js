@@ -1,4 +1,5 @@
 com.ebms.widgets.base = {
+    loader: '<span class="loader"></span>',
     init: function() {
     },
 
@@ -36,6 +37,10 @@ com.ebms.widgets.base = {
             ampm: false,
             timeFormat: 'hh:mm:ss'
         });
+    },
+
+    destroyTimePicker: function(selector, wrapper) {
+        $(selector, wrapper).timepicker('destroy');
     }
 };
 

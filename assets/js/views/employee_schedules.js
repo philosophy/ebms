@@ -1,5 +1,8 @@
 com.ebms.views.employee_schedules = {
+    employeeData: null,
     init: function() {
+        this.employeeData = $('h3.employee-name');
+
         /* new employee form */
         $('#new-employee-schedule').click(function() {
             $('#new-employee-sched-dialog').dialog({
@@ -18,24 +21,42 @@ com.ebms.views.employee_schedules = {
             close: com.ebms.views.employee_schedules.resetMultipleSchedFields
         });
 
+        var editEmployeeLink = $('#edit-employee-schedule');
+        editEmployeeLink.customFormDialog('#edit-employee-sched-dialog', {
+            title: editEmployeeLink.attr('data-title'),
+            open: com.ebms.views.employee_schedules.getEditEmployeeSchedForm,
+            close: function() {
+                $('input[type="checkbox"]', '#edit-multiple-schedule').attr('checked', false);
+                $('input.time-in, input.time-out, input.start-breaktime, input.end-breaktime')
+           }
+        });
+
         $('#new-employee-schedule-form').live('ajax:success', this.newSchedSuccessHandler);
+        $('#edit-schedule-form').live('ajax:success', this.editSchedSuccessHandler);
         $('#edit-multiple-schedule-form').live('ajax:success', this.editMultipleSchedSuccessHandler);
         $('#edit-multiple-schedule-form').live('ajax:before', this.editMultipleSchedBeforeHandler);
 
         $('a.pagination-links', $('#wrapper.employee_schedules')).live('click', com.ebms.widgets.browse.browseHandler);
         com.ebms.widgets.browse.callback = function() {
-            //success callback
-            com.ebms.views.employee_schedules.updateEmpData();
+            //update multiple emp sched data
+            com.ebms.views.employee_schedules.updateEmpData($('#edit-multiple-sched-dialog'));
         }
 
         $('ul.employee-schedules.data li').live('click', function() {
             var $this = $(this);
             $this.siblings().removeClass('selected');
             $this.addClass('selected');
-//            //reset
-//            $this.siblings().removeClass('selected');
+
+            //enable edit schedule
+            $('#edit-employee-schedule').removeClass('inactive');
+
+            //append sched id to edit employee schedule action
+            var ajaxUrl;
+            ajaxUrl = $('#edit-employee-sched-dialog').attr('data-ajax-url').split('?')[0];
+            $('#edit-employee-sched-dialog').attr('data-ajax-url', ajaxUrl+'?id='+$this.attr('data-sched-id'));
+
+
 //            com.ebms.views.employees.disableEditDeleteEmp();
-//            com.ebms.views.employees.disableRestoreEmp();
 //
 //            $this.addClass('selected');
 //            if($this.hasClass('active')) {
@@ -58,6 +79,26 @@ com.ebms.views.employee_schedules = {
         $('input.time-in, input.time-out, input.start-breaktime, input.end-breaktime')
     },
 
+    editSchedSuccessHandler: function(e, data) {
+        var status = 'error';
+        if (data.code === 200) {
+            status = 'success';
+
+            // update table data
+            var dialog = $('#edit-employee-sched-dialog');
+            var schedId = dialog.find('.sched-id').val();
+            var list = $('li.selected[data-sched-id="'+schedId+'"]');
+
+            list.find('div.start-time').text(dialog.find('input.time-in').val());
+            list.find('div.end-time').text(dialog.find('input.time-out').val());
+            list.find('div.start-break-time').text(dialog.find('input.start-breaktime').val());
+            list.find('div.end-break-time').text(dialog.find('input.end-breaktime').val());
+
+            dialog.dialog('destroy');
+        }
+        com.ebms.widgets.flash.flashMessage(data.message, status);
+    },
+
     editMultipleSchedBeforeHandler: function(e) {
         //add loader
     },
@@ -66,8 +107,11 @@ com.ebms.views.employee_schedules = {
         var status = 'error';
         if (data.code === 200) {
             status = 'success';
+            com.ebms.widgets.flash.flashMessage(data.message, status);
+            window.location.reload();
+        } else {
+            com.ebms.widgets.flash.flashMessage(data.message, status);
         }
-        com.ebms.widgets.flash.flashMessage(data.message, status);
     },
 
     newSchedSuccessHandler: function(e, data) {
@@ -106,6 +150,31 @@ com.ebms.views.employee_schedules = {
         });
     },
 
+    getEditEmployeeSchedForm: function() {
+        var schedWrapper = $('#edit-employee-sched-dialog');
+        schedWrapper.html(com.ebms.widgets.base.loader);
+
+        $.ajax({
+            url: schedWrapper.attr('data-ajax-url'),
+            dataType: 'json',
+            type: 'GET',
+            before: function() {
+                //destroy timepicker
+                com.ebms.widgets.base.destroyTimePicker('.timepicker', schedWrapper);
+            },
+            success: function(data) {
+                var ns = com.ebms.views.employee_schedules;
+                schedWrapper.find('.loader').remove();
+                schedWrapper.html(data.data.html).fadeIn();
+                com.ebms.widgets.base.reAlignDialog(schedWrapper, 'center');
+
+                com.ebms.widgets.base.initButtons('button, input[type="submit"]', schedWrapper);
+                com.ebms.widgets.base.initTimePicker('.timepicker', schedWrapper);
+                com.ebms.views.employee_schedules.updateEmpData(schedWrapper);
+            }
+        });
+    },
+
     getEditMultipleSchedForm: function() {
         var schedWrapper = $('#edit-multiple-sched-dialog');
         if (schedWrapper.data('with-form') === 'true') {return;}
@@ -119,8 +188,7 @@ com.ebms.views.employee_schedules = {
                schedWrapper.html(data.data.html).fadeIn();
                com.ebms.widgets.base.reAlignDialog(schedWrapper, 'center');
                schedWrapper.data('with-form', 'true');
-               schedWrapper.find('span.emp-name').text($('h3.employee-name').text());
-               com.ebms.views.employee_schedules.updateEmpData();
+               com.ebms.views.employee_schedules.updateEmpData(schedWrapper);
                com.ebms.widgets.base.initButtons('button', schedWrapper);
                com.ebms.widgets.base.initTimePicker('.timepicker', schedWrapper);
            },
@@ -130,8 +198,9 @@ com.ebms.views.employee_schedules = {
         });
     },
 
-    updateEmpData: function() {
-        $('input.emp-id').val($('header > h3.employee-name').data('employee-id'));
-        $('div#employee-select .emp-name').text($('h3.employee-name[data-employee-id]').text());
+    updateEmpData: function(wrapper) {
+        wrapper.find('span.emp-name').text($('h3.employee-name').text());
+        $('input.emp-id', wrapper).val($('header > h3.employee-name').data('employee-id'));
+        $('div.employee-select .emp-name', wrapper).text($('h3.employee-name[data-employee-id]').text());
     }
 };

@@ -24,7 +24,7 @@
                     </header>
                     <ul class="employee-schedules data">
                         <?php foreach($scheds as $sched) { ?>
-                            <li>
+                            <li data-sched-id="<?php echo $sched->id; ?>">
                                 <span class="schedule"><i class="icon"></i></span>
                                 <div class="day info"><?php echo $this->Employee_Schedules_model->days_of_week[$sched->day]; ?></div>
                                 <div class="start-time info"><?php echo $sched->start_time; ?></div>
