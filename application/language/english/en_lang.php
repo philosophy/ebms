@@ -488,6 +488,7 @@
     $lang['edit_schedule'] = 'Edit Schedule';
     $lang['edit_multiple_schedule'] = 'Edit Multiple Schedule';
     $lang['delete_schedule'] = 'Delete Schedule';
+    $lang['are_your_sure_you_want_do_delete_employee_schedule'] = 'Are you sure you want to remove this employee schedule';
 
     /* end of personnel employee profile */
 

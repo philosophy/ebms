@@ -217,31 +217,13 @@
         }
 
         function delete($id) {
-            if ($this->_record_exist($id)) {
-                $this->employeeObj->set_id($id);
-                $this->employeeObj->set_created_by($this->current_avatar->id);
+            if ($this->_record_exist(array('id' => $id))) {
+                $result = $this->schedObj->delete_employee_schedule(array('id' => $id, 'company_id' => $this->current_avatar->company_id));
 
-                $result = $this->employeeObj->deactivateEmployee();
                 if ($result) {
-                    send_json_response(INFO_LOG, HTTP_OK, 'successfully deleted employee', array('employee_id' => $id));
+                    send_json_response(INFO_LOG, HTTP_OK, 'successfully deleted employee schedule', array('sched_id' => $id));
                 } else {
-                    send_json_response(ERROR_LOG, HTTP_FAIL_PRECON, 'unable to delete employee');
-                }
-            } else {
-                show_error(lang('unable_to_process_transaction'));
-            }
-        }
-
-        function restore($id) {
-            if ($this->_record_exist($id)) {
-                $this->employeeObj->set_id($id);
-                $this->employeeObj->set_created_by($this->current_avatar->id);
-
-                $result = $this->employeeObj->restoreEmployee();
-                if ($result) {
-                    send_json_response(INFO_LOG, HTTP_OK, 'successfully restored employee', array('employee_id' => $id));
-                } else {
-                    send_json_response(ERROR_LOG, HTTP_FAIL_PRECON, 'unable to restore employee');
+                    send_json_response(ERROR_LOG, HTTP_FAIL_PRECON, 'unable to delete employee schedule');
                 }
             } else {
                 show_error(lang('unable_to_process_transaction'));

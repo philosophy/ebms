@@ -48,28 +48,32 @@ com.ebms.views.employee_schedules = {
             $this.addClass('selected');
 
             //enable edit schedule
-            $('#edit-employee-schedule').removeClass('inactive');
+            $('#edit-employee-schedule, #delete-employee-schedule').removeClass('inactive');
 
             //append sched id to edit employee schedule action
             var ajaxUrl;
             ajaxUrl = $('#edit-employee-sched-dialog').attr('data-ajax-url').split('?')[0];
             $('#edit-employee-sched-dialog').attr('data-ajax-url', ajaxUrl+'?id='+$this.attr('data-sched-id'));
 
+            $('#delete-employee-schedule').attr('href', $this.attr('data-delete-url'));
+        });
 
-//            com.ebms.views.employees.disableEditDeleteEmp();
-//
-//            $this.addClass('selected');
-//            if($this.hasClass('active')) {
-//                com.ebms.views.employees.enableEditDeleteEmp();
-//                $('#delete-employee').attr('href', $this.data('delete-url'));
-//                $('#edit-employee').data('edit-url', $this.data('edit-url'));
-//
-//                //update edit-employee href
-//            } else if ($this.hasClass('inactive')) {
-//                com.ebms.views.employees.enableRestoreEmp();
-//                $('#restore-employee').attr('href', $this.data('restore-url'));
-//            }
+        $('#dialog-confirm-btn.delete-sched').live('ajax:success', function(e, data) {
+            var status = 'error';
+            if (data.code === 200) {
+                status = 'success';
+                var list = $('li.selected[data-sched-id="'+ data.data.sched_id + '"]');
+                list.fadeOut('slow', function() {
+                    $(this).remove();
+                    if ($('ul.employee-schedules.data li').length === 0) {
+                        window.location.reload();
+                    }
+                });
 
+                $('#edit-employee-schedule, #delete-employee-schedule').addClass('inactive');
+            }
+
+            com.ebms.widgets.flash.flashMessage(data.message, status);
         });
     },
 

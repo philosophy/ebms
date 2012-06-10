@@ -195,6 +195,19 @@
             return $this->db->trans_status();
         }
 
+        function delete_employee_schedule($options=array()) {
+            if (isset($options['id'])) {
+                $this->db->where('id', $options['id']);
+            }
+
+            if (isset($options['company_id'])) {
+                $this->db->where('company_id', $options['company_id']);
+            }
+
+            $this->db->delete('employee_schedules');
+            return $this->db->affected_rows();
+        }
+
         function get_schedule_info($options=array()){
             if (isset($options['id'])) {
                 $this->db->where('id', $options['id']);

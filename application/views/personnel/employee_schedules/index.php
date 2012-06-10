@@ -33,7 +33,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#" id="delete-employee-schedule" class="inactive delete-data confirm-link" data-title="<?php echo lang('delete_employee'); ?>" data-dialog-confirm-message="<?php echo lang('are_you_sure_you_want_to_delete_employee'); ?>" data-dialog-method="delete" data-dialog-remote='true' data-dialog-title="<?php echo lang('delete_employee');?>" data-dialog-type='json' data-class='archive'>
+                        <a href="#" id="delete-employee-schedule" class="inactive delete-data confirm-link" data-title="<?php echo lang('delete_schedule'); ?>" data-dialog-confirm-message="<?php echo lang('are_your_sure_you_want_do_delete_employee_schedule'); ?>" data-dialog-method="delete" data-dialog-remote='true' data-dialog-title="<?php echo lang('delete_schedule');?>" data-dialog-type='json' data-class='delete-sched'>
                             <?php echo image_asset('crud_icons/deleteIcon.png', '', array('title' => lang('delete_employee'))); ?>
                         </a>
                     </li>
@@ -59,10 +59,6 @@
 </div>
 
 <div id="edit-multiple-sched-dialog" class="hide" data-ajax-url=<?php echo site_url('employee_schedules/get_edit_multiple_sched'); ?>>
-    <span class="loader"></span>
-</div>
-
-<div id="delete-employee-dialog" class="hide">
     <span class="loader"></span>
 </div>
 
