@@ -39,6 +39,12 @@
                 $this->output->enable_profiler(TRUE);
             }
         }
+
+        function sample_pages_for_admin_only() {
+            if (ENVIRONMENT != 'development' && !$this->current_avatar->id == 1) {
+                redirect('home/index', 'refresh');
+            }
+        }
     }
 
 ?>

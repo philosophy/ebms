@@ -150,6 +150,7 @@ $route['inventory/items/delete/(:num)'] = 'inventory/items/delete/$1';
 $route['inventory/items/get_item_edit_form/(:num)'] = 'inventory/items/get_item_edit_form/$1';
 
 $route['sample/file_upload'] = 'sample/file_upload';
+$route['sample/pdf'] = 'sample/pdf';
 $route['sample/file_upload/do_upload'] = 'sample/file_upload/do_upload';
 
 $route['file_maintenance/currency'] = 'file_maintenance/currency';
