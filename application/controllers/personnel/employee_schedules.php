@@ -64,15 +64,16 @@
 
                 send_json_response(INFO_LOG, HTTP_OK, 'browse employee form', array('html' => $this->load->view('personnel/employee_schedules/_employee_schedule_list', $data, true), 'edit_emp_sched_link' => site_url('employee_schedules/get_edit_employee_sched_form/')));
             } else {
+                $this->pagination_config['base_url'] = base_url().'employee_schedules/browse?name='.$name;
                 $this->employeeObj->set_limit($this->pagination_config['per_page']);
                 $this->employeeObj->set_offset((!empty($offset) && $offset != NULL) ? $offset : 0);
-                $this->employees = $this->employeeObj->getEmployees();
+                $this->employees = $this->schedObj->get_employees_by_search($name);
+                $this->pagination_config['total_rows'] = count($this->employees);
                 $this->pagination->initialize($this->pagination_config);
                 $data['pagination_links'] = $this->pagination->create_links();
-                $data['employees_len'] = count($this->employees);
+                $data['emp_len'] = count($this->employees);
 
-                send_json_response(INFO_LOG, HTTP_OK, 'search employee form', array('html' => $this->load->view('personnel/employee_schedules/_employee_schedule_list', $data, true)));
-
+                send_json_response(INFO_LOG, HTTP_OK, 'search employee form', array('html' => $this->load->view('personnel/employee_schedules/_employee_schedule_list', $data, true), 'edit_emp_sched_link' => site_url('employee_schedules/get_edit_employee_sched_form/')));
             }
 
         }

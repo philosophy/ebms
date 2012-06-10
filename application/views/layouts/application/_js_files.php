@@ -5,6 +5,7 @@
     echo js_asset('lib/clock.js');
     echo js_asset('lib/header.js');
     echo js_asset('lib/confirm.js');
+    echo js_asset('lib/search.js');
     echo js_asset('util/namespace_checker.js');
     echo js_asset('util/html5.js');
     echo js_asset('lib/form_dialog.js');

@@ -207,17 +207,6 @@
             return $query->result_array();
         }
 
-        function getEmployeeScheduleBySearch() {
-            $sql = "SELECT e.*, d.name as department, p.name as position, s.name as status  FROM employees AS e INNER JOIN departments as d on d.id = e.department_id INNER JOIN employee_status AS s ON s.id = e.employee_status_id INNER JOIN positions AS p on p.id = e.position_id where e.company_id=? and e.first_name LIKE ? order by e.first_name, e.active desc LIMIT ? OFFSET ?";
-            $query = $this->db->query($sql, array('company_id' => $this->get_company_id(), 'like' => '%'.$this->get_search().'%', 'LIMIT' => $this->get_limit(), 'OFFSET' => $this->get_offset()));
-
-            if ($query->num_rows() > 0) {
-                return $query->result();
-            } else {
-                return null;
-            }
-        }
-
         function countEmployeeScheduleBySearch() {
             $sql = "SELECT * from employees where company_id = ? and (first_name like ? or last_name like ?)";
             $query = $this->db->query($sql, array(
@@ -231,6 +220,17 @@
         function getEmployeesWithSchedule() {
             $sql = "SELECT distinct e.* FROM employees AS e INNER JOIN employee_schedules as sched on sched.employee_id = e.id where e.company_id=? order by e.first_name, sched.day asc LIMIT ? OFFSET ?";
             $query = $this->db->query($sql, array('company_id' => $this->get_company_id(), 'LIMIT' => $this->get_limit(), 'OFFSET' => $this->get_offset()));
+
+            if ($query->num_rows() > 0) {
+                return $query->result();
+            } else {
+                return null;
+            }
+        }
+
+        function get_employees_by_search($name) {
+            $sql = "SELECT distinct e.* FROM employees AS e INNER JOIN employee_schedules as sched on sched.employee_id = e.id where e.company_id=? and e.first_name LIKE ? order by e.first_name, sched.day asc LIMIT ? OFFSET ?";
+            $query = $this->db->query($sql, array('company_id' => $this->get_company_id(), $name, 'LIMIT' => $this->get_limit(), 'OFFSET' => $this->get_offset()));
 
             if ($query->num_rows() > 0) {
                 return $query->result();

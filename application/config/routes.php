@@ -210,8 +210,8 @@ $route['employee_schedules/get_edit_multiple_sched'] = 'personnel/employee_sched
 $route['employee_schedules/create'] = 'personnel/employee_schedules/create';
 $route['employee_schedules/update_schedule'] = 'personnel/employee_schedules/update_schedule';
 $route['employee_schedules/update_multiple_schedules'] = 'personnel/employee_schedules/update_multiple_schedules';
-$route['employee_schedules/browse/(:num)'] = 'personnel/employee_schedules/browse/$1';
 $route['employee_schedules/browse'] = 'personnel/employee_schedules/browse';
+$route['employee_schedules/browse/(:num)'] = 'personnel/employee_schedules/browse/$1';
 
 $route['employees/work_experience/(:num)/delete'] = 'personnel/employees/delete_work_experience/$1';
 $route['employees/educational_background/(:num)/delete'] = 'personnel/employees/delete_educational_background/$1';

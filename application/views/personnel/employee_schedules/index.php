@@ -8,7 +8,7 @@
                 Employee Schedule
             </h1>
             <div class="right-options">
-                <?php $this->load->view('common/_search_form', array('url' => site_url('employee_schedule/browse'), 'id' => 'search-employee-form')); ?>
+                <?php $this->load->view('common/_search_form', array('url' => site_url('employee_schedules/browse'), 'id' => 'search-employee-form')); ?>
                 <div id="print-report">
                     <?php echo image_asset('icons/pdf-icon.png', '', array('alt' => lang('report'))); ?>
                 </div>

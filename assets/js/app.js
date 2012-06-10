@@ -3,9 +3,10 @@ com = {
         widgets: {},
         util: {},
         views: {},
-        init: function() {  
+        init: function() {
            this.widgets.header.init();
            this.widgets.confirm.init();
+           this.widgets.search.init();
         }
     }
 };

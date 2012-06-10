@@ -75,8 +75,6 @@ com.ebms.views.employees = {
         });
 
         $('a.pagination-links').live('click', this.browseHandler);
-        $('#search-employee-form').submit(this)
-        $('#search-employee-form').live('ajax:success', this.successSearchHandler);
 
         //override destroy modal dialog in confirm js
         com.ebms.widgets.confirm.destroyModalDialog = this.destroyModalDialog;
@@ -100,17 +98,6 @@ com.ebms.views.employees = {
         //clean up class of buttons
         $('#dialog-confirm-btn').removeClass('archive restore');
         $('#dialog-tryagain-btn').removeClass('archive restore');
-    },
-
-    beforeSearchHandler: function() {
-        //display loader and hide contents
-        $('div.table-wrapper').html('<span class="loader"></span>');
-    },
-
-    successSearchHandler: function(e, data) {
-        if (data.code === 200) {
-            $('div.table-wrapper').html(data.data.html).fadeIn();
-        }
     },
 
     browseHandler: function(e) {
