@@ -495,4 +495,15 @@
     /* employee time sheets */
     $lang['employee_time_sheets'] = 'Employee Time Sheets';
 
+    /* dashboard */
+    $lang['new_customer'] = 'New Customer';
+    $lang['total_active'] = 'Total Active';
+    $lang['total_inactive'] = 'Total Inactive';
+    $lang['total_order'] = 'Total Order';
+    $lang['total_collected'] = 'Total Collected';
+    $lang['cash_on_hand'] = 'Cash on Hand';
+    $lang['total_sales'] = 'Total Sales';
+    $lang['exp_voucher'] = 'Exp. Voucher';
+    $lang['exp_ap'] = 'Exp. A/P';
+
 ?>

@@ -20,3 +20,99 @@
 #content-wrapper article.aside-left #clock-cont{
     padding: 15px 0 0 6px;
 }
+
+#dashboard-summary header h2{
+    font-family:"Arial";
+    color:#fff;
+    text-align:center;
+    background:#0099FF;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#0099FF', endColorstr='#006BB2');
+    background:-webkit-gradient(linear, left top, left bottom, from(#0099FF), to(#006BB2));
+    background:-moz-linear-gradient(top, #0099FF, #006BB2);
+    width:100%;
+    text-transform:uppercase;
+    font-weight: bold;
+}
+
+#dashboard-summary {
+    background: #fff;
+    margin: 0 5px 10px;
+    -webkit-box-shadow: 0 5px 5px #069;
+    -khtml-box-shadow: 0 5px 5px #069;
+    -moz-box-shadow: 0 5px 5px #069;
+    box-shadow: 0 5px 5px #069;
+    width: auto;
+    margin-top: 40px;
+}
+
+#dashboard-summary .summary-date {
+    font-family: Tahoma;
+    padding: 7px 0;
+    border-bottom: 1px solid #069;
+    color: #635B5D;
+    text-align: center;
+    font-size: 12px;
+    padding: 7px 0;
+}
+
+#dashboard-summary li {
+    padding: 3px 0 3px 10px;
+}
+
+#dashboard-summary li:hover {
+    background: #069;
+    color: #EEE;
+}
+
+#dashboard-summary li.header:hover {
+    background: #FFF;
+    color: #000;
+}
+
+#dashboard-summary li.header {
+    border-bottom: 1px solid #069;
+    font-weight: bold;
+}
+
+#dashboard-summary div.context {
+    float: left;
+    width: 125px;
+    position: relative;
+    padding-left: 19px;
+}
+
+#dashboard-summary div.context i {
+    width: 17px;
+    height: 17px;
+    position: absolute;
+    left: 0;
+    background-size: 17px 17px;
+}
+
+#dashboard-summary div.context.new-customer i {
+    background: url('../../image/icons/smiley-icon.png') no-repeat;
+}
+#dashboard-summary div.context.total-active i {
+    background: url('../../image/icons/smiley-icon.png') no-repeat;
+}
+#dashboard-summary div.context.total-inactive i {
+    background: url('../../image/icons/inactive.png') no-repeat;
+}
+#dashboard-summary div.context.total-order i {
+    background: url('../../image/icons/order-icon.png') no-repeat;
+}
+#dashboard-summary div.context.total-collected i {
+    background: url('../../image/icons/money-icon.png') no-repeat;
+}
+#dashboard-summary div.context.cash-on-hand i {
+    background: url('../../image/icons/hand-icon.png') no-repeat;
+}
+#dashboard-summary div.context.total-sales i {
+    background: url('../../image/icons/sales-icon.png') no-repeat;
+}
+#dashboard-summary div.context.exp-voucher i {
+    background: url('../../image/icons/voucher-icon.png') no-repeat;
+}
+#dashboard-summary div.context.exp-ap i {
+    background: url('../../image/icons/acct-pay-icon.png') no-repeat;
+}
