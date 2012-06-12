@@ -98,7 +98,7 @@ if (!function_exists('readable_time')) {
         if (!isset($options['date'])) {
             return '...';
         }
-        return date('h:i:s A', strtotime($options['date']));
+        return date($format, strtotime($options['date']));
     }
 }
 ?>

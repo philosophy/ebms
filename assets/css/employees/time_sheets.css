@@ -1,0 +1,36 @@
+#employee-time-sheets-list .grid-list li.name {
+    width: 170px;
+}
+
+#employee-time-sheets-list .grid-list li.department,
+#employee-time-sheets-list ul.time-sheets.data div.department.info{
+    width: 130px;
+}
+
+#employee-time-sheets-list .grid-list li.date,
+#employee-time-sheets-list ul.time-sheets.data div.date.info{
+    width: 100px;
+}
+
+#employee-time-sheets-list .grid-list li.time-in,
+#employee-time-sheets-list ul.time-sheets.data div.time-in-rec.info{
+    width: 100px;
+}
+
+#employee-time-sheets-list .grid-list li.time-out,
+#employee-time-sheets-list ul.time-sheets.data div.time-out.info{
+    width: 100px;
+}
+
+#employee-time-sheets-list ul.time-sheets.data div.emp-name.info {
+    width: 170px;
+    padding-left: 45px;
+}
+
+#employee-time-sheets-list article.container {
+    border-bottom: 0;
+}
+
+ul.time-sheets.data span i.icon {
+    background: url('../../image/icons/timesheetrecord-icon.png') no-repeat;
+}

@@ -219,6 +219,8 @@ $route['employee/time_records'] = 'personnel/time_records';
 $route['employee/time_records/time_in'] = 'personnel/time_records/time_in';
 $route['employee/time_records/time_out'] = 'personnel/time_records/time_out';
 
+$route['employee/time_sheets'] = 'personnel/time_sheets';
+
 $route['employees/work_experience/(:num)/delete'] = 'personnel/employees/delete_work_experience/$1';
 $route['employees/educational_background/(:num)/delete'] = 'personnel/employees/delete_educational_background/$1';
 /* end of personnel */

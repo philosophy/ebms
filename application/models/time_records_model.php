@@ -51,10 +51,11 @@
             if (isset($options['company_id'])) {
                 $this->db->where('company_id', $options['company_id']);
             }
-
+            if (isset($options['current_day'])) {
+                $this->db->where('date_created >= DATE_SUB(Now(), Interval 1 day)');
+            }
             $this->db->select('*');
             $this->db->from('employee_time_records');
-            $this->db->where('date_created >= DATE_SUB(Now(), Interval 1 day)');
             $this->db->order_by('date_created', 'desc');
 
             $query = $this->db->get();

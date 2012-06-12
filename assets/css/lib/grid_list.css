@@ -21,6 +21,7 @@ section.grid-list ul.header li {
 
 section.grid-list ul.header li:first-child {
     border-left: 0px;
+    padding-left: 65px;
 }
 
 section.grid-list ul.header li:last-child {
@@ -79,4 +80,34 @@ section.grid-list ul.data li {
     color: #444;
     text-shadow: 0px 1px 0px #D1E0E0;
     border-bottom: 1px solid #E6EEEE;
+}
+
+section.grid-list ul.data li i.icon {
+    width: 25px;
+    height: 25px;
+    display: inline-block;
+    position: absolute;
+    top: 4px;
+    left: 10px;
+    z-index: 52;
+    background-size: 25px 25px;
+}
+
+p.no-data {
+    background: #fff !important;
+}
+
+div.no-data {
+    padding: 20px 0 30px 270px;
+    display: block;
+    background:
+    white;
+    position: relative;
+    border-bottom: 1px solid #EEE;
+}
+
+div.no-data > p {
+    display: inline-block;
+    position: absolute;
+    top: 37px;
 }

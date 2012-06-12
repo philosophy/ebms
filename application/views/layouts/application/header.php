@@ -130,7 +130,7 @@
                         <?php echo anchor('employee_schedules', lang('employee_schedule')); ?>
                     </li>
                     <li class="sub-nav-item">
-                        <?php echo anchor('dashboard/index', lang('employee_time_sheet_records')); ?>
+                        <?php echo anchor('employee/time_sheets', lang('employee_time_sheet_records')); ?>
                     </li>
                     <li class="sub-nav-item">
                         <?php echo anchor('dashboard/index', lang('employee_payroll')); ?>

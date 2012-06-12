@@ -23,7 +23,7 @@
             $data['content'] = 'personnel/time_records/index';
             $data['title'] = lang('employee_time_sheet_records');
 
-            $this->time_record_list = $this->time_record_obj->get_time_records_list(array('company_id' => $this->current_avatar->company_id));
+            $this->time_record_list = $this->time_record_obj->get_time_records_list(array('company_id' => $this->current_avatar->company_id, 'current_day' => true));
             $this->parser->parse('layouts/application', $data);
             $this->output->enable_profiler(TRUE);
         }

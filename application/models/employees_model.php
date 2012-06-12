@@ -371,7 +371,7 @@
             if (isset($options['company_id'])) {
                 $this->db->where('company_id', $options['company_id']);
             }
-
+            $this->db->where('active', 1);
             $query = $this->db->get('employees');
             return $query->result_array();
         }

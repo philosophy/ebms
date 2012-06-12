@@ -2,7 +2,7 @@
     <section id="employee-time-records-list" class="items-list-wrapper">
         <header>
             <h1>
-                <?php echo lang('employee_time_sheet_records'); ?>
+                <?php echo lang('employee_daily_time_records'); ?>
                 <span class="current-date">(<?php echo date("F d, Y");?>)</span>
             </h1>
 <!--            <div class="right-options">

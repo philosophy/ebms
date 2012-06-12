@@ -492,5 +492,7 @@
     $lang['time_in'] = 'Time In';
     $lang['time_out'] = 'Time out';
 
+    /* employee time sheets */
+    $lang['employee_time_sheets'] = 'Employee Time Sheets';
 
-
+?>

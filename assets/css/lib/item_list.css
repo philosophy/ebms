@@ -122,7 +122,12 @@
 
 .items-list-wrapper article.container div.list-primary {
     float: right;
-    width: 740px;
+/*    width: 740px;*/
+    width: 100%;
+}
+
+.items-list-wrapper div.list-primary.no-sidenav p.no-data{
+    padding: 10px 20px 0px 30px !important;
 }
 
 .items-list-wrapper .table-list {
