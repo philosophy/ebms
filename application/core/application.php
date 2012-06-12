@@ -45,6 +45,16 @@
                 redirect('home/index', 'refresh');
             }
         }
+
+        function authorize_action($options) {
+            if (isset($options['employee_id'])) {
+                $this->employeeObj->set_id($options['employee_id']);
+                $emp = $this->employeeObj->getEmployeeDetails();
+                if ($emp->company_id != $this->current_avatar->company_id) {
+                    show_error('message', 401);
+                }
+            }
+        }
     }
 
 ?>

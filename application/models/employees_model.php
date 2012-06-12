@@ -387,9 +387,14 @@
             }
         }
 
-        function getEmployeeDetails() {
+        function getEmployeeDetails($options=array()) {
             $sql = "SELECT * FROM employees where id = ?";
-            $query = $this->db->query($sql, array('id' => $this->get_id()));
+            if (isset($options['employee_id'])) {
+                $emp_id = $options['employee_id'];
+            } else {
+                $emp_id = $this->get_id();
+            }
+            $query = $this->db->query($sql, array('id' => $emp_id));
 
             if ($query->num_rows() > 0) {
                 return $query->row();

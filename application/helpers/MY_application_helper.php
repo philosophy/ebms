@@ -57,4 +57,48 @@ if (!function_exists('script_tag')) {
     }
 
 }
+
+if (!function_exists('create_button')) {
+    function create_button($options=array()) {
+        $button = "<div class='button-wrapper'><button ";
+        if (isset($options['id'])) {
+            $button .= 'id="'.$options['id'].'" ';
+        }
+        if (isset($options['class'])) {
+            $button .= 'class="'.$options['class'].'" ';
+        }
+        if (isset($options['type'])) {
+            $button .= 'type="'.$options['type'].'" ';
+        } else {
+            $button .= 'type="submit" ';
+        }
+        if (isset($options['data_attributes'])){
+            foreach($options['data_attributes'] as $attr => $val) {
+                $button .= $attr.'="'.$val.'"';
+            }
+        }
+
+        $button .= ">";
+        if (isset($options['text'])) {
+            $button .= $options['text'];
+        }
+        $button .= "</button></div>";
+        return $button;
+    }
+}
+
+if (!function_exists('readable_time')) {
+    function readable_time($options=array()) {
+        if (isset($options['format'])) {
+            $format = $options['format'];
+        } else {
+            $format = 'h:i:s A';
+        }
+
+        if (!isset($options['date'])) {
+            return '...';
+        }
+        return date('h:i:s A', strtotime($options['date']));
+    }
+}
 ?>

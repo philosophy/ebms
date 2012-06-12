@@ -1,0 +1,72 @@
+header span.current-date {
+    font-size: 0.75em !important;
+}
+
+div.timecheck-wrapper {
+    margin: 15px 0 0;
+    padding-left: 10px;
+    position: relative;
+}
+
+h3.timecheck {
+    font-size: 1.5em;
+    display: block;
+    margin: 20px 0 0 40px;
+    padding-top: 5px;
+}
+
+div.timecheck-wrapper img#timecheck-img {
+    position: absolute;
+}
+
+div.timecheck-wrapper h3.timecheck, div.timecheck-wrapper span.current-time {
+    font-weight: bold;
+}
+
+#timein-dialog #checkin, #timeout-dialog #checkout{
+    margin: 25px 0 0 10px;
+    float: right;
+}
+
+#employee-time-records-list .grid-list i.icon {
+    width: 25px;
+    height: 25px;
+    display: inline-block;
+    position: absolute;
+    top: 4px;
+    left: 10px;
+    z-index: 52;
+    background: url('../../image/icons/timecheck.png') no-repeat;
+    background-size: 25px 25px;
+}
+
+#employee-time-records-list .grid-list li.name {
+    width: 170px;
+    padding-left: 65px;
+}
+
+#employee-time-records-list .grid-list li.time-in {
+    width: 150px;
+}
+
+#employee-time-records-list .grid-list li.time-in {
+    width: 150px;
+}
+
+#employee-time-records-list p.no-data {
+    padding: 10px 20px 20px 5px;
+    background: #fff;
+}
+
+#employee-time-records-list ul.time-records.data div.emp-name.info {
+    width: 170px;
+    padding-left: 45px;
+}
+
+#employee-time-records-list ul.time-records.data div.time-in-rec.info {
+    width: 150px;
+}
+
+#employee-time-records-list ul.time-records.data div.time-out-rec.info {
+    width: 150px;
+}

@@ -45,6 +45,7 @@ div.grid-list-data ul.data {
 div.grid-list-data ul.data div.info {
     float: left;
     text-align: left;
+    min-height: 11px;
 }
 
 div.grid-list-data ul.data li {

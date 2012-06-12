@@ -45,9 +45,6 @@
         </article>
 
     </section>
-<!--    <section id="employee-items">
-        <?php //$this->load->view('personnel/employee/_employee_items'); ?>
-    </section>-->
 </article>
 
 <div id="new-employee-sched-dialog" class="hide" data-ajax-url=<?php echo site_url('employee_schedules/get_new_employee_sched_form'); ?>>
@@ -61,10 +58,3 @@
 <div id="edit-multiple-sched-dialog" class="hide" data-ajax-url=<?php echo site_url('employee_schedules/get_edit_multiple_sched'); ?>>
     <span class="loader"></span>
 </div>
-
-
-<!--<script>
-    var employmentStatus = <?php //echo json_encode($this->employment_status); ?>;
-    var departments = <?php //echo json_encode($this->departments); ?>;
-    var positions = <?php //echo json_encode($this->positions); ?>;
-</script>-->

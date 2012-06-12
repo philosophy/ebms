@@ -1,10 +1,13 @@
 <?php
     class Employees_Base extends Application {
-        public $current_avatar;
         public $pagination_config;
+        public $employees;
+        public $employeeObj;
 
         public function __construct() {
             parent::__construct();
+            $this->load->model('Employee_Schedules_model');
+            $this->employeeObj = new $this->Employees_model();
         }
 
         protected function set_config() {
@@ -15,6 +18,12 @@
             $this->pagination_config['uri_segment'] = 3;
             $this->pagination_config['anchor_class'] = $this->config->item('pagination_anchor_class');
         }
+
+        protected function load_employees() {
+            $this->employees = $this->employeeObj->getEmployeesData(array('company_id' => $this->current_avatar->company_id));
+            return $this->employees;
+        }
+
     }
 
 ?>

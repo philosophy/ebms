@@ -1,5 +1,5 @@
 <?php
-     echo css_asset('base.css');
+    echo css_asset('base.css');
     echo css_asset('reset.css');
     echo css_asset('body.css');
     echo css_asset('header.css');
@@ -27,4 +27,5 @@
     echo css_asset('vendor/jquery.dataTables.css');
     echo css_asset('lib/datepicker.css');
     echo css_asset('lib/dialog-reset.css');
+    echo css_asset('employees/time_records.css');
 ?>

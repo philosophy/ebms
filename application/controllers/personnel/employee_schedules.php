@@ -4,8 +4,6 @@
         public $employee_schedules, $emp_id, $days, $start_break_time, $end_break_time, $start_time, $end_time;
         public $schedule_info;
         public $sched_id;
-        public $employees;
-        private $employeeObj;
         private $schedObj;
 
         function __construct() {
@@ -14,9 +12,6 @@
             $this->load->model('Employee_status_model');
             $this->load->model('Department_model');
             $this->load->model('Position_model');
-            $this->load->model('Employees_model');
-            $this->load->model('Employee_Schedules_model');
-            $this->employeeObj = new $this->Employees_model();
             $this->schedObj = new $this->Employee_Schedules_model();
             $this->schedObj->set_company_id($this->current_avatar->company_id);
             $this->employeeObj->set_company_id($this->current_avatar->company_id);
@@ -81,7 +76,7 @@
         function get_new_employee_sched_form() {
             $this->employeeObj->set_limit(100);
             $this->employeeObj->set_company_id($this->current_avatar->company_id);
-            $employees = $this->employeeObj->getEmployeesData();
+            $employees = $this->employeeObj->getEmployeesData(array('company_id' => $this->current_avatar->company_id));
             $employeesWithSched = $this->employeeObj->getEmployeesWithSchedule();
 
             function array_compare($v1, $v2) {

@@ -136,7 +136,7 @@
                         <?php echo anchor('dashboard/index', lang('employee_payroll')); ?>
                     </li>
                     <li class="sub-nav-item">
-                        <?php echo anchor('dashboard/index', lang('employee_daily_time_records')); ?>
+                        <?php echo anchor('employee/time_records', lang('employee_daily_time_records')); ?>
                     </li>
                     <li class="sub-nav-item">
                         <?php echo anchor('dashboard/index', lang('employee_cash_advance')); ?>

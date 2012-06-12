@@ -455,8 +455,6 @@
     /* general */
     $lang['with_asterisk_required'] = 'Fields with asterisk(*) are required.';
 
-    /* start of personnel employee profile */
-
     /* employment info */
     $lang['date_work_started'] = 'Date Started';
     $lang['date_work_ended'] = 'Date Ended';
@@ -490,5 +488,9 @@
     $lang['delete_schedule'] = 'Delete Schedule';
     $lang['are_your_sure_you_want_do_delete_employee_schedule'] = 'Are you sure you want to remove this employee schedule';
 
-    /* end of personnel employee profile */
+    /* employee time records */
+    $lang['time_in'] = 'Time In';
+    $lang['time_out'] = 'Time out';
+
+
 

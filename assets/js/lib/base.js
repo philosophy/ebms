@@ -1,5 +1,6 @@
 com.ebms.widgets.base = {
     loader: '<span class="loader"></span>',
+    nodata: '...',
     init: function() {
     },
 

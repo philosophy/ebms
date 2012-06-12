@@ -215,6 +215,10 @@ $route['employee_schedules/browse'] = 'personnel/employee_schedules/browse';
 $route['employee_schedules/browse/(:num)'] = 'personnel/employee_schedules/browse/$1';
 $route['employee_schedules/delete/(:num)'] = 'personnel/employee_schedules/delete/$1';
 
+$route['employee/time_records'] = 'personnel/time_records';
+$route['employee/time_records/time_in'] = 'personnel/time_records/time_in';
+$route['employee/time_records/time_out'] = 'personnel/time_records/time_out';
+
 $route['employees/work_experience/(:num)/delete'] = 'personnel/employees/delete_work_experience/$1';
 $route['employees/educational_background/(:num)/delete'] = 'personnel/employees/delete_educational_background/$1';
 /* end of personnel */

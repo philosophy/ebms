@@ -252,16 +252,16 @@
             }
         }
 
-        function getEmployeeDetails() {
-            $sql = "SELECT * FROM employees where id = ?";
-            $query = $this->db->query($sql, array('id' => $this->get_id()));
-
-            if ($query->num_rows() > 0) {
-                return $query->row();
-            } else {
-                return null;
-            }
-        }
+//        function getEmployeeDetails() {
+//            $sql = "SELECT * FROM employees where id = ?";
+//            $query = $this->db->query($sql, array('id' => $this->get_id()));
+//
+//            if ($query->num_rows() > 0) {
+//                return $query->row();
+//            } else {
+//                return null;
+//            }
+//        }
 
         function getEmployeeSched($options=array()) {
             if (isset($options['employee_id'])) {

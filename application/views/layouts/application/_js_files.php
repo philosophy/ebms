@@ -10,6 +10,7 @@
     echo js_asset('util/html5.js');
     echo js_asset('lib/form_dialog.js');
     echo js_asset('lib/browse.js');
+    echo js_asset('lib/timetick.js');
     echo js_asset('views/dashboard.js');
     echo js_asset('views/users.js');
     echo js_asset('views/control_manager.js');
@@ -31,7 +32,9 @@
     echo js_asset('views/earning.js');
     echo js_asset('views/deduction.js');
     echo js_asset('views/company.js');
-    echo js_asset('views/employees.js');
-    echo js_asset('views/employee_schedules.js');
+    echo js_asset('views/employees/employees.js');
+    echo js_asset('views/employees/employee_schedules.js');
+    echo js_asset('views/employees/time_records.js');
     echo js_asset('lib/flash.js');
+    echo js_asset('lib/ajax.js');
 ?>
