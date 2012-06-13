@@ -12,11 +12,6 @@ class Migration_Create_Customers_Table extends CI_Migration {
                 'null' => FALSE,
                 'auto_increment' => TRUE
             ),
-            'code' => array(
-                'type' => 'VARCHAR',
-                'constraint' => '10',
-                'null' => FALSE
-            ),
             'name' => array(
                 'type' => 'VARCHAR',
                 'constraint' => '255',

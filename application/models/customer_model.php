@@ -81,7 +81,7 @@ class Customer_model extends CI_Model {
     }
 
     function getCustomers() {
-        $sql = "SELECT * FROM customer where active=? and company_id=?";
+        $sql = "SELECT * FROM customers where active=? and company_id=?";
         $query = $this->db->query($sql, array('active' => $this->get_active(), 'company_id' => $this->get_company_id()));
 
         if ($query->num_rows() > 0) {
@@ -92,7 +92,7 @@ class Customer_model extends CI_Model {
     }
 
     function getCustomerDetails($id) {
-        $sql = "SELECT * FROM customer where id=?";
+        $sql = "SELECT * FROM customers where id=?";
         $query = $this->db->query($sql, array('id' => $id));
 
         if ($query->num_rows() > 0) {
@@ -105,7 +105,7 @@ class Customer_model extends CI_Model {
     function createCustomer() {
 
         $this->db->trans_start();
-        $sql = "INSERT INTO customer (name, created_by, date_created, company_id) values (?, ?, ?, ?)";
+        $sql = "INSERT INTO customers (name, created_by, date_created, company_id) values (?, ?, ?, ?)";
         $this->db->query($sql,
             array(
                 $this->get_name(),
@@ -114,7 +114,7 @@ class Customer_model extends CI_Model {
                 $this->get_company_id()
             ));
 
-        $sql = 'SELECT id from customer where company_id = ? order by date_created desc limit 1';
+        $sql = 'SELECT id from customers where company_id = ? order by date_created desc limit 1';
         $query = $this->db->query($sql, array('company_id' => $this->get_company_id()));
 
         /* insert audit CREATE */
@@ -133,7 +133,7 @@ class Customer_model extends CI_Model {
         $data = array('active' => 0);
 
         $this->db->where('id', $this->get_id());
-        $this->db->update('customer', $data);
+        $this->db->update('customers', $data);
 
         /* insert audit DELETE */
         parent::insertAuditTrail($this->get_created_by(), 3, $this->get_id(), lang('deactivate_customer'), $this->get_company_id(), $this->table_name);
@@ -155,7 +155,7 @@ class Customer_model extends CI_Model {
         );
 
         $this->db->where('id', $this->get_id());
-        $this->db->update('customer', $data);
+        $this->db->update('customers', $data);
 
         /* insert audit UPDATE */
         parent::insertAuditTrail($this->get_last_updated_by(), 2, $this->get_id(), lang('update_customer'), $this->get_company_id(), $this->table_name);
@@ -176,7 +176,7 @@ class Customer_model extends CI_Model {
         ));
 
         $this->db->where('id', $this->get_id());
-        $this->db->update('customer', $data);
+        $this->db->update('customers', $data);
 
         /* insert audit */
         parent::insertAuditTrail($this->get_last_updated_by(), 2, $this->get_id(), lang('restore_customer'), $this->get_company_id(), $this->table_name);
@@ -191,7 +191,7 @@ class Customer_model extends CI_Model {
 
 
     function customerExists() {
-        $sql = "SELECT * FROM customer where name = ? and company_id = ?";
+        $sql = "SELECT * FROM customers where name = ? and company_id = ?";
         $query = $this->db->query($sql, array('name' => $this->get_name(), 'company_id' => $this->get_company_id()));
 
         if ($query->num_rows() > 0) {
@@ -202,7 +202,7 @@ class Customer_model extends CI_Model {
     }
 
     function recordExists() {
-        $sql = "SELECT * FROM customer where id!=? and name=? and company_id=?";
+        $sql = "SELECT * FROM customers where id!=? and name=? and company_id=?";
         $query = $this->db->query($sql, array('id' => $this->get_id(), 'name' => $this->get_name(), 'company_id' => $this->get_company_id()));
 
         if ($query->num_rows() > 0) {
