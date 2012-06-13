@@ -524,4 +524,21 @@
     $lang['exp_voucher'] = 'Exp. Voucher';
     $lang['exp_ap'] = 'Exp. A/P';
 
+    /* quick view */
+    $lang['who_we_are'] = 'Who We Are?';
+    $lang['mission_vision'] = 'Mission & Vision';
+    $lang['mission'] = 'Mission';
+    $lang['vision'] = 'Vision';
+    $lang['core_values'] = 'Core Values';
+    $lang['company_description'] = 'SME Soft Incorporated (SME Soft Inc.) is the result of the four- year collaboration between experienced IT resources and entrepreneurs. The company offers customized business intelligence solutions which are made available as part of our initial offerings. From its humble beginnings, SME Soft Inc. has secured the trust and confidence of one of the biggest names in business upon partnering with Global Quality Waters and Environment Solution Incorporated (GQWEST Inc.) as their exclusive technology provider.';
+    $lang['mission_to_be_primary_provider'] = '"To be the primary provider of cost-effective, quality IT software solutions for small to medium enterprises in the Philippines"';
+    $lang['mission_to_train_it_talents'] = '"To train and retain IT talents who will excel in every aspect of Information Technology and partner with us to bring success for the company"';
+    $lang['vision_to_seek_partnership'] = '"We seek to partner with small to medium enterprises to help them optimize their business operation by providing quality and cost-effective software and IT solutions coupled with superb customer service"';
+    $lang['vision_to_reach_out'] = '"We will reach out to less fortunate students by sharing our time, resources, experience and talents to mould them to be industry experts."';
+    $lang['values_humility'] = '<span class="highlight">Humility</span> - we will remain as how we started, not in the size of our business - but the way we treat it. We take pride in what we do, but still keep our foot to the ground to reach out for the needs of our customers, just like how we did in our initial steps.';
+    $lang['values_responsibility'] = '<span class="highlight">Responsibility</span> - we take our job seriously and keep our promises to the best of our abilities.';
+    $lang['values_punctuality'] = "<span class='highlight'>Punctuality</span> - we value time. In today's business environment, urgency is not secondary. To the best of our abilities, we will deliver on the agreed submission date.";
+    $lang['values_respect'] = '<span class="highlight">Respect</span> - we respect your views. Tell us what you think, and upon analysing it, we will express ours which will suit your needs.';
+    $lang['values_organized'] = '<span class="highlight">Organized</span> - "a place for everything, everything on its place", not just for materials things but through our thoughts and approach we make it a point to be organized.';
+
 ?>

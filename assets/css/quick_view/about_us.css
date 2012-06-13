@@ -1,0 +1,45 @@
+#about-us-dialog-info {
+    width: 660px !important;
+}
+
+#about-us-dialog-info .ui-tabs-panel {
+    border: 1px solid #EEE;
+}
+
+#who-we-are-wrapper {
+    float: left;
+}
+
+#who-we-are p.description {
+    text-indent: 10px;
+    text-align: justify;
+    padding-top: 20px;
+}
+
+#about-us-dialog-info .contents {
+    float: left;
+    width: 300px;
+}
+
+#vision-wrapper {
+    margin-top: 20px;
+}
+
+#about-us-dialog-info ul.list li {
+    padding-top: 10px;
+}
+
+#about-us-dialog-info ul.list li > i.icon {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background: url('../../image/icons/blueCheck.png') no-repeat scroll transparent;
+}
+
+#about-us-dialog-info ul.list li p {
+    padding-left: 20px;
+}
+
+#about-us-dialog-info .big-icon-left {
+    float: left;
+}

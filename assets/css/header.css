@@ -51,8 +51,8 @@
     font-weight:bold;
     display:block;
     text-shadow:1px 1px 1px #fff;
-    margin-left: 30px;
-    padding: 10px 0;
+    padding: 15px 0 10px 40px;
+    position: relative;
 }
 
 #orb-nav li:hover {
@@ -67,28 +67,29 @@
 }
 
 #orb-nav li a i {
-    background: url('../image/icons/guide-icon.png') no-repeat 0 0;
-    height: 20px;
-    width: 20px;
+    background: url('../image/icons/quick_view/user_guide_32x32.png') no-repeat 0 0;
+    background-size: 30px 30px;
+    height: 30px;
+    width: 30px;
     position: absolute;
-    top: 7px;
-    left: 0;
+    top: 5px;
+    left: 6px;
 }
 
 #orb-nav li a[rel="cheat-sheet"] i {
-    background: url('../image/icons/cheatSheet.png') no-repeat 0 0;
+    background: url('../image/icons/quick_view/cheat_sheet_32x32.png') no-repeat 0 0;
 }
 
 #orb-nav li a[rel="contact-us"] i {
-    background: url('../image/icons/contact-icon.png') no-repeat 0 0;
+    background: url('../image/icons/quick_view/contact_us_32x32.png') no-repeat 0 0;
 }
 
 #orb-nav li a[rel="about-us"] i {
-    background: url('../image/icons/about-icon.png') no-repeat 0 0;
+    background: url('../image/icons/quick_view/about_us_32x32.png') no-repeat 0 0;
 }
 
 #orb-nav li a[rel="logout"] i {
-    background: url('../image/icons/logout-icon.png') no-repeat 0 0;
+    background: url('../image/icons/quick_view/logout-icon.png') no-repeat 0 0;
 }
 
 
@@ -282,7 +283,7 @@
 }
 
 #notif-approvals i {
-    background: url('../image/icons/approval_icon30x30.png') no-repeat 0 0;
+    background: url('../image/icons/approval_icon_30x30.png') no-repeat 0 0;
 }
 
 #notif-critical-stock i {

@@ -29,4 +29,5 @@
     echo css_asset('lib/dialog-reset.css');
     echo css_asset('employees/time_records.css');
     echo css_asset('employees/time_sheets.css');
+    echo css_asset('quick_view/about_us.css');
 ?>

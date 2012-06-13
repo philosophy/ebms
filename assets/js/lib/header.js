@@ -27,6 +27,11 @@ com.ebms.widgets.header = {
         }).mouseleave(function(e) {
             $(this).find('ul.inner-nav').addClass('hide');
         });
+
+        $('#about-us-link').customFormDialog('#about-us-dialog-info', {
+            open: this.openAboutUsCallback,
+            dialogTitle: 'About Us'
+        });
     },
 
     toggleMenu: function(e) {
@@ -68,5 +73,15 @@ com.ebms.widgets.header = {
     hideSubNav: function(elem) {
         var $this = $(elem.target);
         $this.closest('ul > li.main-menu-item').find('> ul').addClass('hide');
+    },
+
+    openAboutUsCallback: function() {
+        $('#about-us-dialog-info').tabs({
+            show: function() {
+                $(this).fadeIn();
+            }
+        }).addClass('ui-tabs-vertical ui-helper-clearfix');
+        com.ebms.widgets.base.reAlignDialog($('#about-us-dialog-info'), 'center');
     }
+
 };

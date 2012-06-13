@@ -56,11 +56,14 @@
                 <?php } ?>
 
         </div>
+        <?php
+            $this->load->view('layouts/application/_js_files');
+            $this->load->view('layouts/application/page_specific_javascript');
+            $this->load->view('layouts/application/flash_message');
+            $this->load->view('common/dialogs/_confirm_dialog');
+            $this->load->view('layouts/application/_js_translations');
 
-        <?php $this->load->view('layouts/application/_js_files'); ?>
-        <?php $this->load->view('layouts/application/page_specific_javascript'); ?>
-        <?php $this->load->view('layouts/application/flash_message'); ?>
-        <?php $this->load->view('common/dialogs/_confirm_dialog'); ?>
-        <?php $this->load->view('layouts/application/_js_translations'); ?>
+            $this->load->view('layouts/application/quick_view/_about_us');
+        ?>
     </body>
 </html>
