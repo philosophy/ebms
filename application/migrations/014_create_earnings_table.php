@@ -17,8 +17,9 @@ class Migration_Create_Earnings_Table extends CI_Migration {
                 'constraint' => '255',
                 'null' => FALSE
             ),
-            'symbol' => array(
-                'type' => 'TEXT',
+            'description' => array(
+                'type' => 'VARCHAR',
+                'constraint' => '1000',
                 'null' => TRUE
             ),
             'created_by' => array(

@@ -10,7 +10,7 @@ class Earning_model extends CI_Model {
     private $last_updated_at;
     private $active = 1;
     private $company_id;
-    private $table_name = 'earning';
+    private $table_name = 'earnings';
 
     function __construct() {
         parent::__construct();
@@ -81,7 +81,7 @@ class Earning_model extends CI_Model {
     }
 
     function getEarnings() {
-        $sql = "SELECT * FROM earning where active=? and company_id=?";
+        $sql = "SELECT * FROM earnings where active=? and company_id=?";
         $query = $this->db->query($sql, array('active' => $this->get_active(), 'company_id' => $this->get_company_id()));
 
         if ($query->num_rows() > 0) {
@@ -92,7 +92,7 @@ class Earning_model extends CI_Model {
     }
 
     function getEarningDetails($id) {
-        $sql = "SELECT * FROM earning where id=?";
+        $sql = "SELECT * FROM earnings where id=?";
         $query = $this->db->query($sql, array('id' => $id));
 
         if ($query->num_rows() > 0) {
@@ -105,7 +105,7 @@ class Earning_model extends CI_Model {
     function createEarning() {
 
         $this->db->trans_start();
-        $sql = "INSERT INTO earning (name, created_by, date_created, company_id) values (?, ?, ?, ?)";
+        $sql = "INSERT INTO earnings (name, created_by, date_created, company_id) values (?, ?, ?, ?)";
         $this->db->query($sql,
             array(
                 $this->get_name(),
@@ -114,7 +114,7 @@ class Earning_model extends CI_Model {
                 $this->get_company_id()
             ));
 
-        $sql = 'SELECT id from earning where company_id = ? order by date_created desc limit 1';
+        $sql = 'SELECT id from earnings where company_id = ? order by date_created desc limit 1';
         $query = $this->db->query($sql, array('company_id' => $this->get_company_id()));
 
         /* insert audit CREATE */
@@ -133,7 +133,7 @@ class Earning_model extends CI_Model {
         $data = array('active' => 0);
 
         $this->db->where('id', $this->get_id());
-        $this->db->update('earning', $data);
+        $this->db->update('earnings', $data);
 
         /* insert audit DELETE */
         parent::insertAuditTrail($this->get_created_by(), 3, $this->get_id(), lang('deactivate_earning'), $this->get_company_id(), $this->table_name);
@@ -155,7 +155,7 @@ class Earning_model extends CI_Model {
         );
 
         $this->db->where('id', $this->get_id());
-        $this->db->update('earning', $data);
+        $this->db->update('earnings', $data);
 
         /* insert audit UPDATE */
         parent::insertAuditTrail($this->get_last_updated_by(), 2, $this->get_id(), lang('update_earning'), $this->get_company_id(), $this->table_name);
@@ -176,7 +176,7 @@ class Earning_model extends CI_Model {
         ));
 
         $this->db->where('id', $this->get_id());
-        $this->db->update('earning', $data);
+        $this->db->update('earnings', $data);
 
         /* insert audit */
         parent::insertAuditTrail($this->get_last_updated_by(), 2, $this->get_id(), lang('restore_earning'), $this->get_company_id(), $this->table_name);
@@ -191,7 +191,7 @@ class Earning_model extends CI_Model {
 
 
     function earningExists() {
-        $sql = "SELECT * FROM earning where name = ? and company_id = ?";
+        $sql = "SELECT * FROM earnings where name = ? and company_id = ?";
         $query = $this->db->query($sql, array('name' => $this->get_name(), 'company_id' => $this->get_company_id()));
 
         if ($query->num_rows() > 0) {
@@ -202,7 +202,7 @@ class Earning_model extends CI_Model {
     }
 
     function recordExists() {
-        $sql = "SELECT * FROM earning where id!=? and name=? and company_id=?";
+        $sql = "SELECT * FROM earnings where id!=? and name=? and company_id=?";
         $query = $this->db->query($sql, array('id' => $this->get_id(), 'name' => $this->get_name(), 'company_id' => $this->get_company_id()));
 
         if ($query->num_rows() > 0) {

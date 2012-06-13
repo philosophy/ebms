@@ -10,7 +10,7 @@ class Customer_model extends CI_Model {
     private $last_updated_at;
     private $active = 1;
     private $company_id;
-    private $table_name = 'customer';
+    private $table_name = 'customers';
 
     function __construct() {
         parent::__construct();
