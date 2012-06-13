@@ -1,6 +1,7 @@
 com.ebms.widgets.base = {
     loader: '<span class="loader"></span>',
     nodata: '...',
+    defaultErrorMsg: 'An error has occured',
     init: function() {
     },
 
@@ -18,7 +19,7 @@ com.ebms.widgets.base = {
     },
 
     errorMessage: function(msg) {
-        var defaultMsg = 'an error has occured';
+        var defaultMsg = com.ebms.widgets.base.defaultErrorMsg;
         if (msg !== undefined) {
             defaultMsg = msg;
         }

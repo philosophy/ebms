@@ -5,11 +5,20 @@
         public function __construct() {
             parent::__construct();
             $this->current_avatar = $this->current_user();
+
+            if (!$this->input->is_ajax_request()) {
+                $this->enableProfiler();
+            }
         }
 
         function authenticate_user() {
             if (!$this->ion_auth->logged_in()) {
-                redirect('home/index', 'refresh');
+                if ($this->input->is_ajax_request()) {
+                    send_json_response(ERROR_LOG, HTTP_FORBIDDEN, 'you must login', array('force_refresh' => true));
+                    exit;
+                } else {
+                    redirect('home/index', 'refresh');
+                }
             }
         }
 

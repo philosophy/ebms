@@ -170,6 +170,15 @@ $route['file_maintenance/deduction/new_deduction'] = 'file_maintenance/deduction
 $route['file_maintenance/deduction/create_deduction'] = 'file_maintenance/deduction/create_deduction';
 $route['file_maintenance/deduction/delete/(:num)'] = 'file_maintenance/deduction/delete/$1';
 $route['file_maintenance/deduction/get_deduction_edit_form/(:num)'] = 'file_maintenance/deduction/get_deduction_edit_form/$1';
+$route['file_maintenance/deduction'] = 'file_maintenance/deduction';
+
+$route['file_maintenance/leaves'] = 'file_maintenance/leaves';
+$route['file_maintenance/leaves/new_leave'] = 'file_maintenance/leaves/new_leave';
+$route['file_maintenance/leaves/create_leave'] = 'file_maintenance/leaves/create_leave';
+$route['file_mainttenance/leaves/update/(:num)'] = 'file_maintenance/leaves/update/$1';
+$route['file_maintenance/leaves/delete/(:num)'] = 'file_maintenance/leaves/delete/$1';
+$route['file_maintenance/leaves/restore/(:num)'] = 'file_maintenance/leaves/restore/$1';
+$route['file_maintenance/leaves/get_leave_edit_form/(:num)'] = 'file_maintenance/leaves/get_leave_edit_form/$1';
 
 $route['file_maintenance/company'] = 'file_maintenance/company';
 $route['file_maintenance/company/new_company'] = 'file_maintenance/company/new_company';

@@ -104,7 +104,7 @@ com.ebms.views.category = {
                 $('#edit-category-wrapper').append(data.data.html).removeClass('hide').find('form').attr('data-remote', true).attr('data-type', 'json');
             },
             error: function() {
-                $('#edit-categories-wrapper').text('An error has occured, please refresh your page');
+                $('#edit-category-wrapper').text('An error has occured, please refresh your page');
             },
             complete: function() {
                 $loaderContainer.addClass('hide');

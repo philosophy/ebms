@@ -277,12 +277,7 @@
                                 <?php echo anchor('file_maintenance/earning/index', lang('earning_manager')); ?>
                             </li>
                             <li>
-                                <?php echo anchor('file_maintenance/employee_status/index', lang('employee_status_manager')); ?>
-                            </li>
-                            <li >
-                                <a href="Javascript:newPopup('/EBMS/apps/view/systemRecords/fileMaintenance/employeeLeaveManager/index.php',500,630)" id="sub-inner-a">
-                                    Employee Leave Manager
-                                </a>
+                                <?php echo anchor('file_maintenance/leaves', lang('employee_leave_manager')); ?>
                             </li>
                             <li>
                                 <?php echo anchor('file_maintenance/industry/index', lang('industry_manager')); ?>

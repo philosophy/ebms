@@ -376,6 +376,8 @@ function __autoload($class) {
 }
 
 $config['date_format'] = "Y-m-d H:i:s";
+$config['default_readable_time_format'] = 'h:i:s A';
+$config['no_data'] = '...';
 $config['pagination_base_url'] = '';
 $config['pagination_per_page'] = 10;
 $config['pagination_next_link'] = '&gt;';

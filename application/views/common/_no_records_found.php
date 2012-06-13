@@ -1,0 +1,1 @@
+<p><?php echo lang('no_records_found'); ?></p>

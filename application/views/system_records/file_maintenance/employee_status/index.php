@@ -44,7 +44,7 @@
     </div>
     <div id="edit-employee-status-wrapper" class="hide aligned-details" data-ajax-url=<?php echo site_url("file_maintenance/employee_status/get_employee_status_edit_form/"); ?>>
         <h3>
-            Edit Area Type
+            Edit Employee Status
         </h3>
     </div>
 </article>

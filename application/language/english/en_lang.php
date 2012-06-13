@@ -132,6 +132,7 @@
     $lang['department_manager'] = 'Department Manager';
     $lang['area_manager'] = 'Area Manager';
     $lang['employee_status_manager'] = 'Employee Status Manager';
+    $lang['employee_leave_manager'] = 'Employee Leave Manager';
     $lang['position_manager'] = 'Position Manager';
     $lang['unit_manager'] = 'Unit Manager';
     $lang['city_manager'] = 'City Manager';
@@ -333,6 +334,21 @@
     $lang['days_cant_be_blank'] = "Days can't be blank.";
     $lang['schedule_cant_be_blank'] = "Schedule can't be blank";
     $lang['record_cant_be_found'] = "Record can't be found";
+    $lang['leave_name_cant_be_blank'] = "Leave Name can't be blank";
+    $lang['leave_days_cant_be_blank'] = "Number of days of leave can't be blank";
+    $lang['leave_days_must_be_a_number'] = "Number of days of leave must be a number";
+
+    /* employee leave manager */
+    $lang['employee_leaves'] = 'Employee Leaves';
+    $lang['leave_name'] = 'Leave Name';
+    $lang['maximum_days'] = 'Maximum Days';
+    $lang['leaves_list'] = 'Leaves List';
+    $lang['create_leave'] = 'Create Leave';
+    $lang['delete_this_leave'] = 'Delete this leave';
+    $lang['are_you_sure_to_delete_leave'] = 'Are you sure you want to delete this leave?';
+    $lang['restore_this_leave'] = 'Restore this leave';
+    $lang['are_you_sure_to_restore_leave'] = 'Are you sure you want to restore this leave?';
+    $lang['number_of_days'] = 'Number of Days';
 
     /* profile info */
     $lang['username'] = 'Username';
@@ -439,6 +455,8 @@
     $lang['deactivate_company'] = 'Deactivate company';
     $lang['update_company'] = 'Update company';
     $lang['restore_company'] = 'Restore company';
+
+    $lang['created_new_leave'] = 'Created new leave';
 
     $lang['create_new_employee'] = 'Create new employee';
     $lang['create_new_employee_schedule'] = 'Create new employee schedule';

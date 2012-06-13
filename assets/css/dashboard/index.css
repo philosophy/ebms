@@ -7,13 +7,13 @@
     background: #F0FAFF;
     float: left;
     margin-bottom: -100px;
-    min-height: 600px;
+/*    min-height: 600px;*/
 }
 
 #content-wrapper article.primary {
     background: #fff;
     width: auto;
-    min-height: 600px;
+/*    min-height: 600px;*/
     overflow: hidden;
 }
 

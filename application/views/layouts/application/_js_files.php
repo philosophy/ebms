@@ -23,6 +23,7 @@
     echo js_asset('views/category.js');
     echo js_asset('views/city.js');
     echo js_asset('views/industry.js');
+    echo js_asset('views/maintenance/leaves.js');
     echo js_asset('views/location.js');
     echo js_asset('views/customer.js');
     echo js_asset('views/sub_category.js');

@@ -20,7 +20,14 @@ com.ebms.widgets.ajax = {
 
     success: function(e, data) {
         var $this = $(this);
-        if (data.data.flash_message) {
+        if (data.data.force_refresh) {
+            com.ebms.widgets.flash.flashMessage(data.message, 'alert');
+            //force logout user
+            setInterval(function() {
+                window.location.reload();
+            }, 3000);
+
+        } else if (data.data && data.data.flash_message) {
             com.ebms.widgets.flash.flashMessage(data.message, data.status);
         }
 
@@ -33,6 +40,6 @@ com.ebms.widgets.ajax = {
         $this.removeData('sending');
         if ($(this).is('form')) {
             $this.find('*[data-disable-with="true"]').removeAttr('disabled').removeClass('with-loader').find('span.loader').remove();
-        }        
+        }
     }
 };
