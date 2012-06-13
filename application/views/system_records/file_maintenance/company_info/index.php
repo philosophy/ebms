@@ -3,7 +3,7 @@
 </article>
 
 <article class="primary">
-
+    
     <section id="company-info" class="aligned-details">
         <h3>
             Company Info
@@ -11,7 +11,7 @@
         </h3>
         <fieldset>
             <label>Name:</label>
-            <span><?php echo $this->company_info->name; ?></span>            
+            <span><?php echo $this->company_info->name; ?></span>
         </fieldset>
         <fieldset>
             <label>Address:</label>

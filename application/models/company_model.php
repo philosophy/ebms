@@ -114,9 +114,9 @@ class Company_model extends CI_Model {
             ));
 
         $query = $this->db->query('SELECT id from company order by date_created desc limit 1');
-
+        $company_id = $this->db->insert_id();
         /* insert audit CREATE */
-        parent::insertAuditTrail($this->get_created_by(), 1, $query->row()->id, lang('create_new_company'), $query-row()->id, $this->table_name);
+        parent::insertAuditTrail($this->get_created_by(), 1, $company_id, lang('create_new_company'), $company_id, $this->table_name);
 
         $this->db->trans_complete();
         if ($this->db->trans_status() === TRUE) {

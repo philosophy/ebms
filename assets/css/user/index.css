@@ -108,3 +108,10 @@ fieldset.form-buttons span.loader {
     left: 121px;
     overflow: hidden;
 }
+
+#wrapper.users.show article.aside-left,
+#wrapper.company_info article.aside-left,
+#wrapper.users.show article.primary,
+#wrapper.company_info article.primary {
+    min-height: 600px !important;
+}

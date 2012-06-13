@@ -16,9 +16,9 @@ class Company_info extends Application {
         $data['title'] = lang('company_info');
 
         $company_info = new $this->Company_info_model();
-        $company_info->set_id($this->current_avatar->id);
+        $company_info->set_id($this->current_avatar->company_id);
         $this->company_info = $company_info->getCompanyInfo();
-
+        
         $this->parser->parse('layouts/application', $data);
 
         $this->output->enable_profiler(TRUE);
