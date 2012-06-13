@@ -524,7 +524,7 @@
     $lang['exp_voucher'] = 'Exp. Voucher';
     $lang['exp_ap'] = 'Exp. A/P';
 
-    /* quick view */
+    /* quick view about us*/
     $lang['who_we_are'] = 'Who We Are?';
     $lang['mission_vision'] = 'Mission & Vision';
     $lang['mission'] = 'Mission';
@@ -540,5 +540,14 @@
     $lang['values_punctuality'] = "<span class='highlight'>Punctuality</span> - we value time. In today's business environment, urgency is not secondary. To the best of our abilities, we will deliver on the agreed submission date.";
     $lang['values_respect'] = '<span class="highlight">Respect</span> - we respect your views. Tell us what you think, and upon analysing it, we will express ours which will suit your needs.';
     $lang['values_organized'] = '<span class="highlight">Organized</span> - "a place for everything, everything on its place", not just for materials things but through our thoughts and approach we make it a point to be organized.';
+
+    /* quick view contact us */
+    $lang['contact_details'] = 'Contact Details';
+    $lang['sme_soft'] = 'SME Soft Inc.';
+    $lang['sme_soft_address'] = "1517 2nd Street Fabie Subdivision Paco, Manila Philippines 1007";
+    $lang['sme_soft_mobile'] = 'Mobile: 0918-926-4935(smart), 0917-391-0876(globe), 0933-150-4772(sun)';
+    $lang['sme_soft_landline'] = 'Landline: (02)545-2485';
+    $lang['sme_soft_email'] = 'Email: inquire@smesoft.com.ph';
+    $lang['sme_soft_website'] = 'www.smesoft.com.ph';
 
 ?>

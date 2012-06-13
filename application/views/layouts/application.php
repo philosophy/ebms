@@ -64,6 +64,7 @@
             $this->load->view('layouts/application/_js_translations');
 
             $this->load->view('layouts/application/quick_view/_about_us');
+            $this->load->view('layouts/application/quick_view/_contact_us');
         ?>
     </body>
 </html>

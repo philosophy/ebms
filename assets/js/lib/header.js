@@ -32,6 +32,11 @@ com.ebms.widgets.header = {
             open: this.openAboutUsCallback,
             dialogTitle: 'About Us'
         });
+
+        $('#contact-us-link').customFormDialog('#contact-us-dialog-info', {
+            open: this.openContacUsCallback,
+            dialogTitle: 'Contact Us'
+        });
     },
 
     toggleMenu: function(e) {
@@ -76,12 +81,16 @@ com.ebms.widgets.header = {
     },
 
     openAboutUsCallback: function() {
-        $('#about-us-dialog-info').tabs({
+        $(this).tabs({
             show: function() {
                 $(this).fadeIn();
             }
         }).addClass('ui-tabs-vertical ui-helper-clearfix');
-        com.ebms.widgets.base.reAlignDialog($('#about-us-dialog-info'), 'center');
+        com.ebms.widgets.base.reAlignDialog($(this), 'center');
+    },
+
+    openContactUsCallback: function() {
+        com.ebms.widgets.base.reAlignDialog($(this), 'center');
     }
 
 };
