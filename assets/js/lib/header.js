@@ -34,9 +34,13 @@ com.ebms.widgets.header = {
         });
 
         $('#contact-us-link').customFormDialog('#contact-us-dialog-info', {
-            open: this.openContacUsCallback,
             dialogTitle: 'Contact Us'
         });
+
+        $('#cheat-sheet-link').customFormDialog('#cheat-sheet-dialog-info', {
+            dialogTitle: 'Cheat Sheet'
+        });
+
     },
 
     toggleMenu: function(e) {
@@ -86,10 +90,6 @@ com.ebms.widgets.header = {
                 $(this).fadeIn();
             }
         }).addClass('ui-tabs-vertical ui-helper-clearfix');
-        com.ebms.widgets.base.reAlignDialog($(this), 'center');
-    },
-
-    openContactUsCallback: function() {
         com.ebms.widgets.base.reAlignDialog($(this), 'center');
     }
 

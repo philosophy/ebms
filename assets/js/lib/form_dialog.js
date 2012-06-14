@@ -25,7 +25,9 @@
                 minWidth = null,
                 width = null,
                 height = 'auto',
-                openCallback = '';
+                openCallback = function() {
+                    com.ebms.widgets.base.reAlignDialog($(this), 'center');
+                };
 
                 if(formSettings === undefined && formSettings === null) {
                     // set formSettings default to empty hash {}

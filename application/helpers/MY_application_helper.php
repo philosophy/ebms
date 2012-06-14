@@ -101,4 +101,15 @@ if (!function_exists('readable_time')) {
         return date($format, strtotime($options['date']));
     }
 }
+
+if (!function_exists('quick_view_label')) {
+    function quick_view_label($options=array()) {
+        $list = '<li class="' . $options['class'] . '">';
+        $list .= '<i class="icon"></i>';
+        $list .= '<label>' . $options['label'] . '</label';
+        $list .= '</li>';
+
+        return $list;
+    }
+}
 ?>

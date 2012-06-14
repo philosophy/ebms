@@ -1,0 +1,245 @@
+#cheat-sheet-dialog-info {
+    width: 780px !important;
+    height: 400px !important;
+}
+
+#cheat-sheet-dialog-info section.left-sheet,
+#cheat-sheet-dialog-info section.center-sheet,
+#cheat-sheet-dialog-info section.right-sheet {
+    width: 230px;
+    padding: 10px;
+    border-right: 2px solid #eee;
+}
+#cheat-sheet-dialog-info section.left-sheet {
+    float: left;
+}
+#cheat-sheet-dialog-info section.center-sheet {
+    float: left;
+}
+#cheat-sheet-dialog-info section.right-sheet {
+    float: right;
+    border-right: 0;
+}
+
+#cheat-sheet-dialog-info .page-cheats h3 {
+    font-weight: bold;
+}
+
+#cheat-sheet-dialog-info .page-cheats ul {
+    margin: 10px 0 0 25px;
+}
+
+#cheat-sheet-dialog-info .page-cheats li {
+    line-height: 24px;
+    padding-left: 25px;
+    position: relative;
+}
+
+#cheat-sheet-dialog-info .page-cheats li i.icon {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    background-size: 20px 20px;
+    left: 0;
+}
+
+.page-cheats  li.active-customer i.icon {
+    background: url('../../image/icons/smiley-icon.png') no-repeat scroll transparent;
+}
+.page-cheats li.inactive-customer i.icon {
+    background: url('../../image/icons/inactive.png') no-repeat scroll transparent;
+}
+.page-cheats li.order-entry i.icon {
+    background: url('../../image/icons/order-icon.png') no-repeat scroll transparent;
+}
+.page-cheats li.total-collected i.icon {
+    background: url('../../image/icons/money-icon.png') no-repeat scroll transparent;
+}
+.page-cheats li.total-cash-on-hand i.icon {
+    background: url('../../image/icons/hand-icon.png') no-repeat scroll transparent;
+}
+.page-cheats li.total-sales i.icon {
+    background: url('../../image/icons/sales-icon.png') no-repeat scroll transparent;
+}
+.page-cheats li.total-expense-voucher i.icon {
+    background: url('../../image/icons/voucher-icon.png') no-repeat scroll transparent;
+}
+.page-cheats li.total-expense-ap i.icon {
+    background: url('../../image/icons/acct-pay-icon.png') no-repeat scroll transparent;
+}
+.page-cheats li.customer-relations-management i.icon {
+    background: url('../../image/icons/crm-icon.png') no-repeat scroll transparent;
+}
+.page-cheats li.sales-forecasting i.icon {
+    background: url('../../image/icons/project-icon.png') no-repeat scroll transparent;
+}
+
+/* crud options */
+.page-cheats li.add-new-record i.icon {
+    background: url('../../image/crud_icons/newIcon.png') no-repeat scroll transparent;
+}
+.page-cheats li.edit-existing-record i.icon {
+    background: url('../../image/crud_icons/editIcon.png') no-repeat scroll transparent;
+}
+.page-cheats li.delete-record i.icon {
+    background: url('../../image/crud_icons/deleteIcon.png') no-repeat scroll transparent;
+}
+.page-cheats li.restore-deleted-record i.icon {
+    background: url('../../image/crud_icons/restoreIcon.png') no-repeat scroll transparent;
+}
+.page-cheats li.edit-multiple-record i.icon {
+    background: url('../../image/crud_icons/multipleEditIcon.png') no-repeat scroll transparent;
+}
+.page-cheats li.import-record i.icon {
+    background: url('../../image/crud_icons/importIcon.png') no-repeat scroll transparent;
+}
+.page-cheats li.transfer-asset i.icon {
+    background: url('../../image/crud_icons/transferIcon.png') no-repeat scroll transparent;
+}
+
+/* other crud options */
+.page-cheats li.add-record i.icon {
+    background: url('../../image/icons/addSmall.png') no-repeat scroll transparent;
+}
+.page-cheats li.edit-record i.icon {
+    background: url('../../image/icons/editSmall.png') no-repeat scroll transparent;
+}
+.page-cheats li.delete-record i.icon {
+    background: url('../../image/icons/deleteSmall.png') no-repeat scroll transparent;
+}
+.page-cheats li.restore-record i.icon {
+    background: url('../../image/icons/restoreSmall.png') no-repeat scroll transparent;
+}
+
+/* crm */
+.page-cheats li.location-icon i.icon {
+    background: url('../../image/icons/location.png') no-repeat scroll transparent;
+}
+.page-cheats li.contact-per-location i.icon {
+    background: url('../../image/icons/Phone-icon.png') no-repeat scroll transparent;
+}
+
+/* sales/purchase */
+.page-cheats li.pending-icon i.icon {
+    background: url('../../image/icons/approved_icon.png') no-repeat scroll transparent;
+}
+.page-cheats li.approved i.icon {
+    background: url('../../image/icons/checkIcon.png') no-repeat scroll transparent;
+}
+
+/* accounting */
+.page-cheats li.no-pending-cheques i.icon {
+    background: url('../../image/icons/ARWithoutCheque.png') no-repeat scroll transparent;
+}
+.page-cheats li.with-pending-cheques i.icon {
+    background: url('../../image/icons/ARWithCheque.png') no-repeat scroll transparent;
+}
+.page-cheats li.ar-not-paid i.icon {
+    background: url('../../image/icons/warning.png') no-repeat scroll transparent;
+}
+.page-cheats li.cash-payment i.icon {
+    background: url('../../image/icons/checkIcon.png') no-repeat scroll transparent;
+}
+.page-cheats li.cheques-posted i.icon {
+    background: url('../../image/icons/posted-checks.png') no-repeat scroll transparent;
+}
+.page-cheats li.cheques-not-posted i.icon {
+    background: url('../../image/icons/approved_icon.png') no-repeat scroll transparent;
+}
+.page-cheats li.cheque-icon i.icon {
+    background: url('../../image/icons/cheque.png') no-repeat scroll transparent;
+}
+.page-cheats li.expenses-icon i.icon {
+    background: url('../../image/icons/hand-icon.png') no-repeat scroll transparent;
+}
+.page-cheats li.included-cheques i.icon {
+    background: url('../../image/icons/include.png') no-repeat scroll transparent;
+}
+.page-cheats li.add-cheque i.icon {
+    background: url('../../image/icons/add.png') no-repeat scroll transparent;
+}
+.page-cheats li.add-record i.icon {
+    background: url('../../image/icons/addCS.png') no-repeat scroll transparent;
+}
+.page-cheats li.post-selected-cheques i.icon {
+    background: url('../../image/icons/post.png') no-repeat scroll transparent;
+}
+.page-cheats li.clear-selected-cheques i.icon {
+    background: url('../../image/icons/clear.png') no-repeat scroll transparent;
+}
+.page-cheats li.bank-record i.icon {
+    background: url('../../image/icons/generalLedger.png') no-repeat scroll transparent;
+}
+.page-cheats li.bank-deposit-record i.icon {
+    background: url('../../image/icons/deposit.png') no-repeat scroll transparent;
+}
+.page-cheats li.bank-withdrawal-record i.icon {
+    background: url('../../image/icons/withdraw.png') no-repeat scroll transparent;
+}
+
+/* purchasing */
+.page-cheats li.purchase-order-record i.icon {
+    background: url('../../image/icons/orderIcon.png') no-repeat scroll transparent;
+}
+.page-cheats li.supplier-record i.icon {
+    background: url('../../image/icons/suppliersIcon.png') no-repeat scroll transparent;
+}
+
+/* personnel */
+.page-cheats li.male-employee i.icon {
+    background: url('../../image/icons/empBoyIcon.png') no-repeat scroll transparent;
+}
+.page-cheats li.female-employee i.icon {
+    background: url('../../image/icons/empGirlIcon.png') no-repeat scroll transparent;
+}
+.page-cheats li.file-leave-record i.icon {
+    background: url('../../image/icons/fileLeave.png') no-repeat scroll transparent;
+}
+.page-cheats li.employee-overtime-record i.icon {
+    background: url('../../image/icons/overtime.png') no-repeat scroll transparent;
+}
+.page-cheats li.employee-work-experience i.icon {
+    background: url('../../image/icons/workExp.png') no-repeat scroll transparent;
+}
+.page-cheats li.educational-background-record i.icon {
+    background: url('../../image/icons/educBackground.png') no-repeat scroll transparent;
+}
+.page-cheats li.employee-icon i.icon {
+    background: url('../../image/icons/empsched-icon.png') no-repeat scroll transparent;
+}
+.page-cheats li.day-schedule-record i.icon {
+    background: url('../../image/icons/schedule-icon.png') no-repeat scroll transparent;
+}
+.page-cheats li.time-sheet-record i.icon {
+    background: url('../../image/icons/timesheetrecord-icon.png') no-repeat scroll transparent;
+}
+.page-cheats li.payroll-record i.icon {
+    background: url('../../image/icons/acct-pay-icon.png') no-repeat scroll transparent;
+}
+.page-cheats li.shortcut-for-payroll i.icon {
+    background: url('../../image/icons/select-icon.png') no-repeat scroll transparent;
+}
+
+/* inventory */
+.page-cheats li.product-asset-record i.icon {
+    background: url('../../image/icons/inventory.png') no-repeat scroll transparent;
+}
+.page-cheats li.maintenance-record i.icon {
+    background: url('../../image/icons/maintenance.png') no-repeat scroll transparent;
+}
+
+
+/* other icons */
+.page-cheats li.open-view-report i.icon {
+    background: url('../../image/icons/pdf-icon.png') no-repeat scroll transparent;
+}
+.page-cheats li.notifications i.icon {
+    background: url('../../image/icons/deleted-icon.png') no-repeat scroll transparent;
+}
+.page-cheats li.completed-task i.icon {
+    background: url('../../image/icons/notifIcon.png') no-repeat scroll transparent;
+}
+
+.page-cheats li.incomplete-task i.icon {
+    background: url('../../image/icons/taskComplete.png') no-repeat scroll transparent;
+}

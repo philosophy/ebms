@@ -30,4 +30,6 @@
     echo css_asset('employees/time_records.css');
     echo css_asset('employees/time_sheets.css');
     echo css_asset('quick_view/about_us.css');
+    echo css_asset('quick_view/contact_us.css');
+    echo css_asset('quick_view/cheat_sheet.css');
 ?>

@@ -550,4 +550,78 @@
     $lang['sme_soft_email'] = 'Email: inquire@smesoft.com.ph';
     $lang['sme_soft_website'] = 'www.smesoft.com.ph';
 
+    /* quick view cheat sheets */
+    $lang['active_customer'] = 'Active Customer';
+    $lang['inactive_customer'] = 'Inactive Customer';
+    $lang['order_entry'] = 'Order Entry/Total Orders';
+    $lang['total_collected'] = 'Total Collected';
+    $lang['total_cash_on_hand'] = 'Total Cash On Hand';
+    $lang['total_sales'] = 'Total Sales/Sales Monitoring';
+    $lang['total_expense_voucher'] = 'Total Expense Voucher';
+    $lang['total_expense_ap'] = 'Total Expense A/P';
+    $lang['customer_relations_management'] = 'Customer Relations Management';
+    $lang['sales_forecasting'] = 'Sales Forecasting';
+
+    $lang['crud_options'] = 'CRUD Options';
+    $lang['add_new_record'] = 'Add New Record';
+    $lang['edit_existing_record'] = 'Edit Existing Record';
+    $lang['delete_record'] = 'Delete Record';
+    $lang['restore_deleted_record'] = 'Restore Deleted Record';
+    $lang['edit_multiple_record'] = 'Edit Multiple Record (Employee Schedule)';
+    $lang['import_record'] = 'Import Record';
+    $lang['transfer_asset'] = 'Transfer Asset/Product (Vice Versa)';
+
+    $lang['other_crud_options'] = 'Other CRUD Options';
+    $lang['add_record'] = 'Add Record';
+    $lang['edit_record'] = 'Edit Record';
+    $lang['delete_record'] = 'Delete Record';
+    $lang['restore_record'] = 'Restore Record';
+
+    $lang['crm'] = 'CRM';
+    $lang['location_icon'] = 'Location Icon';
+    $lang['contact_per_location'] = 'Contact per Location Icon';
+
+    $lang['sales_purchasing_personnel'] = 'Sales/Purchasing/Personnel';
+    $lang['pending_icon'] = 'Pending Icon';
+    $lang['approved'] = 'Approved';
+
+    $lang['no_pending_cheques'] = 'No Pending Cheques';
+    $lang['with_pending_cheques'] = 'With Pending Cheques [Not yet posted]';
+    $lang['ar_not_yet_paid'] = 'AR Not yet paid';
+    $lang['cash_payment'] = 'Cash Payment';
+    $lang['cheques_that_are_already_posted'] = 'Cheques that are already posted';
+    $lang['cheques_that_are_not_posted'] = 'Cheques that are not yet posted';
+    $lang['cheque_icon'] = 'Cheque Icon';
+    $lang['expenses_icon'] = 'Expenses Icon';
+    $lang['included_cheques_to_be_posted'] = 'Included cheques to be posted';
+    $lang['add_cheque'] = 'Add Cheque';
+    $lang['post_selected_cheques'] = 'Post selected Cheques';
+    $lang['clear_selected_cheques'] = 'Clear selected Cheques';
+    $lang['bank_record'] = 'Bank Record';
+    $lang['bank_deposit_record'] = 'Bank Deposit Record';
+    $lang['bank_withdrawal_record'] = 'Bank Withdrawal Record';
+
+    $lang['purchase_order_record'] = 'Purchase Order Record';
+    $lang['supplier_record'] = 'Supplier Record';
+
+    $lang['male_employee'] = 'Male Employee';
+    $lang['female_employee'] = 'Female Employee';
+    $lang['file_leave_record'] = 'File Leave Record';
+    $lang['employee_overtime_record'] = 'Employee Overtime Record';
+    $lang['employee_work_experience'] = 'Employee Work Experience';
+    $lang['educational_background_record'] = 'Educational Background Record';
+    $lang['employee_icon'] = 'Employee Icon';
+    $lang['day_schedule_record'] = 'Day Schedule Record';
+    $lang['time_sheet_record'] = 'Time Sheet Record';
+    $lang['payroll_record'] = 'Payroll Record';
+    $lang['add_records_shortcut_for_payroll'] = 'Add Records Shortcut for Payroll';
+
+    $lang['product_asset_record'] = 'Product/Asset Record';
+    $lang['maintenance_record'] = 'Maintenance Record';
+
+    $lang['other_icons'] = 'Other Icons';
+    $lang['open_view_report'] = 'Open/View Report';
+    $lang['notifications'] = 'Notifications';
+    $lang['completed_task'] = 'Completed Task';
+    $lang['incomplete_task'] = 'Incomplete Task';
 ?>
