@@ -80,7 +80,7 @@
             </li>
 
             <li class="main-menu-item with-sub-nav">
-                <?php echo anchor('dashboard/index', lang('personnel'), array('class' => ($active_link == 'personnel') ? 'active' : '')); ?>
+                <?php echo anchor('employees/p', lang('personnel'), array('class' => ($active_link == 'personnel') ? 'active' : '')); ?>
                 <ul class="sub-nav hide">
                     <li class="sub-nav-item">
                         <?php echo anchor('employees/profile', lang('employee_profile')); ?>
@@ -189,7 +189,7 @@
             </li>
 
             <li class="main-menu-item with-sub-nav">
-                <?php echo anchor('dashboard/index', lang('system_records'), array('class' => ($active_link == 'system_records') ? 'active' : '')); ?>
+                <?php echo anchor('file_maintenance/company_info/index', lang('system_records'), array('class' => ($active_link == 'system_records') ? 'active' : '')); ?>
                 <ul class="sub-nav hide">
                     <li class="sub-nav-item">
                         <a href="#" class="sub-nav-a">File Maintenance</a>

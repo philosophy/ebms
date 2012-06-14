@@ -234,5 +234,10 @@ $route['employees/work_experience/(:num)/delete'] = 'personnel/employees/delete_
 $route['employees/educational_background/(:num)/delete'] = 'personnel/employees/delete_educational_background/$1';
 /* end of personnel */
 
+/* quick view */
+$route['quick_view/about_us'] = 'quick_view/about_us';
+$route['quick_view/cheat_sheet'] = 'quick_view/cheat_sheet';
+$route['quick_view/user_guide'] = 'quick_view/user_guide';
+
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */

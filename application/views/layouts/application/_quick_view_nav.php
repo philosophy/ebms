@@ -40,3 +40,14 @@
         </li>
     </ul>
 </div>
+
+<div id="about-us-dialog-info" class="hide tabs" data-ajax-url="<?php echo site_url('quick_view/about_us'); ?>">
+    <span class="loader"></span>
+</div>
+<div id="cheat-sheet-dialog-info" class="hide" data-ajax-url="<?php echo site_url('quick_view/cheat_sheet'); ?>">
+    <span class="loader"></span>
+</div>
+<div id="user-guide-dialog-info" class="hide tabs" data-ajax-url="<?php echo site_url('quick_view/user_guide'); ?>">
+    <span class="loader"></span>
+</div>
+<?php echo $this->load->view('layouts/application/quick_view/_contact_us'); ?>

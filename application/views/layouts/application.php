@@ -62,11 +62,6 @@
             $this->load->view('layouts/application/flash_message');
             $this->load->view('common/dialogs/_confirm_dialog');
             $this->load->view('layouts/application/_js_translations');
-
-            $this->load->view('layouts/application/quick_view/_about_us');
-            $this->load->view('layouts/application/quick_view/_contact_us');
-            $this->load->view('layouts/application/quick_view/_cheat_sheet');
-            $this->load->view('layouts/application/quick_view/_user_guide');
         ?>
     </body>
 </html>

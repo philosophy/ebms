@@ -29,7 +29,7 @@ com.ebms.widgets.header = {
         });
 
         $('#about-us-link').customFormDialog('#about-us-dialog-info', {
-            open: this.openAboutUsCallback,
+            open: this.openQuickViewCallback,
             dialogTitle: 'About Us'
         });
 
@@ -38,12 +38,13 @@ com.ebms.widgets.header = {
         });
 
         $('#cheat-sheet-link').customFormDialog('#cheat-sheet-dialog-info', {
-            dialogTitle: 'Cheat Sheet'
+            dialogTitle: 'Cheat Sheet',
+            open: this.openQuickViewCallback
         });
 
         $('#user-guide-link').customFormDialog('#user-guide-dialog-info', {
            dialogTitle: 'User Guide',
-           open: this.openUserGuideCallback
+           open: this.openQuickViewCallback
         });
     },
 
@@ -88,22 +89,24 @@ com.ebms.widgets.header = {
         $this.closest('ul > li.main-menu-item').find('> ul').addClass('hide');
     },
 
-    openAboutUsCallback: function() {
-        $(this).tabs({
-            show: function() {
-                $(this).fadeIn();
+    openQuickViewCallback: function() {
+        var $this = $(this);
+        if ($this.data('attached')) { return false; }
+        $.ajax({
+            url: $this.attr('data-ajax-url'),
+            success: function(data) {
+                $this.html(data);
+                if ($this.hasClass('tabs')) {
+                    $this.tabs({
+                        show: function() {
+                            $(this).fadeIn();
+                        }
+                    }).addClass('ui-tabs-vertical ui-helper-clearfix');
+                }
+                com.ebms.widgets.base.reAlignDialog($this, 'center');
+                $this.data('attached', true);
             }
-        }).addClass('ui-tabs-vertical ui-helper-clearfix');
-        com.ebms.widgets.base.reAlignDialog($(this), 'center');
-    },
-
-    openUserGuideCallback: function() {
-        $(this).tabs({
-           show: function() {
-               $(this).fadeIn();
-           }
-        }).addClass('ui-tabs-vertical ui-helper-clearfix');
-        com.ebms.widgets.base.reAlignDialog($(this), 'center');
+        });
     }
 
 };
