@@ -41,6 +41,10 @@ com.ebms.widgets.header = {
             dialogTitle: 'Cheat Sheet'
         });
 
+        $('#user-guide-link').customFormDialog('#user-guide-dialog-info', {
+           dialogTitle: 'User Guide',
+           open: this.openUserGuideCallback
+        });
     },
 
     toggleMenu: function(e) {
@@ -89,6 +93,15 @@ com.ebms.widgets.header = {
             show: function() {
                 $(this).fadeIn();
             }
+        }).addClass('ui-tabs-vertical ui-helper-clearfix');
+        com.ebms.widgets.base.reAlignDialog($(this), 'center');
+    },
+
+    openUserGuideCallback: function() {
+        $(this).tabs({
+           show: function() {
+               $(this).fadeIn();
+           }
         }).addClass('ui-tabs-vertical ui-helper-clearfix');
         com.ebms.widgets.base.reAlignDialog($(this), 'center');
     }

@@ -1,0 +1,7 @@
+#user-guide-dialog-info ul {
+    width: 200px;
+}
+
+#user-guide-dialog-info li.ui-state-default {
+    white-space: normal
+}

@@ -624,4 +624,20 @@
     $lang['notifications'] = 'Notifications';
     $lang['completed_task'] = 'Completed Task';
     $lang['incomplete_task'] = 'Incomplete Task';
+
+    /* quickview user guide */
+    $lang['user_login_logout'] = 'User Login / Logout';
+    $lang['home_screen'] = 'Home Screen';
+    $lang['customer_records_management'] = 'Customer Records Management';
+    $lang['adding_new_record'] = 'Adding New Record';
+    $lang['editing_new_record'] = 'Editing a Record';
+    $lang['deleting_new_record'] = 'Deleting a Record';
+    $lang['restoring_record'] = 'Restoring a Record';
+    $lang['approving_purchase_request'] = 'Approving a Purchase Request';
+    $lang['approving_cash_advance'] = 'Approving a Cash Advance';
+    $lang['transfer_asset'] = 'Transfer Asset to Product/Product to Asset';
+    $lang['posting_payments'] = 'Posting of Payments';
+    $lang['daily_time_record'] = 'Daily Time Record';
+    $lang['personnel_profile'] = 'Personnel Profile';
+    
 ?>

@@ -32,4 +32,5 @@
     echo css_asset('quick_view/about_us.css');
     echo css_asset('quick_view/contact_us.css');
     echo css_asset('quick_view/cheat_sheet.css');
+    echo css_asset('quick_view/user_guide.css');
 ?>
