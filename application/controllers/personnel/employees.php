@@ -1,14 +1,12 @@
 <?php
-    class Employees extends Application {
+    class Employees extends Employees_Base {
 
         public $employment_status;
-        public $employees;
         public $departments;
         public $positions;
         public $employee;
         public $work_experience;
         public $educational_background;
-        private $employeeObj;
 
         function __construct() {
             parent::__construct();
@@ -16,7 +14,6 @@
             $this->load->model('Employee_status_model');
             $this->load->model('Department_model');
             $this->load->model('Position_model');
-            $this->load->model('Employees_model');
             $this->employeeObj = new $this->Employees_model();
             $this->employeeObj->set_company_id($this->current_avatar->company_id);
         }
@@ -42,7 +39,8 @@
             $data['pagination_links'] = $this->pagination->create_links();
 
             $this->_load_employment_info();
-
+            $this->leaves_list = $this->Leave_model->get_leaves_list(array('company_id' => $this->current_avatar->company_id));
+            
             $this->parser->parse('layouts/application', $data);
             $this->output->enable_profiler(TRUE);
         }

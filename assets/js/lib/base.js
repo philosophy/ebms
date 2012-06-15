@@ -3,12 +3,13 @@ com.ebms.widgets.base = {
     nodata: '...',
     defaultErrorMsg: 'An error has occured',
     init: function() {
+          $('.prettify-button').button();
     },
 
     initDatePicker: function(elem) {
         elem.datepicker({
             dateFormat: 'yy-mm-dd',
-            defaultDate: elem.attr('data-dateofbirth'),
+            defaultDate: elem.attr('data-default-date'),
             showOn: "button",
             buttonImage: elem.attr('data-datepicker-img-url'),
             buttonImageOnly: true,

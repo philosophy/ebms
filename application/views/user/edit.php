@@ -36,7 +36,7 @@ echo form_open('users/update/' . $user->id, array('id' => 'user-edit'));
 </fieldset>
 <fieldset>
     <label>Birthdate:</label>
-    <?php echo form_input(array('name' => 'date_of_birth', 'id' => 'date_of_birth', 'data-dateofbirth' => $user->date_of_birth, 'value' => $user->date_of_birth, 'data-datepicker-img-url' => image_asset_url('calendar.gif'))); ?>
+    <?php echo form_input(array('name' => 'date_of_birth', 'id' => 'date_of_birth', 'data-default-date' => $user->date_of_birth, 'value' => $user->date_of_birth, 'data-datepicker-img-url' => image_asset_url('calendar.gif'))); ?>
 </fieldset>
 <fieldset id="marital-status">
     <label>Marital Status:</label>

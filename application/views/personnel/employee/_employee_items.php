@@ -7,7 +7,7 @@
     Coming soon...
 </div>
 <div id="file-leave">
-
+    <?php echo $this->load->view('personnel/employee/_file_leave'); ?>
 </div>
 <div id="file-overtime">
 </div>

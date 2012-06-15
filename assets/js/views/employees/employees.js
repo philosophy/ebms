@@ -45,6 +45,8 @@ com.ebms.views.employees = {
                 com.ebms.views.employees.enableEditDeleteEmp();
                 $('#delete-employee').attr('href', $this.data('delete-url'));
                 $('#edit-employee').data('edit-url', $this.data('edit-url'));
+                $('.action-items').removeClass('disabled');
+                $('input.action-employee-id').val($this.data('employee-id'));
 
                 //update edit-employee href
             } else if ($this.hasClass('inactive')) {
@@ -89,6 +91,8 @@ com.ebms.views.employees = {
         this.initWorkExperience();
         this.initEducationalBackground();
         this.initEmployeeItems();
+
+        com.ebms.views.employees.leaves.init();
     },
 
     destroyModalDialog: function(e) {
@@ -241,6 +245,9 @@ com.ebms.views.employees = {
     disableEditDeleteEmp: function() {
         $('#edit-employee').addClass('inactive');
         $('#delete-employee').addClass('inactive');
+
+        // disable action items
+        $('.action-items').addClass('disabled');
     },
 
     enableRestoreEmp: function() {

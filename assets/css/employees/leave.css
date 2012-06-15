@@ -1,0 +1,31 @@
+#file-leave {
+
+}
+
+#file-leave .actions {
+    height: 22px;
+    width: 94px;
+    margin-left: 666px;
+    position: relative;
+}
+
+#file-leave .actions a {
+    background-size: 20px 20px;
+    border: 1px solid #CCC;
+    width: 20px;
+    height: 20px;
+}
+
+#new-leave {
+    background: url('../../image/icons/addSmall.PNG') no-repeat transparent;
+}
+#edit-leave {
+    background: url('../../image/icons/editSmall.PNG') no-repeat transparent;
+}
+#delete-leave {
+    background: url('../../image/icons/deleteSmall.PNG') no-repeat transparent;
+}
+
+#file-leave-dialog .submit-leave {
+    float: right;
+}

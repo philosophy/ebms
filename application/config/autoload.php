@@ -108,7 +108,13 @@ $autoload['language'] = array('en');
 |
 */
 
-$autoload['model'] = array('User_model', 'Audit_trail_model', 'Product_model', 'Company_model', 'Employees_model', 'Department_model');
+$autoload['model'] = array('User_model',
+    'Audit_trail_model',
+    'Product_model',
+    'Company_model',
+    'Employees_model',
+    'Department_model',
+    'Leave_model');
 
 
 /* End of file autoload.php */

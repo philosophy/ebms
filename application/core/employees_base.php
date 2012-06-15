@@ -3,6 +3,7 @@
         public $pagination_config;
         public $employees;
         public $employeeObj;
+        public $leaves_list;
 
         public function __construct() {
             parent::__construct();

@@ -366,6 +366,7 @@
     $lang['no_records_found'] = 'No Records Found';
     $lang['an_error_occured'] = 'An error occured';
     $lang['report'] = 'Report';
+    $lang['days'] = 'Days';
 
     /* audit trail messages */
     $lang['activate_user'] = 'Activate user';
@@ -639,5 +640,8 @@
     $lang['posting_payments'] = 'Posting of Payments';
     $lang['daily_time_record'] = 'Daily Time Record';
     $lang['personnel_profile'] = 'Personnel Profile';
-    
+
+    /* employee leaves */
+    $lang['date_from'] = 'Date From';
+    $langn['date_to'] = 'Date To';
 ?>

@@ -25,8 +25,10 @@
     echo css_asset('inventory/index.css');
     echo css_asset('vendor/jquery-ui-1.8.17.custom.css');
     echo css_asset('vendor/jquery.dataTables.css');
+    echo css_asset('lib/action_items.css');
     echo css_asset('lib/datepicker.css');
     echo css_asset('lib/dialog-reset.css');
+    echo css_asset('employees/leave.css');
     echo css_asset('employees/time_records.css');
     echo css_asset('employees/time_sheets.css');
     echo css_asset('quick_view/about_us.css');

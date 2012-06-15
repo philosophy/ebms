@@ -1,0 +1,9 @@
+.actions a {
+    width: 25px;
+    height: 25px;
+    display: inline-block;
+}
+
+.actions a.disabled {
+    opacity: 0.5;
+}
