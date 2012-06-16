@@ -376,6 +376,19 @@
             return $query->result_array();
         }
 
+        function get_data($options=array()) {
+            /* TODO REFACTOR methods */
+            if (isset($options['id'])) {
+                $this->db->where('id', $options['id']);
+            }
+            if (isset($options['company_id'])) {
+                $this->db->where('company_id', $options['company_id']);
+            }
+            $this->db->where('active', 1);
+            $query = $this->db->get('employees');
+            return $query->result();
+        }
+
         function getEmployeesWithSchedule($options=array()) {
             $sql = "SELECT e.* FROM employees as e INNER JOIN employee_schedules AS es ON es.employee_id = e.id WHERE e.company_id = ?";
             $query = $this->db->query($sql, array('company_id' => $this->get_company_id()));

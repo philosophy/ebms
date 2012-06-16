@@ -44,11 +44,11 @@ class Migration_Create_Employee_Overtimes_Table extends CI_Migration {
             'last_updated_by' => array(
                 'type' => 'INT',
                 'constraint' => '11',
-                'null' => FALSE
+                'null' => TRUE
             ),
             'last_updated_at' => array(
                 'type' => 'DATETIME',
-                'null' => FALSE
+                'null' => TRUE
             ),
             'active' => array(
                 'type' => 'INT',

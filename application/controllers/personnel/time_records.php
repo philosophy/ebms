@@ -14,7 +14,7 @@
             if ($method == 'index') {
                 parent::load_employees();
             } else if ($method == 'time_in' || $method == 'time_out') {
-                $this->employee_id = $this->input->post('employee', true);
+                $this->_ensure_required_fields();
                 Application::authorize_action(array('employee_id' => $this->employee_id));
             }
         }

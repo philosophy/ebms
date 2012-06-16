@@ -212,6 +212,7 @@ $route['employees/delete/(:num)'] = 'personnel/employees/delete/$1';
 $route['employees/restore/(:num)'] = 'personnel/employees/restore/$1';
 $route['employees/profile/browse/(:num)'] =  'personnel/employees/browse/$1';
 $route['employees/profile/browse'] =  'personnel/employees/browse';
+$route['employees/leaves/new_leave'] = 'personnel/leaves/new_leave';
 
 $route['employee_schedules'] = 'personnel/employee_schedules';
 $route['employee_schedules/get_new_employee_sched_form'] = 'personnel/employee_schedules/get_new_employee_sched_form';

@@ -337,6 +337,9 @@
     $lang['leave_name_cant_be_blank'] = "Leave Name can't be blank";
     $lang['leave_days_cant_be_blank'] = "Number of days of leave can't be blank";
     $lang['leave_days_must_be_a_number'] = "Number of days of leave must be a number";
+    $lang['leave_cant_be_blank'] = "Leave can't be blank";
+    $lang['from_date_cant_be_blank'] = "From date can't be blank";
+    $lang['to_date_cant_be_blank'] = "To date can't be blank";
 
     /* employee leave manager */
     $lang['employee_leaves'] = 'Employee Leaves';
@@ -458,6 +461,8 @@
     $lang['restore_company'] = 'Restore company';
 
     $lang['created_new_leave'] = 'Created new leave';
+
+    $lang['created_new_employee_leave'] = 'Create new employee leave';
 
     $lang['create_new_employee'] = 'Create new employee';
     $lang['create_new_employee_schedule'] = 'Create new employee schedule';

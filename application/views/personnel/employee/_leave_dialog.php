@@ -1,7 +1,7 @@
 <section class="leave-container aligned-details">
     <?php
-        echo form_open('employees/leave/new_leave', array('id' => 'employee-leave-form', 'data-remote' => 'true', 'data-type' => 'json'));
-        echo form_input(array('name' => 'id', 'type' => 'hidden', 'class' => 'action-employee-id'));
+        echo form_open('employees/leaves/new_leave', array('id' => 'employee-leave-form', 'data-remote' => 'true', 'data-type' => 'json'));
+        echo form_input(array('name' => 'employee', 'type' => 'hidden', 'class' => 'action-employee-id'));
     ?>
     <fieldset>
         <label>Employee:</label>
@@ -19,15 +19,15 @@
     </fieldset>
     <fieldset>
         <label>Maximum Days:</label>
-        <?php echo form_input(array('class' => 'max-days', 'placeholder' => lang('days'), 'readonly' => true)); ?>
+        <?php echo form_input(array('name' => 'days', 'class' => 'max-days', 'placeholder' => lang('days'), 'readonly' => true)); ?>
     </fieldset>
     <fieldset>
         <label>Date From:</label>
-        <?php echo form_input(array('class' => 'date-from', 'placeholder' => lang('date_from'), 'data-datepicker-img-url' => image_asset_url('calendar.gif'))); ?>
+        <?php echo form_input(array('name' => 'from_date', 'class' => 'date-from', 'placeholder' => lang('date_from'), 'data-datepicker-img-url' => image_asset_url('calendar.gif'))); ?>
     </fieldset>
     <fieldset>
         <label>Date To:</label>
-        <?php echo form_input(array('class' => 'date-to', 'placeholder' => lang('date_to'), 'data-datepicker-img-url' => image_asset_url('calendar.gif'))); ?>
+        <?php echo form_input(array('name' => 'to_date', 'class' => 'date-to', 'placeholder' => lang('date_to'), 'data-datepicker-img-url' => image_asset_url('calendar.gif'))); ?>
     </fieldset>
     <?php echo create_button(array('class'=>'submit-leave prettify-button', 'type'=>'submit', 'text' => 'Submit', 'data_attributes'=>array('data-disable-with'=>'true'))); ?>
     <?php echo form_close(); ?>
